@@ -1,0 +1,573 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Microsoft Concatenated Wave Text-to-Speech</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1><font face="Arial">Microsoft Concatenated Wave Text-to-Speech</font></h1>
+
+<h1><font face="Arial">Simple &quot;text-to-speech&quot; engine</font></h1>
+
+<p><font face="Arial">The Microsoft Concatenated Text-to-speech Engine is a text-to-speech
+engine that complies with the Microsoft Speech API and produces speech by concatenating
+recordings of phrases or individual words. Because the engine uses recorded speech, it can
+be very realistic. Because the text-to-speech uses recordings of phrases and words, it can
+only speak those words that you (an ISV) recorded. While this prevents the text-to-speech
+engine from reading arbitrary text, it&#146;s great for games, multimedia titles, and
+telephony applications that know what they&#146;re going to speak ahead of time.</font></p>
+
+<p><font face="Arial">We provide tools so that ISVs can record their own voices. This
+provides the following functionality for ISVs:</font> 
+
+<ul>
+  <li><font face="Arial">Full control of the quality of the voice. ISVs can make trade-offs
+    between the size of the speech database, CPU requirement, and quality of the voice.</font></li>
+  <li><font face="Arial">ISVs can generate their own unique voice to provide added value to
+    their application.</font></li>
+  <li><font face="Arial">Voices can have personality not found in synthesized text-to-speech.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">Of course, this isn&#146;t that different than recording your own
+.WAV files and writing the code to play them. But, concatenated text-to-speech is useful
+because it:</font> 
+
+<ul>
+  <li><font face="Arial">Saves several man months of development and testing over writing your
+    own code.</font></li>
+  <li><font face="Arial">Provides tools to make the recording of voices easy. The tools also
+    include down-sampling and compressing the audio using any code, such as TrueSpeech or GSM.</font></li>
+  <li><font face="Arial">Parses numbers and symbols in the text, and translates them to words.
+    This makes phrases such as, &#147;Enemies are attacking from %d o&#146;clock!&#148; very
+    easy to add.</font></li>
+  <li><font face="Arial">Spells out words that have not been recorded.</font></li>
+  <li><font face="Arial">Allows for experimentation during development. Synthesized
+    text-to-speech can be substituted during product development so that sentence phrasing can
+    be experimented with. When the spoken dialogue has solidified, a voice can be recorded to
+    replace the synthesized text-to-speech.</font></li>
+</ul>
+
+<h1><font face="Arial">Resource Requirements</font></h1>
+
+<p><font face="Arial">The Microsoft Concatenated Text-to-Speech Engine:</font> 
+
+<ul>
+  <li><font face="Arial">Requires only a few hundred K of RAM.</font></li>
+  <li><font face="Arial">Disk storage depends upon the voice and the compression used.</font></li>
+  <li><font face="Arial">CPU depends upon the decompression CPU. ADPCM requires a 386/16.
+    TrueSpeech requires a 486sx/25. Other ACM decompression modules will consume different
+    amounts of CPU.</font></li>
+</ul>
+
+<h1><font face="Arial">Links to Programs</font></h1>
+
+<p><font face="Arial">Here are links to programs mentioned here.</font> 
+
+<ul>
+  <li><a href="mstts\ttscol.exe"><font size="5" face="Arial"><strong>Voice Collection
+    (TTSCol.Exe)</strong></font></a><font face="Arial"> - You should run this only on Windows
+    NT.</font></li>
+  <li><a href="mstts\audiopp.exe"><font size="5" face="Arial"><strong>Audio Processing
+    (AudioPP.Exe)</strong></font></a><font face="Arial"> - You should run this only on Windows
+    NT.</font></li>
+  <li><a href="mstts\phrase.ini"><font size="5" face="Arial"><strong>Sample Phrase.Ini</strong></font></a></li>
+</ul>
+
+<p><font face="Arial">If you're interested in shipping this then check out the <a
+href="redist.htm">Redistribution Information</a>.</font></p>
+
+<h1><font face="Arial">How to record a voice</font></h1>
+
+<p><font face="Arial">To make a &#147;voice&#148; that the text-to-speech engine can speak
+with, you must produce a list of sentences or phrases that you want recorded, and then
+acquire recordings of them. We have a tool that you can use to record the phrases. Once
+you have all of the phrases, you then run our voice compiling program to generate a .VCE
+file that you distribute. As soon as this is copied into the $(WINDOWS)\Speech directory
+you can use the voice for text-to-speech.</font></p>
+
+<h1><font face="Arial">Selecting a vocabulary</font></h1>
+
+<p><font face="Arial">To produce a voice, you must know what words or phrases you want the
+voice to be able to speak. The concatenated text-to-speech engine will not be able to
+speak a word unless it has been recorded. If it is not recorded then it will spell out the
+word.</font></p>
+
+<p><font face="Arial">The most obvious way of determining a vocabulary is to enumerate all
+of the words that might need to be spoken out by the application. For most applications
+this will be no more than a few thousand words. You should have all of these words
+recorded for the voice.</font></p>
+
+<p><font face="Arial">The text-to-speech engine also has a &#147;text pre-processor&#148;
+that analyzes the text and converts numbers, times, and currencies to words. Hence, the
+text &#147;52&#148; would produce the words, &#147;fifty two&#148;. Likewise,
+&#147;$52&#148; is read as &#147;fifty two dollars&#148;. If your application might be
+reading numbers or other text that the pre-processor produces then you will want these
+recorded. See the Appendix for a list of words. Finally, if a word appears in text but is
+not recorded, the text-to-speech engine will spell out the word, so you should have
+recordings of individual letters.</font></p>
+
+<p><font face="Arial">Unfortunately, if you just record individual words, a lot of text
+that the engine speaks out will sound strange because the engine is just pasting
+recordings of words together. You can try generating a voice with just individual words
+and hear what it sounds like. If a real person speaks a phrase he/she naturally blends the
+words together and puts gaps between sentences and noun/verb phrases. You should figure
+out a set of common word phrases that your application will speak out, and have the phrase
+recorded in addition to the individual words. Voice-mail applications do this; Many times
+a voice-mail application will speak the text, &#147;The message was left at ten thirty two
+p m.&#148; They will use one recording for &#147;the message was left at&#148;, and then
+recordings for &#147;ten&#148;, &#147;thirty&#148;, &#147;two&#148;, and &#147;p m&#148;.
+Of course, recording lots of phrases will enlarge the database. You just have to make a
+trade-off between quality and size.</font></p>
+
+<h1><font face="Arial">Collecting Voice Data using TTSCol.exe</font></h1>
+
+<p><font face="Arial">To record a voice, run TTSCol.exe. This brings up a small dialog
+called Voice Collection Tool that facilitates collecting voice data. </font></p>
+
+<p><font face="Arial">Before a voice can be recorded, it is necessary to create or select
+the desired project. Projects are nothing more than a means by which to group together
+related voices. The first time the application is run, the project and voice lists are
+blank and all buttons are disabled except New Project and Exit. In order to create a new
+project, press the New Project button. This displays a dialog with several fields that
+need to be filled in:</font> 
+
+<ul>
+  <li><font face="Arial">Project Name - Enter a unique name to identify the recording project.</font></li>
+  <li><font face="Arial">Root Dir - This should point to a directory on a hard drive with
+    enough space for all of the recordings. 50+ megabytes is a good amount. The application
+    assumes c:\VoiceData as the default root directory.</font></li>
+  <li><font face="Arial">Recording Studio - This string is merely for your records.</font></li>
+  <li><font face="Arial">Microphone - This string is merely for your records. It&#146;s a good
+    idea to write down the exact microphone in case you need to do more recording.</font></li>
+  <li><font face="Arial">Manufacturer - Type in your company&#146;s name.</font></li>
+</ul>
+
+<p><font face="Arial">Once all of the project information has been filled in, press OK.
+The application creates the appropriate directory. If the directory structure is already
+present on the drive, the application queries to rename the new project. Press
+&quot;No&quot; to continue without changes. The Voice Collection Tool dialog has been
+reactivated and the New Voice button is now enabled.</font></p>
+
+<h2><font face="Arial">Selecting a Voice</font></h2>
+
+<p><font face="Arial">Press the New Voice button. A dialog titled New Voice appears. Type
+in the name of the voice and press Next. The voice name is stored in the voice file, so it
+might be appropriate to type in the name of the character that will be using this voice.</font></p>
+
+<p><font face="Arial">A Voice Information dialog appears. The information that was entered
+in the previous dialog should match what is shown in the &#147;Voice Name&#148; field.
+Please fill in the &#147;Speaker Information&#148; and &#147;Voice Information&#148;
+sections as appropriate:</font> 
+
+<ul>
+  <li><font face="Arial">Name, Address, Phone Number - These are provided for user information
+    only. Typically, this is used to identify the person who actually made the recording.</font></li>
+  <li><font face="Arial">Age - The text-to-speech voice contains information about the age (or
+    supposed age) of the speaker. This will be accessible to the users.</font></li>
+  <li><font face="Arial">Gender - Fill this in.</font></li>
+  <li><font face="Arial">Style - Type in a string. Some applications will chose the
+    text-to-speech voice based upon the style.</font></li>
+  <li><font face="Arial">GUID - You don&#146;t have to type this in. A GUID is randomly
+    generated for each speaker to uniquely identify the voice.</font></li>
+</ul>
+
+<p><font face="Arial">After filling in all of the necessary fields, press Next. The
+Language dialog appears. Select a language and country from the list. If appropriate,
+select or type in a string that describes the dialect of the voice, such as &#147;New
+England&#148;, &#147;Texas&#148;, &#147;Bostonian&#148;, etc. Press OK to return to Voice
+Collection Tool.</font></p>
+
+<h2><font face="Arial">Reviewing selections</font></h2>
+
+<p><font face="Arial">Selections made during the create project and/or create voice
+dialogs can be reviewed and edited. There are four tabs, Voice, Language, Project, and
+Options. Select the appropriate tab to review desired information. Press Change within the
+tab body in order to edit the existing information. The Options tab contains program
+settings which can be adjusted. In addition, the Options tab provides access to the phrase
+file editor. </font></p>
+
+<h2><font face="Arial">Editing a phrase file</font></h2>
+
+<p><font face="Arial">When a new project is created, the application copies the default
+phrase file into the project directory unless the phrase file (which must be named
+phrase.ini) already exists. This file can be changed to include the specific words/phrases
+that you want recorded by editing the phrase file after a new project has been created. If
+this file is changed before any voices are added to that project, all new voices created
+in that project inherit the new phrase file. It is also possible that each voice may
+require its own individual phrase file. If this is the case, first create the voice and
+then edit the phrase file. </font></p>
+
+<p><font face="Arial">To edit the phrase file, press the Edit Phrase File button from
+within the Options tab. The phrase file edit dialog appears. The file name appears in the
+dialog box title. To delete, select the phrase or phrases and press Delete. To replace a
+phrase, select the phrase, type in the new phrase in the edit control and press Replace.
+To insert a phrase, select the phrase after which the new phrase is to appear, type in the
+new phrase in the edit control and press Add.</font></p>
+
+<p><font face="Arial">After having made desired changes, press OK to save the new
+phrase.ini and return to the Voice Collection Tool dialog. If you wish the application to
+ignore the changes press Cancel instead.</font></p>
+
+<h2><font face="Arial">The recording session</font></h2>
+
+<p><font face="Arial">The software is designed so that the recording takes place right on
+the PC. The PC must be equipped with a good quality sound card and microphone connected to
+the PC for good recordings. If this quality is not good enough for your needs then you can
+have the recordings transferred from a DAT, down-sampled, and saved to disk using another
+application. See &#147;Hand modifying words/phrase recordings.&#148; Given that the audio
+will be compressed, most high quality sound cards deliver the necessary quality.</font></p>
+
+<p><font face="Arial">After a speaker has been selected, the recordings can be made. To
+start recording, press the Record button. If no recordings have previously been made for
+the particular voice selected, the application displays a training dialog from which the
+application records the speaker reading a short paragraph. From this recording the
+application determines the speaking speed and base-line pitch of the voice. If some
+recordings have already been made for the particular voice, the application displays the
+collection dialog.</font></p>
+
+<h2><font face="Arial">The training dialog</font></h2>
+
+<p><font face="Arial">When in the training dialog, the application displays a sentence and
+asks the subject to speak it. Press Record to start recording. The subject reads the
+paragraph into the microphone. When the subject is done reading the paragraph, press Stop.
+The application plays back the recording. If the recording is unacceptable, press Record
+and repeat the above. When satisfied with the recording, press Close. The system will then
+spend some time analyzing the speech. The training dialog is replaced by the collection
+dialog.</font></p>
+
+<h2><font face="Arial">The collection dialog</font></h2>
+
+<p><font face="Arial">When in the collection dialog, the application displays the phrase
+and asks the subject to speak it. Prior to listening for speaker utterances, the
+application plays a tone which can help the speaker to maintain a constant pitch. (Over
+the course of a particular recording session the subject&#146;s pitch tends to wander
+off). The tone can be played manually by pressing Play Tone. The automatic play can be
+disabled by clicking the Auto Tone checkbox. </font></p>
+
+<p><font face="Arial">After playing the tone (if enabled) the application, which has a
+sound detection algorithm built in, waits until the speaker says the phrase. The
+application then isolates the sound from the surrounding silence and does some
+calculations to determine if the sound is too quiet or too loud, if there's too much
+noise, and/or if the pitch is off. If the application doesn't accept the recording, it
+notifies the subject and asks the speaker to re-record the phrase. Level and pitch
+rejection can be disabled by selecting the appropriate check box.</font></p>
+
+<p><font face="Arial">If the application determines the recording is acceptable, it plays
+it back over the speakers. The application brings up a dialog box verifying that the
+recording was an acceptable one. Pressing YES instructs the application to continue with
+the next phrase. Pressing NO instructs the application to repeat the current phrase.</font></p>
+
+<p><font face="Arial">When collecting phrase recordings, the application starts with the
+first phrase and works its way up. If a phrase has already been recorded, then it is
+skipped. Once a phrase has been accepted it can only be re-recorded by pressing
+&quot;Quit&quot; to return to the Voice Collection Tool dialog and deleting the phrase as
+per the instructions in the following section.</font></p>
+
+<p><font face="Arial">The subject can pause recording at any time by pressing the Paused
+radio button. Press Listening to resume. The subject can terminate the recording session
+at any time by pressing &quot;Quit.&quot; A subsequent recording session will pick up
+where left off in the previous session. Once all recordings have been made, the
+application automatically closes the collection dialog and returns to the Voice Collection
+Tool dialog. </font></p>
+
+<h2><font face="Arial">Re-recording words/phrases</font></h2>
+
+<p><font face="Arial">Recordings made during the collection session can be reviewed in the
+main dialog (Voice Collection Tool). The number of phrases which have recordings are shown
+in the &#147;Status&#148; window. The phrases from the currently active phrase file are
+displayed in the &#147;Phrases&#148; window. To review a particular phrase, select the
+desired phrase in the &#147;Phrase&#148; window. If a recording has been made of the
+selected phrase, the application plays the recording. It also displays information about
+the recording in the &#147;Statistics&#148; list box. If for some reason the recording is
+not satisfactory, press Delete and the audio file associated with that phrase will be
+deleted. Press Record to re-enter the collection dialog.</font></p>
+
+<h2><font face="Arial">Hand modifying word/phrase recordings</font></h2>
+
+<p><font face="Arial">The audio recordings are all stored in the voice directory,
+underneath the project directory. The wave files are all saved in the form
+&#147;sXXXXXX.wav&#148;, where XXXXXX is the sentence number, starting at 1. If necessary
+to modify the .WAV file, just open and modify it with any wave editor. Make sure to save
+the file out as 16 bit, 22 kHz mono.</font></p>
+
+<h1><font face="Arial">Generating a Voice File (&lt;voiceName&gt;.vce)</font></h1>
+
+<h2><font face="Arial">Determining a good sampling rate &amp; compression</font></h2>
+
+<p><font face="Arial">All of the original data is recorded at 16-bit 22 kHz mono. While
+this is great quality for voice, it takes up way too much space, 44 kBytes per second of
+audio.</font></p>
+
+<p><font face="Arial">The voice builder application allows you to produce files in a
+variety of different sampling rates and compression. You can chose between 22 kHz, 16 kHz,
+11 kHz, and 8 kHz audio, along with any Audio Compression Manager compression module
+installed on the system.</font></p>
+
+<p><font face="Arial">Most applications will want to use 11 kHz ADPCM/GSM, or 8 kHz
+TrueSpeech/GSM in order to reduce storage as much as possible. This is lower quality than
+22 kHz PCM, so you should listen to the output to make sure it sounds good enough.</font></p>
+
+<h2><font face="Arial">Running AudioPP.Exe</font></h2>
+
+<p><font face="Arial">To create a voice, run AudioPP.Exe. This brings up a small dialog
+called Voice Compiler. Press the Create button.</font></p>
+
+<p><font face="Arial">In the Select dialog box, fill out the following:</font> 
+
+<ul>
+  <li><font face="Arial">Source Path - The directory where all of the audio files are stored.
+    This is typically, &#147;&lt;Root Dir&gt;\&lt;Project Name&gt;\&lt;Voice Name&gt;&#148;.
+    For example, if &lt;Root Dir&gt; is &#147;c:\VoiceData&#148; and &lt;Project Name&gt; is
+    &#147;Test&#148;, and &lt;Voice Name&gt; is &#147;Fred&#148;, then the directory is
+    &#147;c:\VoiceData\Test\Fred&#148;.</font></li>
+  <li><font face="Arial">Destination Path - The directory where the .vce file will be written.</font></li>
+  <li><font face="Arial">Output File - Name of the .vce file. If this is left as &#147;*&#148;
+    then the file name will be the same as the speaker&#146;s name.</font></li>
+</ul>
+
+<p><font face="Arial">Once all the information has been entered correctly, press Next. In
+the next pane, select the audio output format by selecting the desired sampling rate and
+compression type. The compiler has an algorithm to further trim silent regions from the
+edit of the audio. This is turned on by checking the Enable trim silence button.</font></p>
+
+<p><font face="Arial">After the desired selections have been made, press Next again and
+the application begins compiling the voice. This could take several minutes depending on
+the type of output format and the number of phrases being compiled. When the application
+has completed building the voice, the voice output file is written into the output
+directory.</font></p>
+
+<h1><font face="Arial">Testing your voice</font></h1>
+
+<p><font face="Arial">To test your new voice, copy the .vce file that you created into the
+$(WINDOWS)\speech directory. You should already have the Microsoft Text-to-Speech engine
+installed.</font></p>
+
+<p><font face="Arial">Run a text-to-speech application that lets you choose a voice, like
+&#147;Text-to-Speech Test&#148; (TTSTEST.EXE). Click on Add Mode and select the voice you
+just created. You can now type in text and hear it spoken in your custom voice.</font></p>
+
+<h2><font face="Arial">Phrase Disambiguation</font></h2>
+
+<p><font face="Arial">The text-to-speech engine will choose the longest (number of words)
+possible recording at the current point in the text. Thus, if the voice has a recording of
+&quot;this&quot;, &quot;is&quot;, &quot;a&quot;, &quot;test&quot;, &quot;this is&quot;,
+and &quot;is a test&quot;, the sentence &quot;this is a test&quot; will be broken up into
+&quot;(this is) (a) (test)&quot;.</font></p>
+
+<h2><font face="Arial">Sample Voice</font></h2>
+
+<p><font face="Arial">A pre-compiled sample voice is included with the SDK. To use it,
+copy it from c:\program files\Microsoft speech sdk\tts\jean.vce to
+$(WINDOWS)\speech\jean.vce. Start up Microsoft Mouth, or any other text-to-speech
+application, and you will see &quot;Jean&quot; as one of the voices. It can speak letters,
+numbers, and a few city names.</font></p>
+
+<h1><font face="Arial">Using your voice from a CD-ROM</font></h1>
+
+<p><font face="Arial">(New for 3.0)</font></p>
+
+<p><font face="Arial">If your voice is too large to be copied onto the user's hard drive,
+you can tell the TTS engine to access it from the CD-ROM. To do this:</font> 
+
+<ol>
+  <li><font face="Arial">Write a string value into
+    &quot;HKLM\Software\Microsoft\MSTTS\ConcatVoices&quot;. The value name should be something
+    unique, and the value should be the full path to the voice.</font></li>
+  <li><font face="Arial">Create the enumerator.</font></li>
+  <li><font face="Arial">Erase the string value so that subsequent enumerations of the TTS
+    engine won't display the voice.</font></li>
+</ol>
+
+<h1><font face="Arial">Appendix of words output by the pre-processor</font></h1>
+
+<p><font face="Arial">English</font></p>
+
+<blockquote>
+  <p><font face="Arial"><tt>1=zero</tt></font></p>
+  <p><font face="Arial"><tt>2=one</tt></font></p>
+  <p><font face="Arial"><tt>3=two</tt></font></p>
+  <p><font face="Arial"><tt>4=three</tt></font></p>
+  <p><font face="Arial"><tt>5=four</tt></font></p>
+  <p><font face="Arial"><tt>6=five</tt></font></p>
+  <p><font face="Arial"><tt>7=six</tt></font></p>
+  <p><font face="Arial"><tt>8=seven</tt></font></p>
+  <p><font face="Arial"><tt>9=eight</tt></font></p>
+  <p><font face="Arial"><tt>10=nine</tt></font></p>
+  <p><font face="Arial"><tt>11=ten</tt></font></p>
+  <p><font face="Arial"><tt>12=eleven</tt></font></p>
+  <p><font face="Arial"><tt>13=twelve</tt></font></p>
+  <p><font face="Arial"><tt>14=thirteen</tt></font></p>
+  <p><font face="Arial"><tt>15=fourteen</tt></font></p>
+  <p><font face="Arial"><tt>16=fifteen</tt></font></p>
+  <p><font face="Arial"><tt>17=sixteen</tt></font></p>
+  <p><font face="Arial"><tt>18=seventeen</tt></font></p>
+  <p><font face="Arial"><tt>19=eighteen</tt></font></p>
+  <p><font face="Arial"><tt>20=nineteen</tt></font></p>
+  <p><font face="Arial"><tt>21=twenty</tt></font></p>
+  <p><font face="Arial"><tt>22=thirty</tt></font></p>
+  <p><font face="Arial"><tt>23=forty</tt></font></p>
+  <p><font face="Arial"><tt>24=fifty</tt></font></p>
+  <p><font face="Arial"><tt>25=sixty</tt></font></p>
+  <p><font face="Arial"><tt>26=seventy</tt></font></p>
+  <p><font face="Arial"><tt>27=eighty</tt></font></p>
+  <p><font face="Arial"><tt>28=ninety</tt></font></p>
+  <p><font face="Arial"><tt>29=hundred</tt></font></p>
+  <p><font face="Arial"><tt>30=thousand</tt></font></p>
+  <p><font face="Arial"><tt>31=million</tt></font></p>
+  <p><font face="Arial"><tt>32=billion</tt></font></p>
+  <p><font face="Arial"><tt>33=trillion</tt></font></p>
+  <p><font face="Arial"><tt>34=first</tt></font></p>
+  <p><font face="Arial"><tt>35=second</tt></font></p>
+  <p><font face="Arial"><tt>36=third</tt></font></p>
+  <p><font face="Arial"><tt>37=fourth</tt></font></p>
+  <p><font face="Arial"><tt>38=fifth</tt></font></p>
+  <p><font face="Arial"><tt>39=sixth</tt></font></p>
+  <p><font face="Arial"><tt>40=seventh</tt></font></p>
+  <p><font face="Arial"><tt>41=eighth</tt></font></p>
+  <p><font face="Arial"><tt>42=ninth</tt></font></p>
+  <p><font face="Arial"><tt>43=tenth</tt></font></p>
+  <p><font face="Arial"><tt>44=eleventh</tt></font></p>
+  <p><font face="Arial"><tt>45=twelfth</tt></font></p>
+  <p><font face="Arial"><tt>46=thirteenth</tt></font></p>
+  <p><font face="Arial"><tt>47=fourteenth</tt></font></p>
+  <p><font face="Arial"><tt>48=fifteenth</tt></font></p>
+  <p><font face="Arial"><tt>49=sixteenth</tt></font></p>
+  <p><font face="Arial"><tt>50=seventeenth</tt></font></p>
+  <p><font face="Arial"><tt>51=eighteenth</tt></font></p>
+  <p><font face="Arial"><tt>52=nineteenth</tt></font></p>
+  <p><font face="Arial"><tt>53=twentieth</tt></font></p>
+  <p><font face="Arial"><tt>54=thirtieth</tt></font></p>
+  <p><font face="Arial"><tt>55=fortieth</tt></font></p>
+  <p><font face="Arial"><tt>56=fiftieth</tt></font></p>
+  <p><font face="Arial"><tt>57=sixtieth</tt></font></p>
+  <p><font face="Arial"><tt>58=seventieth</tt></font></p>
+  <p><font face="Arial"><tt>59=eightieth</tt></font></p>
+  <p><font face="Arial"><tt>60=ninetieth</tt></font></p>
+  <p><font face="Arial"><tt>61=hundredth</tt></font></p>
+  <p><font face="Arial"><tt>62=thousandth</tt></font></p>
+  <p><font face="Arial"><tt>63=millionth</tt></font></p>
+  <p><font face="Arial"><tt>64=billionth</tt></font></p>
+  <p><font face="Arial"><tt>65=trillionth</tt></font></p>
+  <p><font face="Arial"><tt>66=forward</tt></font></p>
+  <p><font face="Arial"><tt>67=slash</tt></font></p>
+  <p><font face="Arial"><tt>68=backslash</tt></font></p>
+  <p><font face="Arial"><tt>69=at</tt></font></p>
+  <p><font face="Arial"><tt>70=and</tt></font></p>
+  <p><font face="Arial"><tt>71=percent</tt></font></p>
+  <p><font face="Arial"><tt>72=pound</tt></font></p>
+  <p><font face="Arial"><tt>73=asterisk</tt></font></p>
+  <p><font face="Arial"><tt>74=plus</tt></font></p>
+  <p><font face="Arial"><tt>75=equals</tt></font></p>
+  <p><font face="Arial"><tt>76=tilde</tt></font></p>
+  <p><font face="Arial"><tt>77=dollar</tt></font></p>
+  <p><font face="Arial"><tt>78=left</tt></font></p>
+  <p><font face="Arial"><tt>79=right</tt></font></p>
+  <p><font face="Arial"><tt>80=parentheses</tt></font></p>
+  <p><font face="Arial"><tt>81=brace</tt></font></p>
+  <p><font face="Arial"><tt>82=bracket</tt></font></p>
+  <p><font face="Arial"><tt>83=o'clock</tt></font></p>
+  <p><font face="Arial"><tt>84=seconds</tt></font></p>
+  <p><font face="Arial"><tt>85=dollars</tt></font></p>
+  <p><font face="Arial"><tt>86=cents</tt></font></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Producing a phrase file (phrase.ini)</font></h2>
+
+<blockquote>
+  <p><font face="Arial">Once you know what words/phrases you want recorded, you need to
+  generate a text file containing them. You must name the file &#147;phrase.ini&#148;. The
+  format of the file is:</font></p>
+  <p><font face="Arial"><tt>[Sentences]</tt></font></p>
+  <p><font face="Arial"><tt>1=&lt;Phrase1&gt;</tt></font></p>
+  <p><font face="Arial"><tt>2=&lt;Phrase2&gt;</tt></font></p>
+  <p><font face="Arial"><tt>...</tt></font></p>
+  <p><font face="Arial"><tt>&lt;###&gt;=&lt;Phrase###&gt;</tt></font></p>
+</blockquote>
+
+<p><font face="Arial">For each phrase, give it a new sequential number and type in the
+text. The numbers must be sequential, starting at 1, and cannot have gaps between numbers.
+The phrase text can contain only letters, apostrophes, and hyphens. It cannot contain
+numbers or symbols. If there is more then one word then only keep a single space between
+words.</font></p>
+
+<p><font face="Arial">A typical file might look like:</font></p>
+
+<blockquote>
+  <p><font face="Arial"><tt>[Sentences]</tt></font></p>
+  <p><font face="Arial"><tt>1=ten</tt></font></p>
+  <p><font face="Arial"><tt>2=twenty</tt></font></p>
+  <p><font face="Arial"><tt>3=thirty</tt></font></p>
+  <p><font face="Arial"><tt>4=fourty</tt></font></p>
+  <p><font face="Arial"><tt>5=fifty</tt></font></p>
+  <p><font face="Arial"><tt>6=sixty</tt></font></p>
+  <p><font face="Arial"><tt>7=seventy</tt></font></p>
+  <p><font face="Arial"><tt>8=eighty</tt></font></p>
+  <p><font face="Arial"><tt>9=ninety</tt></font></p>
+  <p><font face="Arial"><tt>10=the time is</tt></font></p>
+  <p><font face="Arial"><tt>11=the date is</tt></font></p>
+</blockquote>
+
+<p><font face="Arial">The only limit to the number of phrases is the amount of space you
+want a &#147;voice&#148; file to take.</font></p>
+
+<p><font face="Arial">A sample phrase.ini ships with the speech SDK.</font></p>
+
+<h2><font face="Arial">Sample speaker.ini file</font></h2>
+
+<p><font face="Arial">This file contains voice information. One of these must be found in
+each directory which is to be compiled into a voice file. Here&#146;s a sample of what one
+looks like:</font></p>
+
+<blockquote>
+  <p><font face="Arial"><tt>[SpeakerInfo]</tt></font></p>
+  <p><font face="Arial"><tt>Name=Fred</tt></font></p>
+  <p><font face="Arial"><tt>Address=1 Microsoft Way</tt></font></p>
+  <p><font face="Arial"><tt>PhoneNumber=5555555</tt></font></p>
+  <p><font face="Arial"><tt>Studio=Microsoft</tt></font></p>
+  <p><font face="Arial"><tt>Microphone=Telex</tt></font></p>
+  <p><font face="Arial"><tt>Manufacturer=Microsoft</tt></font></p>
+  <p><font face="Arial"><tt>Voice Name=Fred's voice</tt></font></p>
+  <p><font face="Arial"><tt>GUID={69CF51E1-30A7-11cf-A90E-00AA00614EE1}</tt></font></p>
+  <p><font face="Arial"><tt>LanguageID=9</tt></font></p>
+  <p><font face="Arial"><tt>SubLanguageID=1</tt></font></p>
+  <p><font face="Arial"><tt>Dialect=USA</tt></font></p>
+  <p><font face="Arial"><tt>SpeakingStyle=Casual</tt></font></p>
+  <p><font face="Arial"><tt>Gender=Male</tt></font></p>
+  <p><font face="Arial"><tt>Age=33</tt></font></p>
+  <p><font face="Arial"><tt>Pitch=130</tt></font></p>
+  <p><font face="Arial"><tt>SpeakingSpeed=140</tt></font></p>
+  <p>&nbsp;</p>
+  <p><font face="Arial"><tt>[Sentences]</tt></font></p>
+  <p><font face="Arial"><tt>1=a</tt></font></p>
+  <p><font face="Arial"><tt>2=b</tt></font></p>
+  <p><font face="Arial"><tt>3=c</tt></font></p>
+  <p><font face="Arial"><tt>4=d</tt></font></p>
+  <p><font face="Arial"><tt>5=e</tt></font></p>
+  <p><font face="Arial"><tt>6=eight</tt></font></p>
+  <p><font face="Arial"><tt>7=engine</tt></font></p>
+  <p><font face="Arial"><tt>8=f</tt></font></p>
+  <p><font face="Arial"><tt>9=five</tt></font></p>
+  <p><font face="Arial"><tt>10=four</tt></font></p>
+  <p><font face="Arial"><tt>11=g</tt></font></p>
+  <p><font face="Arial"><tt>12=h</tt></font></p>
+  <p><font face="Arial"><tt>13=i</tt></font></p>
+  <p><font face="Arial"><tt>14=is</tt></font></p>
+  <p><font face="Arial"><tt>15=j</tt></font></p>
+  <p><font face="Arial"><tt>16=k</tt></font></p>
+  <p><font face="Arial"><tt>17=l</tt></font></p>
+  <p><font face="Arial"><tt>18=m</tt></font></p>
+  <p><font face="Arial"><tt>19=Microsoft</tt></font></p>
+  <p><font face="Arial"><tt>20=n</tt></font></p>
+</blockquote>
+
+<p>&nbsp;</p>
+</body>
+</html>

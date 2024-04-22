@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Feedback Application</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Feedback Application</font></h1>
+
+<p><font face="Arial">Feedback demonstrates feedback from the
+Microsoft Speech API. It recognizes six states. It detects when
+the engine is off, when it is listening for a single wake-up
+command, when it is listening for any command, when the computer
+is processing a command, when a command was recognized, and when
+a command was not recognized. Each of these states is indicated
+by an icon. This
+application displays an icon in the Windows tray that changes
+according to the state of the speech recognition engine. The user
+will always be able to see this icon. In addition to the icon,
+Feedback displays a tooltip. The tooltip indicates the state the
+icon represents, and displays the voice command recognized during
+that state.</font></p>
+
+<p><font face="Arial">Notes</font></p>
+
+<p><font face="Arial">The reason that this sample uses a function
+pointer is that if a direct call is placed in the source, the
+linker will include code to initialize the Shell_NotifyIcon() API
+whether or not you actually call it. This will cause a GP fault
+under NT 3.5. With the pointer, no implicit linking is done, and
+the function is only used if careful testing has confirmed that
+it is available.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font></p>
+
+<ul>
+    <li><font face="Arial">Command &amp; Control Speech
+        Recognition Engine</font></li>
+    <li><font face="Arial">Application using Voice Commands -
+        Feedback provides no voice commands of its own, so not
+        much will happen unless an application is run that uses
+        voice commands. You might try running the clock or voice
+        command demo applications.</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font></p>
+
+<ul>
+    <li><a href="sr\command\feedback.exe"><font size="5"
+        face="Arial"><strong>Run it!</strong></font></a></li>
+    <li><a href="samples\feedback"><font size="5"
+        face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+
+<p><font face="Arial"><strong>See also:</strong></font></p>
+
+<ul>
+    <li><a href="vcmddemo.htm"><font face="Arial">Voice Command
+        Demo</font></a></li>
+    <li><a href="srclock.htm"><font face="Arial">Speech
+        Recognition Clock</font></a></li>
+</ul>
+</body>
+</html>

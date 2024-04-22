@@ -1,0 +1,11 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Voice\TextToSpeech\Engine]
+"Fake TTS Engine"="{2F46E4C0-4EDA-101B-931A-00AA0047BA4F}"
+
+[HKEY_CLASSES_ROOT\CLSID\{2F46E4C0-4EDA-101B-931A-00AA0047BA4F}]
+@="Fake TTS Engine"
+
+[HKEY_CLASSES_ROOT\CLSID\{2F46E4C0-4EDA-101B-931A-00AA0047BA4F}\InprocServer32]
+@="c:\\program files\\microsoft speech sdk\\ttsfake\\windebug\\ttsFake.dll"
+"ThreadingModel"="Apartment"

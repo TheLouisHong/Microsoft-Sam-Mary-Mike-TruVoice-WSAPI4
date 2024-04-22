@@ -1,0 +1,252 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INTRO1 DIALOG DISCARDABLE  0, 0, 262, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text-to-Speech Stress Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Next >>>",IDOK,205,130,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,150,130,50,14
+    LTEXT           "This application stress tests a text-to-speech engine. For best results:",
+                    IDC_STATIC,5,5,250,10
+    LTEXT           "- Run on a mulitprocessor machine. This finds thread timing bugs.",
+                    IDC_STATIC,20,20,235,10
+    LTEXT           "- Run several instances of this application, with each instance running several threads. This tests engine stability across multiple processes.",
+                    IDC_STATIC,20,35,235,20
+    LTEXT           "- Run with enough instances to consume all CPU and memory on the PC.",
+                    IDC_STATIC,20,60,235,10
+    LTEXT           "Run the application until the application/machine crashes, the engine is no longer responding, or until you're satisfied that the engine won't crash.",
+                    IDC_STATIC,5,75,250,20
+    LTEXT           "If an engine does not pass the stress test, you need to decide if the demonstrated stability is satisfactory for your application.",
+                    IDC_STATIC,5,100,250,20
+END
+
+IDD_INTRO2 DIALOG DISCARDABLE  0, 0, 262, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text-to-Speech Stress Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Select one or more text-to-speech modes to test. Typically, you will select only modes from the same engine, unless you wish to test interactions between engines.",
+                    IDC_STATIC,5,5,250,30
+    LISTBOX         IDC_MODE,30,40,205,40,LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+    LTEXT           "Select a difficulty level for the test:",IDC_STATIC,7,
+                    83,250,10
+    CONTROL         "&Medium",IDC_EASY,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,25,97,65,10
+    CONTROL         "&Difficult",IDC_MEDIUM,"Button",BS_AUTORADIOBUTTON,100,
+                    97,65,10
+    CONTROL         "&Very Difficult",IDC_HARD,"Button",BS_AUTORADIOBUTTON,
+                    175,97,65,10
+    PUSHBUTTON      "Cancel",IDCANCEL,150,130,50,14,WS_GROUP
+    DEFPUSHBUTTON   "&Next >>>",IDOK,205,130,50,14
+    CONTROL         "Non-random strings ('aaa...')",
+                    IDC_CHECK_NONRANDOM_STRINGS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,25,113,103,9
+    CONTROL         "No tags in text",IDC_CHECK_NOTAGS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,26,127,65,8
+END
+
+IDD_INTRO3 DIALOG DISCARDABLE  0, 0, 262, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text-to-Speech Stress Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "How many engine instances do you wish to test simultaneously? (Each engine will be in it's own thread.) Some engines can only handle one instance.",
+                    IDC_STATIC,5,35,250,20
+    EDITTEXT        IDC_THREADS,15,60,50,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Cancel",IDCANCEL,150,130,50,14
+    DEFPUSHBUTTON   "&Next >>>",IDOK,205,130,50,14
+    CONTROL         "&Send the audio from the first thread (only) to the sound card.",
+                    IDC_FIRSTTOSOUNDCARD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,7,250,10
+    CONTROL         "Generate log file.",IDC_CHECK_LOGFILE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,18,69,10
+END
+
+IDD_MAINTHREAD DIALOG DISCARDABLE  0, 0, 262, 151
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Testing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "- The test has been running long enough that you consider the engine to have ""passed."" The time will depend upon your application's needs, but we recommend at least a week. Press ""Stop the Test"" to stop.",
+                    IDC_STATIC,20,65,235,30
+    PUSHBUTTON      "&Stop the Test",IDOK,205,130,50,14
+    LTEXT           "Testing in progress.",IDC_STATIC,5,5,250,10
+    LTEXT           "Leave the test running until one of the following happens:",
+                    IDC_STATIC,5,20,250,10
+    LTEXT           "- The computer/application crashes.",IDC_STATIC,20,35,
+                    235,10
+    LTEXT           "- None of the engine instances seem to be responding.",
+                    IDC_STATIC,20,50,235,10
+END
+
+IDD_INSTANCETHREAD DIALOG DISCARDABLE  0, 0, 262, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "XXX - Testing Instance"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Testing in progress.",IDC_STATIC,5,5,77,10
+    LTEXT           "Output:",IDC_STATIC,5,20,40,10
+    EDITTEXT        IDC_OUTPUT,5,35,250,40,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_VSCROLL
+    LTEXT           "The following values should increase over time. If they have not increased for awhile then the engine may be hung.",
+                    IDC_STATIC,5,85,250,20
+    LTEXT           "Function calls:",IDC_STATIC,5,110,55,10
+    LTEXT           "",IDC_FUNCTIONCALLS,65,110,55,10,SS_SUNKEN
+    LTEXT           "Last call:",IDC_STATIC,5,125,55,10
+    LTEXT           "Digital audio used:",IDC_STATIC,130,110,65,10
+    LTEXT           "Text send to TTS:",IDC_STATIC,130,125,65,10
+    LTEXT           "",IDC_LASTCALL,65,125,55,10,SS_SUNKEN
+    LTEXT           "",IDC_DIGITALAUDIO,195,110,55,10,SS_SUNKEN
+    LTEXT           "",IDC_PHRASES,195,125,55,10,SS_SUNKEN
+    RTEXT           "Start time:",IDC_STATIC,141,7,51,8
+    LTEXT           "",IDC_STARTTIME,200,7,55,10,SS_SUNKEN
+    RTEXT           "ThreadID:",IDC_STATIC,160,22,33,8
+    LTEXT           "",IDC_THREADID,200,21,55,10,SS_SUNKEN
+END
+
+IDD_TESTLIST DIALOG DISCARDABLE  0, 0, 220, 261
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text-to-Speech Stress Test"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Next",IDOK,109,240,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,163,240,50,14
+    PUSHBUTTON      "All/None",IDC_ENGINE_ALLNONE,7,19,38,12
+    LISTBOX         IDC_LIST_ENGINE,7,36,206,199,LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select which cases to stress.",IDC_STATIC,59,20,121,12
+    CONTROL         "Required only",IDC_RADIO_REQUIRED,"Button",
+                    BS_AUTORADIOBUTTON,7,7,59,10
+    CONTROL         "Required + Optional",IDC_RADIO_OPTIONAL,"Button",
+                    BS_AUTORADIOBUTTON,72,7,79,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INTRO1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_INTRO2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_INTRO3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_MAINTHREAD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_INSTANCETHREAD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_TESTLIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 254
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

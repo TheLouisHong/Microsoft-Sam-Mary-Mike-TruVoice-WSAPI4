@@ -1,0 +1,12 @@
+LIBRARY	     TTSFAKE
+
+DESCRIPTION  'Fake Text to Speech Engine'
+
+
+;;;STUB	     'WINSTUB.EXE'
+
+HEAPSIZE     1024
+
+EXPORTS
+    DllCanUnloadNow    PRIVATE
+    DllGetClassObject  PRIVATE

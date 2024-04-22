@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Wave List Editor</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Wave List Editor</font></h1>
+
+<p><font face="Arial">The wave list editor allows you to easily:</font></p>
+
+<blockquote>
+    <ul>
+        <li><font face="Arial">Cut the CPU time text-to-speech
+            spends speaking prompts in your telephony
+            application, by pre-recording common text-to-speech
+            prompts.</font></li>
+        <li><font face="Arial">Replace text-to-speech prompts in
+            your telephony application with recorded speech.</font></li>
+    </ul>
+</blockquote>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<p><font face="Arial">To use the Wave List Editor application,
+you should take the following steps:</font></p>
+
+<ol>
+    <li><font face="Arial">Modify your telephony application so
+        that it uses logging. If you are using the telephony
+        wrapper objects, this is fairly easy; You just change a
+        setting in the &quot;logging&quot; dialog box.</font></li>
+    <li><font face="Arial">Have a number of people call into your
+        telephony application. The number of calls you'll need
+        depends upon the size of your application. You should
+        have enough calls logged that all of the major prompts
+        have been spoken by text-to-speech. Each call will have a
+        log.</font></li>
+    <li><font face="Arial">Run the Wave List Editor Application.</font></li>
+    <li><font face="Arial">Click the &quot;Analyze Logged
+        Data&quot; button, and type in the directory where your
+        application's logs (*.stl files) are stored. The software
+        will analyze the logs and determine which phrases/prompts
+        were spoken, and how often each was spoken.</font></li>
+    <li><font face="Arial">Click the &quot;Edit wave list&quot;
+        button to see the results of the analysis. The window
+        will show all of the currently unrecorded prompts, sorted
+        from the most frequent to the least frequent.</font></li>
+    <li><font face="Arial">You may not want to record some of the
+        least frequent prompts because the hard drive space used
+        is not worth the CPU savings, especially if the prompts
+        are automatically generated and are not likely to be
+        spoken again. To not record the prompts, select the
+        prompt in the list, and press the &quot;Ignore&quot;
+        button. This will move the prompt to the
+        &quot;Ignored&quot; list. Of course, you can move prompts
+        from the &quot;Ignored&quot; list back onto the record
+        list later.</font></li>
+    <li><font face="Arial">Determine which prompts you want a
+        real person to record. This will depend upon the needs of
+        your application. To record a prompt, select the prompt
+        in the list, and press &quot;Record Wave&quot;. The
+        &quot;Record Wave&quot; dialog will ask for a file name.
+        Be sure to type in the full path and file name. Make sure
+        that the same path will work from your telephony
+        application. When you have typed in the file name, press
+        &quot;Record.&quot; A new file will be created, and the
+        wave editor will be brought up to record. Use the wave
+        editor to record the prompt, and modify the recording.</font></li>
+    <li><font face="Arial">Repeat the record process until you
+        have recorded all the prompts you plan to. What's left
+        will be those prompts that you're willing to have
+        synthesized.</font></li>
+    <li><font face="Arial">Close the &quot;Edit Wave List&quot;
+        dialog, and press the &quot;Automatically Fill Wave
+        List&quot; button. This will automatically pre-synthesize
+        any &quot;Unrecorded&quot; prompts. (It will not
+        synthesize prompts in the &quot;Ignored&quot; or
+        &quot;Recorded&quot; list.) You must select a
+        text-to-speech voice to use, and type in the directory
+        where to write the wave files. File names will
+        automatically be generated. Press &quot;OK&quot; to start
+        processing.</font></li>
+    <li><font face="Arial">You can hear the pre-synthesized
+        prompts by returning to the &quot;Edit Wave List&quot;
+        dialog.</font></li>
+    <li><font face="Arial">Finally, you should run &quot;Convert
+        wave list&quot; from the main dialog to make sure that
+        all your wave files are 8 kHz. If they're not 8 kHz, they
+        won't work over the phone.</font></li>
+    <li><font face="Arial">To save your wave list, press
+        &quot;Save wave list&quot; and type in the list name. The
+        file is a Unicode text file that you can open with
+        Notepad (under Windows NT). The file format is fairly
+        easy to understand.</font></li>
+    <li><font face="Arial">For your telephony application to use
+        the recordings, your application needs to load the
+        wave-list text data into memory, and pass it into either
+        ISTTTSLog::WaveAddFromList or ITelInfo::QuickCreate. The
+        file format is compatible with the data formats used by
+        WaveAddFromList or QuickCreate.</font></li>
+    <li><font face="Arial">To make development quicker, you can
+        save the wave list in your telephony application's
+        project directory. Modify your resources to include the
+        wave-list file as type &quot;TEXT&quot;, and have your
+        project load the resource, and pass it into
+        WaveAddFromList or QuickCreate. If you are using the C++
+        wrappers, you can use an overloaded version of
+        WaveAddFromList or QuickCreate that automatically loads
+        the data from a resource.</font></li>
+</ol>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font></p>
+
+<ul>
+    <li><font face="Arial">Text-to-speech engine (If you wish to
+        pre-record text-to-speech)</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font></p>
+
+<ul>
+    <li><a href="tel\logspeak.exe"><font size="5" face="Arial"><strong>Run
+        it!</strong></font></a></li>
+</ul>
+
+<p><font face="Arial"><strong>See also:</strong></font></p>
+
+<ul>
+    <li><a href="logview.htm"><font face="Arial">Log Viewer</font></a></li>
+    <li><a href="movie.htm"><font face="Arial">Movie Information
+        Application</font></a></li>
+    <li><a href="pizza.htm"><font face="Arial">Pizza Ordering
+        application</font></a></li>
+    <li><a href="tapi.htm"><font face="Arial">TAPI Test Application</font></a></li>
+    <li><a href="answer.htm"><font face="Arial">Answering machine
+        application</font></a></li>
+</ul>
+
+<p>&nbsp;</p>
+</body>
+</html>

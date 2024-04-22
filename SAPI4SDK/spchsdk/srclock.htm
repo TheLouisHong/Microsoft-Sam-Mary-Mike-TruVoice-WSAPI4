@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>A clock you can talk to</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">A clock you can talk to</font></h1>
+
+<p><font face="Arial">The Speech Recognition Clock Demo (SRCLK in the samples\clock
+directory) demonstrates the use of the Speech Recognition and Text-To-Speech Application
+interface. Upon recognition of certain voice commands, SRCLK responds audibly with the
+current time or date using text-to-speech. SRCLK was built using Microsoft Visual C++ 4.0.</font></p>
+
+<p><font face="Arial">To use SRCLK, run the application and ask &quot;What is the
+date?&quot; or &quot;What time is it?&quot; SRCLK will respond with the correct date or
+time. You can also ask for the time in other cities such as London, Stockholm, or Tokyo.</font></p>
+
+<h2><font face="Arial">Low-Priority Mode Drivers</font></h2>
+
+<p><font face="Arial">The Speech Recognition Clock demo uses both speech recognition (SR)
+AND text-to-speech (TTS). If the wave input driver being used does not support
+low-priority mode, there are certain functions which must be performed before
+text-to-speech will work properly.</font></p>
+
+<p><font face="Arial">Here's why: When the wave input device is opened in low priority
+mode by a process (for example, speech recognition), that device is available to any
+process that subsequently requests it (for example, wave output for text-to-speech). When
+the requesting process relinquishes the device, it is again available to the original
+process. In a driver that doesn't support-low-priority mode, the original process (e.g.,
+speech recognition) gains exclusive use of the wave-in device and does not relinquish it
+until it is finished. Therefore, the requesting process (text-to-speech) cannot open the
+device.</font></p>
+
+<p><font face="Arial">SRCLK employs a workaround for handling drivers that don't support
+low-priority mode. It deactivates speech recognition when text-to-speech requires the
+device and reactivate speech recognition when text-to-speech is done.</font></p>
+
+<h2><font face="Arial">Notes</font></h2>
+
+<p><font face="Arial">SRCLK reads a data file (srclk.dat) which contains time zone
+information for various cities worldwide. You can modify this data file to add or delete
+cities. The syntax is simply the city name followed by a corresponding time zone bias
+separated by a comma. The time zone bias value is the number of hours the city is away
+from Greenwich Mean Time (GMT).</font></p>
+
+<p><font face="Arial">For example, London is the same time zone as GMT so its bias value
+is 0. Seattle is Pacific time which is eight hours behind GMT so its bias value is -8,
+etc.</font></p>
+
+<p><font face="Arial">SRCLK contains 6 source modules:</font> 
+
+<ul>
+  <li><font face="Arial">init.cpp - Windows initialization code</font></li>
+  <li><font face="Arial">showdib.cpp - Loads and displays clock bitmap</font></li>
+  <li><font face="Arial">vcmd.cpp - Contains code for interacting with the SR and TTS
+    interfaces</font></li>
+  <li><font face="Arial">srclk.cpp - Main procedure and miscellaneous functions for the clock</font></li>
+  <li><font face="Arial">clkhands.cpp - Contains code for initializing and drawing the clock
+    hands.</font></li>
+  <li><font face="Arial">srclkdlg.cpp - Contains code for handling the Clock Options and About
+    dialogs</font></li>
+</ul>
+
+<p><font face="Arial">Miscellaneous required files:</font> 
+
+<ul>
+  <li><font face="Arial">srclk.dat - Text file containing the city and time zone information
+    file</font></li>
+  <li><font face="Arial">srclk.bmp - Bitmap file containing the clock's graphical face</font></li>
+</ul>
+
+<p><font face="Arial">SRCLK builds a VCMD list for the cities it will recognize. If
+Microsoft Voice is running the user can find out what the names of these cities are by
+saying &quot;What can I say&quot; and clicking on &lt;CITYNAME&gt;.</font></p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font> 
+
+<ul>
+  <li><font face="Arial">Command &amp; Control Speech Recognition Engine</font></li>
+  <li><font face="Arial">Text-to-speech engine</font></li>
+  <li><font face="Arial"><strong>A navigator application must be running</strong>. You can
+    install <strong>Microsoft Voice</strong>, or just run <a href="feedback.htm">Feedback</a>.</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font> 
+
+<ul>
+  <li><a href="sr\command\srclock.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a><font
+    size="3" face="Arial"> (For this demo to work, you <strong>must</strong> have Microsoft
+    Voice (or a similar application) running and turn speech recognition on using it.)</font></li>
+  <li><a href="samples\clock"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a><font
+    size="3" face="Arial"> (SRCLK.Exe requires that a file, srclk.dat, be in the same
+    directory. Unless you copy the file to your WinDebug/WinRel directories, you will not be
+    able to run the SRCLK.Exe that you build.)</font></li>
+</ul>
+
+<p><font face="Arial">See also:</font> 
+
+<ul>
+  <li><a href="feedback.htm"><font face="Arial">Feedback</font></a></li>
+  <li><a href="vcmddemo.htm"><font face="Arial">Voice Commands Demo</font></a></li>
+</ul>
+</body>
+</html>

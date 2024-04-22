@@ -1,0 +1,150 @@
+16
+7
+10
+;	Room 0
+2
+In the room you see a big monster. Your only escape is too the east!
+The same monster that's been harrasing people in the city.
+-1 -1 1 -1
+0
+;	Room 1
+1
+You sense eminant danger.  You can either retreat to the south, or go onwards to the west.
+-1 5 -1 0
+0
+;	Room 2
+1
+You have entered the bedroom of house. The exit is too the south.
+-1 6 -1 -1
+0
+;	Room 3
+1
+You've stepped down the creaky stairs into the basement of the house. The stairs are to the south.
+-1 7 -1 -1
+0
+;	Room 4
+1
+There is a steep cliff to the east impeeding your passage. You can go south or east.
+-1 8 5 -1
+0
+;	Room 5
+1
+The area is dark and you cannot see your way.
+1 -1 -1 4
+0
+;	Room 6
+1
+This is the dining room of the house.  The bedroom is to the north and the living room is back to the east.
+2 -1 7 -1
+0
+;	Room 7
+3
+You've entered a large house.
+To your north there are stairs and there's a door to the west.
+You could, of course, leave the house the way you came, down to the south.
+3 11 -1 6
+0
+;	Room 8
+1
+You're on a T-intersection with exits in all directions but west.
+4 12 9 -1
+0
+;	Room 9
+1
+You're in the dank alley way, your only exit to the west.
+-1 -1 -1 8
+0
+;	Room 10
+1
+There's a merchant here who has set up shop, but he isn't selling anything. The exit is to the east.
+-1 -1 11 -1
+0
+;	Room 11
+1
+You're at a T-intersection. You can go all directions but east.
+7 15 -1 10
+0
+;	Room 12
+1
+You've reached the far south-west corner of the city. You can only go north or east.
+8 -1 13 -1
+0
+;	Room 13
+1
+You're on an east-west street.
+-1 -1 14 12
+0
+;	Room 14
+1
+You're on an east-west street.
+-1 -1 15 13
+0
+;	Room 15
+1
+You've reached the far south-east corner of the city. You can only go north or west.
+11 -1 -1 14
+0
+;	Item 1
+rope
+rope
+1
+You see 50' of rope.
+2
+1
+2
+13
+;	Item 2
+key
+skeleton key
+1
+You see a skeleton key
+2
+1
+2
+2
+;	Item 3
+gold
+100 pieces of gold
+1
+You see 100 pieces of gold
+2
+1
+2
+3
+;	Item 6
+store
+small store
+1
+The store has but few wares to offer...
+0
+10
+;	Item 4
+torch
+lit torch
+1
+The torch will light up a room
+2
+1
+2
+16
+10
+store
+;	Item 5
+chest
+locked chest
+1
+You find a locked chest
+1
+2
+9
+;	Item 0
+sword
+sword
+1
+You see a sharp sword
+2
+1
+2
+16
+9
+chest

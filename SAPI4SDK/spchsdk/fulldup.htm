@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Full Duplex Demo</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1>Full Duplex Demo</h1>
+
+<p><font face="Arial">The Full Duplex Demo tests to see if your sound card supports full
+duplex, and if it does, allows you to interrupt its speech.</font></p>
+
+<p><font face="Arial">To run the demo:</font>
+
+<ol>
+  <li><font face="Arial">You should either wear a close-talk headset and use speakers, or use
+    headphones. Otherwise, when the text-to-speech engine speaks, the recognizer will hear the
+    text-to-speech, and react to it. If your sound card supports &quot;echo cancellation&quot;
+    you don't have to take this precaution, but very few, if any, sound cards support echo
+    cancellation.</font></li>
+  <li><a href="misc/fulldup.exe"><font face="Arial">Run it</font></a></li>
+  <li><font face="Arial">In the engine selection dialog, select the speech recognition and
+    text-to-speech engines that you wish to use, along with the sound cards.</font></li>
+  <li><font face="Arial">Press OK to proceed. If there is any problem getting full duplex to
+    work, a message box will be brought up. For full duplex to work (on most sound cards), the
+    recognizer and text-to-speech engine must use the same sampling rate. The combination of
+    some speech recognizers and text-to-speech engines may not work because they require
+    different sampling rates.</font></li>
+  <li><font face="Arial">Another dialog, &quot;Full duplex demo&quot; will appear. Speak a
+    number, such as &quot;fifty two million&quot;. Text-to-speech will read back the number.
+    While the computer is speaking, speak another number. The computer will stop reading the
+    previous number and read back what you just spoke.</font></li>
+  <li><font face="Arial">That's it.</font></li>
+</ol>
+
+<p><font face="Arial">You can best take advantage of the demo by stepping through the code
+and seeing how the full duplex detection is done, and by using the code in your own
+application.</font></p>
+
+<p><font face="Arial">&nbsp;</font></p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font>
+
+<ul>
+  <li><font face="Arial">Synthesized Text-to-Speech Engine</font></li>
+  <li><font face="Arial">Command &amp; Control Speech Recognition Engine</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font>
+
+<ul>
+  <li><a href="misc/fulldup.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+  <li><a href="samples/fulldup"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+<font face="Arial">
+
+<p>&nbsp;</p>
+</font>
+</body>
+</html>

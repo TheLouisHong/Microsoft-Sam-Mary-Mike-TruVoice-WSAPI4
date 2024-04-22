@@ -1,0 +1,6 @@
+// This grammar demonstrates the generation of a limited domain
+// grammar just by specifying the limited-domain chunks
+
+[Grammar]
+langid=1033
+type=dictation

@@ -1,0 +1,18 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {9DF54EF1-EE69-11d1-AA96-00C04FA34D72} = s 'Microsoft IE Object Wrapper Sample Control'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Control'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '132497'
+			}
+		}
+	}
+}

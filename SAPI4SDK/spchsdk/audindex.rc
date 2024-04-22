@@ -1,0 +1,169 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PLAY DIALOG DISCARDABLE  0, 0, 247, 170
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Audio Indexer"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Wave File:",IDC_STATIC,5,5,40,10
+    LTEXT           "None",IDC_WAVEFILE,85,5,155,15,SS_SUNKEN
+    PUSHBUTTON      "&Open Wave",IDC_OPENWAVE,85,30,75,15
+    PUSHBUTTON      "&Index Wave",IDC_INDEXWAVE,165,30,75,15
+    LTEXT           "Playback poisition:",IDC_STATIC,5,60,60,10
+    SCROLLBAR       IDC_POSN,85,60,155,10
+    PUSHBUTTON      "&Play",IDC_PLAY,85,90,75,15
+    PUSHBUTTON      "&Stop",IDC_STOP,165,90,75,15
+    LTEXT           "Search for:",IDC_STATIC,5,115,60,10
+    EDITTEXT        IDC_SEARCHFOR,85,115,155,15,ES_AUTOHSCROLL
+    PUSHBUTTON      "Find &Next",IDC_FINDNEXT,85,135,75,15
+    PUSHBUTTON      "Find &Previous",IDC_FINDPREV,165,135,75,15
+    CONTROL         "&Search using alternatives also",IDC_USEALT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,85,155,155,10
+    CTEXT           "",IDC_WORDS,85,75,155,10,SS_SUNKEN
+END
+
+IDD_SELECTSR DIALOG DISCARDABLE  0, 0, 232, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Speech Recognition"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Which speech recognition engine?",IDC_STATIC,5,5,175,10
+    COMBOBOX        IDC_SR,5,15,220,60,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Speaker name: (Leave blank for speaker independent)",
+                    IDC_STATIC,5,35,175,10
+    EDITTEXT        IDC_SPEAKER,5,50,220,15,ES_AUTOHSCROLL
+    LTEXT           "Processing speed: (# times real time)",IDC_STATIC,5,75,
+                    175,10
+    CONTROL         "1/8x",IDC_18,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,5,85,35,10
+    CONTROL         "1/4x",IDC_14,"Button",BS_AUTORADIOBUTTON,45,85,35,10
+    CONTROL         "1/2x",IDC_12,"Button",BS_AUTORADIOBUTTON,85,85,35,10
+    CONTROL         "1x",IDC_1,"Button",BS_AUTORADIOBUTTON,125,85,35,10
+    CONTROL         "2x",IDC_2,"Button",BS_AUTORADIOBUTTON,160,85,35,10
+    CONTROL         "4x",IDC_4,"Button",BS_AUTORADIOBUTTON,195,85,35,10
+    LTEXT           "Accuracy:",IDC_STATIC,5,105,175,10
+    CONTROL         "Minimum (less CPU)",IDC_MINACC,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,5,120,80,10
+    CONTROL         "Normal",IDC_NORMACC,"Button",BS_AUTORADIOBUTTON,95,120,
+                    35,10
+    CONTROL         "Maximum (more CPU)",IDC_MAXACC,"Button",
+                    BS_AUTORADIOBUTTON,145,120,80,10
+    DEFPUSHBUTTON   "OK",IDOK,120,135,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,175,135,50,14
+END
+
+IDD_INDEXING DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Indexing"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,70,75,50,14
+    LTEXT           "Progress:",IDC_STATIC,5,5,35,10
+    LTEXT           "",IDC_PROGRESS,110,5,70,10,SS_SUNKEN
+    LTEXT           "Current hypothesis:",IDC_STATIC,5,20,65,10
+    LTEXT           "",IDC_HYP,5,35,175,35,SS_SUNKEN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_PLAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
+
+    IDD_SELECTSR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+
+    IDD_INDEXING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

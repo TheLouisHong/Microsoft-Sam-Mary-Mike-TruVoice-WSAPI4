@@ -1,0 +1,148 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "pconv.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "pconv.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAIN DIALOG DISCARDABLE  0, 0, 267, 141
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Phoneme Converter Object"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Type in either the human-readable phonemes, or the IPA, and press the appropriate convert button:",
+                    IDC_STATIC,5,5,255,20
+    LTEXT           "Human readable:",IDC_STATIC,5,30,90,10
+    EDITTEXT        IDC_TEXT,5,40,95,35,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    WS_VSCROLL
+    PUSHBUTTON      "Convert >>>",IDC_TOIPA,105,40,50,15
+    PUSHBUTTON      "<<< Convert",IDC_FROMIPA,105,60,50,15
+    LTEXT           "IPA (hex):",IDC_STATIC,170,30,90,10
+    EDITTEXT        IDC_IPA,160,40,100,35,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    WS_VSCROLL
+    LTEXT           "IPA (symbols):",IDC_STATIC,160,80,90,10
+    PUSHBUTTON      "SetByLang",IDC_SETBYLANG,5,120,50,14
+    PUSHBUTTON      "SetByText",IDC_SETBYTEXT,60,120,50,14
+    PUSHBUTTON      "Exit",IDCANCEL,210,120,50,14
+    EDITTEXT        IDC_IPA_SYMBOLS,160,90,100,25,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+IDD_LANGUAGE DIALOG DISCARDABLE  0, 0, 186, 41
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Type in a language ID"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    EDITTEXT        IDC_LANGID,5,10,115,15,ES_AUTOHSCROLL
+END
+
+IDD_TEXT DIALOG DISCARDABLE  0, 0, 267, 210
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text representation of rules"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_TEXT,5,5,255,180,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,155,190,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,215,190,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    IDD_LANGUAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 34
+    END
+
+    IDD_TEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Text-to-Speech Queue Sample</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Text-to-Speech Queue Sample</font></h1>
+
+<p><font face="Arial">The TTS Queue Sample demonstrates how to use the Text-to-Speech
+Queue Object. (See the TTS Queue documentation in the Speech Tools section.) You can use
+the queue to play two or more text-to-speech voices sequentially, and to intermix wave
+files. The demo's functionality has been kept simple so it's easier to understand the
+code.</font></p>
+
+<p><font face="Arial">To explore the functionality of the TTS queue object, try the
+following:</font> 
+
+<ol>
+  <li><font face="Arial">Run the <a href="tts/ttsq.exe">Text-to-speech queue sample</a>.</font></li>
+  <li><font face="Arial">Press &quot;Pause&quot; so you have enough time to type in text.</font></li>
+  <li><font face="Arial">Make sure that the &quot;Male Voice&quot; is selected.</font></li>
+  <li><font face="Arial">Type some text into the edit box, such as &quot;This is the male
+    voice.&quot;</font></li>
+  <li><font face="Arial">Press &quot;Speak.&quot; You won't hear anything yet because the
+    audio is paused.</font></li>
+  <li><font face="Arial">Click on the &quot;Female Voice&quot; radio button to choose it.</font></li>
+  <li><font face="Arial">Type in some text, such as &quot;This is the female voice.&quot;</font></li>
+  <li><font face="Arial">Press &quot;Speak.&quot;&nbsp; You won't hear anything yet because
+    the audio is paused.</font></li>
+  <li><font face="Arial">Press &quot;Resume&quot; to have the voices speak in sequence.</font></li>
+  <li><font face="Arial">You can also experiment with having sounds played.</font></li>
+  <li><font face="Arial">Check the &quot;Play beep after every buffer.&quot;</font></li>
+  <li><font face="Arial">Type some text into the edit box.</font></li>
+  <li><font face="Arial">Press &quot;Speak&quot;, and it will speak the text, followed by a
+    beep.</font></li>
+  <li><font face="Arial">To add your own audio, press &quot;Add Wave&quot;.</font></li>
+  <li><font face="Arial">In the dialog box's first edit field, type the full path to a 22 kHz
+    16-bit mono wave file. If you don't have one, you can use the <a href="wedit.htm">wave
+    editor</a> to record such a file. (The wave editor defaults to a 16 kHz 16-bit mono wave
+    file, so you'll need to change the data format.)</font></li>
+  <li><font face="Arial">In the second edit field, type in a string that will activate the
+    beep, such as &quot;MySound&quot;.</font></li>
+  <li><font face="Arial">Press OK to load the wave file in.</font></li>
+  <li><font face="Arial">In the demo's main window, type in &quot;MySound&quot; by itself.
+    Make sure there's no other text or surrounding space.</font></li>
+  <li><font face="Arial">Press &quot;Speak.&quot; Your wave file will be played. It doesn't
+    matter which voice you choose.</font></li>
+  <li><font face="Arial">If you want to queue up text to speak along with your wave file,
+    then:</font></li>
+  <li><font face="Arial">Press &quot;Pause&quot;.</font></li>
+  <li><font face="Arial">Type in any text, except &quot;My Sound&quot;.</font></li>
+  <li><font face="Arial">Press &quot;Speak.&quot; You won't hear anything yet because the
+    audio is paused.</font></li>
+  <li><font face="Arial">Type in &quot;MySound&quot;.</font></li>
+  <li><font face="Arial">Press &quot;Speak.&quot; You won't hear anything yet because the
+    audio is paused.</font></li>
+  <li><font face="Arial">Type in some different text.</font></li>
+  <li><font face="Arial">Press &quot;Speak.&quot; You won't hear anything yet because the
+    audio is paused.</font></li>
+  <li><font face="Arial">Press &quot;Resume&quot;. The voice will speak and then your sound
+    will be played, and then it will speak again. If you have the &quot;Play beep after every
+    buffer&quot; turned on then you'll also hear three beeps.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font> 
+
+<ul>
+  <li><font face="Arial">Text-to-speech engine</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font> 
+
+<ul>
+  <li><a href="tts\ttsq.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+  <li><a href="samples\ttsq"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+
+<p><font face="Arial"><strong>See also:</strong></font> 
+
+<ul>
+  <li><a href="ttsapp.htm">Text-to-speech Demo Application</a></li>
+  <li><a href="msmouth.htm">Microsoft Mouth</a></li>
+    <li><a href="tapi.htm"><font face="Arial">TAPI Test Application</font></a></li>
+  <li><a href="telctl.htm">Telephony Control Sample</a></li>
+  <li><a href="tel.htm">Telephony Control Editor</a></li>
+  <li><a href="movie.htm">Movie Information Sample</a></li>
+  <li><a href="pizza.htm">Pizza Ordering Sample</a></li>
+  <li><a href="answer.htm"><font face="Arial">Answering machine application</font></a></li>
+</ul>
+</body>
+</html>

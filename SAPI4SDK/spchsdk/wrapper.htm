@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>IE Wrapper Object</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">IE Wrapper Object</font></h1>
+
+<p><font face="Arial">This sample is useful for speech recognition and text-to-speech
+engine vendors.</font></p>
+
+<p><font face="Arial">The IE Wrapper object provides sample source code that allows an
+engine to be downloaded off the internet from a web page.</font></p>
+<i><b>
+
+<h2></b></i><small><font face="Arial">Sample &lt;Object&gt; tag</font></small><font
+size="3"></h2>
+
+<p><font face="Arial">Web pages can force the download of a specific speech recognition or
+text-to-speech engine by using an &lt;Object&gt; tag. (Of course, the web page doesn't
+have to specify an engine, but it will only be able to use whatever engines are installed
+on the user's PC.)</font></p>
+
+<p><font face="Arial">Entries for object tags appear at the top of the html, and include
+an entry:</font></p>
+
+<blockquote>
+  <p>&lt;OBJECT ID=&quot;Engine&quot; width=0 height=0<br>
+  CLASSID=&quot;CLSID:B8F2846E-CE36-11D0-AC83-00C04FD97575&quot;<br>
+  CODEBASE=&quot;http://activex.Microsoft.com/controls/agent/engine.exe#VERSION=1,5,0,0&quot;&gt;<br>
+  &lt;/OBJECT&gt;<br>
+  <font face="Arial"></font></p>
+</blockquote>
+
+<p><font face="Arial">When Internet Explorer (or other web browsers) parse the
+&lt;Object&gt; tag, they verify that the object specified by the registry is installed. If
+so, the browser continues to parse. If the object is not installed on the machine then the
+browser installs the package specified by CODEBASE. For a complete description of the
+&lt;Object&gt; tag, look in Internet Explorer documentation on MSDN.</font></p>
+
+<p><font face="Arial">For engine class-ID's, talk to your preferred engine vendor, or look
+on their web page.</font></p>
+
+<p><font face="Arial">&nbsp;</font></p>
+
+<h1></font><font size="6"><font face="Arial">Engine Vendors: Supporting the Object Tag</font></h1>
+
+<p></font><font face="Arial" size="3">For an engine to be downloadable through the object
+tag, it should install an &quot;IE Wrapper Object&quot; in it's setup.</font><font
+size="3"></p>
+</font>
+
+<p><font face="Arial" size="3">Although it's possible to make the engine support the
+necessary interfaces, the IE Wrapper Object is recommended because Internet Explorer loads
+the object specified in the object tag into memory, and keeps it around. Loading an entire
+engine for every page would slow down Internet Explorer and waste resources. The wrapper
+object has two desirable effects: first, the smaller wrapper control is loaded into the IE
+process space, and second, the wrapper control supports all the necessary interfaces to
+guarantee that the other objects on the page continue to function as desired. This
+solution has one drawback, however: it becomes necessary for the installation package to
+both install and uninstall the wrapper control correctly.</font></p>
+
+<h2><font size="3" face="Arial">Sample IE Wrapper Code</font></h2>
+
+<p><font size="3" face="Arial">Sample code for the IE Wrapper Object is provided in the
+SDK.</font></p>
+<font size="3">
+
+<p><font face="Arial">The Microsoft wrapper controls are written using ATL 2.1 under
+Visual C++ 5.0. To a great extent, they are trivial controls, which provide the default
+implementation for the vast majority of the methods in the interfaces they must support.
+They differ from the default minimal controls only because they set their miscellaneous
+registry bits to indicate that they are invisible at run-time, and they take over sizing
+and drawing themselves so that they consume no space on a form at run-time.</font></font>
+
+<ul>
+  <li><a href="samples/wrapper"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+
+<p><font size="3" face="Arial">You must modify the code in the following places:</font></p>
+
+<blockquote>
+  <ol>
+    <li><font size="3" face="Arial">Modif</font><font face="Arial"><font size="3">y </font>CLSID_WrapObj
+      in Wrapper.cpp to your own class ID. This class ID cannot be the same as the engine's
+      class ID. (You can use GuidGen.Exe in Visual Studio to generate the class ID.)</font></li>
+    <li><font face="Arial">Modify WrapObj.rgs to use your class ID.</font></li>
+    <li><font face="Arial">In the resource, modify the version number to match your engine's
+      version number.</font></li>
+  </ol>
+</blockquote>
+
+<p><font size="3" face="Arial">A different wrapper object is required for each engine, so
+if you produce both speech recognition and text-to-speech, you need two wrappers, each
+with their own GUID. If you have different installs of the same engine, such as one with
+telephony recognition and one with PC recognition, you may wish to have different wrappers
+(with different GUIDs) so web pages can specify exactly which mode is to be downloaded.</font></p>
+<font size="6">
+
+<h2></font><font size="3"><big><font face="Arial">Setup</font></big></h2>
+
+<p><font face="Arial">The engine's setup program must do the following:</font></p>
+
+<blockquote>
+  <ol>
+    <li><font face="Arial">Install the engine and engine registry entries.</font></font><font
+      size="3"></li>
+    <li><font face="Arial" size="3">Install the wrapper object.</font></font><font size="3"></li>
+    <li><font face="Arial">Setup should install the wrapper object into the registry, under</font><font
+      face="Arial" size="3"> HKEY_CLASSES_ROOT. Example:</font></font><font size="3"><p>HKCR,CLSID\{161FA781-A52C-11d0-8D7C-00A0C9034A7E},(default)=&quot;Downloadable
+      Whistler 4.0&quot;<br>
+      HKCR,CLSID\{161FA781-A52C-11d0-8D7C-00A0C9034A7E}\Control<br>
+      HKCR,CLSID\{161FA781-A52C-11d0-8D7C-00A0C9034A7E}\InprocServer32,(Default)=&quot;c:\program
+      files\common files\Microsoft shared\speechengines\tts\wraptts.dll&quot;<br>
+      HKCR,CLSID\{161FA781-A52C-11d0-8D7C-00A0C9034A7E}\InprocServer32,ThreadingModel=Apartment<br>
+      HKCR,CLSID\{161FA781-A52C-11d0-8D7C-00A0C9034A7E}\MiscStatus,(Default)=0<br>
+      HKCR,CLSID\{161FA781-A52C-11d0-8D7C-00A0C9034A7E}\MiscStatus\1,(Defailt)=&quot;0132497&quot;<br>
+      <font face="Arial" size="3"></font></p>
+    </li>
+    <li><font face="Arial">All of the setup files should be packed into a self extracting
+      executable.</font></li>
+    <li><font face="Arial">The executable should be signed, so users know it's safe to download
+      off the web.</font></li>
+    <li><font face="Arial">The signed executable should be placed onto an internet server so
+      it's available for download.</font></li>
+    <li><font face="Arial">Publish the wrapper's GUID and download site on your web page.</font></li>
+  </ol>
+</blockquote>
+
+<p><font face="Arial">Setup's uninstall process should:</font>
+
+<ol>
+  <li><font face="Arial">Uninstall the engine and engine registry entries.</font></li>
+  <li><font face="Arial">Delete</font></font><font size="3" face="Arial"> the wrapper object.</font><font
+    size="3"></li>
+  <li><font face="Arial">Remove the wrapper object into the registry, under HKEY_CLASSES_ROOT.
+    Example, delete the following:</font><p>HKCR,CLSID\{161FA781-A52C-11d0-8D7C-00A0C9034A7E}<br>
+    <font face="Arial" size="3"></font></p>
+  </li>
+</ol>
+</font>
+</body>
+</html>

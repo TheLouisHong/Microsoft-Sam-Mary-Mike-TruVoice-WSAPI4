@@ -1,0 +1,9 @@
+[Grammar]
+langid=1033
+type=cfg
+
+[<start>] 
+<start>=yes "yes"
+<start>=no "no"
+<start>=no thank you "no"
+<start>=yes please "yes"

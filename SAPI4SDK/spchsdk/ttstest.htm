@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Direct Text-to-Speech Hand Tester</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Direct Text-to-speech Hand Tester</font></h1>
+
+<p><font face="Arial">TTSTest is an MFC dialog-based application for testing the
+text-to-speech engine interfaces. TTSTest allows you to perform comprehensive tests of the
+text-to-speech API and engine. TTSTest allows the following interfaces to be interactively
+exercised: ITTSCentral, ITTSAttributes, and ITTSDialogs. The ITTSEnum and ITTSFind
+interfaces are exercised when selecting an engine mode, and the ITTSNotifySink and
+ITTSBufNotifySink are provided by the application to report notifications sent by the
+engine. Controls for the optional ILexPronounce interface are provided, but are not
+supported by the test application.</font></p>
+
+<h2><font face="Arial">Usage</font></h2>
+
+<blockquote>
+  <p><font face="Arial">The TTSTest application can be used to demonstrate a variety of
+  engine features and perform ad hoc testing of the supported interfaces. Upon startup, you
+  are presented with the main dialog containing the following components:</font></p>
+</blockquote>
+
+<h3><font face="Arial">Add Mode button</font></h3>
+
+<blockquote>
+  <p><font face="Arial">Allows you to choose a single text-to-speech mode from the list of
+  installed engines. Only one engine can be loaded at a time, however you can run multiple
+  instances of the application to compare different engines.</font></p>
+</blockquote>
+
+<h3><font face="Arial">Selected Engine Mode list box</font></h3>
+
+<blockquote>
+  <p><font face="Arial">The Selected Engine Mode list box displays the engine currently
+  selected (via the Add Mode button). Exit the application to select a different mode.</font></p>
+</blockquote>
+
+<h3><font face="Arial">ITTSCentral::TextData</font></h3>
+
+<blockquote>
+  <p><font face="Arial">This button is a &quot;global&quot; duplicate of the TextData button
+  on the ITTSCentral property page. This invokes the function that will convert text data to
+  speech, and is placed here as a convenience. For instance, you may want to watch
+  notifications on the &quot;Notifications&quot; tab while speaking a phrase entered on the
+  ITTSCentral tab.</font></p>
+</blockquote>
+
+<h3><font face="Arial">Interface properties</font></h3>
+
+<blockquote>
+  <p><font face="Arial">These property pages (tabbed dialogs) provide the user interface for
+  exercising the various interfaces (once an engine is selected). The tab name corresponds
+  to the available TTS interfaces.</font></p>
+</blockquote>
+
+<h3><font face="Arial">Main output window</font></h3>
+
+<blockquote>
+  <p><font face="Arial">This is the bottom output window which contains general error
+  information and status.</font></p>
+</blockquote>
+
+<h2><font face="Arial">Typical usage instructions:</font></h2>
+
+<ol>
+  <li><font face="Arial">Run TTSTest.</font></li>
+  <li><font face="Arial">Press Add Mode to bring up a dialog containing available engine
+    modes.</font></li>
+  <li><font face="Arial">Select a mode and return to the main dialog.</font></li>
+  <li><font face="Arial">Type in a phrase to say in the edit control on the ITTSCentral tab.</font></li>
+  <li><font face="Arial">Click either the ITTSCentral::TextData button on the main dialog, or
+    the TextData button on the ITTSCentral tab to say the phrase.</font></li>
+</ol>
+
+<h3><font face="Arial">Note</font></h3>
+
+<p><font face="Arial">One or more text-to-speech engines must be properly installed on the
+system running this application to enable the user to successfully select an engine.</font></p>
+
+<p><font face="Arial">&nbsp;</font></p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font>
+
+<ul>
+  <li><font face="Arial">Text-to-speech engine</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font>
+
+<ul>
+  <li><font size="5" face="Arial"><a href="tts\attstest.exe"><strong>Run it! (ANSI Version)</strong></a></font></li>
+  <li><font face="Arial"><font size="5"><a href="tts\uttstest.exe"><strong>Run it! (Unicode
+    Version)</strong></a></font> - Only works on Windows NT.</font></li>
+  <li><font size="5" face="Arial"><a href="samples\ttstst"><strong>View Sample Source Code</strong></a></font></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Text-to-Speech Stress Tester</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Text-to-Speech Stress Tester</font></h1>
+
+<p><font face="Arial">TSStress.exe is a stress test for text-to-speech engines. Its
+purpose is to look for memory leaks and crashes that might occur under stressful
+situations, such as long usage, multiple instances, and low resources. It does not
+indicate if an engine complies with the Speech API.</font></p>
+
+<p><font face="Arial">Application developers that intend to bundle or recommend an engine,
+may wish to use the stress test to insure the stability of the engine. Stability is
+particularly important for telephony applications.</font></p>
+
+<p><font face="Arial">To use the stress test:</font> 
+
+<ul>
+  <li><font face="Arial">Click Run It!</font></li>
+  <li><font face="Arial">Read the instructions and press Next.</font></li>
+  <li><font face="Arial">Select the speech engines you wish to test.</font></li>
+  <li><font face="Arial">Choose a difficulty level.</font></li>
+  <li><font face="Arial">Press Next.</font></li>
+  <li><font face="Arial">You can have one of the test instances use audio from the PC speaker
+    instead of writing to a wave file. This allows you to hear some of the test output. Only
+    one instance of the engine will use PC speakers; all the others will write to temporary
+    wave files off of c:.</font></li>
+  <li><font face="Arial">Type in the number of threads/instances you wish to test. If you
+    application only uses one instance of an engine at a time then you can leave the value as
+    1. However, if your engine uses several instances, then set the number higher, such as 4
+    or 8.</font></li>
+  <li><font face="Arial">Press Next.</font></li>
+  <li><font face="Arial">The stress test will run. Leave it running until the engine crashes.
+    You can use several iterations to determine a mean-time-to-failure, and evaluate if the
+    mean-time-to-failure is acceptable. The stress test exercises the engine much more
+    strenuously than a typical application would.</font></li>
+  <li><font face="Arial">If the engine doesn't crash after several days of testing then you
+    can stop the test.</font></li>
+  <li><font face="Arial">The stress test will write log files out under c:\ttsstressX.txt,
+    where X is the thread number.</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font> 
+
+<ul>
+  <li><font face="Arial">Text-to-Speech Engine</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font> 
+
+<ul>
+  <li><a href="tts\tsstress.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+  <li><a href="samples\tsstress"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>See also:</strong></font> 
+
+<ul>
+  <li><font face="Arial"><a href="spchwrap.htm">Speech Wrapper Source Code</a> - You can use
+    this to build a debug version of the library.</li>
+  <li><a href="ttsfunc.htm">Text-to-Speech Functionality Test</a> - Use this to determine if
+    the engine complies with SAPI.</li>
+  <li><a href="ttsload.htm">Text-to-Speech Load Tester</a> - Helps you determine how much
+    CPU/memory a text-to-speech engine requires.</li>
+</ul>
+</font>
+</body>
+</html>

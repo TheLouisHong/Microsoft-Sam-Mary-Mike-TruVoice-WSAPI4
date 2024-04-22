@@ -1,0 +1,12 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Voice\SpeechRecognition\Engine]
+"Fake SR Engine"="{530049E0-44CD-101B-90A8-00AA003E4B50}"
+
+[HKEY_CLASSES_ROOT\CLSID\{530049E0-44CD-101B-90A8-00AA003E4B50}]
+@="Fake SR Engine"
+
+[HKEY_CLASSES_ROOT\CLSID\{530049E0-44CD-101B-90A8-00AA003E4B50}\InprocServer32]
+@="c:\\program files\\microsoft speech sdk\\srfake\\windebug\\SRFake.dll"
+"ThreadingModel"="Apartment"
+

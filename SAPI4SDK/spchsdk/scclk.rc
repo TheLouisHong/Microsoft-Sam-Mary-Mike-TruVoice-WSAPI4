@@ -1,0 +1,122 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_SRCLKICON           ICON    DISCARDABLE     "SRCLK.ICO"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CLKOPTDLG DIALOG DISCARDABLE  0, 0, 189, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Clock Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,27,90,56,14
+    PUSHBUTTON      "Cancel",IDCANCEL,107,90,56,14
+    CONTROL         "No, don't",IDC_RADIOTIMEOFF,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,24,19,54,10
+    CONTROL         "Hour",IDC_RADIOHOUR,"Button",BS_AUTORADIOBUTTON,24,31,
+                    35,10
+    CONTROL         "Half hour",IDC_RADIOHALFHR,"Button",BS_AUTORADIOBUTTON,
+                    24,43,55,10
+    CONTROL         "Quarter hour",IDC_RADIOQUARTHR,"Button",
+                    BS_AUTORADIOBUTTON,24,55,55,10
+    CONTROL         "1 Minute",IDC_RADIO1MIN,"Button",BS_AUTORADIOBUTTON,24,
+                    67,52,10
+    GROUPBOX        "Tell me the time every:  ",IDC_STATIC,6,3,88,80,
+                    WS_GROUP
+    CONTROL         "Keep on top",IDC_WNDONTOP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,111,19,62,10
+    CONTROL         "Active globally",IDC_RECOGGLOBAL,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,109,46,67,10
+    CONTROL         "Active window",IDC_RECOGWINDOW,"Button",
+                    BS_AUTORADIOBUTTON,109,58,67,10
+    CONTROL         "Off",IDC_RECOGOFF,"Button",BS_AUTORADIOBUTTON,109,70,67,
+                    10
+    GROUPBOX        "Recognition",IDC_STATIC,101,32,79,51,WS_GROUP
+    CONTROL         "Window title",IDC_WNDTITLEBAR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,111,6,62,10
+END
+
+IDD_ABOUTDLG DIALOG DISCARDABLE  0, 0, 187, 85
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About SR Clock"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,56,65,75,14
+    CTEXT           "A clock that 'tells' time",IDC_STATIC,46,13,85,8
+    CTEXT           "Copyright © 1994-1998 by Microsoft Corporation,\nAll Rights Reserved.",
+                    IDC_STATIC,8,39,170,20
+    ICON            "IDI_SRCLKICON",IDC_STATIC,8,6,20,20
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

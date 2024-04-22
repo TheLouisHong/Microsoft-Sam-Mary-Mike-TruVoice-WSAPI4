@@ -1,0 +1,152 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_EDITOR MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New",                        IDM_FILE_NEW
+        MENUITEM "&Open...",                    IDM_FILE_OPEN
+        MENUITEM "&Save",                       IDM_FILE_SAVE
+        MENUITEM "S&ave as...",                 IDM_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_FILE_EXIT
+    END
+    POPUP "&Grammar"
+    BEGIN
+        MENUITEM "&Compile",                    IDM_GRAMMAR_COMPILE
+        MENUITEM "&Test...",                    IDM_GRAMMAR_TEST
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help",                       ID_HELP_HELP
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN                ICON    DISCARDABLE     "icon1.ico"
+IDI_MAIN2               ICON    DISCARDABLE     "ico00001.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_VIEW DIALOG DISCARDABLE  0, 0, 382, 206
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "View Log File"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Messages:",IDC_STATIC,5,5,115,10
+    LISTBOX         IDC_MESSAGES,5,20,370,60,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "&Detail:",IDC_STATIC,215,5,25,10
+    SCROLLBAR       IDC_DETAILSCROLL,245,5,130,10
+    GROUPBOX        "Message",IDC_STATIC,5,85,370,115
+    LTEXT           "Source:",IDC_STATIC,20,95,115,10
+    EDITTEXT        IDC_SOURCE,20,105,155,15,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Message:",IDC_STATIC,20,125,115,10
+    EDITTEXT        IDC_MESSAGE,20,135,155,40,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | WS_VSCROLL
+    PUSHBUTTON      "&Play Audio",IDC_PLAY,20,180,55,15
+    LTEXT           "Time:",IDC_STATIC,215,100,30,10
+    LTEXT           "",IDC_TIME,255,100,115,10,SS_SUNKEN
+    LTEXT           "Detail:",IDC_STATIC,215,115,35,10
+    LTEXT           "",IDC_DETAIL,255,115,115,10,SS_SUNKEN
+    LTEXT           "Data:",IDC_STATIC,215,130,115,10
+    EDITTEXT        IDC_DATA,215,140,155,55,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_VIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 375
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 199
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

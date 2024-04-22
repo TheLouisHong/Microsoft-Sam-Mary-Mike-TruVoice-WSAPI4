@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Build Environment</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1><font face="Arial">Build Environment</font></h1>
+
+<p><font face="Arial">To build speech-aware applications, you must have:</font> 
+
+<ul>
+  <li><font face="Arial">Microsoft Visual C++ 4.0 or later.</font></li>
+  <li><font face="Arial">Windows 95/98 or Windows NT 4.0 (or later)</font></li>
+  <li><font face="Arial">Put <strong>$(SPEECHDK)\Include</strong> in your path. $(SPEECHDK) is
+    usually c:\program files\Microsoft Speech SDK. Don't forget to put the directory into
+    Directories tab in Tools/Options in the Microsoft Development Studio.</font></li>
+  <li><font face="Arial">To build the samples put <strong>$(SPEECHDK)\samples\include</strong>
+    in your path. Don't forget to put the directory into Directories tab in Tools/Options in
+    the Microsoft Development Studio.</font></li>
+  <li><font face="Arial">Put <strong>$(SPEECHDK)\Lib</strong> in your library path.
+    $(SPEECHDK) is usually c:\program files\Microsoft Speech SDK. Don't forget to put the
+    directory into Directories tab in Tools/Options in the Microsoft Development Studio.</font><p><font
+    face="Arial">If you build a debug version of a sample that links to SpchWrap.lib, the
+    linker may produce a warning: &quot;<em>LINK : warning LNK4098: defaultlib
+    &quot;MSVCRTD&quot; conflicts with use of other libs; use /NODEFAULTLIB:library</em>&quot;.
+    You can ignore this warning, if you wish, or you can build a debug version of <a
+    href="spchwrap.htm">SpchWrap.lib</a> and copy it into your library directory.</font></p>
+  </li>
+  <li><font face="Arial">Note: Some of the samples also require that the following 2 win32sdk
+    directories be included: \mstools\include and \mstools\include\win95</font></li>
+  <li><font face="Arial">We recommend you build from the Microsoft Development Studio.</font></li>
+</ul>
+
+<h2><font face="Arial">Building Samples Under MSVC 4.x</font></h2>
+
+<p><font face="Arial">Some of the samples in the SD have Visual C++ 5.0 makefiles (and
+.dsp files). If you open these under Visual C++ 4.x, the makefiles will not work right
+away. To get the makefiles to work under Visual C++ 4.x:</font> 
+
+<ul>
+  <li><font face="Arial">Open the .mak file as a workspace.</font></li>
+  <li><font face="Arial">Say yes to all the questions.</font></li>
+  <li><font face="Arial">Edit all occurrences of &quot;::&quot; to &quot;:&quot; in the .mak
+    file remove of the occurrences of <strong>capitalized</strong> &quot;/FD&quot; command
+    line parameters.</font></li>
+  <li><font face="Arial">Now the compilation results will probably be placed in a subdirectory
+    other than WinDebug or WinRel. Change your build/settings/executable option to point at
+    the <em>subdir\theprogram.exe.</em></font></li>
+  <li><font face="Arial">In addition, if you have any directory location errors in your
+    development environment tools\options\directories tab, the dev environment probably would
+    have still worked with other 4.2 compatible mak files -- but will fail now. Review <strong>all</strong>
+    the directory options, &quot;executable&quot;, &quot;include&quot;, &quot;library&quot;,
+    etc, review <strong>all</strong> drive and directory specifications listed therein, and
+    make sure they are correct and current.</font></li>
+</ul>
+</body>
+</html>

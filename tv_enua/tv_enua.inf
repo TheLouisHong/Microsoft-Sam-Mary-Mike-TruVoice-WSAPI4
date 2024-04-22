@@ -1,0 +1,126 @@
+;
+; inf file for L&H TruVoice
+;
+
+[Version] 
+Signature=$CHICAGO$ 
+AdvancedINF=2.5,%ADVPKPRMPT%
+
+[DestinationDirs] 
+Engine = 25,lhsp\tv
+ActiveX = 25,lhsp\tv
+HelpFile = 25,lhsp\help
+Font = 25,fonts
+InfFile = 17
+Msvc = 11
+DeleteEngine = 25,lhsp\tv
+DeleteActiveX = 25,lhsp\tv
+DeleteHelpFile = 25,lhsp\help
+DeleteCab = 25,occache
+
+[DefaultInstall] 
+CheckAdminRights=1
+CopyFiles = Engine, ActiveX, HelpFile, Font, InfFile, Msvc
+AddReg = AddRegistry
+RunPostSetupCommands = SelfRegister
+
+[DefaultInstall.NT] 
+CheckAdminRights=1
+CopyFiles = Engine, ActiveX, HelpFile, Font, InfFile, Msvc
+AddReg = AddRegistry
+RunPostSetupCommands = SelfRegister
+
+[SelfRegister]
+regsvr32 /s %25%\lhsp\tv\tv_enua.dll
+regsvr32 /s %25%\lhsp\tv\tvenuax.dll
+
+[SelfRegisterNT]
+regsvr32 /s """%25%\lhsp\tv\tv_enua.dll"""
+regsvr32 /s """%25%\lhsp\tv\tvenuax.dll"""
+
+[AddRegistry]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\tv_enua","DisplayName",,%DiskName%
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\tv_enua","UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %17%\tv_enua.inf, Uninstall"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\tv_enua","RequiresIESysFile",,"0"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,"tv_enua",,"RunDll32 advpack.dll,LaunchINFSection %17%\tv_enua.inf, RemoveCabinet"
+
+[RemoveRegistry]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\tv_enua"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,"tv_enua"
+
+[RemoveCabinet]
+DelFiles = DeleteCab
+
+[DeleteCab]
+tv_enua.exe
+
+[Engine]
+tv_enua.dll
+
+[ActiveX]
+tvenuax.dll
+
+[HelpFile]
+tv_enua.hlp
+
+[Font]
+andmoipa.ttf
+
+[InfFile]
+tv_enua.inf
+
+[Msvc]
+msvcp50.dll,,,16
+msvcirt.dll,,,16
+
+[Uninstall]
+BeginPrompt=BeginPromptSection
+EndPrompt=EndPromptSection
+UnregisterOCXs = SelfUnregister
+DelFiles = DeleteEngine, DeleteActiveX, DeleteHelpFile
+DelReg = RemoveRegistry
+DelDirs = DeleteDirs
+Cleanup = 1
+
+[BeginPromptSection]
+Prompt="%UninstallPrompt%"
+ButtonType=YESNO
+Title="%Uninstall%"
+
+[EndPromptSection]
+Prompt="%UninstallDone%"
+
+[SelfUnregister]
+%25%\lhsp\tv\tv_enua.dll
+%25%\lhsp\tv\tvenuax.dll
+
+[DeleteEngine]
+tv_enua.dll,,,1
+
+[DeleteActiveX]
+tvenuax.dll,,,1
+
+[DeleteHelpFile]
+tv_enua.hlp,,,1
+
+[DeleteDirs]
+%25%\lhsp\tv
+%25%\lhsp\help
+%25%\lhsp
+
+[SourceDisksNames] 
+1 = %DiskName%,tv_enua,0
+
+[SourceDisksFiles] 
+tv_enua.dll = 1
+tvenuax.dll = 1
+tv_enua.hlp = 1
+tv_enua.inf = 1
+andmoipa.ttf = 1
+
+[Strings] 
+ADVPKPRMPT = "The correct version of Advpack.dll was not found, installation halted."
+DiskName = "Lernout & Hauspie TruVoice American English TTS Engine"
+Uninstall = "Lernout & Hauspie TruVoice American English TTS Engine Uninstall" 
+UninstallPrompt = "Are you sure you want to remove Lernout & Hauspie TruVoice American English TTS Engine?"
+UninstallDone = "Lernout & Hauspie TruVoice American English TTS Engine has been removed."

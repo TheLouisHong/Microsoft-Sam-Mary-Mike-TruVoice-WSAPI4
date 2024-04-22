@@ -1,0 +1,152 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_STATUS DIALOG DISCARDABLE  0, 0, 217, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Accuracy test status"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Recognized text:",IDC_STATIC,5,10,110,10
+    DEFPUSHBUTTON   "Cancel",IDOK,160,5,50,14
+    EDITTEXT        IDC_RECOGNIZED,5,25,205,65,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | WS_VSCROLL
+    LTEXT           "File #:",IDC_STATIC,5,125,20,15
+    LTEXT           "% done:",IDC_STATIC,105,125,30,15
+    LTEXT           "",IDC_FILENUM,35,125,45,15
+    LTEXT           "",IDC_PERCENTDONE,145,125,50,15
+    LTEXT           "Current hypothesis:",IDC_STATIC,5,95,110,10
+    EDITTEXT        IDC_HYPOTHESIS,5,105,205,15,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+IDD_GETINFO DIALOG DISCARDABLE  0, 0, 253, 246
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Accuracy test information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Input",IDC_STATIC,5,0,245,65
+    LTEXT           "&Queue/wave file:",IDC_STATIC,10,10,90,10
+    EDITTEXT        IDC_INPUTTEXT,105,10,135,15,ES_AUTOHSCROLL
+    LTEXT           "&Silence wave:",IDC_STATIC,10,25,90,10
+    EDITTEXT        IDC_SILENCEWAVE,105,25,135,15,ES_AUTOHSCROLL
+    LTEXT           "Data rate:",IDC_STATIC,10,45,32,13
+    CONTROL         "0.25x",IDC_QUARTERXREALTIME,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,55,45,30,15
+    CONTROL         "0.5x",IDC_HALFXREALTIME,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,90,45,25,15
+    CONTROL         "1x",IDC_1XREALTIME,"Button",BS_AUTORADIOBUTTON,125,45,
+                    25,15
+    CONTROL         "2x",IDC_2XREALTIME,"Button",BS_AUTORADIOBUTTON,155,45,
+                    25,15
+    CONTROL         "4x",IDC_4XREALTIME,"Button",BS_AUTORADIOBUTTON,185,45,
+                    25,15
+    CONTROL         "8x",IDC_8XREALTIME,"Button",BS_AUTORADIOBUTTON,215,45,
+                    25,15
+    GROUPBOX        "Process with",IDC_STATIC,5,70,245,110
+    LTEXT           "&Grammar file:",IDC_STATIC,10,81,90,10
+    EDITTEXT        IDC_GRAMMARFILE,105,81,135,15,ES_AUTOHSCROLL
+    LTEXT           "&Speech recognition engine:",IDC_STATIC,10,95,90,10
+    COMBOBOX        IDC_SRENGINE,105,95,135,50,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Sp&eaker's name:",IDC_STATIC,10,110,90,10
+    EDITTEXT        IDC_SPEAKER,105,110,135,15,ES_AUTOHSCROLL
+    CONTROL         "S&upport ISRGramNotifySink->ReEvaluate()",
+                    IDC_CORRECTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,
+                    126,230,10
+    CONTROL         "S&how general dialog before testing",IDC_SHOWGENERAL,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,140,230,10
+    LTEXT           "&Text to match recognition against:",IDC_STATIC,10,155,
+                    90,20
+    EDITTEXT        IDC_MATCHTEXT,105,155,135,15,ES_AUTOHSCROLL
+    GROUPBOX        "Output",IDC_STATIC,5,180,245,45
+    LTEXT           "Write recognition &output to:",IDC_STATIC,10,195,90,10
+    EDITTEXT        IDC_OUTPUT,105,195,135,15,ES_AUTOHSCROLL
+    CONTROL         "Put &new lines after each phrase (for CnC accuracy tests)",
+                    IDC_NEWLINE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,45,210,
+                    195,10
+    DEFPUSHBUTTON   "OK",IDOK,95,230,75,14
+    PUSHBUTTON      "Cancel",IDCANCEL,175,230,75,14
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_GETINFO, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 225
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Audio Indexer</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1>Audio Indexer</h1>
+
+<p><font face="Arial">The Audio Indexer sample uses continuous dictation to index speech
+audio recordings. It allows users to do keyword searches on the index, and easily jump to
+the place in the recording where the keywords were used. Of course, the indexing is only
+as accurate as the speech recognizer.</font></p>
+
+<p><font face="Arial">The source code demonstrates how to use ISRResGraphEx, the file
+audio source object, and controlling an engine's thread priority.</font></p>
+
+<p><font face="Arial">To run the demo:</font> 
+
+<ol>
+  <li><font face="Arial">You should pre-record the sample you wish to index. Make sure to
+    leave a few seconds of silence at the end of the recording so the recognizer will index
+    the last phrase. The recording should be 16-bit mono, and depending upon the recognizer,
+    either 16 kHz or 22 kHz sampling rate. Telephone recordings use 8 kHz. If you record with
+    the wrong sampling rate, you can up/down-sample with the <a href="wedit.htm">wave editor</a>.</font></li>
+  <li><a href="sr/audindex.exe"><font face="Arial">Run it</font></a></li>
+  <li><font face="Arial">Press &quot;Open Wave&quot; and, using the file-open dialog box,
+    select the wave file you wish to use.</font></li>
+  <li><font face="Arial">If you haven't indexed the file before, you will be asked to index it
+    now. Press &quot;Yes.&quot; (If you're not asked, press the &quot;Index Wave&quot;
+    button.)</font></li>
+  <li><font face="Arial">In the &quot;Select Speech Recognition&quot; dialog box:</font></li>
+  <li><font face="Arial">Select the speech recognition engine to use.</font></li>
+  <li><font face="Arial">If the audio was recorded by a speaker who has trained on your
+    system, then type his/her name into the speaker field. This will make indexing more
+    accurate.</font></li>
+  <li><font face="Arial">Select the processing time, indicating how rapidly the audio will be
+    passed to the recognizer. A rate of 1/4 means that 1 hour of audio will take 4 hours to
+    process, but will consume 1/4 the CPU bandwidth normally used by the recognizer.</font></li>
+  <li><font face="Arial">Select the recognizer's accuracy level to use. This affects how much
+    CPU is used, but not how long it takes to process. You usually want maximum accuracy,
+    which takes the most CPU.</font></li>
+  <li><font face="Arial">Press OK.</font></li>
+  <li><font face="Arial">The recognizer will be started and will process the audio data. The
+    &quot;Progress&quot; field shows you how far the indexing has gotten. When indexing is
+    finished, the dialog will automatically close and return you to the &quot;Audio
+    Indexer&quot; window.</font></li>
+  <li><font face="Arial">In the &quot;Audio Indexer&quot; window, to play the recording, press
+    &quot;Play&quot;. The currently indexed word will be displayed as the audio plays.</font></li>
+  <li><font face="Arial">To find a word, type it into the &quot;Search for&quot; field. Only
+    type one word in. Press &quot;Find next&quot; or &quot;Find previous&quot; to find the
+    next/previous occurrence of the word.</font></li>
+  <li><font face="Arial">By default, the search not only looks through the recognizer's top
+    recognition result for the word, but also through alternative guesses, just in case the
+    top recognition result was wrong. You can disable this by un-checking the &quot;Search
+    using alternatives also&quot; check-box.</font></li>
+  <li><font face="Arial">That's it.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font> 
+
+<ul>
+  <li><font face="Arial">Pre-recorded wave file</font></li>
+  <li><font face="Arial">Command Dictation Speech Recognition Engine</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font> 
+
+<ul>
+  <li><a href="sr/audindex.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+  <li><a href="samples/audindex"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+<font face="Arial">
+
+<p>&nbsp;</p>
+</font>
+</body>
+</html>

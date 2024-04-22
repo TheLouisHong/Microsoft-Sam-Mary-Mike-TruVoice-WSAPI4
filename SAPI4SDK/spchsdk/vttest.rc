@@ -1,0 +1,332 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\vttest.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  34, 22, 217, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About VTTest"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "VTTest",IDC_STATIC,40,10,119,8
+    LTEXT           "Copyright © 1995-1998 Microsoft Corporation.",
+                    IDC_STATIC,40,25,170,8
+    DEFPUSHBUTTON   "OK",IDOK,176,6,32,14,WS_GROUP
+    LTEXT           "All Rights Reserved.",IDC_STATIC,40,35,75,8
+END
+
+IDD_VTTEST_DIALOG DIALOG DISCARDABLE  0, 0, 391, 243
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Voice-Text Test App"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "IVoiceText::&Speak shortcut",IDC_BUTTON_SPEAK,250,15,
+                    125,14
+    CONTROL         "E&nable Messages",IDC_ENABLE_MSGS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,280,225,68,10
+    PUSHBUTTON      "E&xit",IDCANCEL,330,190,50,14
+    GROUPBOX        "Registered Engine Mode",IDC_STATIC,10,0,370,35
+    EDITTEXT        IDC_EDIT_MODE,20,15,220,14,ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_MAINOUTPUT,10,190,265,45,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | WS_VSCROLL
+    LTEXT           "<- Debug / Status Window",IDC_STATIC,280,215,88,8
+    GROUPBOX        "Interface Properties",IDC_STATICPROPPOS,10,40,370,145
+END
+
+IDD_DIALOGENGSELECT DIALOG DISCARDABLE  0, 0, 357, 158
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Engine Mode"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_LISTENUMMODES1,6,10,126,90,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,33,113,66,14
+    LTEXT           "",IDC_ENUMOUTPUT1A,199,9,151,8
+    LTEXT           "",IDC_ENUMOUTPUT2A,199,31,151,8
+    LTEXT           "",IDC_ENUMOUTPUT3A,199,20,151,8
+    LTEXT           "",IDC_ENUMOUTPUT4A,199,42,151,8
+    LTEXT           "",IDC_ENUMOUTPUT5A,199,54,151,8
+    PUSHBUTTON      "Cancel",IDCANCEL,33,135,66,14
+    LTEXT           "",IDC_ENUMOUTPUT6A,199,65,151,8
+    LTEXT           "",IDC_ENUMOUTPUT7A,199,76,151,8
+    LTEXT           "",IDC_ENUMOUTPUT8A,199,86,151,8
+    LTEXT           "",IDC_ENUMOUTPUT9A,199,97,151,8
+    LTEXT           "",IDC_ENUMOUTPUT10A,199,108,151,8
+    LTEXT           "",IDC_ENUMOUTPUT11A,199,119,151,8
+    LTEXT           "",IDC_ENUMOUTPUT12A,199,130,151,8
+    LTEXT           "",IDC_ENUMOUTPUT13A,199,142,151,8
+    LTEXT           "Name:",IDC_STATIC,139,10,30,8
+    LTEXT           "Language:",IDC_STATIC,139,20,39,8
+    LTEXT           "Manufacturer:",IDC_STATIC,139,31,54,8
+    LTEXT           "Product:",IDC_STATIC,139,42,54,8
+    LTEXT           "Mode ID:",IDC_STATIC,139,54,54,8
+    LTEXT           "Engine ID:",IDC_STATIC,139,65,54,8
+    LTEXT           "Speaker:",IDC_STATIC,139,76,54,8
+    LTEXT           "Style:",IDC_STATIC,139,87,54,8
+    LTEXT           "Gender:",IDC_STATIC,139,98,54,8
+    LTEXT           "Age:",IDC_STATIC,139,108,54,8
+    LTEXT           "Avail. Features:",IDC_STATIC,139,119,54,8
+    LTEXT           "Interfaces:",IDC_STATIC,139,130,54,8
+    LTEXT           "Engine specific:",IDC_STATIC,139,142,54,8
+END
+
+IDD_TABIVOICETEXT DIALOG DISCARDABLE  0, 0, 346, 103
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "IVoiceText"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "AudioPause/Resume",IDC_ENGCTLPAUSE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,80,90,84,10
+    EDITTEXT        IDC_EDIT_SPEAKDATA,5,10,155,45,ES_MULTILINE | 
+                    ES_WANTRETURN | WS_VSCROLL
+    DEFPUSHBUTTON   "Speak",IDC_BUTTON_SPEAK,5,75,70,14
+    PUSHBUTTON      "StopSpeaking",IDC_BUTTON_STOP,90,75,70,14
+    LTEXT           "Type text and click Speak to say it:",IDC_STATIC,5,0,
+                    118,8
+    PUSHBUTTON      "AudioFastForward",IDC_BUTTON_FF,170,60,75,14
+    PUSHBUTTON      "AudioRewind",IDC_BUTTON_REWIND,170,81,75,14
+    PUSHBUTTON      "High Priority",IDC_BUTTON_HIGH,170,15,70,14
+    PUSHBUTTON      "Very High Priority",IDC_BUTTON_VERYHIGH,170,35,70,14
+    GROUPBOX        "Speak a phrase with:",IDC_STATIC,165,0,85,55
+    GROUPBOX        "TTS Enumerator",IDC_STATIC,255,30,85,65
+    PUSHBUTTON      "ITTSEnum::Release",IDC_BUTTON_RELENUM,260,75,75,14
+    LTEXT           "Release enum object",IDC_STATIC,260,45,76,8
+    LTEXT           "created when choosing",IDC_STATIC,260,53,78,8
+    LTEXT           "an engine mode",IDC_STATIC,260,62,53,8
+    DEFPUSHBUTTON   "Register...",IDC_REGISTER,255,10,85,14
+    EDITTEXT        IDC_EDIT_TAGS,55,59,105,13,ES_AUTOHSCROLL
+    LTEXT           "Optional tags:",IDC_STATIC,5,60,47,8
+END
+
+IDD_TABIVTDIALOGS DIALOG DISCARDABLE  0, 0, 346, 103
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "IVTxtDialogs"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "GeneralDlg",IDC_VTGENERALDLG,47,20,110,14
+    PUSHBUTTON      "LexiconDlg",IDC_VTLEXICONDLG,187,20,110,14
+    PUSHBUTTON      "TranslateDlg",IDC_VTTRANSLATEDLG,187,65,110,14
+    PUSHBUTTON      "AboutDlg",IDC_VTABOUTDLG,47,65,110,14
+END
+
+IDD_TABIVTNOTIFY DIALOG DISCARDABLE  0, 0, 346, 103
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "IVTxtNotifySink"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "AttribChanged",IDC_NOTIFYATTRIBCHANGED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,16,57,10
+    CONTROL         "Speak",IDC_NOTIFYSPEAK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,10,32,57,10
+    CONTROL         "Visual",IDC_NOTIFYVISUAL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,10,77,57,10
+    EDITTEXT        IDC_NOTIFYOUTPUT,85,5,255,80,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    CONTROL         "SpeakingDone",IDC_NOTIFYSPEAKDONE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,46,67,10
+    CONTROL         "SpeakingStarted",IDC_NOTIFYSPEAKSTART,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,61,67,10
+    LTEXT           "Enable Display of* :",IDC_STATIC,10,3,60,8
+    LTEXT           "* NOTE: IVoiceText::Register() must pass VTXTF_ALLMESSAGES flag to receive all notifications.",
+                    IDC_STATIC,10,92,318,8
+END
+
+IDD_TABIVTATTRIB DIALOG DISCARDABLE  0, 0, 346, 103
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "IVTxtAttributes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_DEVICE,75,25,62,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "DeviceGet",IDC_BUTTON_DEVICEGET,75,5,62,14
+    PUSHBUTTON      "DeviceSet",IDC_BUTTON_DEVICESET,75,45,62,14
+    EDITTEXT        IDC_EDIT_ENABLED,5,25,62,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "EnabledGet",IDC_BUTTON_ENABLEDGET,5,5,62,14
+    PUSHBUTTON      "EnabledSet",IDC_BUTTON_ENABLEDSET,5,45,62,14
+    EDITTEXT        IDC_EDIT_ISSPEAKING,285,12,50,13,ES_UPPERCASE | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "IsSpeaking",IDC_BUTTON_ISSPEAKING,285,29,50,14
+    EDITTEXT        IDC_EDIT_SPEED,210,25,62,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "SpeedGet",IDC_BUTTON_SPEEDGET,210,5,62,14
+    PUSHBUTTON      "SpeedSet",IDC_BUTTON_SPEEDSET,210,45,62,14
+    PUSHBUTTON      "MAX",IDC_BUTTON_SPEEDMAX,178,40,20,14
+    PUSHBUTTON      "MIN",IDC_BUTTON_SPEEDMIN,148,40,20,14
+    GROUPBOX        "Speed defines:",IDC_STATIC,140,0,62,60
+    LTEXT           "Enter value in",IDC_STATIC,144,15,47,8
+    LTEXT           "speed edit ctrl ->",IDC_STATIC,144,24,56,8
+    GROUPBOX        "Read Only Attr:",IDC_STATIC,280,0,60,60
+    LTEXT           "click to update",IDC_STATIC,285,47,50,8
+    GROUPBOX        "TTSModeGet",IDC_STATIC,5,60,210,40
+    PUSHBUTTON      "TTSModeGet",IDC_BUTTON_TTSMODEGET,160,68,50,14
+    EDITTEXT        IDC_EDIT_MODEGET,10,85,200,13,ES_AUTOHSCROLL
+    GROUPBOX        "TTSModeSet",IDC_STATIC,220,60,120,40
+    PUSHBUTTON      "Selected...",IDC_BUTTON_SELECTEDMODE,227,75,50,14
+    PUSHBUTTON      "Bad Mode",IDC_BUTTON_BADMODE,283,75,50,14
+END
+
+IDD_DIALOG_REGISTER DIALOG DISCARDABLE  0, 0, 337, 208
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Register to use voice-text on the following site:"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "NULL (&PC Site)",IDC_RADIO_SITESTRNULL,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,15,38,61,10
+    CONTROL         "E&dit String:",IDC_RADIO_SITESTREDIT,"Button",
+                    BS_AUTORADIOBUTTON,15,54,48,10
+    EDITTEXT        IDC_EDIT_SITE,75,54,80,13,ES_AUTOHSCROLL | WS_GROUP
+    CONTROL         "Register a &notification sink and pass",
+                    IDC_CHECK_NOTIFY,"Button",BS_AUTOCHECKBOX | WS_GROUP | 
+                    WS_TABSTOP,15,89,130,10
+    CONTROL         "VTXTF_ALL&MESSAGES",IDC_RADIO_ALLMSGSFLG,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,15,135,90,10
+    CONTROL         "Pass zero (NULL) in flag",IDC_RADIO_ZEROFLG,"Button",
+                    BS_AUTORADIOBUTTON,15,145,90,10
+    CONTROL         "N&ULL",IDC_RADIO_SITENULL,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,180,20,35,10
+    CONTROL         "PVT&SITEINFO (see members below)",IDC_RADIO_SITEINFO,
+                    "Button",BS_AUTORADIOBUTTON,180,35,135,10
+    CONTROL         "WAVE_MAPPER",IDC_RADIO_MAPPER,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,185,63,70,10
+    CONTROL         "Device ID",IDC_RADIO_DEVICEID,"Button",
+                    BS_AUTORADIOBUTTON,185,78,44,10
+    EDITTEXT        IDC_EDIT_DEVICEID,235,77,70,13,ES_AUTOHSCROLL | WS_GROUP
+    CONTROL         "dwE&nable",IDC_CHECK_ENABLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,175,100,43,10
+    EDITTEXT        IDC_EDIT_SPEED,180,125,55,13,ES_AUTOHSCROLL | WS_GROUP
+    PUSHBUTTON      "MAX",IDC_BUTTON_SPEEDMAX,260,125,25,14
+    PUSHBUTTON      "MIN",IDC_BUTTON_SPEEDMIN,295,125,25,14
+    PUSHBUTTON      "S&elect Mode...",IDC_BUTTON_SETMODE,245,157,75,14,
+                    WS_GROUP
+    EDITTEXT        IDC_EDIT_MODENAME,180,175,140,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Re&gister",IDOK,105,170,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,105,187,50,14
+    GROUPBOX        "pszSite",IDC_STATIC,5,25,160,45
+    GROUPBOX        "pNotifyInterface",IDC_STATIC,5,75,160,40
+    LTEXT           "appropriate GUID in IIDNotifyInterface.",IDC_STATIC,25,
+                    100,128,8
+    GROUPBOX        "dwFlags",IDC_STATIC,5,121,160,40
+    GROUPBOX        "pSiteInfo",IDC_STATIC,170,5,160,195
+    GROUPBOX        "dwDevice",IDC_STATIC_DWDEVICE,175,50,150,45
+    GROUPBOX        "dwSpeed",IDC_STATIC_DWSPEED,175,110,150,35
+    LTEXT           "wpm",IDC_STATIC_WPM,239,128,16,8
+    GROUPBOX        "gModeID",IDC_STATIC_GMODEID,175,150,150,45
+    LTEXT           "Click ""Register"" when the",IDC_STATIC,5,166,86,8
+    LTEXT           "settings are to your liking.",IDC_STATIC,5,175,86,8
+    LTEXT           "Changes attributes for all",IDC_STATIC,5,185,83,8
+    LTEXT           "applications on this site.",IDC_STATIC,5,195,80,8
+    LTEXT           "Mode name:",IDC_STATIC_MODENAME,180,165,41,8
+    LTEXT           "Call IVoiceText::Register() on the Voice-Text",
+                    IDC_STATIC,5,5,155,8
+    LTEXT           "object passing the following four parameters:",
+                    IDC_STATIC,5,15,150,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\vttest.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    IDS_PROPCAPTION         "Interface Properties"
+    IDS_NOMODE              "No mode selected."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About VTTest..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\vttest.rc2"  // non-Microsoft Visual C++ edited resources
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+#include "afxres.rc"  // Standard components
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

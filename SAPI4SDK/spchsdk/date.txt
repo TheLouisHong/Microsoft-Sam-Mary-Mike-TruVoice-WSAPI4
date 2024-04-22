@@ -1,0 +1,77 @@
+[Prompts]
+Main=What is the expiration date?
+Main.2=What is the expiration date?
+Where=Getting expiration date of your credit card.
+Help=I must know the expiration date of your credit card.
+[DTMFString]
+Count=4
+0=0
+1=1
+2=2
+3=3
+4=4
+5=5
+6=6
+7=7
+8=8
+9=9
+
+[<MonthName>]
+<MonthName> = January "01"
+<MonthName> = February "02"
+<MonthName> = March "03"
+<MonthName> = April "04"
+<MonthName> = May "05"
+<MonthName> = June "06"
+<MonthName> = July "07"
+<MonthName> = August "08"
+<MonthName> = September "09"
+<MonthName> = October "10"
+<MonthName> = November "11"
+<MonthName> = December "12"
+<MonthName> = won "01"
+<MonthName> = [opt] zero one "01"
+<MonthName> = [opt] zero two "02"
+<MonthName> = [opt] zero three "03"
+<MonthName> = [opt] zero four "04"
+<MonthName> = [opt] zero five "05"
+<MonthName> = [opt] zero six "06"
+<MonthName> = [opt] zero seven "07"
+<MonthName> = [opt] zero eight "08"
+<MonthName> = [opt] zero nine "09"
+<MonthName> = ten "10"
+<MonthName> = eleven "11"
+<MonthName> = twelve "12"
+<MonthName> = one zero "10"
+<MonthName> = "one one" "11"
+<MonthName> = "one two" "12"
+[<YearName>]
+<YearName> = [opt] nineteen ninety-seven "97"
+<YearName> = nine seven "97"
+<YearName> = [opt] nineteen ninety-eight "98"
+<YearName> = nine eight "98"
+<YearName> = [opt] nineteen ninety-nine "99"
+<YearName> = nine nine "99"
+<YearName> = zero "00"
+<YearName> = zero zero "00"
+<YearName> = none " 00
+<YearName> = two-thousand "00"
+<YearName> = two-thousand zero "00"
+<YearName> = [opt] zero one "01"
+<YearName> = [opt] zero two "02"
+<YearName> = [opt] zero three "03"
+<YearName> = [opt] zero four "04"
+<YearName> = [opt] zero five "05"
+<YearName> = [opt] zero six "06"
+<YearName> = [opt] zero seven "07"
+<YearName> = [opt] two-thousand one "01"
+<YearName> = [opt] two-thousand two "02"
+<YearName> = [opt] two-thousand three "03"
+<YearName> = [opt] two-thousand four "04"
+<YearName> = [opt] two-thousand five "05"
+<YearName> = [opt] two-thousand six "06"
+<YearName> = [opt] two-thousand seven "07"
+
+
+[<MyGrammar>]
+<MyGrammar>= <MonthName> " " [opt] slash "slash" <YearName>

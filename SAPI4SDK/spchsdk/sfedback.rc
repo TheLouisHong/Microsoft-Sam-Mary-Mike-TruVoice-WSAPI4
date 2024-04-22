@@ -1,0 +1,224 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\Feedback.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Feedback.ico"
+IDI_LISTEN16            ICON    DISCARDABLE     "res\\listen16.ico"
+IDI_SLEEP16             ICON    DISCARDABLE     "res\\sleep16.ico"
+IDI_OFF16               ICON    DISCARDABLE     "res\\off16.ico"
+IDI_NOTREC16            ICON    DISCARDABLE     "res\\notrec16.ico"
+IDI_RECOG16             ICON    DISCARDABLE     "res\\recog16.ico"
+IDI_THINK16             ICON    DISCARDABLE     "res\\think16.ico"
+IDI_LISTEN32            ICON    DISCARDABLE     "res\\listen32.ico"
+IDI_NOTREC32            ICON    DISCARDABLE     "res\\notrec32.ico"
+IDI_OFF32               ICON    DISCARDABLE     "res\\off32.ico"
+IDI_RECOG32             ICON    DISCARDABLE     "res\\recog32.ico"
+IDI_SLEEP32             ICON    DISCARDABLE     "res\\sleep32.ico"
+IDI_THINK32             ICON    DISCARDABLE     "res\\think32.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  34, 22, 197, 113
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Voice Commands Feedback"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_LISTEN32,IDC_STATIC,5,5,20,20
+    CTEXT           "Microsoft Speech API\nVoice Commands Feedback Sample",
+                    IDC_STATIC,38,10,119,17
+    DEFPUSHBUTTON   "OK",IDOK,75,90,45,14,WS_GROUP
+    ICON            IDI_RECOG32,IDC_STATIC,170,5,20,20
+    RTEXT           "Build Number:",IDC_STATIC,48,76,50,7
+    LTEXT           "",IDC_BLDNUM,103,76,30,8
+    RTEXT           "User Interface:",IDC_STATIC,43,65,55,8
+    LTEXT           "",IDC_UITYPE,103,65,50,8
+    CTEXT           "Copyright © 1995-1998 by Microsoft Corporation\nAll Rights Reserved.",
+                    IDC_STATIC,23,30,150,30
+END
+
+IDD_NOTIFY_DIALOG DIALOG DISCARDABLE  0, 0, 246, 208
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Voice Commands Feedback"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Exit",IDOK,188,187,50,14
+    PUSHBUTTON      "Hide",ID_HIDE,8,187,50,14
+    PUSHBUTTON      "Configure...",ID_CONFIG,68,187,50,14
+    LTEXT           "This application displays an icon in the windows tray that changes according to the state of the speech recognition engine.",
+                    IDC_VERSION_INFO,10,105,225,20
+    ICON            IDI_OFF32,IDC_STATIC,5,30,20,20
+    ICON            IDI_SLEEP32,IDC_STATIC,5,55,20,20
+    LTEXT           "This Sample Application demonstrates feedback from the Voice Commands Object.  The application recognizes six distinct states:",
+                    IDC_STATIC,5,5,230,20
+    ICON            IDI_LISTEN32,IDC_STATIC,5,80,20,20
+    ICON            IDI_THINK32,IDC_STATIC,120,30,20,20
+    LTEXT           "The speech recognition engine is turned off.",
+                    IDC_STATIC,30,30,85,20
+    LTEXT           "The engine is listening for all voice commands.",
+                    IDC_STATIC,30,80,85,20
+    LTEXT           "The engine is listening for a wake up command only.",
+                    IDC_STATIC,30,55,85,20
+    ICON            IDI_RECOG32,IDC_STATIC,120,55,20,20
+    ICON            IDI_NOTREC32,IDC_STATIC,120,80,20,20
+    LTEXT           "The last voice command was recognized.",IDC_STATIC,145,
+                    55,95,20
+    LTEXT           "The computer is processing the last voice command.",
+                    IDC_STATIC,145,30,95,20
+    LTEXT           "The last voice command was not recognized.",IDC_STATIC,
+                    145,80,95,20
+    PUSHBUTTON      "About...",IDC_ABOUT,128,187,50,14
+    LTEXT           "NOTE: The feedback application provides no voice commands of its own. You MUST be running an application that uses Voice Commands for Feedback to be of any use.",
+                    IDC_STATIC,10,125,230,30
+    LTEXT           "You should run an application that uses Voice Commands, choose Configure, and turn speech recognition to Listening.",
+                    IDC_STATIC,10,155,230,20
+END
+
+IDD_SPLASH DIALOG DISCARDABLE  0, 0, 95, 27
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Voice Commands Feedback"
+FONT 14, "MS Sans Serif"
+BEGIN
+    CTEXT           "",IDC_MESSAGE,18,9,59,10
+END
+
+IDD_DIALOG_CONFIGURE DIALOG DISCARDABLE  0, 0, 161, 128
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Configuration Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,5,110,70,14
+    PUSHBUTTON      "Cancel",IDCANCEL,85,110,70,14
+    PUSHBUTTON      "About Engine...",IDC_ENGINE_ABOUT,85,50,70,14
+    CONTROL         "Off",IDC_RADIO_OFF,"Button",BS_AUTORADIOBUTTON,15,20,35,
+                    10
+    CONTROL         "Asleep",IDC_RADIO_ASLEEP,"Button",BS_AUTORADIOBUTTON,15,
+                    35,35,10
+    CONTROL         "Listen",IDC_RADIO_LISTEN,"Button",BS_AUTORADIOBUTTON,15,
+                    50,35,10
+    GROUPBOX        "Engine State",IDC_STATIC,5,5,70,80
+    PUSHBUTTON      "Train Recognition...",IDC_TRAIN,85,30,70,14
+    PUSHBUTTON      "Configure Engine...",IDC_ENGINE_CONFIGURE,85,10,70,14
+    PUSHBUTTON      "Apply",IDC_BUTTON_APPLY,15,65,50,14
+    LTEXT           "Show Recognized icon for",IDC_STATIC,5,95,88,8
+    EDITTEXT        IDC_EDIT_DELAY,95,92,28,13,ES_AUTOHSCROLL
+    LTEXT           "seconds",IDC_STATIC,126,95,30,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About Voice Commands Feedback"
+    IDS_LISTEN              "Listening for Voice Commands"
+    IDS_SLEEP               "Voice Commands Asleep"
+    IDS_OFF                 "Voice Commands Off"
+    IDS_NOTREC              "Last Voice Command Not Recognized"
+    IDS_RECOG               "Last Voice Command Recognized"
+    IDS_THINK               "Processing Last Voice Command"
+    IDS_WIN31UI             "When running on Windows with the old (Windows 3.1 style) User Interface,  this application displays a desktop icon that changes according to the state of the speech recognition engine.  This icon must be visible in order for the user to receive feedback."
+    IDS_WIN95UI             "When running on Windows with the new (Windows 95 style) User Inteface, this application displays an icon in the windows tray that changes according to the state of the speech recognition engine.  The user will always be able to see this icon."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FAILOLE             "OLE initialization failed!!\n\nPlease insure that the Microsoft Speech API is properly\ninstalled on your computer and try again."
+    IDS_CONFIGDLG           "Configure &Voice Commands"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\Feedback.rc2"  // non-Microsoft Visual C++ edited resources
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+#include "afxres.rc"  // Standard components
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

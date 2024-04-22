@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Audio Collection Tool</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Audio Collection Tool</font></h1>
+
+<p><font face="Arial">The audio collection tool allows you to easily collect audio
+recordings from a number of different users.</font></p>
+
+<h1><font face="Arial">Producing a phrase file</font></h1>
+
+<p><font face="Arial">First, you need to determine what the speakers will record. You do
+this by listing out hundreds or even thousands of phrases/sentences that should be spoken.
+An individual speaker might only record a subset of the phrases, so that each speaker
+records a different subset.</font></p>
+
+<p><font face="Arial">The file format for a phrase file is the text
+&#147;[Sentences]&#148; at the top of the file followed by a sequentially ordered list if
+phrases.</font></p>
+
+<blockquote>
+  <p><font face="Arial"><tt>[Sentences]</tt></font></p>
+  <p><font face="Arial"><tt>1=Hello</tt></font></p>
+  <p><font face="Arial"><tt>2=Bye</tt></font></p>
+  <p><font face="Arial"><tt>3=Ford</tt></font></p>
+  <p><font face="Arial"><tt>4=This is a test</tt></font></p>
+  <p><font face="Arial"><tt>5=Check this out</tt></font></p>
+</blockquote>
+
+<p><font face="Arial">Avoid using punctuation, symbols, and numbers in the file. You can
+write out numbers as words though.</font></p>
+
+<h1><font face="Arial">Recording speakers</font></h1>
+
+<p><font face="Arial">To record the speakers, run the <a href="sr/collect.exe">Audio
+Collection Tool</a>.</font></p>
+
+<h2><font face="Arial">Filling in the administrative page</font></h2>
+
+<p><font face="Arial">When you first run COLLECT.EXE, you will see an administrative page
+that the operator should fill in.</font></p>
+
+<p><font face="Arial">You need to fill in the following information:</font> 
+
+<ul>
+  <li><font face="Arial">Phrase path and filename -- Write the full path to the
+    &#147;phrase.ini&#148; file. If it&#146;s in the same directory as COLLECT.EXE then you
+    should type in &#147;.\phrase.ini&#148;</font></li>
+  <li><font face="Arial">Users directory -- Find a disk, either on the local machine or
+    server, that has about 500 megabytes free. Create a directory on it. Type this directory
+    into the field. (Ex: &#147;c:\users&#148;) Every user that is recorded will have a
+    sub-directory created by COLLECT.EXE. (Ex: User number 52 will have his/her recordings
+    written in &#147;c:\users\u000052&#148;)</font></li>
+  <li><font face="Arial">Microphone -- Type in the name of the microphone being recorded with.</font></li>
+  <li><font face="Arial">Sound card -- Type in the name of the sound card being recorded with.</font></li>
+  <li><font face="Arial">Language -- Type in the name of the language being recorded.</font></li>
+  <li><font face="Arial">Recording institution -- Type in your company&#146;s name.</font></li>
+  <li><font face="Arial">Sampling rate -- Type in the sampling rate: &#147;8000&#148; for
+    phone data. Use &#147;11025&#148;, &#147;16000&#148;, or &#147;22050&#148; for PC
+    recognition data depending upon the speech engine. If you don't know what sampling rate to
+    use, type in 22050, and let the accuracy test application downsample the data for you if
+    it's the wrong sampling rate.</font></li>
+  <li><font face="Arial">User Number -- Start out with user number 1. Every time you run this
+    program, the user number will automatically be incremented, so you don&#146;t have to do
+    any extra work.</font></li>
+  <li><font face="Arial">Start at phrase number -- Start out with phrase number 1. Every time
+    you run this program, the phrase number will be incremented to the last one recorded by
+    the last user. This insures that all of the phrases/sentences are recorded. You will not
+    have to modify this field after the first time.</font></li>
+  <li><font face="Arial">Number of phrases to speak -- You probably want this to be 100 since
+    most people tire after speaking more than 100 phrases.</font></li>
+  <li><font face="Arial">Speaking style -- Fill in the eight fields with some common dialects
+    for the language. The user will be able to select from one of these.</font></li>
+</ul>
+
+<p><font face="Arial">When you press &#147;Next&#148;, a dialog asking for user
+information will start up.</font></p>
+
+<p><font face="Arial">You only have to fill this in once, because the information will be
+stored away and used the next time that the application is run.</font></p>
+
+<p><font face="Arial">Have the user fill in user-information</font></p>
+
+<p><font face="Arial">The end-user should fill out the &#147;User Information&#148;
+dialog. The fields are:</font> 
+
+<ul>
+  <li><font face="Arial">Name</font></li>
+  <li><font face="Arial">Gender</font></li>
+  <li><font face="Arial">Age -- Users may not want to fill out their exact age, so they can
+    just type in a number that&#146;s approximate.</font></li>
+  <li><font face="Arial">Phone number -- Users may not want to type in their phone number. We
+    would like this so we can contact them at some later point if we&#146;d like more speech
+    data.</font></li>
+  <li><font face="Arial">Beginning/experienced/advanced user -- This just gives us a feel for
+    how comfortable they are with the computer.</font></li>
+  <li><font face="Arial">Speaking style -- A user can select one of the eight pre-defined
+    ones, or type in something different.</font></li>
+  <li><font face="Arial">Comments -- If you&#146;ve got any special comments to make.</font></li>
+</ul>
+
+<p><font face="Arial">All of this information is saved in the user directory on disk.</font></p>
+
+<p><font face="Arial">When the user presses, &#147;Next&#148;, he/she goes onto the
+recording session.</font></p>
+
+<h2><font face="Arial">The recording session</font></h2>
+
+<p><font face="Arial">The Audio Collection Tool will first bring up a dialog of
+instructions for the user. When the user presses &#147;Next&#148;, he/she will begin
+recording.</font></p>
+
+<p><font face="Arial">The collection program will occupy the entire screen, and ask the
+user to speak one of the phrases. When the user speaks a phrase, it will be played back to
+him. He/she will then be asked if the computer recorded the correct phrase. If the user
+presses &#147;No&#148;, he/she returns to recording the old phrase. If he presses
+&#147;Yes&#148; then he/she moves onto the next phrase.</font></p>
+
+<p><font face="Arial">Some common problems at this point are:</font> 
+
+<ul>
+  <li><font face="Arial">The user speaks too loudly/quietly -- The computer will re-adjust the
+    recording volume control (if it can) and have the user speak the phrase over.</font></li>
+  <li><font face="Arial">The background noise is too loud -- The user should move closer to
+    the microphone or you should find a way of making the room quieter.</font></li>
+  <li><font face="Arial">Background noise is recorded -- If you make a somewhat loud sound,
+    the computer may think that it heard speech.</font></li>
+  <li><font face="Arial">The computer records only half a phrase -- The user might be leaving
+    too much of a gap between words.</font></li>
+</ul>
+
+<p><font face="Arial">The user can pause/resume recording with the two radio buttons.</font></p>
+
+<p><font face="Arial">You should have someone around for the recording of the first few
+phrases just to make sure that the volunteer understands what he/she is supposed to do.
+After that, you can leave. The program will inform the user when he/she is all done.</font></p>
+
+<h2><font face="Arial">When the user is done</font></h2>
+
+<p><font face="Arial">The program informs the user when he/she is all done, at which point
+he/she can call you on the phone.</font></p>
+
+<h2><font face="Arial">How the data is written</font></h2>
+
+<p><font face="Arial">All of the data is written to the directory specific in the
+administration dialog. (Example: &#147;c:\users&#148;.)</font></p>
+
+<p><font face="Arial">Each user will have a new subdirectory created based upon his/her
+user number. (Example: User 26 is &#147;c:\users\u0000026&#148;)</font></p>
+
+<p><font face="Arial">Under each user directory, you will find a &#147;user.ini&#148;
+which stores all of the information about the user and the sentences that he/she spoke.
+You will also find one wave file per phrase spoken, their names based upon the phrase
+number. (Example: If the user spoke phrases 400 through 499, you&#146;d see
+&#147;c:\users\u0000026\s000400.wav&#148; through
+&#147;c:\users\u0000026\s000499.wav&#148;)</font></p>
+
+<p><font face="Arial">The .wav files are standard format for windows and can be played by
+any program.</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font> 
+
+<ul>
+  <li><font face="Arial">Sound card, microphone, and speakers</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font> 
+
+<ul>
+  <li><a href="sr/collect.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+</ul>
+
+<p><font face="Arial"><strong>See also:</strong></font> 
+
+<ul>
+  <li><font face="Arial"><a href="acctest.htm">Accuracy Test</a></li>
+</ul>
+</font>
+</body>
+</html>

@@ -1,0 +1,94 @@
+//Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_VCMD DIALOG DISCARDABLE  0, 0, 221, 128
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Voice Commands Demo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Change Commands",IDC_CHANGE,7,105,65,15
+    PUSHBUTTON      "&Train",IDC_TRAIN,77,105,65,15
+    PUSHBUTTON      "E&xit",IDCANCEL,147,105,65,15
+    LTEXT           "Try speaking the following command, or any command which you've seen so far.",
+                    IDC_STATIC,10,10,205,20
+    CTEXT           "",IDC_COMMAND,10,35,210,15
+    LTEXT           "The speech recognition engine heard the following command:",
+                    IDC_STATIC,10,65,205,10
+    CTEXT           "",IDC_HEARD,10,87,205,13
+END
+
+IDD_CHANGE DIALOG DISCARDABLE  0, 0, 186, 188
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Change Commands"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,40,170,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,97,170,50,14
+    LTEXT           "Type in the commands which you wish recognized below, with each command on a new line.",
+                    IDC_STATIC,5,5,175,20
+    EDITTEXT        IDC_EDIT,5,30,175,135,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | WS_VSCROLL | 0x1000
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDI_ICON1               ICON    DISCARDABLE     "icon1.ico"
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

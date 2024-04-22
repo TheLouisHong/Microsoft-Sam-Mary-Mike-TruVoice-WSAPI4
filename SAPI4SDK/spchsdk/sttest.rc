@@ -1,0 +1,709 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""res\\srtest.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "\r\n"
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "#include ""afxres.rc""  // Standard components\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\srtest.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  34, 22, 227, 108
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SRTest"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,9,20,20
+    LTEXT           "SRTest",IDC_STATIC,99,15,31,8
+    LTEXT           "Copyright © 1995-1998 Microsoft Corporation.  All Rights Reserved.",
+                    IDC_STATIC,15,41,207,19
+    DEFPUSHBUTTON   "OK",IDOK,77,78,64,14,WS_GROUP
+    LTEXT           "Speech recognition API/engine tester",IDC_STATIC,50,28,
+                    127,8
+    CTEXT           "",IDC_UNICODETYPE,58,55,95,8
+END
+
+IDD_SRTEST_DIALOG DIALOG DISCARDABLE  0, 0, 331, 289
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Speech API/Engine Test App"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Add Mode...",IDC_MODEADD,139,15,53,14
+    PUSHBUTTON      "E&xit",IDOK,279,269,47,16,NOT WS_TABSTOP
+    LISTBOX         IDC_LISTENUMMODES,8,16,124,26,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LISTGRAMSTAT,215,16,103,26,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "&Engine",IDC_SELPROPENG,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,279,84,37,10
+    DEFPUSHBUTTON   "&About",IDC_ABOUT,279,251,47,16
+    EDITTEXT        IDC_EDITMAIN,4,251,270,35,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | WS_VSCROLL | NOT WS_TABSTOP
+    EDITTEXT        IDC_NOTIFYOUTPUT,4,208,158,39,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_GRAMNOTIFYOUTPUT,167,208,159,39,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Selected Engine Modes",IDC_STATIC,3,2,197,46
+    GROUPBOX        "Loaded Grammars",IDC_STATIC,207,2,119,46
+    GROUPBOX        "Interface Properties",IDC_STATIC,4,50,322,155
+    CONTROL         "Grammar",IDC_SELPROPGRAM,"Button",BS_AUTORADIOBUTTON,
+                    279,98,41,10
+    CONTROL         "Results",IDC_SELPROPRES,"Button",BS_AUTORADIOBUTTON,279,
+                    111,38,10
+END
+
+IDD_DLGFINDMODE DIALOG DISCARDABLE  0, 0, 183, 218
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Find Engine Mode"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDITMFG,72,60,92,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,26,193,59,14
+    PUSHBUTTON      "Cancel",IDCANCEL,98,193,59,14
+    LTEXT           "Language:",IDC_STATIC,18,46,37,8
+    LTEXT           "Sequencing:",IDC_STATIC,18,79,41,8
+    LTEXT           "Manufacturer:",IDC_STATIC,18,61,48,8
+    GROUPBOX        "Search Criteria",IDC_STATIC,8,9,166,172
+    EDITTEXT        IDC_EDITLANG,72,42,92,13,ES_AUTOHSCROLL
+    COMBOBOX        IDC_LISTSEQUENCE,72,78,92,38,CBS_DROPDOWNLIST | 
+                    WS_TABSTOP
+    LTEXT           "Grammar types:",IDC_STATIC,18,97,51,8
+    LTEXT           "Features:",IDC_STATIC,17,130,41,8
+    LTEXT           "Mode Name:",IDC_STATIC,18,28,45,8
+    EDITTEXT        IDC_MODENAME,72,25,92,13,ES_AUTOHSCROLL
+    LISTBOX         IDC_GRAMMARS,72,96,93,26,LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_TABSTOP
+    LISTBOX         IDC_FEATURES,72,128,93,46,LBS_MULTIPLESEL | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_TABISRCENTRAL DIALOG DISCARDABLE  20, 200, 253, 102
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ISRCentral"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_LISTGRAMMARS,13,15,112,41,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Load Grammar",IDC_CENTGRAMLOAD,12,60,55,14
+    PUSHBUTTON      "Release &All",IDC_CENTGRAMRELEASEALL,70,60,55,14
+    GROUPBOX        "Grammar Select",IDC_STATIC,5,3,128,95
+    GROUPBOX        "Engine",IDC_STATIC,139,3,109,47
+    CONTROL         "Pause Processing",IDC_ENGCTLPAUSE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,157,15,71,10
+    GROUPBOX        "Position Information",IDC_STATIC,139,52,109,46
+    LTEXT           "",IDC_POSGETOUTPUT,145,63,97,8
+    CONTROL         "Track Position",IDC_POSITIONTRACK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,164,84,62,10
+    PUSHBUTTON      "&ModeGet",IDC_CENTMODEGET,158,31,68,14
+    LTEXT           "",IDC_TOFILEOUTPUT,145,73,97,8
+    PUSHBUTTON      "&Rescan Files",IDC_GRAMRESCAN,70,78,55,14
+    CONTROL         "Use Archive",IDC_USEARCHIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,81,53,10
+END
+
+IDD_TABISRATTRIB DIALOG DISCARDABLE  0, 0, 254, 102
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ISRAttributes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_ATTRGAIN,22,10,33,13,ES_AUTOHSCROLL | ES_WANTRETURN
+    EDITTEXT        IDC_ATTRTHRESH,22,28,33,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ATTRENERGY,22,44,33,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ATTRMIC,22,62,33,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ATTRSPEAKER,138,10,33,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ATTRTIMEOUTC,138,28,33,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ATTRTIMEOUTI,138,44,33,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ATTRCPU,138,62,33,13,ES_AUTOHSCROLL
+    CONTROL         "Echo-Cancellation",IDC_ATTRIBECHO,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,22,81,76,10
+    LTEXT           "AutoGain Enable",IDC_STATIC,61,12,59,8,NOT WS_GROUP
+    LTEXT           "Threshold",IDC_STATIC,61,30,59,8,NOT WS_GROUP
+    LTEXT           "Energy Floor",IDC_STATIC,61,47,59,8,NOT WS_GROUP
+    LTEXT           "Microphone",IDC_STATIC,61,65,59,8,NOT WS_GROUP
+    LTEXT           "Real-Time CPU %",IDC_STATIC,175,65,59,8,NOT WS_GROUP
+    LTEXT           "Speaker",IDC_STATIC,175,13,54,8,NOT WS_GROUP
+    LTEXT           "Time Out (comp)",IDC_STATIC,175,30,62,8,NOT WS_GROUP
+    LTEXT           "Time Out (incomp)",IDC_STATIC,174,47,62,8,NOT WS_GROUP
+END
+
+IDD_TABISRGRAMMAR DIALOG DISCARDABLE  0, 0, 254, 102
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ISRGramCom"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Archive",IDC_GRAMARCHIVE,95,84,72,14
+    PUSHBUTTON      "Training &Dialog",IDC_GRAMTRAIN,173,49,72,14
+    PUSHBUTTON      "Training &Phrases",IDC_GRAMTRAINPHRASE,173,66,72,14
+    PUSHBUTTON      "Training &Query",IDC_GRAMTRAINQUERY,173,84,72,14
+    PUSHBUTTON      "Deterioration Get",IDC_GRAMDETERIORGET,173,6,72,14
+    PUSHBUTTON      "BookMark",IDC_GRAMBOOKMARK,5,84,49,14
+    PUSHBUTTON      "Deterioration Set",IDC_GRAMDETERIORSET,173,23,72,14
+    EDITTEXT        IDC_BOOKMARKEDIT,60,84,29,13,ES_AUTOHSCROLL
+    COMBOBOX        IDC_GRAMRULE,45,29,51,59,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    GROUPBOX        "Grammar",IDC_STATIC,5,0,163,78
+    RTEXT           "Rule:",IDC_STATIC,22,31,20,8
+    COMBOBOX        IDC_GRAMPAUSE,45,45,51,59,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    RTEXT           "Pause:",IDC_STATIC,17,47,25,8
+    COMBOBOX        IDC_GRAMWND,45,60,51,59,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    RTEXT           "Window:",IDC_STATIC,12,62,30,8
+    PUSHBUTTON      "Activate",IDC_GRAMACTIVATEBUT,43,10,53,14
+    PUSHBUTTON      "Deactivate",IDC_GRAMDEACTIVATEGRAM,106,10,53,14
+    LISTBOX         IDC_RULEACTIVELIST,106,28,53,34,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Active rules",IDC_STATIC,113,64,39,8
+END
+
+IDD_DIALOGENGSELECT DIALOG DISCARDABLE  0, 0, 337, 158
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Engine Mode"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_LISTENUMMODES1,6,10,126,80,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,9,138,56,14
+    PUSHBUTTON      "&Find...",IDC_FINDCRITERIA,9,117,56,14
+    LTEXT           "",IDC_ENUMOUTPUT1A,199,9,135,8
+    LTEXT           "",IDC_ENUMOUTPUT2A,199,31,135,8
+    LTEXT           "",IDC_ENUMOUTPUT3A,199,20,135,8
+    LTEXT           "",IDC_ENUMOUTPUT4A,199,42,135,8
+    LTEXT           "",IDC_ENUMOUTPUT5A,199,54,135,8
+    PUSHBUTTON      "Cancel",IDCANCEL,73,138,56,14
+    LTEXT           "",IDC_ENUMOUTPUT6A,199,65,135,8
+    LTEXT           "",IDC_ENUMOUTPUT7A,199,76,135,8
+    LTEXT           "",IDC_ENUMOUTPUT8A,199,86,135,8
+    LTEXT           "",IDC_ENUMOUTPUT9A,199,97,135,8
+    LTEXT           "",IDC_ENUMOUTPUT10A,199,108,135,8
+    LTEXT           "",IDC_ENUMOUTPUT11A,199,119,135,8
+    LTEXT           "",IDC_ENUMOUTPUT12A,199,130,135,8
+    LTEXT           "",IDC_ENUMOUTPUT13A,199,142,135,8
+    LTEXT           "Name:",IDC_STATIC,139,10,30,8
+    LTEXT           "Language:",IDC_STATIC,139,20,39,8
+    LTEXT           "Manufacturer:",IDC_STATIC,139,31,54,8
+    LTEXT           "Product:",IDC_STATIC,139,42,54,8
+    LTEXT           "Mode ID:",IDC_STATIC,139,54,54,8
+    LTEXT           "Engine ID:",IDC_STATIC,139,65,54,8
+    LTEXT           "Sequencing:",IDC_STATIC,139,76,54,8
+    LTEXT           "Max Vocabulary:",IDC_STATIC,139,87,54,8
+    LTEXT           "Grammar State:",IDC_STATIC,139,98,54,8
+    LTEXT           "Grammar fmts:",IDC_STATIC,139,108,54,8
+    LTEXT           "Avail. Features:",IDC_STATIC,139,119,54,8
+    LTEXT           "Interfaces:",IDC_STATIC,139,130,54,8
+    LTEXT           "Engine specific:",IDC_STATIC,139,142,54,8
+    CONTROL         "Share",IDC_USESHARE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,91,119,32,10
+    COMBOBOX        IDC_DEVICEID,53,98,73,53,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Device ID:",IDC_DEVICEIDTXT,13,100,37,8
+END
+
+IDD_TABISRGRAMCFG DIALOG DISCARDABLE  0, 0, 254, 102
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ISRGramCFG"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&List Query",IDC_GRAMLISTQUERY,14,22,68,14
+    EDITTEXT        IDC_GRAMLINKNAME,173,6,68,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Lin&k Query",IDC_GRAMLINKQUERY,173,22,68,14
+    LISTBOX         IDC_GRAMCFGLIST,14,41,68,57,LBS_SORT | LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Remove >>",IDC_GRAMCFGLISTREMOVE,98,81,59,14
+    PUSHBUTTON      "<< &Append",IDC_GRAMCFGLISTAPPEND,98,62,59,14
+    PUSHBUTTON      "<< &Set List",IDC_GRAMCFGLISTSET,98,44,59,14
+    LTEXT           "List Name",IDC_STATIC,86,9,34,8
+    LTEXT           "Link Name",IDC_STATIC,135,9,36,8
+    LISTBOX         IDC_CFGORIGLIST,173,41,68,35,LBS_SORT | LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add Custom",IDC_GRAMCUSTOM,174,82,67,14
+    COMBOBOX        IDC_GRAMLISTNAME,14,7,68,59,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_TABISRGRAMDICT DIALOG DISCARDABLE  0, 0, 254, 102
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ISRGramDict"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Before",IDC_STATIC,219,16,24,8
+    LTEXT           "After",IDC_STATIC,219,32,20,8
+    GROUPBOX        "Context",IDC_STATIC,5,0,244,49
+    COMBOBOX        IDC_GRAMDICTHINT,32,70,56,40,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Hint",IDC_STATIC,95,72,19,8
+    EDITTEXT        IDC_GRAMBEFOREEDIT,12,14,201,13
+    EDITTEXT        IDC_GRAMAFTEREDIT,12,31,201,13
+    EDITTEXT        IDC_LIKELYWORDS,156,64,64,34,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | WS_VSCROLL
+    LTEXT           "Likely Words",IDC_STATIC,168,54,44,8
+END
+
+IDD_TABISRNOTIFY DIALOG DISCARDABLE  0, 0, 253, 103
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ISRNotify"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Attribute Change",IDC_NOTIFYATTR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,54,33,67,10
+    CONTROL         "Interference",IDC_NOTIFYINTERFER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,54,48,67,10
+    CONTROL         "Sound",IDC_NOTIFYSND,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,145,33,67,10
+    CONTROL         "Utterance",IDC_NOTIFYUTTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,145,49,67,10
+    CONTROL         "View Meter",IDC_NOTIFYVMETER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,54,63,67,10
+    GROUPBOX        "Select Notifications you want to recieve",IDC_STATIC,31,
+                    9,192,79
+END
+
+IDD_ISRGRAMNOTIFY DIALOG DISCARDABLE  0, 0, 254, 102
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ISRGramNot"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Bookmark",IDC_GRAMNOTBOOKMARK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,52,46,64,10
+    CONTROL         "Paused",IDC_GRAMNOTPAUSED,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,52,62,64,10
+    CONTROL         "Phrase",IDC_GRAMNOTPHRASE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,52,31,64,10
+    CONTROL         "Phrase Hypothesis",IDC_GRAMNOTPHRASHYP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,142,32,73,10
+    CONTROL         "Re-evaluate",IDC_GRAMNOTREEVAL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,142,46,73,10
+    CONTROL         "Unarchive",IDC_GRAMNOTUNARC,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,142,62,73,10
+    GROUPBOX        "Select Notifications you want to recieve",IDC_STATIC,19,
+                    10,217,78
+END
+
+IDD_TABISRDIALOGS DIALOG DISCARDABLE  0, 0, 254, 102
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ISRDialogs"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&General",IDC_ISRDLGGENERAL,5,5,55,15
+    PUSHBUTTON      "&Lexicon",IDC_ISRDLGLEX,65,5,55,15
+    PUSHBUTTON      "&Microphone Training",IDC_ISRDLGTRAINMIC,5,25,115,15
+    PUSHBUTTON      "&Training",IDC_ISRDLGTRAINGEN,195,5,55,15
+    PUSHBUTTON      "&About",IDC_ISRDLGABOUT,135,5,55,14
+    CONTROL         "Use App-supplied titles",IDC_DLGTITLEOPT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,135,25,88,10
+    GROUPBOX        "ISRDialogs2",IDC_STATIC,5,45,240,50
+    EDITTEXT        IDC_TRAINTEXT,90,55,150,35,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "T&rainPhrase",IDC_TRAINPHRASE,15,65,55,15
+END
+
+IDD_DLGGRAMPATH DIALOG DISCARDABLE  0, 0, 209, 78
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Grammar Path"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_GRAMPATH,21,24,164,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,53,52,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,111,52,50,14
+    LTEXT           "Please enter a path where the grammar files can be found:",
+                    IDC_STATIC,5,7,194,8
+END
+
+IDD_TABISRRESAUDIO DIALOG DISCARDABLE  0, 0, 255, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "Audio"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "GetWave",IDC_AUDIOGETWAVE,104,25,50,14
+    LTEXT           "",IDC_AUDIOFMTTXT,77,60,111,8
+END
+
+IDD_TABISRRESBASIC DIALOG DISCARDABLE  0, 0, 256, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "Basic"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_RESOBJSELECT,10,10,60,75,NOT LBS_NOTIFY | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | 
+                    WS_TABSTOP
+    GROUPBOX        "Results Object(s)",IDC_STATIC,5,0,70,90
+    PUSHBUTTON      "Identify",IDC_RESIDENTIFY,165,75,40,10
+    LTEXT           "",IDC_IDENTIFYTXT,85,40,150,8
+    PUSHBUTTON      "TimeGet",IDC_RESTIMEGET,210,60,40,10
+    LTEXT           "",IDC_TIMEBEGINTXT,140,9,90,8
+    LTEXT           "",IDC_TIMEENDTXT,140,19,90,8
+    PUSHBUTTON      "FlagsGet",IDC_FLAGSGET,165,60,40,10
+    LTEXT           "",IDC_FLAGSGETTXT,85,10,40,8
+    PUSHBUTTON      "PhraseGet",IDC_PHRASEGET,210,75,40,10
+    LTEXT           "",IDC_PHRASEGETTXT,85,65,70,20
+    GROUPBOX        "Alternatives",IDC_STATIC,80,55,80,35
+    GROUPBOX        "TimeStamps",IDC_STATIC,136,0,105,30
+    GROUPBOX        "Identity",IDC_STATIC,80,30,161,20
+    GROUPBOX        "Flags",IDC_STATIC,80,0,50,30
+END
+
+IDD_TABISRRESCORR DIALOG DISCARDABLE  0, 0, 255, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "Correction"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_CORRPHRASE,18,25,98,13,ES_AUTOHSCROLL
+    COMBOBOX        IDC_CORRCONF,19,48,97,44,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Correction",IDC_CORRCORR,42,70,50,14
+    COMBOBOX        IDC_CORRVALIDATE,144,39,97,54,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Validate",IDC_CORRVALID,164,70,50,14
+    GROUPBOX        "Correction",IDC_STATIC,6,7,118,87
+    GROUPBOX        "Validate",IDC_STATIC,130,7,118,87
+END
+
+IDD_TABISRRESGRAPH DIALOG DISCARDABLE  0, 0, 256, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "Graph"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "BestPathPhoneme",IDC_BESTPATHPH,10,5,71,14
+    PUSHBUTTON      "BestPathWord",IDC_BESTPATHW,10,25,71,14
+    PUSHBUTTON      "PathScorePhoneme",IDC_PATHSCOREPH,90,5,71,14
+    PUSHBUTTON      "PathScoreWord",IDC_PATHSCOREW,90,25,71,14
+    PUSHBUTTON      "GetPhonemeNode",IDC_GETPHNODE,170,5,71,14
+    PUSHBUTTON      "GetWordNode",IDC_GETWNODE,170,25,71,14
+    EDITTEXT        IDC_GRAPHOUTPUT,9,48,241,46,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_TABISRRESMEM DIALOG DISCARDABLE  0, 0, 255, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "Memory"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Free",IDC_MEMFREE,11,75,50,14
+    PUSHBUTTON      "Get",IDC_MEMGET,72,75,50,14
+    PUSHBUTTON      "LockGet",IDC_LOCKGET,133,75,50,14
+    PUSHBUTTON      "LockSet",IDC_LOCKSET,194,75,50,14
+    CONTROL         "Audio",IDC_SRRESAUDIO,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,10,45,34,10
+    CONTROL         "Correction",IDC_SRRESCORRECTION,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,85,45,45,10
+    CONTROL         "Eval",IDC_SRRESEVAL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,150,45,27,10
+    CONTROL         "Phoneme Graph",IDC_SRRESPHONEMEGRAPH,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,10,55,65,10
+    CONTROL         "Word Graph",IDC_SRRESWORDGRAPH,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,85,55,55,10
+    CONTROL         "Locked",IDC_SRRESLOCKED,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,205,50,40,10
+    LTEXT           "",IDC_MEMGETTXT,200,15,44,8
+    GROUPBOX        "Kind of information",IDC_STATIC,5,35,185,34
+    GROUPBOX        "Memory Used",IDC_STATIC,195,0,56,33
+    GROUPBOX        "Lock Status",IDC_STATIC,195,35,56,34
+    GROUPBOX        "Instructions",IDC_STATIC,5,0,185,33
+    LTEXT           "The check boxes are used to set the parameters for Free/LockSet and display the results of Get/LockGet.",
+                    IDC_STATIC,10,10,175,20
+END
+
+IDD_TABISRRESMERGE DIALOG DISCARDABLE  0, 0, 255, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "Merge"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Merge",IDC_RESMERGE,15,15,50,14
+    PUSHBUTTON      "Split",IDC_RESSPLIT,15,55,50,14
+    COMBOBOX        IDC_RESMERGESEL,77,15,80,54,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_RESSPLITEDIT,77,57,40,13,ES_AUTOHSCROLL
+    LTEXT           "",IDC_RESSPLITTXT,127,60,78,8
+    LTEXT           "",IDC_RESMERGETXT,163,17,78,8
+END
+
+IDD_TABISRRESMODGUI DIALOG DISCARDABLE  0, 0, 255, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "ModifyGUI"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Hide",IDC_MODGUIHIDE,34,38,50,14
+    PUSHBUTTON      "Move",IDC_MODGUIMOVE,102,38,50,14
+    PUSHBUTTON      "Show",IDC_MODGUISHOW,170,38,50,14
+END
+
+IDD_TABISRRESSpeaker DIALOG DISCARDABLE  0, 0, 255, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "Speaker"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_CORRNAME,65,72,70,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Correction",IDC_SPKRCORR,13,71,47,14
+    COMBOBOX        IDC_SPKRCONF,139,11,109,36,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Validate",IDC_SPKRVALIDATE,173,32,50,14
+    PUSHBUTTON      "IdentifyForFree",IDC_IDFORFREE,9,11,78,14
+    PUSHBUTTON      "Identify",IDC_SPKRIDENTIFY,9,32,78,14
+    LTEXT           "",IDC_IDFORFREETXT,93,13,41,8
+    LTEXT           "",IDC_SPKRIDTXT,91,35,68,8
+    COMBOBOX        IDC_SPKRCORRCONF,141,73,101,36,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Speaker Correction",IDC_STATIC,6,57,243,36
+END
+
+IDD_TABISRRESEVAL DIALOG DISCARDABLE  0, 0, 256, 95
+STYLE WS_CHILD | WS_VISIBLE | WS_DISABLED | WS_CAPTION
+CAPTION "Eval"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "ReEvaluate",IDC_REEVALUATE,88,27,70,14
+    LTEXT           "",IDC_REEVALTXT,91,56,66,8
+END
+
+IDD_GRAMCUSTOMADD DIALOG DISCARDABLE  0, 0, 158, 53
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "Add Custom Word to Original List"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,46,30,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,102,29,50,14
+    EDITTEXT        IDC_GRAMADDCUSTEDIT,5,8,147,13,ES_AUTOHSCROLL
+END
+
+IDD_TABISRRESSCORES DIALOG DISCARDABLE  0, 0, 220, 118
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scores"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Phrase confidence",IDC_PHRASECONFIDENCE,17,61,82,35
+    GROUPBOX        "Word confidences",IDC_WORDCONFIDENCES,17,11,186,40
+    PUSHBUTTON      "GetPhraseScore",IDC_GETPHRASESCORE,116,61,87,12
+    PUSHBUTTON      "GetWordScores",IDC_GETWORDSCORES,116,84,87,12
+    LTEXT           "",IDC_WORDSCORETEXT,25,23,168,25
+    LTEXT           "",IDC_PHRASESCORETEXT,21,69,74,24
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_TABISRGRAMDICT DLGINIT
+BEGIN
+    IDC_GRAMDICTHINT, 0x403, 8, 0
+0x6441, 0x7264, 0x7365, 0x0073, 
+    IDC_GRAMDICTHINT, 0x403, 5, 0
+0x6144, 0x6574, "\000" 
+    IDC_GRAMDICTHINT, 0x403, 5, 0
+0x6554, 0x7478, "\000" 
+    0
+END
+
+IDD_DLGFINDMODE DLGINIT
+BEGIN
+    IDC_LISTSEQUENCE, 0x403, 11, 0
+0x6f43, 0x746e, 0x6e69, 0x6f75, 0x7375, "\000" 
+    IDC_LISTSEQUENCE, 0x403, 9, 0
+0x6944, 0x6373, 0x6572, 0x6574, "\000" 
+    IDC_LISTSEQUENCE, 0x403, 9, 0
+0x6f57, 0x6472, 0x7073, 0x746f, "\000" 
+    0
+END
+
+IDD_DIALOGENGSELECT DLGINIT
+BEGIN
+    IDC_DEVICEID, 0x403, 12, 0
+0x4157, 0x4556, 0x4d5f, 0x5041, 0x4550, 0x0052, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0030, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0031, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0032, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0033, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0034, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0035, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0036, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0037, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0038, 
+    IDC_DEVICEID, 0x403, 2, 0
+0x0039, 
+    0
+END
+
+IDD_TABISRRESCORR DLGINIT
+BEGIN
+    IDC_CORRCONF, 0x403, 18, 0
+0x5253, 0x4f43, 0x464e, 0x4449, 0x4e45, 0x4543, 0x535f, 0x4d4f, 0x0045, 
+
+    IDC_CORRCONF, 0x403, 18, 0
+0x5253, 0x4f43, 0x464e, 0x4449, 0x4e45, 0x4543, 0x565f, 0x5245, 0x0059, 
+
+    IDC_CORRVALIDATE, 0x403, 18, 0
+0x5253, 0x4f43, 0x464e, 0x4449, 0x4e45, 0x4543, 0x535f, 0x4d4f, 0x0045, 
+
+    IDC_CORRVALIDATE, 0x403, 18, 0
+0x5253, 0x4f43, 0x464e, 0x4449, 0x4e45, 0x4543, 0x565f, 0x5245, 0x0059, 
+
+    0
+END
+
+IDD_TABISRRESSpeaker DLGINIT
+BEGIN
+    IDC_SPKRCONF, 0x403, 18, 0
+0x5253, 0x4f43, 0x464e, 0x4449, 0x4e45, 0x4543, 0x535f, 0x4d4f, 0x0045, 
+
+    IDC_SPKRCONF, 0x403, 18, 0
+0x5253, 0x4f43, 0x464e, 0x4449, 0x4e45, 0x4543, 0x565f, 0x5245, 0x0059, 
+
+    IDC_SPKRCORRCONF, 0x403, 18, 0
+0x5253, 0x4f43, 0x464e, 0x4449, 0x4e45, 0x4543, 0x535f, 0x4d4f, 0x0045, 
+
+    IDC_SPKRCORRCONF, 0x403, 18, 0
+0x5253, 0x4f43, 0x464e, 0x4449, 0x4e45, 0x4543, 0x565f, 0x5245, 0x0059, 
+
+    0
+END
+
+IDD_TABISRGRAMMAR DLGINIT
+BEGIN
+    IDC_GRAMPAUSE, 0x403, 6, 0
+0x6146, 0x736c, 0x0065, 
+    IDC_GRAMPAUSE, 0x403, 10, 0
+0x7541, 0x6f74, 0x6150, 0x7375, 0x0065, 
+    IDC_GRAMWND, 0x403, 5, 0
+0x554e, 0x4c4c, "\000" 
+    IDC_GRAMWND, 0x403, 8, 0
+0x614d, 0x6e69, 0x6e57, 0x0064, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_TABISRRESBASIC, DIALOG
+    BEGIN
+        RIGHTMARGIN, 255
+    END
+
+    IDD_TABISRRESSCORES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    IDS_PROPCAPTION         "Interface Properties"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About srtest..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "res\srtest.rc2"  // non-Microsoft Visual C++ edited resources
+
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+#include "afxres.rc"  // Standard components
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

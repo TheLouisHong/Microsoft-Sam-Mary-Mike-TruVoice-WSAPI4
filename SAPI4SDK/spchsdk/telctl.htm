@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Telephony Control Sample</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Telephony Control Sample</font></h1>
+
+<p><font face="Arial">This sample telephony control shows you how to write your own
+telephony controls. It provides the source code used to produce the telephony controls in
+the Microsoft Speech API. You can modify the controls to suit your needs, or use them as
+templates for your own custom controls.</font></p>
+
+<p><font face="Arial">To test the telephony controls in the sample, you must:</font>
+
+<ol>
+  <li><font face="Arial">Run Visual C++ and edit the sample source code.</font></li>
+  <li><font face="Arial">Make sure the resulting telctl.dll is compiled into your Speech SDK
+    telephony-files directory. This is usually &quot;c:\program files\ Microsoft speech
+    SDK\tel&quot;. It will overwrite an existing file.</font></li>
+  <li><font face="Arial">Compile the sample, preferably as debug.</font></li>
+  <li><font face="Arial">You may also want to have a debug version of <a href="SpchWrap.htm">spchwrap.lib</a>
+    built and linked into telctl.dll, since spchwrap.lib provides major functionality for the
+    telephony controls.</font></li>
+  <li><font face="Arial">Set the project to run the telephony control editor when debugging.
+    The telephony control editor is usually located in &quot;c:\program files\Microsoft speech
+    SDk\tel\tel.exe&quot;</font></li>
+  <li><font face="Arial">Place a break-point in the code you wish to test. A good place to
+    start would be DllGetClassObject() in cf.cpp.</font></li>
+  <li><font face="Arial">Start VC++ debugging. This will run tel.exe.</font></li>
+  <li><font face="Arial">In Tel.exe, choose the File\New menu item.</font></li>
+  <li><font face="Arial">In the new-file dialog box, choose any telephony control type
+    starting with &quot;Sample&quot;.</font></li>
+  <li><font face="Arial">Press OK</font></li>
+  <li><font face="Arial">If debugging is working properly and a breakpoint was placed in
+    DllGetClassObject(), then the breakpoint will be hit now. You can debug from here to see
+    how a telephony control works.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>You can:</strong></font> 
+
+<ul>
+  <li><a href="samples\telctl"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+
+<p><font face="Arial"><strong>See also:</strong></font> 
+
+<ul>
+  <li><font face="Arial"><a href="tel.htm">Telephony Control Editor</a></font></li>
+  <li><font face="Arial"><a href="movie.htm">Movie Information Sample</a></font></li>
+    <li><a href="tapi.htm"><font face="Arial">TAPI Test Application</font></a></li>
+  <li><font face="Arial"><a href="pizza.htm">Pizza Ordering Sample</a></font></li>
+  <li><font face="Arial"><a href="answer.htm">Answering machine application</a></font></li>
+</ul>
+</body>
+</html>

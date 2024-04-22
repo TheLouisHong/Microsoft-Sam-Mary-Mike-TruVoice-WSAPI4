@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Lexicon Editor</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Lexicon Editor</font></h1>
+
+<p><font face="Arial">The lexicon editor allows you to change the pronunciation of a word,
+modifying lexicons in both speech recognition and text-to-speech. The sample code
+demonstrates the use of the Lexicon Dialog, provided by Speech Tools, and how to use
+ILexPronounce2.</font></p>
+
+<p><font face="Arial">To run the sample:</font>
+
+<ol>
+  <li><a href="misc/lexdlg.exe"><font face="Arial">Run it.</font></a></li>
+  <li><font face="Arial">Select the speech recognition or text-to-speech engine whose lexicon
+    you wish to modify. An engine will only appear on the list if it supports ILexPronounce.</font></li>
+  <li><font face="Arial">Press OK.</font></li>
+  <li><font face="Arial">If you select a dictation engine, the application may ask if you want
+    to modify the dictation lexicon. If you modify the dictation lexicon, you can add and
+    remove words from the dictation vocabulary, controlling what words will get recognized. If
+    you answer no, you will be modifying the user lexicon for context-free-grammars. The CFG
+    user lexicon usually starts out empty.</font></li>
+  <li><font face="Arial">The lexicon dialog will appear.</font></li>
+  <li><font face="Arial">You can add, remove, or modify any word by pressing &quot;Edit
+    another&quot;. This will ask you what word to modify and how you wish to modify it. It
+    uses the Speech Tools lexicon dialog.</font></li>
+  <li><font face="Arial">To bulk-edit words, then press &quot;Scan file for words&quot;.</font></li>
+  <li><font face="Arial">In the &quot;Scan file&quot; dialog, type in the name of a text file.
+    The application will produce a list of all the words appearing in the text file. Using the
+    radio buttons, the list can be pared down to only those words not in the lexicon, or only
+    those words in the lexicon. (The radio buttons will be disabled if the engine only
+    supports ILexPronounce, and not ILexPronounce2.) You can also only keep words appearing
+    more than a specified number of times, so that uncommon words will be ignored.</font></li>
+  <li><font face="Arial">Press OK in the &quot;Scan file&quot; dialog to scan the document. It
+    may take awhile to complete.</font></li>
+  <li><font face="Arial">The &quot;Lexicon&quot; dialog's &quot;Words from scanned file&quot;
+    list box will be filled with the words from the file.</font></li>
+  <li><font face="Arial">Click on a word to hear what it sounds like, view its pronunciations,
+    and Edit it.</font></li>
+  <li><font face="Arial">&quot;Add all&quot; will search through the words in the list, and
+    add any words to the lexicon which are not already present. (This will be grayed out if
+    the engine doesn't support ILexPronounce2.)</font></li>
+  <li><font face="Arial">&quot;Remove all&quot; will remove all the words in the list from the
+    lexicon. Warning: Removing common words may degrade the performance of the engine. (This
+    will be grayed out if the engine doesn't support ILexPronounce2.)</font></li>
+</ol>
+
+<p><font face="Arial">&nbsp;</font></p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font> 
+
+<ul>
+  <li><font face="Arial">Speech Recognition or Text-to-Speech Engine that supports the
+    ILexPronounce interface.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong><font face="Arial">You can:</font></strong> 
+
+<ul>
+  <li><a href="misc/lexdlg.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+  <li><a href="samples/lexdlg"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+</body>
+</html>

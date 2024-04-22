@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Microphone Usability</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Microphone Usability</font></h1>
+
+<p><font face="Arial">Microphones are necessary for speech recognition to function, and
+the quality/ergonomics of a microphone can make the different between an unusable speech
+product, and one where speech recognition shines. A good microphone will have half the
+speech-recognition error rate of a poor microphone.</font></p>
+
+<p><font face="Arial">However, microphones are one of the largest impediments to people
+using speech recognition. In general, the failure points are:</font>
+
+<ol>
+  <li><font face="Arial">Users don't have a microphone.</font></li>
+  <li><font face="Arial">Users don't have the microphone plugged into the computer.</font></li>
+  <li><font face="Arial">The sound card isn't compatible with the microphone.</font></li>
+  <li><font face="Arial">If the microphone gain is so high that clipping happens then accuracy
+    will be terrible. If it's too low then accuracy won't be as good as possible.</font></li>
+  <li><font face="Arial">Users don't know how to hold/position a microphone.</font></li>
+  <li><font face="Arial">Cheap (poor quality) microphones are the norm. (Luckily, this is
+    starting to change.)</font></li>
+  <li><font face="Arial">The most accurate microphones require that the users wears them. Many
+    users don't like wearing microphones.</font></li>
+</ol>
+
+<p><font face="Arial">If a speech aware application doesn't take all of these factors into
+account, many users will be unable to get speech recognition to function well. To avoid
+microphone problems, we recommend that your application use the <a href="micwiz.htm">Microphone
+Setup Wizard</a> (programmatically available from the Speech Tools API).</font></p>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Usability of specific types of microphones</font></h2>
+
+<p><font face="Arial">If you are considering bundling a microphone with your application,
+sound card, or PC, here is some usability information on specific types of microphones.</font></p>
+
+<h3><font face="Arial">Close-talk</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Acceptable close-talk microphones now sell for about $50 (US) at
+    computer stores, and are worth the expense if users wan't maximum accuracy.</font></li>
+  <li><font face="Arial">Highest accuracy of any type of microphone because the element is
+    close to the mouth, and almost always near-field.</font></li>
+  <li><font face="Arial">Near-field element so it's noise resistant.</font></li>
+  <li><font face="Arial">User has his/her hands free.</font></li>
+  <li><font face="Arial">User can lean back in his/her chair and talk. (Make sure the
+    microphone cord is long enough so users can lean back, even if their PC is under their
+    desk.)</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Most users dislike wearing something or being attached to their PC.
+    Sometimes the cord gets tugged on when the user moves around.</font></li>
+  <li><font face="Arial">It's difficult to talk on the phone with a telephone handset while
+    wearing the close-talk, unless the phone is routed through the headset. Some headsets have
+    this functionality.</font></li>
+  <li><font face="Arial">Slow to put on and take off.</font></li>
+  <li><font face="Arial">The user has to reposition the element every time they put the
+    microphone on. When the element position changes so does the sound of the audio. Users
+    must be aware of this so they don't make this mistake.</font></li>
+  <li><font face="Arial">Sometimes users position the element directly in front of their
+    mouth, causing recognition problems when they exhale onto the element. Users must be aware
+    of this so they don't make this mistake.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Ear Piece</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Second only to close-talk and handset microphones in accuracy because
+    the element is close to the mouth.</font></li>
+  <li><font face="Arial">Some ear-piece microphones have a near-field element so it's noise
+    resistant.</font></li>
+  <li><font face="Arial">User has his/her hands free.</font></li>
+  <li><font face="Arial">User can lean back in his/her chair and talk. (Make sure the
+    microphone cord is long enough so users can lean back, even if their PC is under their
+    desk.)</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Most users dislike wearing something or being attached to their PC.
+    Sometimes the cord gets tugged on when the user moves around.</font></li>
+  <li><font face="Arial">Difficult to talk on the phone with a telephone handset while wearing
+    the close-talk.</font></li>
+  <li><font face="Arial">Slow to put on and take off.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Handset</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Second only to close-talk and ear-piece microphones in accuracy
+    because the element is close to the mouth.</font></li>
+  <li><font face="Arial">Some handset microphones have a near-field element so it's noise
+    resistant.</font></li>
+  <li><font face="Arial">Users don't like talking to computers, and don't like it when
+    colleagues walk by their office and see the user &quot;talking to themselves.&quot; With a
+    handset, users feel like they're talking to a person (or at least an answering machine),
+    and people walking by just see someone talking on the phone.</font></li>
+  <li><font face="Arial">Some handsets have switches that allow the user to turn speech
+    recognition on/off.</font></li>
+  <li><font face="Arial">Of all the microphones, users are already trained to use this one.</font></li>
+  <li><font face="Arial">Easy to pick up and put down.</font></li>
+  <li><font face="Arial">User can lean back in his/her chair and talk. (Make sure the
+    microphone cord is long enough so users can lean back, even if their PC is under their
+    desk.)</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Users have to hold the handset, which can get tiring if it's used for
+    long periods of time.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Clip-On</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Moderate accuracy because it's less than 30 cm from the mouth.</font></li>
+  <li><font face="Arial">User's hands freed.</font></li>
+  <li><font face="Arial">The microphone element is out of the way.</font></li>
+  <li><font face="Arial">User can lean back in his/her chair and talk.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Most users dislike wearing something or being attached to their PC.
+    Sometimes the cord gets tugged on when the user moves around.</font></li>
+  <li><font face="Arial">Slow to put on and take off.</font></li>
+  <li><font face="Arial">Users don't know exactly where to clip the microphone on.</font></li>
+  <li><font face="Arial">Not good in a noisy environment.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Desktop</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Moderate accuracy if it's positioned less than 30 cm from the mouth.</font></li>
+  <li><font face="Arial">User's hands are freed.</font></li>
+  <li><font face="Arial">Cheap.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">The user has a &quot;stick&quot; pointing towards him, and usually
+    doesn't like this since it's visually distracting. Most users will reposition the
+    microphone so it points upwards, which reduces accuracy.</font></li>
+  <li><font face="Arial">Users don't always know how to position the microphone. Some will put
+    it 90+ cm away, where accuracy will be poor. The best accuracy is when the microphone is
+    about 15 cm away.</font></li>
+  <li><font face="Arial">Users have a tendency to lean into the microphone when they speak.
+    This is unnecessary. When users lean it adds extra effort to use speech recognition. Make
+    sure users know not to lean in.</font></li>
+  <li><font face="Arial">Some users will lean in, and speak to the microphone with their mouth
+    about 3 cm away from the element. This produces poor accuracy.</font></li>
+  <li><font face="Arial">Consumes desk space.</font></li>
+  <li><font face="Arial">Not good in a noisy environment.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Handheld</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Second only to close-talk and ear-piece microphones in accuracy
+    because the element is close to the mouth.</font></li>
+  <li><font face="Arial">Some hand-held microphones are near-field element so they're noise
+    resistant.</font></li>
+  <li><font face="Arial">Users have seen plenty of performers using these microphones and
+    already know how to use them.</font></li>
+  <li><font face="Arial">Some handheld microphones have switches that allow the user to turn
+    speech recognition on/off.</font></li>
+  <li><font face="Arial">Easy to pick up and put down.</font></li>
+  <li><font face="Arial">User can lean back in his/her chair and talk. (Make sure the
+    microphone cord is long enough so users can lean back, even if their PC is under their
+    desk.)</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Users feel like a rock-star.</font></li>
+  <li><font face="Arial">Users have to hold the microphone, which can get tiring if it's used
+    for long periods of time.</font></li>
+  <li><font face="Arial">Microphone tends to roll when put down.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Built into computer/monitor</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Nothing to plug in.</font></li>
+  <li><font face="Arial">User's hands are free.</font></li>
+  <li><font face="Arial">The user doesn't necessarily know where the microphone is so they
+    don't lean into it.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Low accuracy unless the user is unusually close to the monitor.</font></li>
+  <li><font face="Arial">Not good in a noisy environment.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Rest on top of monitor</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">User's hands are free.</font></li>
+  <li><font face="Arial">The user doesn't necessarily know where the microphone is so they
+    don't lean into it.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Low accuracy unless the user is unusually close to the monitor.</font></li>
+  <li><font face="Arial">Not good in a noisy environment.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Keyboard</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">User's hands are free.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Very low accuracy because of the typical position of the keyboard.</font></li>
+  <li><font face="Arial">Users might lean into the microphone to talk to it.</font></li>
+  <li><font face="Arial">Microphone picks up keyboard clicks.</font></li>
+  <li><font face="Arial">Not good in a noisy environment.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">In remote control</font></h3>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Necessarily wireless.</font></li>
+  <li><font face="Arial">If the remote is used to control an entertainment PC from the user's
+    couch, it's a good place to embed the microphone.</font></li>
+  <li><font face="Arial">Remote can have a push-to-talk feature.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Moderate accuracy if the user keeps the microphone about 30 cm from
+    his/her mouth.</font></li>
+  <li><font face="Arial">Users have to hold the microphone, which can get tiring if it's used
+    for long periods of time.</font></li>
+  <li><font face="Arial">Users don't know where to position the remote for best accuracy, so
+    they may lean into it.</font></li>
+  <li><font face="Arial">Batteries.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Additional Features</font></h2>
+
+<h3><font face="Arial">On/off switch, push-to-talk</font></h3>
+
+<p><font face="Arial">Microphones can have an on/off switch built in that starts/stops
+recognition. Alternatively, the microphone can remain off except when the user presses a
+button down, talks, and lets go to stop talking.</font></p>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">If the user has his/her hands already on the microphone, a button
+    provides a quick way to turn speech recognition on/off quickly and easily. Otherwise the
+    user has to hit a key on the keyboard.</font></li>
+  <li><font face="Arial">Having a switch on the microphone is intuitive.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Cost.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">USB</font></h3>
+
+<p><font face="Arial">Most microphones plug into the PC with a 1/8&quot; stereo mini-jack.
+The A-to-D conversion is done internal to the PC. Alternatively, microphones can plug into
+the USB port on newer machines.</font></p>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">Users can't plug the microphone into the wrong place. Users sometimes
+    plug mini-jack microphone plugs into their speakers jack. The Microphone Setup Wizard
+    alleviates this problem.</font></li>
+  <li><font face="Arial">Because the A-to-D is separated from the D-to-A, the PC can record
+    and play audio at the same time, even at different sampling rates.</font></li>
+  <li><font face="Arial">Slightly better accuracy because the A-to-D is no longer in the
+    electrically noisy chassis of the PC.</font></li>
+  <li><font face="Arial">USB microphones can have an on/off switch or push-to-talk that turns
+    speech recognition on/off. The on/off switch on analog microphones can only mute the audio
+    going to the speech recognizer, but the recognizer still has to process audio.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Expensive.</font></li>
+  <li><font face="Arial">Not all PCs have USB.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Wireless</font></h3>
+
+<p><font face="Arial">Any kind of microphone can be made wireless. Wireless microphone
+have the following:</font></p>
+
+<p><font face="Arial">Benefits:</font>
+
+<ul>
+  <li><font face="Arial">No cords attached.</font></li>
+</ul>
+
+<p><font face="Arial">Problems:</font>
+
+<ul>
+  <li><font face="Arial">Slightly lower accuracy because of the RF transmission.</font></li>
+  <li><font face="Arial">Batteries.</font></li>
+  <li><font face="Arial">The user's &quot;conversation&quot; with his computer is being
+    broadcast, and is no longer private.</font></li>
+  <li><font face="Arial">Problems with several wireless devices are used in the same area.</font></li>
+  <li><font face="Arial">Expensive.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Links to Microphone Companies</font></h2>
+
+<p><font face="Arial">You can find links to microphone companies in the
+&quot;Internet&quot; section.</font></p>
+</body>
+</html>

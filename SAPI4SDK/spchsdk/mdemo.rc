@@ -1,0 +1,124 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TTS DIALOG DISCARDABLE  0, 0, 221, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Demo of Audio Destination to File"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Type in the text that you want spoken below and press one of the speak buttons. Try making several voices speak at the same time.",
+                    IDC_STATIC,5,5,210,20
+    EDITTEXT        IDC_EDIT,5,30,210,35,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    DEFPUSHBUTTON   "Speak voice 1",IDC_SPEAK1,5,70,55,14
+    PUSHBUTTON      "Speak voice 2",IDC_SPEAK2,85,70,55,14
+    PUSHBUTTON      "Speak voice 3",IDC_SPEAK3,160,70,55,14
+    PUSHBUTTON      "E&xit",IDCANCEL,160,90,55,14
+END
+
+IDD_CHOOSE DIALOG DISCARDABLE  0, 0, 186, 156
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose a voice"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Please select three text-to-speech voices and press OK.",
+                    IDC_STATIC,5,5,175,20
+    COMBOBOX        IDC_VOICE1,5,30,175,55,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_VOICE2,5,50,175,55,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_VOICE3,5,70,175,55,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,70,90,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,130,90,50,14
+    CONTROL         "&Use 3-D sound",IDC_USE3D,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,5,110,175,10
+    LTEXT           "The Use 3D sound option will only work if you have DirectSound 5.0 installed. (It may fail silently.) It will place each voice at a random location in space.",
+                    IDC_STATIC,15,125,165,25
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_CHOOSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

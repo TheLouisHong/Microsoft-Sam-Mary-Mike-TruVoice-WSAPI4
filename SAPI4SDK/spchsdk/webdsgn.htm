@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Designing Web Pages</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Designing Web Pages to be Speech Enabled</font></h1>
+
+<h2><font face="Arial">Speech Enabled Web Browses</font></h2>
+
+<p><font face="Arial">Every web browser has companion applications that &quot;speech
+enable&quot; it, allowing users to speak the name of a link and have the browser jump to
+that link as though it were clicked. The speech functionality will be automatic, requiring
+no special effort from the web-page designer for recognition to work satisfactorily.
+However, although speech recognition will work automatically, a web designer can use a
+little bit of care and get speech recognition to work even better.</font></p>
+
+<p><font face="Arial">To understand what a web designer should do to make his/her pages
+work well with speech, it's necessary to describe what speech recognition needs to work,
+and how the web browses automatically speech-enable a page.</font></p>
+
+<p><font face="Arial">For speech recognition to work, it must know what phrases a user can
+speak, such as &quot;Go to Microsoft's Web Page&quot; or &quot;Tell me about macaws&quot;.
+A speech recognizer can listen for several hundred phrases at a time, and new phrases can
+be loaded and unloaded at any time. For a the computer to recognize a user's speech, the
+user must speak the full phrase exactly as it is written, without having words inserted or
+deleted. If the user says a phrase not on the list, the recognizer returns an
+&quot;unrecognized&quot; and the user has to rephrase his/her command. If the user said
+&quot;Go to Microsoft's Page&quot; then the phrase, &quot;Go to Microsoft's Web Page&quot;
+wouldn't be properly recognized.</font></p>
+
+<p><font face="Arial">Speech enabled web browsers tell the speech recognizer to listen for
+all the links on a page. They use the same string as is displayed to the user. If the user
+speaks the full name then the recognizer will hear it, and the browser will jump to that
+link.</font></p>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Fine-tuning a web page for speech</font></h2>
+
+<p><font face="Arial">Here's a simple rule to fine-tune a web-page to work with
+speech-enabled browser:</font></p>
+
+<p align="center"><font face="Arial"><strong>All of the link names must be
+&quot;speakable&quot;.</strong></font></p>
+
+<p><font face="Arial">A link named &quot;http://www.Microsoft.com&quot; is not very
+speakable because it has to be spoken as &quot;h tee tee pee double-you double-you
+double-you dot Microsoft dot com&quot;. Try saying that. Also, the user doesn't know if
+they should speak the &quot;h tee tee pee&quot; part. If the link were simply &quot;Go to
+Microsoft&quot;, the user could just speak that.</font></p>
+
+<p><font face="Arial">Now that you know the general principle, here are some tips and
+tricks:</font></p>
+
+<h3><font face="Arial">Don't have more than 100 speakable items</font></h3>
+
+<p><font face="Arial">Speech recognition accuracy and speed will deteriorate if there are
+more than a hundred (approximately) speakable items on a web page.</font></p>
+
+<h3><font face="Arial">Don't give speakable items the same name</font></h3>
+
+<p><font face="Arial">If two or more links have the same name then the computer won't be
+able to tell which link the user meant.</font></p>
+
+<h3><font face="Arial">Don't give speakable items similar sounding names</font></h3>
+
+<p><font face="Arial">Speech recognition has a hard time hearing the differences between
+similar sounding phrases. Example, speech recognition will confuse &quot;Send mail to
+Kim&quot; and &quot;Send mail to Jim&quot; easily. The more different the phrases sound,
+the better the accuracy will be.</font></p>
+
+<h3><font face="Arial">Make speakable items two to four words long</font></h3>
+
+<p><font face="Arial">If a speakable item is just one word long then it's likely to sound
+similar to another item. If it's two or more words long then the phrases will sound
+different, and recognition accuracy will be higher. However, if a phrase is too long,
+people won't want to speak it.</font></p>
+
+<h3><font face="Arial">Don't break a link into multiple lines</font></h3>
+
+<p><font face="Arial">Some web pages will break a link into several lines, like this:</font></p>
+
+<p><a href="webdsgn.htm"><font face="Arial">My favorite link</font></a></p>
+
+<p><a href="webdsgn.htm"><font face="Arial">to my favorite</font></a></p>
+
+<p><a href="webdsgn.htm"><font face="Arial">spot</font></a></p>
+
+<p><font face="Arial">Or, the page will do &quot;cool&quot; capitalization like this:</font></p>
+
+<p><a href="webdsgn.htm"><font size="6" face="Arial">M</font><font face="Arial">y </font><font
+size="6" face="Arial">F</font><font face="Arial">avorite </font><font size="6"
+face="Arial">L</font><font face="Arial">ink</font></a></p>
+
+<p><font face="Arial">Neither of these produce very speakable results. In the first case
+the user has to say &quot;My favorite link&quot;, &quot;to my favorite&quot;, or
+&quot;spot&quot;. In the second case, the user would have to speak &quot;M&quot;,
+&quot;y&quot;, &quot;F&quot;, &quot;avorite&quot;, &quot;L&quot;, or &quot;ink&quot; to
+get a recognition.</font></p>
+
+<h3><font face="Arial">Don't put ambiguous symbols and numbers in links</font></h3>
+
+<p><font face="Arial">A link named &quot;6/23&quot; presents a problem because users are
+unsure if they need to speak, &quot;six slash twenty three&quot;, &quot;six twenty
+three&quot;, &quot;six twenty thirds&quot;, or &quot;June twenty third&quot;.</font></p>
+
+<h3><font face="Arial">Graphics should be speakable</font></h3>
+
+<p><font face="Arial">In the case of graphics, you can tell what the browser expects to
+hear by:</font> 
+
+<ol>
+  <li><font face="Arial">Run Internet Explorer 3.0 (or higher)</font></li>
+  <li><font face="Arial">Find the graphic or link in question.</font></li>
+  <li><font face="Arial">Move the cursor over it and let it sit.</font></li>
+  <li><font face="Arial">Within a few seconds, a tool-tip will pop up displaying the text.
+    This is what the user needs to speak.</font></li>
+</ol>
+
+<p><font face="Arial">Users will speak the text in the graphic. If the text in the
+tool-tip doesn't match the computer isn't going to understand the user.</font></p>
+
+<h3><font face="Arial">Make the title speakable</font></h3>
+
+<p><font face="Arial">All web pages have a title that is used for the
+&quot;favorites&quot; list by browser applications. The Microsoft Voice application allows
+user to say &quot;Go to &lt;link&gt;&quot;, where &lt;link&gt; is any of the names on the
+favorites list. If the page has a lengthy title or one with ambiguous symbols, then the
+user will have a difficult time speaking it.</font></p>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">ActiveX Control Design</font></h2>
+
+<p><font face="Arial">ActiveX controls should comply with the ActiveX Accessibility
+standard. Any ActiveX control that supports this will automatically have speakable items.</font></p>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Using the Speech APIs through Visual Basic or Java</font></h2>
+
+<p><font face="Arial">If you want even more speech recognition (or text to speech) than
+the browser will automatically provide, then you can use ActiveX in Visual-Basic Script or
+Java Script. For more information on the&nbsp; ActiveX control of speech recognition or
+text-to-speech, see the Microsoft Speech API documentation.&nbsp;</font></p>
+</body>
+</html>

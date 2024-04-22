@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Direct Speech Recognition Hand Tester</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Direct Speech Recognition Hand Tester</font></h1>
+
+<p><font face="Arial">SRTest is an MFC dialog application for testing the speech
+recognition interfaces, recognition engines, and grammars. It allows comprehensive manual
+testing of the speech recognition API and speech recognition engine. SRTest uses the
+following interfaces: ISRAttributes, ISRCentral, ISRDialogs, ISREnum, ISRFind, ISRGramCFG,
+and ISRGramCommon.</font></p>
+
+<p><font face="Arial">SRTest will allow one speech recognition mode to be loaded, and
+multiple grammar objects per each loaded mode.</font></p>
+
+<p><font face="Arial">To get SRTest up and working:</font>
+
+<ol>
+  <li><a href="sr/asrtest.exe"><font face="Arial">Run it</font></a></li>
+  <li><font face="Arial">Press &quot;Add Mode&quot;</font></li>
+  <li><font face="Arial">Under &quot;Add Mode,&quot; select the engine you wish to test, and
+    press OK.</font></li>
+  <li><font face="Arial">In the main dialog, select one of the grammar (.grm) files to use.</font></li>
+  <li><font face="Arial">If there are no .grm files showing up, press the &quot;Rescan
+    Files&quot; button and type in &quot;c:\program files\Microsoft speech sdk\sr&quot;.
+    &nbsp; (Note: If you installed your SDK to a different directory, you will have to type a
+    different path name.) Press OK, and some grammar files will show up in the list.</font></li>
+  <li><font face="Arial">If you wish to make your own grammars, use the <a href="srg.htm">Speech
+    Recognition Grammar Compiler</a>. Make sure to save the grammars as .grm files instead of
+    .txt or .srg.</font></li>
+  <li><font face="Arial">Double click a grammar to load it, such as tv.grm. The grammar name
+    will appear in the &quot;Loaded grammars&quot; list in the upper right hand corner.</font></li>
+  <li><font face="Arial">To use a grammar, double click the name in the &quot;Loaded
+    grammars&quot; list. This will change the tab dialogs to the grammar interfaces. Double
+    clicking also activates the grammar.</font></li>
+  <li><font face="Arial">Double click tv.grm.</font></li>
+  <li><font face="Arial">Speak &quot;CNN&quot; or &quot;NBC&quot;. You'll see notifications
+    indicating what the speech recognizer heard.</font></li>
+  <li><font face="Arial">To stop listening, press &quot;Deactivate.&quot;</font></li>
+</ol>
+
+<p><font face="Arial">&nbsp;</font></p>
+
+<p><font face="Arial">The speech recognition hand tester provides a lot more functionality
+than just this. In general, there's a tab/pane for every interface, and each tab/pane has
+a button or edit field for each function in the interface. This enables you to access
+features of the speech recognition engine by hand and test out its responses.</font></p>
+
+<p><font face="Arial">&nbsp;</font></p>
+
+<h2><font face="Arial">Troubleshooting</font></h2>
+
+<p><font face="Arial">At startup, SRTest scans the grammar directory for available grammar
+files (*.grm). The grammar directory is retrieved from a registry variable
+(HKEY_CURRENT_USER\software\Microsoft\srtest\settings) which is added to your registry by
+setup. If no grammar files are found, it brings up a dialog asking for a path. Type the
+full path name of the directory where the grammar files are. To change the path at a later
+time press the Rescan Grammar Files button in the ISRCentral property page. If grammar
+files are found in the new location, that path will be added to the registry.</font></p>
+
+<h2><font face="Arial">Notes</font></h2>
+
+<p><font face="Arial">There are no 'Apply' buttons for edit controls. To apply a value
+which you have just entered press TAB.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font>
+
+<ul>
+  <li><font face="Arial">Dictation or Command &amp; Control Speech Recognition Engine</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font>
+
+<ul>
+  <li><a href="sr\asrtest.exe"><font size="5" face="Arial"><strong>Run it! (ANSI Version)</strong></font></a></li>
+  <li><a href="sr\usrtest.exe"><font size="5" face="Arial"><strong>Run it! (Unicode Version)</strong></font></a><font
+    face="Arial"> - Only works on Windows NT.</font></li>
+  <li><a href="samples\srtest"><font size="5" face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+
+<p>&nbsp;</p>
+</body>
+</html>

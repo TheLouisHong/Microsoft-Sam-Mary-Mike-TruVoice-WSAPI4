@@ -1,0 +1,1454 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5,"You need a new version of advpack.dll"
+
+[SourceDisksNames]
+1=%AppName%,,1
+
+[DefaultInstall]
+Copyfiles=F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F10a,F11,F14,F15,F16,F20,F21,F22,F23,F24,F25,F27,F28,F29,F33,F38,F38a,F40,F40a,F41,F42,F43,F44,F45,F46,F47,F48,F49,F50,F51,F52,F53,F54,F55,F56,F57,F58,F59,F60,F61,F62,F63,F64,F65,F66,F67,F68,F69,F70,F71,F72,F73,F74,F75,F76,F77,F78,F79,F80,F81,F82,F83,F84
+AddReg=SDKAppReg,AddUninstall
+CustomDestination=MyCustomDestination
+UpdateInis=AddLink
+RunPostSetupCommands=RunPostSetupCommandsSection
+DelReg=SDKInstallDelete
+
+[DefaultInstall.NT]
+Copyfiles=F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F10a,F11,F14,F15,F16,F20,F21,F22,F23,F24,F25,F27,F28,F29,F33,F38,F38a,F40,F40a,F41,F42,F43,F44,F45,F46,F47,F48,F49,F50,F51,F52,F53,F54,F55,F56,F57,F58,F59,F60,F61,F62,F63,F64,F65,F66,F67,F68,F69,F70,F71,F72,F73,F74,F75,F76,F77,F78,F79,F80,F81,F82,F83,F84
+AddReg=SDKAppReg,AddNTUninstall
+CustomDestination=MyCustomDestination
+UpdateInis=AddLinkNT
+RunPostSetupCommands=RunPostSetupCommandsSection
+DelReg=SDKInstallDelete
+
+[RunPostSetupCommandsSection]
+;NT setup will always try to extract a cab on copy..so we have a special
+;program to copy a cab..note that quotes get parsed out, so # is used to
+;separated the file names.
+%49017%\cabcpy %49017%\colors.cab#%49000%\Samples\ActiveX\Java\Colors\colors.cab
+spchapi.exe /R:N
+ActiveV.exe
+
+; bugbug - uncomment these for everything else
+;msdapp.exe /R:N
+;msvapp.exe /R:N
+;msdct.exe /R:N
+;mstts.exe /R:N
+;mscsr.exe /R:N
+
+[Uninstall]
+BeginPrompt=BeginPromptSection
+EndPrompt=EndPromptSection
+CustomDestination=UninstallDestination
+DelFiles=F1,F3,F4,F5,F6,F7,F8,F9,F10,F10a,F11,F14,F15,F16,F20,F21,F22,F23,F24,F25,F27,F28,F29,F33,F38,F38a,F40,F40a,F41,F42,F43,F44,F45,F46,F47,F48,F49,F50,F51,F52,F53,F54,F55,F56,F57,F58,F59,F60,F61,F62,F63,F64,F65,F66,F67,F68,F69,F70,F71,F72,F73,F74,F75,F76,F77,F78,F79,F80,F81,F82,F83,F84
+Deldirs=RemoveFolder
+AddReg=DeleteLongFiles
+DelReg=DelRegSection
+UpdateInis=RemoveLink
+SmartReboot=I
+Cleanup=1
+RunPreSetupCommands=RunOnUninstall
+
+[Uninstall.Quiet]
+CustomDestination=UninstallDestination
+DelFiles=F1,F3,F4,F5,F6,F7,F8,F9,F10,F10a,F11,F14,F15,F16,F20,F21,F22,F23,F24,F25,F27,F28,F29,F33,F38,F38a,F40,F40a,F41,F42,F43,F44,F45,F46,F47,F48,F49,F50,F51,F52,F53,F54,F55,F56,F57,F58,F59,F60,F61,F62,F63,F64,F65,F66,F67,F68,F69,F70,F71,F72,F73,F74,F75,F76,F77,F78,F79,F80,F81,F82,F83,F84
+Deldirs=RemoveFolder
+DelReg=DelRegSection
+AddReg=DeleteLongFiles
+UpdateInis=RemoveLink
+SmartReboot=I
+Cleanup=1
+RunPreSetupCommands=RunOnUninstall
+
+[Uninstall.NT]
+BeginPrompt=BeginPromptSection
+EndPrompt=EndPromptSection
+CustomDestination=UninstallDestination
+DelFiles=F1,F3,F4,F5,F6,F7,F8,F9,F10,F10a,F11,F14,F15,F16,F20,F21,F22,F23,F24,F25,F27,F28,F29,F33,F38,F38a,F40,F40a,F41,F42,F43,F44,F45,F46,F47,F48,F49,F50,F51,F52,F53,F54,F55,F56,F57,F58,F59,F60,F61,F62,F63,F64,F65,F66,F67,F68,F69,F70,F71,F72,F72d,F73,F73d,F74,F75,F76,F77,F78,F79,F80,F81,F82,F83,F84
+Deldirs=RemoveFolder
+DelReg=DelRegSection
+UpdateInis=RemoveLink
+SmartReboot=I
+Cleanup=1
+RunPreSetupCommands=RunOnUninstall
+
+[Uninstall.Quiet.NT]
+CustomDestination=UninstallDestination
+DelFiles=F1,F3,F4,F5,F6,F7,F8,F9,F10,F10a,F11,F14,F15,F16,F20,F21,F22,F23,F24,F25,F27,F28,F29,F33,F38,F38a,F40,F40a,F41,F42,F43,F44,F45,F46,F47,F48,F49,F50,F51,F52,F53,F54,F55,F56,F57,F58,F59,F60,F61,F62,F63,F64,F65,F66,F67,F68,F69,F70,F71,F72,F72d,F73,F73d,F74,F75,F76,F77,F78,F79,F80,F81,F82,F83,F84
+Deldirs=RemoveFolder
+DelReg=DelRegSection
+UpdateInis=RemoveLink
+SmartReboot=I
+Cleanup=1
+RunPreSetupCommands=RunOnUninstall
+
+
+[RunOnUninstall]
+%25%\ST5UNST.EXE -n %25%\Speech\ST5UNST.LOG
+
+[DeleteLongFiles]
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java,,,"%49000%\Samples\ActiveX\Java\Colors"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java,colors.cdb,, "colors.cab"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java,colors.jav,, "colors.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java,colorsF.jav,, "colorsFrame.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java,colors.cla,, "colors.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java,colorsF.cla,, "colorsFrame.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java,colorsS.cla,, "colors$MyEventSinker.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,,,"%49000%\Samples\ActiveX\Java\Colors\directsr"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,IDirectD.jav,, "IDirectSRDefault.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,IDirect.jav,, "IDirectSR.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,Direct.jav,, "DirectSR.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,_DirectD.jav,, "_DirectSREventsDefault.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,_DirectE.jav,, "_DirectSREvents.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,_DirectD.cla,, "_DirectSREventsDefault.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,_DirectE.cla,, "_DirectSREvents.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,Direct.cla,, "DirectSR.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\DeleteFiles\java2,IDirect.cla,, "IDirectSR.class"
+
+
+[AddLinkNT]
+setup.ini, progman.groups,, "SpchSDK="
+setup.ini, SpchSDK,, """%MSSpchSDK_LINK%"", """"""%49002%\default.htm"""""""
+setup.ini, SpchSDK,, """%MSSpchSDK_LINK30%"""
+
+[AddLink]
+setup.ini, progman.groups,, "SpchSDK="
+setup.ini, SpchSDK,, """%MSSpchSDK_LINK%"", ""%49002%\default.htm"""
+setup.ini, SpchSDK,, """%MSSpchSDK_LINK30%"""
+
+[RemoveLink]
+setup.ini, progman.groups,, "SpchSDK="
+setup.ini, SpchSDK,, """%MSSpchSDK_LINK%"""
+
+[DestinationDirs]
+F1=49000
+F2=17
+F3=49000
+F4=49000,Misc
+F5=49000,SR
+F6=49000,SR\Command
+F7=49000,SR\Dictate
+F8=49000,TTS
+F9=49000,Document
+F10=49000,Include
+F10a=49000,Lib
+F11=49000,Samples\AudioSD
+F14=49000,Samples\Clock
+F15=49000,Samples\Feedback
+F16=49000,Samples\Feedback\Res
+F20=49000,Samples\Include
+F21=49000,Samples\SRTest
+F22=49000,Samples\SRTest\Res
+F23=49000,Samples\TTSDemo
+F24=49000,Samples\TTSTst
+F25=49000,Samples\TTSTst\Res
+F27=49000,Samples\VCmdDemo
+F28=49000,Samples\DctDemo
+F29=49000,Samples\DctPad
+F33=49000,Samples\AccTest
+F38=49000,Samples\VTTest
+F38a=49000,Samples\VTTest\Res
+F40=49000,Samples\TTSApp
+F40a=49000,Samples\TTSApp\Res
+F41=49000,Redist\API
+F42=49000,Redist\MSTTS
+F43=49000,MSTTS
+F44=25,Speech
+F45=49000,Samples\DestFile
+F46=49000,Samples\MultiVce
+F47=49000,Samples\MicWiz
+F48=49000,Samples\PConv
+F49=49000,Tel
+F50=49000,Samples\SpchWrap
+F51=49000,Samples\LogView
+F52=49000,Samples\Srg
+F53=49000,Samples\Tel
+F54=49000,Samples\TelCtl
+F55=49000,Samples\TTSQ
+F56=49000,Samples\WrapDemo
+F57=49000,Samples\MSMouth
+F58=49000,Samples\Movie
+F59=49000,Samples\Pizza
+F60=49000,Samples\ActiveX\VB5\Burger
+F61=49000,Samples\ActiveX\VB5\BasicTTS
+F62=49000,Samples\ActiveX\VB5\Mail
+F63=49000,Samples\ActiveX\VB5\DictaPad
+F64=49000,Samples\ActiveX\WEB\Lady
+F65=49000,Samples\ActiveX\OTHER
+F66=49000,Samples\Answer
+F67=49000,Samples\SRStress
+F68=49000,Samples\TSStress
+F69=49000,Samples\ActiveX\VB5\sharware
+F70=49000,Samples\ActiveX\VB5\answer
+F71=49000,Samples\Speak
+F72=49000,Samples\ActiveX\Java\Colors
+F72d=49000,Samples\ActiveX\Java\Colors
+F73=49000,Samples\ActiveX\Java\Colors\directsr
+F73d=49000,Samples\ActiveX\Java\Colors\directsr
+F74=49000,Samples\SRFunc
+F75=49000,Samples\TTSFunc
+F76=49000,Samples\ActiveX\VB5\BasicCmd
+F77=49000,Samples\ActiveX\VB5\OutSec
+F78=49000,Samples\LexDlg
+F79=49000,Samples\ActiveX\VB5
+F80=49000,Samples\Wrapper
+F81=49000,Samples\SRFake
+F82=49000,Samples\TTSFake
+F83=49000,Samples\FullDup
+F84=49000,Samples\AudIndex
+
+LinkSection=25,desktop
+
+[MyCustomDestination]
+49010=ProgramFilesDestination,21
+49000,49001,49002,49003=PackageDestination49000,1
+49017=SourceDir
+
+[UninstallDestination]
+49010=ProgramFilesDestination,5
+49000=UninstallDestination49000,5
+
+[ProgramFilesDestination]
+HKLM,software\microsoft\windows\currentversion,ProgramFilesDir,"%InstallPrompt%","%49010%\%DefaultDir%"
+
+[PackageDestination49000]
+HKLM,Software\Microsoft\MSSpchSDK,InstallDir,%InstallPrompt%,"%49010%\%DefaultDir%"
+
+[UninstallDestination49000]
+HKLM,Software\Microsoft\MSSpchSDK,InstallDir,%InstallPrompt%,"%49010%\%DefaultDir%"
+
+[F1]
+
+[F3]
+acctest.htm
+activex.htm
+allapp.htm
+answer.htm
+apidoc.htm
+audindex.htm
+audiosd.htm
+basiccmd.htm
+basictts.htm
+burger.htm
+build.htm
+checkmic.htm
+collect.htm
+cool.htm
+coolcnc.htm
+cooldict.htm
+dctdemo.htm
+dctpad.htm
+dictapad.htm
+default.htm
+destfile.htm
+fake.htm
+feedback.htm
+forent.htm
+forprod.htm
+fortel.htm
+fortest.htm
+frbottom.htm
+frconten.htm
+frmain.htm
+frtop.htm
+fulldup.htm
+getstart.htm
+howsr.htm
+howtts.htm
+iapp.htm
+iart.htm
+iconf.htm
+imic.htm
+inews.htm
+internet.htm
+itel.htm
+isdk.htm
+isreng.htm
+ittseng.htm
+java.htm
+lexdlg.htm
+logspeak.htm
+logview.htm
+mail.htm
+mics.htm
+micwiz.htm
+misc.htm
+movie.htm
+msmouth.htm
+mstts.htm
+multivce.htm
+oem.htm
+outsec.htm
+pconv.htm
+pizza.htm
+recplay.htm
+redist.htm
+register.htm
+samples.htm
+sharware.htm
+spchwrap.htm
+speakcpp.htm
+srclock.htm
+srfunc.htm
+srg.htm
+srload.htm
+srstress.htm
+srtest.htm
+statemnt.htm
+tapi.htm
+tel.htm
+telctl.htm
+test.htm
+tools.htm
+tsstress.htm
+ttsapp.htm
+ttsfunc.htm
+ttsload.htm
+ttsq.htm
+ttstest.htm
+useaud.htm
+usecpp.htm
+usehtml.htm
+usejava.htm
+uselowsr.htm
+uselowtt.htm
+usest.htm
+usetel.htm
+usevb.htm
+usevcmd.htm
+usevdct.htm
+usevtxt.htm
+usexcel.htm
+useword.htm
+vbanswer.htm
+vcmddemo.htm
+vtxttest.htm
+webdsgn.htm
+wedit.htm
+whatsnew.htm
+wrapdemo.htm
+wrapper.htm
+
+license.txt
+
+[F4]
+AudioSD.dll,budiosd.dll
+micwiz.exe
+tapiinfo.exe
+lexdlg.exe
+pconv.exe
+vu.exe
+wrapdemo.exe
+wedit.exe
+wave.dll
+fulldup.exe
+
+[F5]
+Commands.grm,bcommand.grm
+asrtest.exe,basrtst.exe
+usrtest.exe,busrtst.exe
+Silence.wav,silence.wav
+test.wav
+correct.txt
+Collect.exe,collect.exe
+AccTest.exe,acctest.exe
+TextToWo.exe,texttowo.exe
+DiffWord.exe,diffword.exe
+srstress.exe
+recplay.exe
+srfunc.exe
+srload.exe
+srg.exe
+audindex.exe
+advent.txt
+builtin.txt
+builtin2.txt
+dict.txt,dict3.txt
+dict2.txt
+flight.txt
+limdom.txt
+lists.txt
+tv.txt
+tvcmd.txt
+tvlimit.txt
+tvspot.txt
+advent.grm
+builtin.grm
+tv.grm
+[F6]
+Feedback.exe,beedback.exe
+SRClk.bmp,brclk.bmp
+SRClk.dat,brclk.dat
+SRClock.exe,brclk.exe
+VCmdDemo.exe,bcmddemo.exe
+World.dat,world.dat
+
+[F7]
+DctDemo.exe,dctdemo.exe
+DctPad.exe,DctPad.exe
+
+[F8]
+TTSDemo.exe,btsdemo.exe
+destfile.exe
+multivce.exe
+ttsapp.exe
+attstest.exe,battstst.exe
+avttest.exe,bavttst.exe
+uttstest.exe,buttstst.exe
+uvttest.exe,buvttst.exe
+msmouth.exe
+tsstress.exe
+ttsfunc.exe
+ttsload.exe
+ttsq.exe
+jean.vce
+
+[F9]
+com.rtf
+cpp.rtf
+vb.rtf
+com.chm
+cpp.chm
+vb.chm
+
+
+[F10]
+speech.h,ipeech.h
+spchtel.h
+spchwrap.h
+buildnum.h
+buildnum.rc
+
+[F10a]
+spchwrap.lib
+
+[F11]
+audio.h,sadio.h
+audioin.cpp,sadioin.cpp
+audioinc.h,sadioinc.h
+audioout.cpp,sadioout.cp
+audiosd.mak,sadiosd.mak
+audiosd.dsp,sadiosd.dsp
+audiosd.reg,sadiosd.reg
+cf.cpp,sa.cpp
+ctools.cpp,saools.cpp
+ctools.h,saools.h
+guidseg.cpp,saidseg.cpp
+readme.doc,saadme.doc
+speech.def,saeech.def
+
+[F14]
+clkhands.cpp,sckhands.cpp
+clkhands.h,sckhands.h
+init.cpp,scit.cpp
+resource.h,scsource.h
+showdib.cpp,scowdib.cpp
+showdib.h,scowdib.h
+srclk.bmp,scclk.bmp
+srclk.cpp,scclk.cpp
+srclk.dat,scclk.dat
+srclk.h,scclk.h
+srclk.ico,scclk.ico
+srclk.mak,scclk.mak
+srclk.dsp,scclk.dsp
+srclk.rc,scclk.rc
+srclkdlg.cpp,scclkdlg.cpp
+srclkdlg.h,scclkdlg.h
+vcmd.cpp,scmd.cpp
+vcmd.h,scmd.h
+
+[F15]
+dialogs.cpp,sfalogs.cpp
+fdbkole.cpp,sfbkole.cpp
+feedback.cpp,sfedback.cpp
+feedback.h,sfedback.h
+feedback.mak,sfedback.mak
+feedback.dsp,sfedback.dsp
+feedback.rc,sfedback.rc
+guid.cpp,sfid.cpp
+icons.cpp,sfons.cpp
+icons.h,sfons.h
+resource.h,sfsource.h
+stdafx.cpp,sfdafx.cpp
+stdafx.h,sfdafx.h
+tray.cpp,sfay.cpp
+tray.h,sfay.h
+
+[F16]
+feedback.ico,sfedback.ico
+feedback.rc2,sfedback.rc2
+listen16.ico,sfsten16.ico
+listen32.ico,sfsten32.ico
+notrec16.ico,sftrec16.ico
+notrec32.ico,sftrec32.ico
+off16.ico,sff16.ico
+off32.ico,sff32.ico
+recog16.ico,sfcog16.ico
+recog32.ico,sfcog32.ico
+sleep16.ico,sfeep16.ico
+sleep32.ico,sfeep32.ico
+think16.ico,sfink16.ico
+think32.ico,sfink32.ico
+
+[F20]
+bufcvt.h,sifcvt.h
+buildnum.h,siildnum.h
+buildnum.rc,siildnum.rc
+speech.h,sieech.h
+
+[F21]
+dlgfindm.cpp,stgfindm.cpp
+dlgfindm.h,stgfindm.h
+guidseg.cpp,stidseg.cpp
+resource.h,stsource.h
+srdlg.cpp,stdlg.cpp
+srdlg.h,stdlg.h
+srfunc.cpp,stfunc.cpp
+srfunc.h,stfunc.h
+srtest.cpp,sttest.cpp
+srtest.h,sttest.h
+srtest.mak,sttest.mak
+srtest.dsp,sttest.dsp
+srtest.rc,sttest.rc
+stdafx.cpp,stdafx.cpp
+stdafx.h,stdafx.h
+tabisrce.cpp,stbisrce.cpp
+tabisrce.h,stbisrce.h
+gramfunc.cpp,stamfunc.cpp
+gramfunc.h,stamfunc.h
+
+[F22]
+srtest.ico,sttest.ico
+srtest.rc2,sttest.rc2
+
+[F23]
+demo.cpp,tdmo.cpp
+icon1.ico,tdon1.ico
+resource.h,tdsource.h
+ttsdemo.mak,tdsdemo.mak
+ttsdemo.dsp,tdsdemo.dsp
+ttsdemo.rc,tdsdemo.rc
+
+[F24]
+dlgfindm.cpp,ttgfindm.cpp
+dlgfindm.h,ttgfindm.h
+guidseg.cpp,ttidseg.cpp
+resource.h,ttsource.h
+stdafx.cpp,ttdafx.cpp
+stdafx.h,ttdafx.h
+tabisrce.cpp,ttbisrce.cpp
+tabisrce.h,ttbisrce.h
+ttsdlg.cpp,ttsdlg.cpp
+ttsdlg.h,ttsdlg.h
+ttsfnc.cpp,ttsfnc.cpp
+ttsfnc.h,ttsfnc.h
+ttstst.cpp,ttstst.cpp
+ttstst.h,ttstst.h
+ttstst.mak,ttstst.mak
+ttstst.dsp,ttstst.dsp
+ttstst.rc,ttstst.rc
+bufcvt.h,sifcvt.h
+
+[F25]
+ttstst.ico
+ttstst.rc2
+
+[F27]
+demo.cpp,svmo.cpp
+icon1.ico,svon1.ico
+resource.h,svsource.h
+vcmddemo.mak,svmddemo.mak
+vcmddemo.dsp,svmddemo.dsp
+vcmddemo.rc,svmddemo.rc
+
+[F28]
+dctdemo.mak,edctdemo.mak
+dctdemo.dsp,edctdemo.dsp
+guidseg.cpp,eguidseg.cpp
+main.cpp,emain.cpp
+res.rc,eres.rc
+resource.h,eresourc.h
+
+[F29]
+bmp00002.bmp,hbmp0000.bmp
+cmnhdr.cpp,hcmnhdr.cpp
+cmnhdr.h,hcmnhdr.h
+command.txt,hcommand.txt
+dctpad.mak,hdctpad.mak
+dctpad.dsp,hdctpad.dsp
+dctpad.rc,hdctpad.rc
+dictoff.ico,hdictoff.ico
+dicton.ico,hdicton.ico
+dicton1.ico,hdicton1.ico
+docicon.ico,hdocicon.ico
+errcodes.h,herrcode.h
+except.h,hexcept.h
+guidseg.cpp,hguidseg.cpp
+ico00001.ico,hico0001.ico
+interm.cpp,hinterm.cpp
+interm.h,hinterm.h
+msdict.ico,hmsdict.ico
+reditcb.cpp,hreditcb.cpp
+reditcb.h,hreditcb.h
+resource.h,hresourc.h
+zmouse.h,hzmouse.h
+
+[F33]
+acctest.mak,jacctest.mak
+acctest.dsp,jacctest.dsp
+main.cpp,jmain.cpp
+res.rc,jres.rc
+resource.h,jresourc.h
+diffword.cpp,jdiffwor.cpp
+parse.cpp,jparse.cpp
+parse.h,jparse.h
+
+[F38]
+guidseg.cpp,vtidseg.cpp
+readme.txt,vtadme.txt
+resource.h,vtsource.h
+stdafx.cpp,vtdafx.cpp
+stdafx.h,vtdafx.h
+tabdlgs.cpp,vtbdlgs.cpp
+tabdlgs.h,vtbdlgs.h
+vtnot.cpp,vtnot.cpp
+vtobj.cpp,vtobj.cpp
+vtobj.h,vtobj.h
+vtpick.cpp,vtpick.cpp
+vtpick.h,vtpick.h
+vttesdlg.cpp,vttesdlg.cpp
+vttesdlg.h,vttesdlg.h
+vttest.cpp,vttest.cpp
+vttest.h,vttest.h
+vttest.mak,vttest.mak
+vttest.dsp,vttest.dsp
+vttest.rc,vttest.rc
+
+[F38a]
+vttest.ico,vttest.ico
+vttest.rc2,vttest.rc2
+
+[F40]
+guidseg.cpp,mguidseg.cpp
+leaks.h,mleaks.h
+resource.h,mresourc.h
+stdafx.cpp,mstdafx.cpp
+stdafx.h,mstdafx.h
+ttsapp.cpp,mttsapp.cpp
+ttsapp.h,mttsapp.h
+ttsapp.mak,mttsapp.mak
+ttsapp.dsp,mttsapp.dsp
+ttsapp.rc,mttsapp.rc
+ttsappd.cpp,mttsappd.cpp
+ttsappd.h,mttsappd.h
+
+[F40a]
+ttsapp.ico,mttsapp.ico
+ttsapp.rc2,mttsapp.rc2
+
+[F41]
+spchapi.exe
+
+[F42]
+mstts.dll
+
+[F43]
+ttscol.exe
+audiopp.exe
+phrase.ini
+
+[F44]
+mstts.dll
+
+[F45]
+destfile.mak,ndestfil.mak
+destfile.dsp,ndestfil.dsp
+demo.cpp,ndemo.cpp
+demo.rc,ndemo.rc
+resource.h,nresourc.h
+icon1.ico,nicon1.ico
+
+[F46]
+multivce.mak,mmultivc.mak
+multivce.dsp,mmultivc.dsp
+demo.cpp,mdemo.cpp
+demo.rc,mdemo.rc
+resource.h,mresourc.h2
+
+[F47]
+micwiz.mak
+micwiz.dsp
+micwiz.cpp
+
+[F48]
+pconv.mak
+pconv.dsp
+pconv.cpp
+pconv.h
+pconv.rc
+
+[F49]
+logspeak.exe
+logview.exe
+sample.stl
+tel.exe
+telctl.dll
+pizza.exe
+answer.exe
+movie.exe
+phone.tpc
+movie.tpc
+yesno.tpc
+
+[F2]
+SpchSDK.inf
+
+[F50]
+ctools.cpp,qctools.cpp
+lowsr.cpp,qlowsr.cpp
+lowtts.cpp,qlowtts.cpp
+spchwrap.dsp
+spchwrap.mak
+stools.cpp,qstools.cpp
+teleph.cpp,qteleph.cpp
+telframe.cpp,qtelfram.cpp
+vcmd.cpp,qvcmd.cpp
+vdct.cpp,qvdct.cpp
+vtxt.cpp,qvtxt.cpp
+link.cpp,qlink.cpp
+link.h,qlink.h
+telobj.cpp,qtelobj.cpp
+
+[F51]
+ctools.cpp,rctools.cpp
+ctools.h,rctools.h
+ico00001.ico,rico0000.ico
+icon1.ico,ricon1.ico
+logfile.cpp,rlogfile.cpp
+logfile.h,rlogfile.h
+logview.cpp,rlogview.cpp
+logview.dsp,rlogview.dsp
+logview.mak,rlogview.mak
+logview.rc,rlogview.rc
+resource.h,rresourc.h
+
+[F52]
+editor.cpp,seditor.cpp
+guidseg.cpp,sguidseg.cpp
+ico00001.ico,sico0000.ico
+icon1.ico,sicon1.ico
+resource.h,sresourc.h
+srg.dsp,ssrg.dsp
+srg.mak,ssrg.mak
+srg.rc,ssrg.rc
+test.cpp,stest.cpp
+
+[F53]
+editor.cpp,teditor.cpp
+guidseg.cpp,tguidseg.cpp
+ico00001.ico,tico0000.ico
+icon1.ico,ticon1.ico
+link.cpp,tlink.cpp
+link.h,tlink.h
+resource.h,tresourc.h
+tel.dsp,ttel.dsp
+tel.mak,ttel.mak
+tel.rc,ttel.rc
+test.cpp,ttest.cpp
+
+[F54]
+cf.cpp,ucf.cpp
+resource.h,uresourc.h
+telctl.def,utelctl.def
+telctl.dsp,utelctl.dsp
+telctl.h,utelctl.h
+telctl.mak,utelctl.mak
+telctl.rc,utelctl.rc
+yesno.cpp,uyesno.cpp
+yesno.tc,uyesno.tc
+xtension.cpp,uxtensio.cpp
+xtension.tc,uxtensio.tc
+phonenum.cpp,uphonenu.cpp
+phonenum.tc,uphonenu.tc
+grammar.cpp,ugrammar.cpp
+grammar.tc,ugrammar.tc
+date.cpp,udate.cpp
+date.tc,udate.tc
+time.cpp,utime.cpp
+time.tc,utime.tc
+record.cpp,urecord.cpp
+record.tc,urecord.tc
+spelling.cpp,uspellin.cpp
+spelling.tc,uspellin.tc
+name.cpp,uname.cpp
+name.tc,uname.tc
+
+[F55]
+beep.wav,vbeep.wav
+demo.cpp,vdemo.cpp
+resource.h,vresourc.h
+ttsdemo.rc,vttsdemo.rc
+ttsq.dsp,vttsq.dsp
+ttsq.mak,vttsq.mak
+
+[F56]
+resource.h,wresourc.h
+wrapdemo.cpp
+wrapdemo.dsp
+wrapdemo.mak
+wrapdemo.rc
+
+[F57]
+icon1.ico,xicon1.ico
+main.cpp,xmain.cpp
+msmouth.dsp,xmsmouth.dsp
+msmouth.mak,xmsmouth.mak
+msmouth.rc,xmsmouth.rc
+paint.cpp,xpaint.cpp
+paint.h,xpaint.h
+resource.h,xresourc.h
+
+[F58]
+movie.h,ymovie.h
+resource.h,yresourc.h
+telsamp.cpp,ytelsamp.cpp
+tel.rc,ytel.rc
+movie.cpp,ymovie.cpp
+movie.dsp,ymovie.dsp
+movie.mak,ymovie.mak
+movie.txt,ymovie.txt
+
+[F59]
+pizza.h,zpizza.h
+resource.h,zresourc.h
+telsamp.cpp,ztelsamp.cpp
+tel.rc,ztel.rc
+pizza.cpp,zpizza.cpp
+pizza.dsp,zpizza.dsp
+pizza.mak,zpizza.mak
+
+[F60]
+burger.frm
+burger.frx
+burger.txt
+burger.vbp
+burger.vbw
+yesno.txt
+burger.exe
+bursign3.bmp
+
+[F61]
+basictts.frm
+basictts.frx
+basictts.vbw
+basictts.vbp
+basictts.exe
+
+[F62]
+mail.frm
+mail.frx
+mail.vbw
+mail.vbp
+signon.wav
+signoff.wav
+mail.exe
+
+[F63]
+dictapad.vbw
+dictapad.frx
+dictapad.bas
+dictapad.frm
+dictapad.vbp
+float.frm
+dictapad.exe
+dict.txt
+
+[F64]
+lady1.htm
+lady.htm
+none.htm
+sqgirl12.jpg
+right.htm
+
+[F65]
+numcheck.xls
+dictate.dot
+
+[F66]
+answer.cpp,aaanswer.cpp
+answer.dsp,aaanswer.dsp
+answer.h,aaanswer.h
+answer.mak,aaanswer.mak
+answer.txt,aaanswer.txt
+messages.cpp,aamessag.cpp
+resource.h,aaresour.h
+tel.rc,aatel.rc
+telsamp.cpp,aatelsam.cpp
+
+[F67]
+srstress.cpp,bbsrstre.cpp
+srstress.h,bbsrstre.h
+srstress.dsp,bbsrstre.dsp
+srstress.mak,bbsrstre.mak
+stress.rc,bbstress.rc
+resource.h,bbresour.h
+
+[F68]
+tsstress.cpp,cctsstre.cpp
+tsstress.h,cctsstre.h
+tsstress.dsp,cctsstre.dsp
+tsstress.mak,cctsstre.mak
+stress.rc,ccstress.rc
+resource.h,ccresour.h
+
+[F69]
+date.txt
+sharware.frm
+sharware.frx
+sharware.vbp
+sharware.vbw
+sharware.exe
+
+[F70]
+answer.frm
+answer.frx
+answer.vbp
+answer.vbw
+vbanswer.exe
+hianswer.wav
+
+[F71]
+speak.exe
+speak.cpp
+speak.dsp
+speak.dsw
+speak.mak
+
+[F72]
+colors.dsp
+colors.dsw
+colors.du
+colors.htm
+colors.jav
+colors.opt
+colorsF.jav
+post.bat
+colors.cla
+colorsF.cla
+colorsS.cla
+
+; delete long file names in NT
+[F72d]
+colors.cab
+colors.java
+colorsFrame.java
+colors.class
+colorsFrame.class
+colors$MyEventSinker.class
+
+[F73]
+IDirectD.jav
+IDirect.jav
+Direct.jav
+_DirectD.jav
+_DirectE.jav
+_DirectD.cla
+_DirectE.cla
+Direct.cla
+IDirect.cla
+
+; delete long file names in NT
+[F73d]
+IDirectSRDefault.java
+IDirectSR.java
+DirectSR.java
+_DirectSREventsDefault.java
+_DirectSREvents.java
+_DirectSREventsDefault.class
+_DirectSREvents.class
+DirectSR.class
+IDirectSR.class
+
+[F74]
+frame.cpp,ddframe.cpp
+frame.h,ddframe.h
+info.cpp,ddinfo.cpp
+info.rc,ddinfo.rc
+resource.h,ddresour.h
+srfunc.dsp,ddsrfunc.dsp
+srfunc.mak,ddsrfunc.mak
+test1.cpp,ddtest1.cpp
+test2.cpp,ddtest2.cpp
+test3.cpp,ddtest3.cpp
+
+[F75]
+frame.cpp,eeframe.cpp
+frame.h,eeframe.h
+info.cpp,eeinfo.cpp
+info.rc,eeinfo.rc
+resource.h,eeresour.h
+ttsfunc.dsp,eettsfun.dsp
+ttsfunc.mak,eettsfun.mak
+test1.cpp,eetest1.cpp
+test2.cpp,eetest2.cpp
+
+[F76]
+basiccmd.frm
+basiccmd.frx
+basiccmd.vbw
+basiccmd.vbp
+basiccmd.exe
+
+[F77]
+outsec.frx
+outsec.vbw
+outsec.frm
+outsec.exe
+outsec.vbp
+
+[F78]
+lexdlg.cpp,fflexdlg.cpp
+lexdlg.dsp,fflexdlg.dsp
+lexdlg.mak,fflexdlg.mak
+lexdlg.rc,fflexdlg.rc
+resource.h,ffresour.h
+ctools.cpp,ffctools.cpp
+ctools.h,ffctools.h
+
+[F79]
+vbspeech.bas
+
+[F80]
+wrapobj.rgs,ggwrapob.rgs
+wrapobj.h,ggwrapob.h
+wrapper.rc,ggwrappe.rc
+resource.h,ggresour.h
+stdafx.cpp,ggstdafx.cpp
+stdafx.h,ggstdafx.h
+wrapobj.cpp,ggwrapob.cpp
+wrapper.cpp,ggwrappe.cpp
+wrapper.def,ggwrappe.def
+wrapper.dsp,ggwrappe.dsp
+wrapper.h,ggwrappe.h
+
+[F81]
+ctools.cpp,hhctools.cpp
+ctools.h,hhctools.h
+fakesr.cpp,hhfakesr.cpp
+fakesr.h,hhfakesr.h
+fakesr.rc,hhfakesr.rc
+fakesrcf.cpp,hhfakecf.cpp
+fakesren.cpp,hhfakeen.cpp
+fakesren.h,hhfakeen.h
+fakesrgr.cpp,hhfakegr.cpp
+guidseg.cpp,hhguidse.cpp
+resource.h,hhresour.h
+srfake.def,hhsrfake.def
+srfake.mak,hhsrfake.mak
+srfake.reg,hhsrfake.reg
+
+[F82]
+ctools.cpp,iictools.cpp
+ctools.h,iictools.h
+faketts.cpp,iifakett.cpp
+faketts.h,iifakett.h
+faketts.rc,iifakett.rc
+fakettsc.cpp,iifaketc.cpp
+fakettse.cpp,iifakete.cpp
+fakettse.h,iifakete.h
+guidseg.cpp,iiguidse.cpp
+resource.h,iiresour.h
+ttsfake.def,iittsfak.def
+ttsfake.dsp,iittsfak.dsp
+ttsfake.mak,iittsfak.mak
+ttsfake.reg,iittsfak.reg
+
+[F83]
+resource.h,jjresour.cpp
+fulldup.rc
+fulldup.mak
+fulldup.dsp
+fulldup.cpp
+
+[F84]
+audindex.cpp
+audindex.dsp
+audindex.mak
+audindex.rc
+ctools.cpp,kkctools.cpp
+ctools.h,kkctools.h
+resource.h,kkresour.h
+
+[RemoveFolder]
+%49000%\Misc
+%49000%\SR\Command
+%49000%\SR\Dictate
+%49000%\SR
+%49000%\TTS
+%49000%\Document
+%49000%\Include
+%49000%\Lib
+%49000%\Samples\AudioSD
+%49000%\Samples\Clock
+%49000%\Samples\Feedback\Res
+%49000%\Samples\Feedback
+%49000%\Samples\Include
+%49000%\Samples\SRTest
+%49000%\Samples\SRTest\Res
+%49000%\Samples\TTSDemo
+%49000%\Samples\TTSTst
+%49000%\Samples\TTSTst\Res
+%49000%\Samples\VCmdDemo
+%49000%\Samples\DctDemo
+%49000%\Samples\DctPad
+%49000%\Samples\AccTest
+%49000%\Samples\VTTest\Res
+%49000%\Samples\VTTest
+%49000%\Samples\TTSApp\Res
+%49000%\Samples\TTSApp
+%49000%\Samples\DestFile
+%49000%\Samples\MultiVce
+%49000%\Samples\MicWiz
+%49000%\Samples\PConv
+%49000%\Samples\SpchWrap
+%49000%\Samples\LexDlg
+%49000%\Samples\Wrapper
+%49000%\Samples\SRFake
+%49000%\Samples\FullDup
+%49000%\Samples\AudIndex
+%49000%\Samples\TTSFake
+%49000%\Samples\LogView
+%49000%\Samples\Srg
+%49000%\Samples\Tel
+%49000%\Samples\TelCtl
+%49000%\Samples\TTSQ
+%49000%\Samples\WrapDemo
+%49000%\Samples\MSMouth
+%49000%\Samples\Movie
+%49000%\Samples\Pizza
+%49000%\Samples\Answer
+%49000%\Samples\SRStress
+%49000%\Samples\TSStress
+%49000%\Samples\SRFunc
+%49000%\Samples\TTSFunc
+%49000%\Samples\Speak
+%49000%\Samples\ActiveX\VB5\BasicCmd
+%49000%\Samples\ActiveX\VB5\Burger
+%49000%\Samples\ActiveX\VB5\BasicTTS
+%49000%\Samples\ActiveX\VB5\Mail
+%49000%\Samples\ActiveX\VB5\DictaPad
+%49000%\Samples\ActiveX\VB5\Sharware
+%49000%\Samples\ActiveX\VB5\Answer
+%49000%\Samples\ActiveX\VB5\OutSec
+%49000%\Samples\ActiveX\VB5
+%49000%\Samples\ActiveX\WEB\Lady
+%49000%\Samples\ActiveX\WEB
+%49000%\Samples\ActiveX\OTHER
+%49000%\Samples\ActiveX\Java\Colors\DirectSR
+%49000%\Samples\ActiveX\Java\Colors
+%49000%\Samples\ActiveX\Java
+%49000%\Samples\ActiveX
+%49000%\Samples
+%49000%\Redist\API
+%49000%\Redist\MSTTS
+%49000%\Redist
+%49000%\MSTTS
+%49000%\Tel
+%49000%
+%49000%\Samples\ActiveX\Java\Colors
+%49000%\Samples\ActiveX\Java\Colors\directsr
+
+
+[SDKInstallDelete]
+HKLM,Software\Microsoft\InfoViewer\5.0\Folders\=speechapi
+HKLM,Software\Microsoft\InfoViewer\5.0\Titles\speechapi
+
+[SDKAppReg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java,,,"%49000%\Samples\ActiveX\Java\Colors"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java,colors.jav,, "colors.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java,colorsF.jav,, "colorsFrame.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java,colors.cla,, "colors.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java,colorsF.cla,, "colorsFrame.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java,colorsS.cla,, "colors$MyEventSinker.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,,,"%49000%\Samples\ActiveX\Java\Colors\directsr"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,IDirectD.jav,, "IDirectSRDefault.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,IDirect.jav,, "IDirectSR.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,Direct.jav,, "DirectSR.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,_DirectD.jav,, "_DirectSREventsDefault.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,_DirectE.jav,, "_DirectSREvents.java"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,_DirectD.cla,, "_DirectSREventsDefault.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,_DirectE.cla,, "_DirectSREvents.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,Direct.cla,, "DirectSR.class"
+HKLM,Software\Microsoft\Windows\CurrentVersion\RenameFiles\java2,IDirect.cla,, "IDirectSR.class"
+
+
+; srtest
+HKCU,Software\Microsoft\srtest\Settings,GrammarPath,,%49000%\sr
+
+; where logging goes
+HKCU,Software\Microsoft\speechapi\TelephonyLogging,LogFileDirectory,,%49000%
+
+; logspeak
+HKLM,Software\Microsoft\LogSpeak,Wave,,"%49000%\misc\wedit.exe"
+HKLM,Software\Microsoft\LogSpeak,WaveDir,,"%49000%"
+
+; logview
+HKCR,.stl,,,"logview.1"
+HKCR,.stl\logview.1,,,""
+HKCR,logview.1,,,"Speech Tools Log"
+HKCR,logview.1\DefaultIcon,,,"%49000%\tel\logview.exe,1"
+HKCR,logview.1\protocol\StdFileEditing\Server,,,"%49000%\tel\logview.exe"
+HKCR,logview.1\shell\open\command,,,"""%49000%\tel\logview.exe"" %1"
+
+; srg
+HKCR,.srg,,,"srg.1"
+HKCR,.srg\SRG.1\ShellNew,NullFile
+HKCR,srg.1,,,"Speech Recognition Grammar Compiler Document"
+HKCR,srg.1\DefaultIcon,,,"%49000%\sr\srg.exe,1"
+HKCR,srg.1\protocol\StdFileEditing\Server,,,"%49000%\sr\srg.exe"
+HKCR,srg.1\shell\open\command,,,"""%49000%\sr\srg.exe"" %1"
+
+; tel
+HKCR,.tpc,,,"tpc.1"
+HKCR,.tpc\tpc.1\ShellNew,NullFile
+HKCR,tpc.1,,,"Telephony Control Data"
+HKCR,tpc.1\DefaultIcon,,,"%49000%\tel\tel.exe,1"
+HKCR,tpc.1\protocol\StdFileEditing\Server,,,"%49000%\tel\tel.exe"
+HKCR,tpc.1\shell\open\command,,,"""%49000%\tel\tel.exe"" %1"
+
+; tts engine
+HKLM,Software\Voice\TextToSpeech\Engine,MSTTS,,{2a46E4C0-4EDA-101B-931A-00AA0047BA4F}
+HKCR,CLSID\{2a46E4C0-4EDA-101B-931A-00AA0047BA4F},,,"Microsoft Concatenated TTS Engine"
+HKCR,CLSID\{2a46E4C0-4EDA-101B-931A-00AA0047BA4F}\InprocServer32,,,"%25%\Speech\MSTTS.dll"
+HKCR,CLSID\{2a46E4C0-4EDA-101B-931A-00AA0047BA4F}\InprocServer32,ThreadingModel,,Apartment
+
+; sample controls
+HKCR,CLSID\{C869F0DE-EF29-11d0-8FAD-08002BE4E62A},,,"Sample Yes/No Control"
+HKCR,CLSID\{C869F0DE-EF29-11d0-8FAD-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{C869F0DE-EF29-11d0-8FAD-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Yes/No Control",,"{C869F0DE-EF29-11d0-8FAD-08002BE4E62A}"
+HKCR,CLSID\{9DE44BA9-F94A-11d0-8FAD-08002BE4E62A},,,"Sample Extension Control"
+HKCR,CLSID\{9DE44BA9-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{9DE44BA9-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Extension Control",,"{9DE44BA9-F94A-11d0-8FAD-08002BE4E62A}"
+HKCR,CLSID\{9DE44BAA-F94A-11d0-8FAD-08002BE4E62A},,,"Sample Phone Number Control"
+HKCR,CLSID\{9DE44BAA-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{9DE44BAA-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Phone Number Control",,"{9DE44BAA-F94A-11d0-8FAD-08002BE4E62A}"
+HKCR,CLSID\{9DE44BAB-F94A-11d0-8FAD-08002BE4E62A},,,"Sample Grammar Control"
+HKCR,CLSID\{9DE44BAB-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{9DE44BAB-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Grammar Control",,"{9DE44BAB-F94A-11d0-8FAD-08002BE4E62A}"
+HKCR,CLSID\{9DE44BAC-F94A-11d0-8FAD-08002BE4E62A},,,"Sample Date Control"
+HKCR,CLSID\{9DE44BAC-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{9DE44BAC-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Date Control",,"{9DE44BAC-F94A-11d0-8FAD-08002BE4E62A}"
+HKCR,CLSID\{9DE44BAD-F94A-11d0-8FAD-08002BE4E62A},,,"Sample Time Control"
+HKCR,CLSID\{9DE44BAD-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{9DE44BAD-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Time Control",,"{9DE44BAD-F94A-11d0-8FAD-08002BE4E62A}"
+HKCR,CLSID\{275931C6-FD27-11d0-8FAE-08002BE4E62A},,,"Sample Record Control"
+HKCR,CLSID\{275931C6-FD27-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{275931C6-FD27-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Record Control",,"{275931C6-FD27-11d0-8FAE-08002BE4E62A}"
+HKCR,CLSID\{9DE44BAE-F94A-11d0-8FAD-08002BE4E62A},,,"Sample Spelling Control"
+HKCR,CLSID\{9DE44BAE-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{9DE44BAE-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Spelling Control",,"{9DE44BAE-F94A-11d0-8FAD-08002BE4E62A}"
+HKCR,CLSID\{9DE44BAF-F94A-11d0-8FAD-08002BE4E62A},,,"Sample Name Control"
+HKCR,CLSID\{9DE44BAF-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,,,%49000%\tel\telctl.dll
+HKCR,CLSID\{9DE44BAF-F94A-11d0-8FAD-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Name Control",,"{9DE44BAF-F94A-11d0-8FAD-08002BE4E62A}"
+
+; wave edit objects and registries
+HKLM,Software\Microsoft\Wave\Chunks,"fmt ",,"{8EE328EB-FDF4-11d0-8FAE-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Chunks,"data",,"{8EE328EC-FDF4-11d0-8FAE-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Chunks,"wrds",,"{E42FC863-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Chunks,"phon",,"{E42FC863-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Chunks,"pitc",,"{E42FC868-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Chunks,"volu",,"{E42FC868-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Spectrogram",,"{8EE328F6-FDF4-11d0-8FAE-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Wave",,"{8EE328F0-FDF4-11d0-8FAE-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Scroll Bar",,"{8EE328F1-FDF4-11d0-8FAE-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Status",,"{8EE328F2-FDF4-11d0-8FAE-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Analyzed Pitch",,"{E42FC869-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Analyzed Energy",,"{E42FC86A-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Word Segmentation",,"{E42FC866-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Phoneme Segmentation",,"{E42FC867-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Views,"Text-to-Speech",,"{E4CFF9F1-1294-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Wizard,"Transplanted Prosody...",,"{1D398BB1-135A-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Analysis,"Energy...",,"{E42FC86B-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Analysis,"Pitch...",,"{E42FC86D-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Analysis,"Segment Phonemes...",,"{E42FC86E-0DCC-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Transform,"Change volume...",,"{8EE328F4-FDF4-11d0-8FAE-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Transform,"Change data format...",,"{8EE328F5-FDF4-11d0-8FAE-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Transform,"Trim silence...",,"{BBE79570-22E4-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Transform,"Speak TTS to wave...",,"{BBE79571-22E4-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Transform,"Change analyzed energy...",,"{1F925792-1802-11d1-8FAF-08002BE4E62A}"
+HKLM,Software\Microsoft\Wave\Transform,"Change analyzed pitch...",,"{1F925793-1802-11d1-8FAF-08002BE4E62A}"
+HKCR,CLSID\{8EE328E7-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave Data Object"
+HKCR,CLSID\{8EE328E7-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328E7-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{8EE328EB-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave Format Chunk"
+HKCR,CLSID\{8EE328EB-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328EB-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{8EE328EC-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave Data Chunk"
+HKCR,CLSID\{8EE328EC-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328EC-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC863-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave Segment Chunk"
+HKCR,CLSID\{E42FC863-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC863-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC868-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave Rubber Band Chunk"
+HKCR,CLSID\{E42FC868-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC868-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{8EE328F0-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave View PCM"
+HKCR,CLSID\{8EE328F0-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328F0-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{8EE328F1-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave View Scroll Bar"
+HKCR,CLSID\{8EE328F1-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328F1-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{8EE328F2-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave View Status Bar"
+HKCR,CLSID\{8EE328F2-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328F2-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{8EE328F6-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave View Frequency"
+HKCR,CLSID\{8EE328F6-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328F6-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC866-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave View Word Segment"
+HKCR,CLSID\{E42FC866-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC866-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC867-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave View Phoneme Segment"
+HKCR,CLSID\{E42FC867-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC867-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC869-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave View Rubber Band pitch"
+HKCR,CLSID\{E42FC869-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC869-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC86A-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave View Rubber Band Volume"
+HKCR,CLSID\{E42FC86A-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC86A-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{8EE328F4-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave Volume FX"
+HKCR,CLSID\{8EE328F4-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328F4-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{8EE328F5-FDF4-11d0-8FAE-08002BE4E62A},,,"Wave Format FX"
+HKCR,CLSID\{8EE328F5-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{8EE328F5-FDF4-11d0-8FAE-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC86B-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave Energy FX"
+HKCR,CLSID\{E42FC86B-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC86B-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC86D-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave Pitch FX"
+HKCR,CLSID\{E42FC86D-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC86D-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E42FC86E-0DCC-11d1-8FAF-08002BE4E62A},,,"Wave Segment FX"
+HKCR,CLSID\{E42FC86E-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E42FC86E-0DCC-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{E4CFF9F1-1294-11d1-8FAF-08002BE4E62A},,,"Wave View Text-to-Speech"
+HKCR,CLSID\{E4CFF9F1-1294-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{E4CFF9F1-1294-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{1D398BB1-135A-11d1-8FAF-08002BE4E62A},,,"Wave FX Transplanted Prosody"
+HKCR,CLSID\{1D398BB1-135A-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{1D398BB1-135A-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{1F925792-1802-11d1-8FAF-08002BE4E62A},,,"Wave FX Change Analyzed Volume"
+HKCR,CLSID\{1F925792-1802-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{1F925792-1802-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{1F925793-1802-11d1-8FAF-08002BE4E62A},,,"Wave FX Change Analyzed Pitch"
+HKCR,CLSID\{1F925793-1802-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{1F925793-1802-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{BBE79570-22E4-11d1-8FAF-08002BE4E62A},,,"Wave FX Trim Silence"
+HKCR,CLSID\{BBE79570-22E4-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{BBE79570-22E4-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{BBE79571-22E4-11d1-8FAF-08002BE4E62A},,,"Wave FX Speak TTS to Wave"
+HKCR,CLSID\{BBE79571-22E4-11d1-8FAF-08002BE4E62A}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{BBE79571-22E4-11d1-8FAF-08002BE4E62A}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{C8E64980-90EA-11d1-BEAC-006008317CE8},,,"Wave FX Noise"
+HKCR,CLSID\{C8E64980-90EA-11d1-BEAC-006008317CE8}\InprocServer32,,,%49000%\misc\wave.dll
+HKCR,CLSID\{C8E64980-90EA-11d1-BEAC-006008317CE8}\InprocServer32,ThreadingModel,,Apartment
+
+[AddUninstall]
+; for uninstall
+HKLM,Software\Microsoft\MSSpchSDK,InstallDir,,"%49001%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\MSSpchSDK,"DisplayName",,"%AppName%
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\MSSpchSDK,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %17%\SpchSDK.inf, Uninstall"
+
+[AddNTUninstall]
+; for uninstall
+HKLM,Software\Microsoft\MSSpchSDK,InstallDir,,"%49001%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\MSSpchSDK,"DisplayName",,"%AppName%
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\MSSpchSDK,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %17%\SpchSDK.inf, Uninstall.NT"
+
+
+
+[DelRegSection]
+HKCU,Software\Microsoft\MSSpchSDK
+HKLM,Software\Microsoft\MSSpchSDK
+HKCR,.stl
+HKCR,logview.1
+HKLM,Software\Microsoft\LogSpeak
+HKCR,.srg
+HKCR,srg.1
+HKCR,.tpc
+HKCR,tpc.1
+
+; uninstall
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\MSSpchSDK
+HKLM,Software\Voice\TextToSpeech\Engine,MSTTS
+HKCR,CLSID\{2a46E4C0-4EDA-101B-931A-00AA0047BA4F}
+
+HKCR,CLSID\{C869F0DE-EF29-11d0-8FAD-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Yes/No Control"
+HKCR,CLSID\{9DE44BA9-F94A-11d0-8FAD-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Extension Control"
+HKCR,CLSID\{9DE44BAA-F94A-11d0-8FAD-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Phone Number Control"
+HKCR,CLSID\{9DE44BAB-F94A-11d0-8FAD-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Grammar Control"
+HKCR,CLSID\{9DE44BAC-F94A-11d0-8FAD-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Date Control"
+HKCR,CLSID\{9DE44BAD-F94A-11d0-8FAD-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Time Control"
+HKCR,CLSID\{275931C6-FD27-11d0-8FAE-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Record Control"
+HKCR,CLSID\{9DE44BAE-F94A-11d0-8FAD-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Spelling Control"
+HKCR,CLSID\{9DE44BAF-F94A-11d0-8FAD-08002BE4E62A}
+HKLM,SOFTWARE\Microsoft\SpeechAPI\TelephonyControls,"Sample Name Control"
+
+; wave editor
+HKLM,Software\Microsoft\Wave
+HKCR,CLSID\{8EE328E7-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{8EE328EB-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{8EE328EC-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{8EE328F0-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{8EE328F1-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{8EE328F2-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{8EE328F4-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{8EE328F5-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{8EE328F6-FDF4-11d0-8FAE-08002BE4E62A}
+HKCR,CLSID\{E42FC863-0DCC-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{E42FC866-0DCC-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{E42FC867-0DCC-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{E42FC86B-0DCC-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{E42FC86D-0DCC-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{E42FC86E-0DCC-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{E4CFF9F1-1294-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{E4CFF9F1-1294-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{1F925792-1802-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{1F925793-1802-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{BBE79570-22E4-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{BBE79571-22E4-11d1-8FAF-08002BE4E62A}
+HKCR,CLSID\{C8E64980-90EA-11d1-BEAC-006008317CE8}
+
+[BeginPromptSection]
+Prompt=%BeginPrompt%
+ButtonType=YESNO
+Title=%AppName%
+
+[EndPromptSection]
+Prompt=%EndPrompt%
+
+[Strings]
+AppName="Microsoft Speech SDK 4.0"
+InstallPrompt="Where would you like to install Microsoft Speech SDK 4.0 (25 MBytes)?"
+BeginPrompt="Are you sure you want to remove Microsoft Speech SDK?"
+EndPrompt="Uninstall complete."
+DefaultDir="Microsoft Speech SDK"
+MSSpchSDK_LINK="Microsoft Speech SDK 4.0"
+MSSpchSDK_LINK30="Microsoft Speech SDK 3.0"

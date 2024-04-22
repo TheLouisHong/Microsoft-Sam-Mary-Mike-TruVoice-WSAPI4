@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Test Cases for Speech Aware Applications</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1><font face="Arial">Test Cases for Speech Aware Applications</font></h1>
+
+<p><font face="Arial">Adding speech recognition and text-to-speech adds a few more things
+that could go wrong with an application. Here's a list of tests to try with your speech
+aware application.</font></p>
+
+<h2><font face="Arial">Setup</font></h2>
+
+<ul>
+  <li><font face="Arial"><strong>Does it install over existing speech API installs? </strong>-
+    Test that an install over existing speech API installs works. An upgrade over an old
+    version of the API should replace the old API components. An upgrade over a newer version
+    of the API should overwrite nothing.</font></li>
+  <li><font face="Arial"><strong>Does it install over existing speech engine installs? </strong>-
+    Test that an install over existing engine installs works. An upgrade over an old version
+    of the engine should replace the old engine components. An upgrade over a newer version of
+    the engine should overwrite nothing.</font></li>
+  <li><font face="Arial"><strong>Does it work with other speech aware applications? </strong>-
+    Don't break other speech aware applications by overwriting their components or registry
+    entries.</font></li>
+  <li><font face="Arial"><strong>Uninstall </strong>- Make sure that uninstalling your
+    software doesn't prevent other speech aware applications from working.</font></li>
+</ul>
+
+<h2><font face="Arial">Sound Cards</font></h2>
+
+<ul>
+  <li><font face="Arial"><strong>Different sound cards and driver versions</strong> - Make
+    sure to test on different sound cards and driver versions. The variation in the sound
+    cards' mixers and quality might cause problems with your application.</font></li>
+  <li><font face="Arial"><strong>Test for sound card </strong>- Identify if the user doesn't
+    have a sound card, or the user's sound card can't handle SR/TTS, and inform the user.</font></li>
+  <li><font face="Arial"><strong>More than one sound card </strong>- The user might have more
+    than one sound card. Make sure they can chose the right one.</font></li>
+  <li><font face="Arial"><strong>Half and full duplex sound cards </strong>- Test on
+    half-duplex and full-duplex sound cards. Your application may behave differently in
+    half-duplex than full-duplex.</font></li>
+  <li><font face="Arial"><strong>Voice-Fax-Modem cards </strong>- Voice modem cards provide
+    wave-out and wave-in devices for the phone. Make sure your application doesn't
+    accidentally chose these as a primary listening and playback device.</font></li>
+  <li><font face="Arial"><strong>USB microphones and speakers </strong>- USB speakers are
+    already on the market. USB microphones will appear soon. They may behave differently than
+    sound cards.</font></li>
+</ul>
+
+<h2><font face="Arial">Speech Engines</font></h2>
+
+<ul>
+  <li><font face="Arial"><strong>Does your product work with different engines?</strong> -
+    It's likely that users will install other products using speech recognition and
+    text-to-speech. Users may select different engines to be used with your application, so
+    you should test with them. Make sure that subtle functionality differences don't interfere
+    with your application.</font></li>
+  <li><font face="Arial"><strong>Does your application require a specific engine?</strong> -
+    If your application requires a specific engine to function, make sure that it will select
+    that engine, even if others are installed on the system.</font></li>
+  <li><font face="Arial"><strong>Get the right type engine</strong> - Engines come in
+    different categories; Speech recognition can be dictation and/or command &amp; control.
+    Text-to-speech can be synthesized and/or recorded words. Make sure your application
+    doesn't accidentally select the wrong type of engine. Ex: If you application uses command
+    &amp; control, try installing a dictation engine and make sure the application doesn't
+    select it or allow the user to select it.</font></li>
+  <li><font face="Arial"><strong>Get the right type language </strong>- Engines supporting
+    different languages might be installed on the PC. Make sure the application chooses the
+    proper language.</font></li>
+  <li><font face="Arial"><strong>Phone vs. PC models </strong>- Many engines have special
+    models for phone. Make sure your application doesn't accidentally use these if they're
+    installed.</font></li>
+  <li><font face="Arial"><strong>No engine installed </strong>- The application should fail
+    gracefully if no engine is installed on the system.</font></li>
+  <li><font face="Arial"><strong>Select favorite engine </strong>- The user may wish to select
+    their favorite speech recognition or text-to-speech engine. Make sure this feature works.</font></li>
+</ul>
+
+<h2><font face="Arial">Usability</font></h2>
+
+<ul>
+  <li><font face="Arial"><strong>Can the user get the SR/TTS working? </strong>- Make sure the
+    user can get the speech recognition and/or text-to-speech installed and working with
+    minimal effort.</font></li>
+  <li><font face="Arial"><strong>Can the user get their microphone working? </strong>- Do
+    extensive testing to make sure the user can plug in their microphone and use the
+    microphone correctly.</font></li>
+  <li><font face="Arial"><strong>Does the user understand how to talk to the PC? </strong>-
+    Make sure that users can figure out how to talk to their PCs.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Miscellaneous</font></h2>
+
+<ul>
+  <li><font face="Arial"><strong>Proper machine speed </strong>- Some engines require
+    Pentium-speed or better to function. Inform the user if their PC is too slow for speech
+    recognition and/or text-to-speech. Some older Pentiums with faulty math coprocessors will
+    have their math coprocessor disabled by Windows NT. If the speech engine relies on
+    floating point, it may be too slow on these machines.</font></li>
+  <li><font face="Arial"><strong>Gracefully fail if the API/engine is not working </strong>-
+    Another application's install may break your install of the API and/or engine. If this
+    happens, CoCreateInstance() and other calls will fail. Inform the user of the failure and
+    recommend they reinstall to get speech recognition and/or text-to-speech working again.</font></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,185 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5,"You need a new version of advpack.dll"
+
+[SourceDisksNames]
+1=%AppName%,,1
+
+[DefaultInstall]
+CustomDestination=MyCustomDestination
+Copyfiles=LexTools,TTSFiles,InfSection
+AddReg=TTSReg
+DelFiles=DelOldTTSFiles
+
+[DefaultInstall.NT]
+CustomDestination=MyCustomDestination
+Copyfiles=LexTools,TTSFiles,InfSection
+AddReg=TTSReg
+DelFiles=DelOldTTSFiles
+
+[MyCustomDestination]
+49010=ProgramFilesDestination,21
+49000,49001,49002,49003=PackageDestination49000,5
+
+[UninstallDestination]
+49010=ProgramFilesDestination,5
+49000=PackageDestination49000,5
+
+[ProgramFilesDestination]
+HKLM,software\microsoft\windows\currentversion,CommonFilesDir,"%InstallPrompt%","c:\program files\common files"
+
+[PackageDestination49000]
+HKLM,Software\Microsoft\MSTTS,InstallDir,"%InstallPrompt%","%49010%\%DefaultDir%"
+
+[Uninstall]
+BeginPrompt=BeginPromptSection
+EndPrompt=EndPromptSection
+RunPreSetupCommands=UninstallUserDict
+CustomDestination=UninstallDestination
+DelFiles=LexTools,TTSFiles,TTSFiles2
+Deldirs=RemoveFolder
+DelReg=DelRegSection
+SmartReboot=I
+Cleanup=1
+
+[Uninstall.Quiet]
+RunPreSetupCommands=UninstallUserDict
+CustomDestination=UninstallDestination
+DelFiles=LexTools,TTSFiles,TTSFiles2
+Deldirs=RemoveFolder
+DelReg=DelRegSection
+SmartReboot=I
+Cleanup=1
+
+[UninstallUserDict]
+%25%\delttsul.exe
+
+[DestinationDirs]
+TTSFiles=49000
+TTSFiles2=49000
+InfSection=17
+DelOldTTSFiles=49000
+LexTools=25
+
+[LexTools]
+delttsul.exe
+
+[TTSFiles]
+msttssyn.dll
+female.vce
+male.vce
+sam.vce
+female8.vce
+male8.vce
+female.cfg
+male.cfg
+sam.cfg
+female8.cfg
+male8.cfg
+wraptts.dll
+wttsf22.dll
+wttsm22.dll
+wttss22.dll
+wttsa22.dll
+wttsmm.dll
+
+[TTSFiles2]
+freddy.vce
+brutus.vce
+malew.vce
+femalew.vce
+
+[DelOldTTSFiles]
+mark.vce
+melanie.vce
+mark8.vce
+melanie8.vce
+
+[InfSection]
+msTTS.inf
+
+[RemoveFolder]
+%49000%
+
+
+[TTSReg]
+HKLM,Software\Voice\TextToSpeech\Engine,MSTTSSyn,,{E0725551-286F-11d0-8E73-00A0C9083363}
+HKCR,CLSID\{E0725551-286F-11d0-8E73-00A0C9083363},,,"Microsoft TTS Engine"
+HKCR,CLSID\{E0725551-286F-11d0-8E73-00A0C9083363}\InprocServer32,,,"%49000%\MSTTSSYN.dll"
+HKCR,CLSID\{E0725551-286F-11d0-8E73-00A0C9083363}\InprocServer32,ThreadingModel,,Apartment
+; use the following reg edit to see which version installed for ActiveX downloads
+HKCR,CLSID\{161FA782-A52C-11d0-8D7C-00A0C9034A7E},,,"Downloadable Whistler 3.0"
+HKCR,CLSID\{161FA782-A52C-11d0-8D7C-00A0C9034A7E}\Control,,,
+HKCR,CLSID\{161FA782-A52C-11d0-8D7C-00A0C9034A7E}\InprocServer32,,,"%49000%\wraptts.dll"
+HKCR,CLSID\{161FA782-A52C-11d0-8D7C-00A0C9034A7E}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{161FA782-A52C-11d0-8D7C-00A0C9034A7E}\MiscStatus,,,"0"
+HKCR,CLSID\{161FA782-A52C-11d0-8D7C-00A0C9034A7E}\MiscStatus\1,,,"0132497"
+HKCR,CLSID\{FD913800-5CA2-11d2-A1E6-00A0C913D1EF},,,"Downloadable Whistler 4.0"
+HKCR,CLSID\{FD913800-5CA2-11d2-A1E6-00A0C913D1EF}\Control,,,
+HKCR,CLSID\{FD913800-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,,,"%49000%\wttsf22.dll"
+HKCR,CLSID\{FD913800-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{FD913800-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus,,,"0"
+HKCR,CLSID\{FD913800-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus\1,,,"0132497"
+HKCR,CLSID\{FD913801-5CA2-11d2-A1E6-00A0C913D1EF},,,"Downloadable Whistler 4.0"
+HKCR,CLSID\{FD913801-5CA2-11d2-A1E6-00A0C913D1EF}\Control,,,
+HKCR,CLSID\{FD913801-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,,,"%49000%\wttsm22.dll"
+HKCR,CLSID\{FD913801-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{FD913801-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus,,,"0"
+HKCR,CLSID\{FD913801-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus\1,,,"0132497"
+HKCR,CLSID\{FD913802-5CA2-11d2-A1E6-00A0C913D1EF},,,"Downloadable Whistler 4.0"
+HKCR,CLSID\{FD913802-5CA2-11d2-A1E6-00A0C913D1EF}\Control,,,
+HKCR,CLSID\{FD913802-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,,,"%49000%\wttss22.dll"
+HKCR,CLSID\{FD913802-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{FD913802-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus,,,"0"
+HKCR,CLSID\{FD913802-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus\1,,,"0132497"
+HKCR,CLSID\{FD913803-5CA2-11d2-A1E6-00A0C913D1EF},,,"Downloadable Whistler 4.0"
+HKCR,CLSID\{FD913803-5CA2-11d2-A1E6-00A0C913D1EF}\Control,,,
+HKCR,CLSID\{FD913803-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,,,"%49000%\wttsa22.dll"
+HKCR,CLSID\{FD913803-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{FD913803-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus,,,"0"
+HKCR,CLSID\{FD913803-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus\1,,,"0132497"
+HKCR,CLSID\{FD913804-5CA2-11d2-A1E6-00A0C913D1EF},,,"Downloadable Whistler 4.0"
+HKCR,CLSID\{FD913804-5CA2-11d2-A1E6-00A0C913D1EF}\Control,,,
+HKCR,CLSID\{FD913804-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,,,"%49000%\wttsmm.dll"
+HKCR,CLSID\{FD913804-5CA2-11d2-A1E6-00A0C913D1EF}\InprocServer32,ThreadingModel,,Apartment
+HKCR,CLSID\{FD913804-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus,,,"0"
+HKCR,CLSID\{FD913804-5CA2-11d2-A1E6-00A0C913D1EF}\MiscStatus\1,,,"0132497"
+; cache information, so enumerates faster
+HKLM,Software\Voice\TextToSpeech\Engine\{E0725551-286F-11d0-8E73-00A0C9083363},Dirty,1,1
+
+
+; for uninstall
+HKLM,Software\Microsoft\MSTTS,InstallDir,,"%49000%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\MSTTS,"DisplayName",,"%AppName%
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\MSTTS,"UninstallString",,"RunDll32 advpack.dll,LaunchINFSection %17%\msTTS.inf, Uninstall"
+
+[DelRegSection]
+HKCU,Software\Microsoft\Whisper
+HKLM,Software\Voice\TextToSpeech\Engine,MSTTSSyn
+HKCR,CLSID\{E0725551-286F-11d0-8E73-00A0C9083363}
+HKCR,CLSID\{161FA782-A52C-11d0-8D7C-00A0C9034A7E}
+HKCR,CLSID\{FD913800-5CA2-11d2-A1E6-00A0C913D1EF}
+HKCR,CLSID\{FD913801-5CA2-11d2-A1E6-00A0C913D1EF}
+HKCR,CLSID\{FD913802-5CA2-11d2-A1E6-00A0C913D1EF}
+HKCR,CLSID\{FD913803-5CA2-11d2-A1E6-00A0C913D1EF}
+HKCR,CLSID\{FD913804-5CA2-11d2-A1E6-00A0C913D1EF}
+HKLM,Software\Voice\TextToSpeech\Engine\{E0725551-286F-11d0-8E73-00A0C9083363}
+
+; uninstall
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\MSTTS
+HKLM,Software\Microsoft\MSTTS
+
+[BeginPromptSection]
+Prompt=%BeginPrompt%
+ButtonType=YESNO
+Title=%AppName%
+
+[EndPromptSection]
+Prompt=%EndPrompt%
+
+[Strings]
+AppName="Microsoft Text-to-Speech Engine 4.0 (English)"
+BeginPrompt="Are you sure you want to remove the Microsoft text-to-speech engine? It may prevent text-to-speech from working."
+EndPrompt="Uninstall complete."
+DefaultDir="microsoft shared\SpeechEngines\TTS"
+

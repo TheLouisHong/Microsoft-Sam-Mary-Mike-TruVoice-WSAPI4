@@ -1,0 +1,156 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TTS DIALOG DISCARDABLE  0, 0, 222, 191
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "TTS Queue Demo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Type in the text that you want spoken below and press speak. To get the voices to queue up, have one voice speak a long sentence, and while it's speaking, switch voices and press Speak again.",
+                    IDC_STATIC,5,5,210,35
+    CONTROL         "&Male Voice",IDC_MALE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,5,65,50,10
+    CONTROL         "&Female Voice",IDC_FEMALE,"Button",BS_AUTORADIOBUTTON,
+                    65,65,60,10
+    EDITTEXT        IDC_EDIT,5,80,210,50,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    CONTROL         "&Play beep after every buffer",IDC_BEEP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,5,130,210,15
+    PUSHBUTTON      "&Pause",IDC_PAUSE,5,145,45,15
+    PUSHBUTTON      "&Resume",IDC_RESUME,55,145,45,15
+    PUSHBUTTON      "&Reset",IDC_RESET,105,145,45,15
+    DEFPUSHBUTTON   "&Speak",IDOK,170,145,45,14
+    PUSHBUTTON      "&Add wave...",IDC_ADDWAVE,5,171,55,15
+    PUSHBUTTON      "&Remove wave...",IDC_REMOVEWAVE,65,171,55,15
+    PUSHBUTTON      "E&xit",IDCANCEL,170,171,45,14
+    LTEXT           "Alternatively, you can press Pause, add a bunch of text to use queue using Speak while switching voices, and then Resume.",
+                    IDC_STATIC,5,40,210,20
+END
+
+IDD_ADDWAVE DIALOG DISCARDABLE  0, 0, 186, 111
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Wave"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Type in the wave file name: (The wave file must be 16-bit 22 kHz mono PCM.",
+                    IDC_STATIC,5,5,170,30
+    EDITTEXT        IDC_NAME,5,40,175,15,ES_AUTOHSCROLL
+    LTEXT           "Type in the text that will trigger the wave file to play:",
+                    IDC_STATIC,5,60,170,10
+    EDITTEXT        IDC_STRING,5,70,175,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,75,90,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,90,50,14
+END
+
+IDD_REMOVEWAVE DIALOG DISCARDABLE  0, 0, 186, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Remove Wave"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Type in the text that triggered the wave file to play:",
+                    -1,5,5,170,10
+    EDITTEXT        IDC_STRING,5,15,175,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,75,35,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,35,50,14
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ADDWAVE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_REMOVEWAVE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// WAVE
+//
+
+IDR_BEEP                WAVE    DISCARDABLE     "beep.wav"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

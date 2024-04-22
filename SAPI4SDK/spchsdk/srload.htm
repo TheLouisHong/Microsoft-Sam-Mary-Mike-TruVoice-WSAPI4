@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Speech Recognition Load Tester</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Speech Recognition Load Tester</font></h1>
+
+<p><font face="Arial">SRLoad.exe is a load-tester application for speech recognition
+engines. Its purpose is to help you determine how much CPU/memory an engine consumes under
+a specific configuration. You can use this to:</font>
+
+<ul>
+  <li><font face="Arial">Determine the working set and CPU for an engine.</font></li>
+  <li><font face="Arial">See how many channels of speech recognition or text-to-speech will
+    run simultaneously on a telephony server.</font></li>
+  <li><font face="Arial">Determine how much RAM a telephony server will need to support N
+    channels of speech recognition or text-to-speech.</font></li>
+  <li><font face="Arial">Find the speech engine with the best processor/performance
+    trade-offs.</font></li>
+  <li><font face="Arial">Find the speech engine with the best memory/performance trade-offs.</font></li>
+</ul>
+
+<p><font face="Arial">&nbsp;</font></p>
+
+<p><font face="Arial">To use the load tester:</font> 
+
+<ul>
+  <li><font face="Arial">Click Run It!</font></li>
+  <li><font face="Arial">Read the instructions and press Next.</font></li>
+  <li><font face="Arial">Select the speech engine you wish to test.</font></li>
+  <li><font face="Arial">Press Next.</font></li>
+  <li><font face="Arial">Type in the name of a grammar file. Use the <a href="srg.htm">Speech
+    Recognition Grammar Compiler</a> to create the grammars. Ideally, you should provide a
+    grammar file that is the same or similar to what your application will use.</font></li>
+  <li><font face="Arial">Record several input .WAV files using the <a href="wedit.htm">Wave
+    Editor</a> provided in the SDK, or with some other wave editor. The input files should be
+    at least a couple minutes long, and include speech. The speech should be indicative of
+    what your users will speak, and the pauses between utterances should be similar to the
+    pauses your users will leave. (Longer pauses will reduce the over-all CPU usage.) Also,
+    the utterances should be recognizable by the grammar - or they won't get recognized. Make
+    sure that the digital audio is recorded in a format that the speech recognizer
+    understands. Microsoft's PC recognizers use 16 kHz, 16-bit mono. (Other engines may user
+    different formats.) All telephony recognizers use 8 kHz 16-bit mono.</font></li>
+  <li><font face="Arial">Type in the full path to the directory containing the wave files.</font></li>
+  <li><font face="Arial">Type in the number of threads/instances you wish to test. If you
+    application only uses one instance of an engine at a time then you can leave the value as
+    1. However, if your engine uses several instances, then set the number higher, such as 4
+    or 8.</font></li>
+  <li><font face="Arial">Press Next.</font></li>
+  <li><font face="Arial">The load test will run.</font></li>
+  <li><font face="Arial">It may take a couple of minutes for the test to load in all the
+    engines and stabilize its CPU usage. You can use Performance Monitor (accessible from the
+    &quot;Administrative Tools&quot; off the &quot;Start&quot; menu) or the Task Manager
+    (right-click the task bar and selection it from the context menu), to determine the CPU
+    usage. The process to look at is &quot;SRLOAD.EXE&quot;.</font></li>
+  <li><font face="Arial">To determine the working set, press the &quot;Working Set&quot;
+    button on the Load Tester. This flushes the engine's code and data from memory, which is
+    then reloaded by the operating system as it's used. After pressing &quot;Working
+    Set&quot;, wait about a minute for the in-use code/data to reload. Then, look at the
+    &quot;Mem Usage&quot; field in the Task Manager's &quot;Process&quot; pane, or at
+    &quot;Process/Working Set&quot; in the Performance Manager's &quot;Add to Chart&quot; menu
+    option.</font></li>
+  <li><font face="Arial">You can also leave the load test running for several days/weeks, as
+    an additional form of stress testing it and looking for leaks.</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font> 
+
+<ul>
+  <li><font face="Arial">Speech Recognition Engine</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font> 
+
+<ul>
+  <li><a href="sr/srload.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>See also:</strong></font> 
+
+<ul>
+  <li><font face="Arial"><a href="spchwrap.htm">Speech Wrapper Source Code</a> - You can use
+    this to build a debug version of the library.</li>
+  <li><a href="srfunc.htm">Speech Recognition Functionality Test</a> - Use this to determine
+    if the engine complies with SAPI.</font><font face="Arial"></li>
+  <li><a href="srstress.htm">Speech Recognition Stress Test</a> - Make sure the engine doesn't
+    crash under normal usage.</li>
+</ul>
+</font>
+</body>
+</html>

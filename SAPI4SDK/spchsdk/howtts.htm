@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>How Text-to-Speech Works</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">How Text-to-Speech Works</font></h1>
+
+<h1><font face="Arial">Overview</font></h1>
+
+<p><font face="Arial">You might have already used text-to-speech
+in products, and maybe even incorporated it into your own
+application, but you still don&#146;t know how it works. This
+document will give you a technical overview of text-to-speech so
+you can understand how it works, and better understand some of
+the capabilities and limitations of the technology.</font></p>
+
+<p><font face="Arial">Text-to-speech fundamentally functions as a
+pipeline that converts text into PCM digital audio. The elements
+of the pipeline are:</font></p>
+
+<ol>
+    <li><font face="Arial">Text normalization</font></li>
+    <li><font face="Arial">Homograph disambiguation</font></li>
+    <li><font face="Arial">Word pronunciation</font></li>
+    <li><font face="Arial">Prosody</font></li>
+    <li><font face="Arial">Concatenate wave segments</font></li>
+</ol>
+
+<p><font face="Arial">I&#146;ll cover each of these steps
+individually</font></p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<h1><font face="Arial">Text Normalization</font></h1>
+
+<p><font face="Arial">The &quot;text normalization&quot;
+component of text-to-speech converts any input text into a series
+of spoken words. Trivially, text normalization converts a string
+like &quot;John rode home.&quot; to a series of words,
+&quot;john&quot;, &quot;rode&quot;, &quot;home&quot;, along with
+a marker indicating that a period occurred. However, this gets
+more complicated when strings like &quot;John rode home at 23.5
+mph&quot;, where &quot;23.5 mph&quot; is converted to
+&quot;twenty three point five miles per hour&quot;. Here&#146;s
+how text normalization works:</font></p>
+
+<p><font face="Arial">First, text normalization isolates words in
+the text. For the most part this is as trivial as looking for a
+sequence of alphabetic characters, allowing for an occasional
+apostrophe and hyphen.</font></p>
+
+<p><font face="Arial">Text normalization then searches for
+numbers, times, dates, and other symbolic representations. These
+are analyzed and converted to words. (Example: &quot;$54.32&quot;
+is converted to &quot;fifty four dollars and thirty two
+cents.&quot;) Someone needs to code up the rules for the
+conversion of these symbols into words, since they differ
+depending upon the language and context.</font></p>
+
+<p><font face="Arial">Next, abbreviations are converted, such as
+&quot;in.&quot; for &quot;inches&quot;, and &quot;St.&quot; for
+&quot;street&quot; or &quot;saint&quot;. The normalizer will use
+a database of abbreviations and what they are expanded to. Some
+of the expansions depend upon the context of surrounding words,
+like &quot;St. John&quot; and &quot;John St.&quot;.</font></p>
+
+<p><font face="Arial">The text normalizer might perform other
+text transformations such as internet addresses.
+&quot;http://www.Microsoft.com&quot; is usually spoken as &quot;w
+w w dot Microsoft dot com&quot;.</font></p>
+
+<p><font face="Arial">Whatever remains is punctuation. The
+normalizer will have rules dictating if the punctuation causes a
+word to be spoken or if it is silent. (Example: Periods at the
+end of sentences are not spoken, but a period in an Internet
+address is spoken as &quot;dot.&quot;)</font></p>
+
+<p><font face="Arial">The rules will vary in complexity depending
+upon the engine. Some text normalizers are even designed to
+handle E-mail conventions like &quot;You ***WILL*** go to the
+meeting. :-(&quot;</font></p>
+
+<p><font face="Arial">Once the text has been normalized and
+simplified into a series of words, it is passed onto the next
+module, homograph disambiguation.</font></p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<h1><font face="Arial">Homograph Disambiguation</font></h1>
+
+<p><font face="Arial">The next stage of text-to-speech is called
+&quot;homograph disambiguation.&quot; Often it&#146;s not a stage
+by itself, but is combined into the text normalization or
+pronunciation components. I&#146;ve separated homograph
+disambiguation out since it doesn&#146;t fit cleanly into either.</font></p>
+
+<p><font face="Arial">In English and many other languages, there
+are hundreds of words that have the same text, but different
+pronunciations. A common example in English is &quot;read,&quot;
+which can be pronounced &quot;reed&quot; or &quot;red&quot;
+depending upon it&#146;s meaning. A &quot;homograph&quot; is a
+word with the same text as another word, but with a different
+pronunciation. The concept extends beyond just words, and into
+abbreviations and numbers. &quot;Ft.&quot; has different
+pronunciations in &quot;Ft. Wayne&quot; and &quot;100 ft.&quot;.
+Likewise, the digits &quot;1997&quot; might be spoken as
+&quot;nineteen ninety seven&quot; if the author is talking about
+the year, or &quot;one thousand nine hundred and ninety
+seven&quot; if the author is talking about the number of people
+at a concert.</font></p>
+
+<p><font face="Arial">Text-to-speech engines use a variety of
+techniques to disambiguate the pronunciations. The most robust is
+to try to figure out what the text is talking about and decide
+which meaning is most appropriate given the context. Once the
+right meaning is know, it&#146;s usually easy to guess the right
+pronunciation.</font></p>
+
+<p><font face="Arial">Text-to-speech engines figure out the
+meaning of the text, and more specifically of the sentence, by
+parsing the sentence and figuring out the part-of-speech for the
+individual word. This is done by guessing the part-of-speech
+based on the word endings, or by looking the word up in a
+lexicon. Sometimes a part of speech will be ambiguous until more
+context is known, such as for &quot;read.&quot; Of course,
+disambiguation of the part-of-speech may require hand-written
+rules. </font></p>
+
+<p><font face="Arial">Once the homographs have been
+disambiguated, the words are sent to the next stage to be
+pronounced.</font></p>
+
+<h1><font face="Arial">Word Pronunciation</font></h1>
+
+<p><font face="Arial">The pronunciation module accepts the text,
+and outputs a sequence of phonemes, just like you see in a
+dictionary.</font></p>
+
+<p><font face="Arial">To get the pronunciation of a word, the
+text-to-speech engine first looks the word up in it&#146;s own
+pronunciation lexicon. If the word is not in the lexicon then the
+engine reverts to &quot;letter to sound&quot; rules.</font></p>
+
+<p><font face="Arial">Letter-to-sound rules guess the
+pronunciation of a word from the text. They&#146;re kind of the
+inverse of the spelling rules you were taught in school. There
+are a number of techniques for guessing the pronunciation, but
+the algorithm described here is one of the more easily
+implemented ones.</font></p>
+
+<p><font face="Arial">The letter-to-sound rules are
+&quot;trained&quot; on a lexicon of hand-entered pronunciations.
+The lexicon stores the word and it&#146;s pronunciation, such as:</font></p>
+
+<blockquote>
+    <p><font face="Arial">hello h eh l oe</font></p>
+</blockquote>
+
+<p><font face="Arial">An algorithm is used to segment the word
+and figure out which letter &quot;produces&quot; which sound. You
+can clearly see that &quot;h&quot; in &quot;hello&quot; produces
+the &quot;h&quot; phoneme, the &quot;e&quot; produces the
+&quot;eh&quot; phoneme, the first &quot;l&quot; produces the
+&quot;l&quot; phoneme, the second &quot;l&quot; nothing, and
+&quot;o&quot; produces the &quot;oe&quot; phoneme. Of course, in
+other words the individual letters produce different phonemes.
+The &quot;e&quot; in &quot;he&quot; will produce the
+&quot;ee&quot; phoneme.</font></p>
+
+<p><font face="Arial">Once the words are segmented by phoneme,
+another algorithm determines which letter or sequence of letters
+is likely to produce which phonemes. The first pass figures out
+the most likely phoneme generated by each letter. &quot;H&quot;
+almost always generates the &quot;h&quot; sound, while
+&quot;o&quot; almost always generates the &quot;ow&quot; sound. A
+secondary list is generated, showing exceptions to the previous
+rule given the context of the surrounding letters. Hence, an
+exception rule might specify that an &quot;o&quot; occurring at
+the end of the word and preceded by an &quot;l&quot; produces an
+&quot;oe&quot; sound. The list of exceptions can be extended to
+include even more surrounding characters.</font></p>
+
+<p><font face="Arial">When the letter-to-sound rules are asked to
+produce the pronunciation of a word they do the inverse of the
+training model. To pronounce &quot;hello&quot;, the
+letter-to-sound rules first try to figure out the sound of the
+&quot;h&quot; phoneme. It looks through the exception table for
+an &quot;h&quot; beginning the word followed by &quot;e&quot;;
+Since it can&#146;t find one it uses the default sound for
+&quot;h&quot;, which is &quot;h&quot;. Next, it looks in the
+exceptions for how an &quot;e&quot; surrounded by &quot;h&quot;
+and &quot;l&quot; is pronounced, finding &quot;eh&quot;. The rest
+of the characters are handled in the same way.</font></p>
+
+<p><font face="Arial">This technique can pronounce any word, even
+if it wasn&#146;t in the training set, and does a very reasonable
+guess of the pronunciation, sometimes better than humans. It
+doesn&#146;t work too well for names because most names are not
+of English origin, and use different pronunciation rules.
+(Example: &quot;Mejia&quot; is pronounced as
+&quot;meh-jee-uh&quot; by anyone that doesn&#146;t know it is
+Spanish.) Some letter-to-sound rules first guess what language
+the word came from, and then use different sets of rules to
+pronounce each different language.</font></p>
+
+<p><font face="Arial">Word pronunciation is further complicated
+by people&#146;s laziness. People will change the pronunciation
+of a word based upon what words precede or follow it, just to
+make the word easier to speak. An obvious example is the way
+&quot;the&quot; can be pronounced as &quot;thee&quot; or
+&quot;thuh.&quot; Other effects including the dropping or
+changing of phonemes. A commonly used phrase such as &quot;What
+you doing?&quot; sounds like &quot;Wacha doin?&quot;</font></p>
+
+<p><font face="Arial">Once the pronunciations have been
+generated, these are passed onto the prosody stage.</font></p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<h1><font face="Arial">Prosody</font></h1>
+
+<p><font face="Arial">Prosody is the pitch, speed, and volume
+that syllables, words, phrases, and sentences are spoken with.
+Without prosody text-to-speech sounds very robotic, and with bad
+prosody text-to-speech sounds like it&#146;s drunk.</font></p>
+
+<p><font face="Arial">The technique that engines use to
+synthesize prosody varies, but there are some general techniques.</font></p>
+
+<p><font face="Arial">First, the engine identifies the beginning
+and ending of sentences. In English, the pitch will tend to fall
+near the end of a statement, and rise for a question. Likewise,
+volume and speaking speed ramp up when the text-to-speech first
+starts talking, and fall off on the last word when it stops.
+Pauses are placed between sentences.</font></p>
+
+<p><font face="Arial">Engines also identify phrase boundaries,
+such as noun phrases and verb phrases. These will have similar
+characteristics to sentences, but will be less pronounced. The
+engine can determine the phrase boundaries by using the
+part-of-speech information generated during the homograph
+disambiguation. Pauses are placed between phrases or where commas
+occur.</font></p>
+
+<p><font face="Arial">Algorithms then try to determine which
+words in the sentence are important to the meaning, and these are
+emphasized. Emphasized words are louder, longer, and will have
+more pitch variation. Words that are unimportant, such as those
+used to make the sentence grammatically correct, are
+de-emphasized. In a sentence such as &quot;John and Bill walked
+to the store,&quot; the emphasis pattern might be &quot;JOHN and
+BILL walked to the STORE.&quot; The more the text-to-speech
+engine &quot;understands&quot; what&#146;s being spoken, the
+better it&#146;s emphasis will be.</font></p>
+
+<p><font face="Arial">Next, the prosody within a word is
+determined. Usually the pitch and volume rise on stressed
+syllables.</font></p>
+
+<p><font face="Arial">All of the pitch, timing, and volume
+information from the sentence level, phrase level, and word level
+are combined together to produce the final output. The output
+from the prosody module is just a list of phonemes with the
+pitch, duration, and volume for each phoneme.</font></p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<h1><font face="Arial">Play Audio</font></h1>
+
+<p><font face="Arial">The speech synthesis is almost done by this
+point. All the text-to-speech engine has to do is convert the
+list of phonemes and their duration, pitch, and volume, into
+digital audio.</font></p>
+
+<p><font face="Arial">Methods for generating the digital audio
+will vary, but many text-to-speech engines generate the audio by
+concatenating short recordings of phonemes. The recordings come
+from a real person. In a simplistic form, the engine receives the
+phoneme to speak, loads the digital audio from a database, does
+some pitch, time, and volume changes, and sends it out to the
+sound card.</font></p>
+
+<p><font face="Arial">It isn&#146;t quite that simple for a
+number of reasons.</font></p>
+
+<p><font face="Arial">Most noticeable is that one recording of a
+phoneme won&#146;t have the same volume, pitch, and sound quality
+at the end, as the beginning of the next phoneme. This causes a
+noticeable glitch in the audio. An engine can reduce the glitch
+by blending the edges of the two segments together so at their
+intersections they both have the same pitch and volume. Blending
+the sound quality, which is determined by the harmonics generated
+by the voice, is more difficult, and can be solved by the next
+step.</font></p>
+
+<p><font face="Arial">The sound that a person makes when he/she
+speaks a phoneme, changes depending upon the surrounding
+phonemes. If you record &quot;cat&quot; in sound recorder, and
+then reverse it, the reversed audio doesn&#146;t sound like
+&quot;tak&quot;, which has the reversed phonemes of cat. Rather
+than using one recording per phoneme (about 50), the
+text-to-speech engine maintains thousands of recordings (usually
+1000-5000). Ideally it would have all possible phoneme context
+combinations recorded, 50 * 50 * 50 = 125,000, but this would be
+too many. Since many of these combinations sound similar, one
+recording is used to represent the phoneme within several
+different contexts.</font></p>
+
+<p><font face="Arial">Even a database of 1000 phoneme recordings
+is too large, so the digital audio is compressed into a much
+smaller size, usually between 8:1 and 32:1 compression. The more
+compressed the digital audio, the more muted the voice sounds.</font></p>
+
+<p><font face="Arial">Once the digital audio segments have been
+concatenated they&#146;re sent off to the sound card, making the
+computer talk.</font></p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<h1><font face="Arial">Generating a Voice</font></h1>
+
+<p><font face="Arial">You might be wondering, &quot;How do you
+get thousands of recordings of phonemes?&quot;</font></p>
+
+<p><font face="Arial">The first step is to select a voice talent.
+The voice talent then spends several hours in a recording studio
+reading a wide variety of text. The text is designed so that as
+many phonemes sequence combinations are recorded as possible. You
+at least want them to read enough text so there are several
+occurrences of each of the 1000 to 5000 recording slots.</font></p>
+
+<p><font face="Arial">After the recording session is finished,
+the recordings are sent to a speech recognizer which then
+determines where the phonemes begin and end. Since the tools also
+knows the surrounding phonemes, it&#146;s easy to pull out the
+right recordings from the speech. The only trick is to figure out
+which recording sounds best. Usually an algorithm makes a guess,
+but someone must listening to the phoneme recordings just to make
+sure they&#146;re good.</font></p>
+
+<p><font face="Arial">The selected phoneme recordings are
+compressed and stored away in the database. The result is a new
+voice.</font></p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<h1><font face="Arial">Conclusion</font></h1>
+
+<p><font face="Arial">This was a high level overview of how
+text-to-speech works. Most text-to-speech engines work in a
+similar manner, although not all of them work this way. The
+overview doesn&#146;t give you enough detail to write your own
+text-to-speech engine, but now you know the basics. If you want
+more detail you should purchase one of the numerous technical
+books on text-to-speech.</font></p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+
+<p><font face="Arial"></font>&nbsp;</p>
+</body>
+</html>

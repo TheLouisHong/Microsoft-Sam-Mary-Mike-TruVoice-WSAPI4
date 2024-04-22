@@ -1,0 +1,206 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\TTSAPP.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\TTSAPP.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 217, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About TTSAPP"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "TTSAPP",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+    CTEXT           "Copyright © 1998 by Microsoft Corporation\nAll Rights Reserved.",
+                    IDC_STATIC,40,30,150,30
+END
+
+IDD_TTSAPP_DIALOG DIALOGEX 0, 0, 346, 223
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "TTS Simple Application"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Mouth Position",IDC_STATIC6,7,7,69,76
+    LTEXT           "",IDC_MOUTHBOX,10,20,65,55
+    EDITTEXT        IDC_EDIT_TEXT,81,7,188,77,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL
+    CONTROL         "Tagged textData",IDC_CHECK_TAG,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,5,95,70,11
+    CONTROL         "SAPI Phonemes",IDC_CHECK_IPA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,110,95,70,10
+    CONTROL         "Pause / Resume",IDC_PAUSE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,200,95,69,10
+    LTEXT           "Mode",IDC_STATIC5,17,115,26,9
+    COMBOBOX        IDC_COMBO_MODES,48,113,220,62,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Pitch",IDC_STATIC2,17,142,26,9
+    CONTROL         "Slider1",IDC_SLIDER_PITCH,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,49,140,220,13
+    LTEXT           "(Hz)",IDC_STATIC7,19,150,14,8
+    EDITTEXT        IDC_EDIT_PITCHMIN,54,154,23,12,ES_READONLY | ES_NUMBER | 
+                    NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_NOPARENTNOTIFY
+    EDITTEXT        IDC_EDIT_PITCHMAX,251,154,23,12,ES_READONLY | ES_NUMBER | 
+                    NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_NOPARENTNOTIFY
+    LTEXT           "Speed",IDC_STATIC3,17,167,26,9
+    CONTROL         "Slider1",IDC_SLIDER_SPEED,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,49,166,220,13
+    LTEXT           "(Words/Min)",IDC_STATIC8,7,175,43,10
+    EDITTEXT        IDC_EDIT_SPEEDMIN,54,180,23,12,ES_READONLY | ES_NUMBER | 
+                    NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_NOPARENTNOTIFY
+    EDITTEXT        IDC_EDIT_SPEEDMAX,251,180,23,12,ES_READONLY | ES_NUMBER | 
+                    NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_NOPARENTNOTIFY
+    LTEXT           "Volume",IDC_STATIC4,16,191,26,9
+    CONTROL         "Slider1",IDC_SLIDER_VOLUME,"msctls_trackbar32",TBS_BOTH | 
+                    TBS_NOTICKS | WS_TABSTOP,49,190,220,13
+    LTEXT           "(%)",IDC_STATIC9,22,200,14,8
+    EDITTEXT        IDC_EDIT_VOLUMEMIN,54,204,23,12,ES_READONLY | ES_NUMBER | 
+                    NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_NOPARENTNOTIFY
+    EDITTEXT        IDC_EDIT_VOLUMEMAX,251,204,23,12,ES_READONLY | ES_NUMBER | 
+                    NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_NOPARENTNOTIFY
+    DEFPUSHBUTTON   "Speak",IDC_BUTTON_TEXTDATA,279,7,60,14
+    PUSHBUTTON      "Stop",IDC_BUTTON_RESET,279,26,60,14
+    PUSHBUTTON      "Inject",IDC_BUTTON_INJECT,279,45,60,14
+    DEFPUSHBUTTON   "Exit",IDOK,281,86,58,14
+    PUSHBUTTON      "Reset Settings",IDC_BUTTON_DEFAULT,281,112,58,15
+    EDITTEXT        IDC_EDIT_PITCH,283,140,43,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_SPEED,283,166,43,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_VOLUME,283,190,43,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_TTSAPP_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 339
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 216
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About TTSAPP..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\TTSAPP.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

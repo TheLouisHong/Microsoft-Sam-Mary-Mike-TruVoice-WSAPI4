@@ -1,0 +1,5 @@
+REGEDIT
+HKEY_CLASSES_ROOT\CLSID\{30012F20-9768-11ce-80EA-00AA003E4B50} = My Audio Source Object
+HKEY_CLASSES_ROOT\CLSID\{30012F20-9768-11ce-80EA-00AA003E4B50}\InprocServer32 = c:\speechdk\samples\audiosd\windebug\audiosd.dll
+HKEY_CLASSES_ROOT\CLSID\{438F97C0-9768-11ce-80EA-00AA003E4B50} = My Audio Destination Object
+HKEY_CLASSES_ROOT\CLSID\{438F97C0-9768-11ce-80EA-00AA003E4B50}\InprocServer32 = c:\speechdk\samples\audiosd\windebug\audiosd.dll

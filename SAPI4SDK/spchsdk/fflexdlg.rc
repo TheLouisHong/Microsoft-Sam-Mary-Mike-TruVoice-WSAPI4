@@ -1,0 +1,168 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ENGINE DIALOG DISCARDABLE  0, 0, 207, 126
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select an engine"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,95,105,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,150,105,50,14
+    LTEXT           "Select the speech recognition or text-to-speech engine whose lexicon you wish to modify,",
+                    IDC_STATIC,5,5,195,20
+    LISTBOX         IDC_ENGINE,5,30,195,70,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_LEX DIALOG DISCARDABLE  0, 0, 272, 210
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Lexicon"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Words from scanned file:",IDC_STATIC,5,0,100,10
+    LISTBOX         IDC_WORDS,5,15,105,170,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Scan file for words",IDC_SCAN,15,190,85,15
+    GROUPBOX        "Selected Word",IDC_STATIC,120,10,140,110
+    LTEXT           "Pronunciations:",IDC_STATIC,125,20,90,10
+    LISTBOX         IDC_PRONUNCIATIONS,125,35,130,40,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "In lexicon:",IDC_STATIC,125,80,45,10
+    LTEXT           "Yes",IDC_INLEX,175,80,80,10,SS_SUNKEN
+    PUSHBUTTON      "&Edit",IDC_EDIT,155,100,70,15
+    PUSHBUTTON      "&Add All",IDC_ADDALL,120,130,45,15
+    LTEXT           "Adds the scanned words to the lexicon if they're not already present.",
+                    IDC_STATIC,170,130,90,25
+    PUSHBUTTON      "&Remove All",IDC_REMOVEALL,120,160,45,15
+    LTEXT           "Removes all the scanned words from the lexicon.",
+                    IDC_STATIC,170,160,90,20
+    PUSHBUTTON      "E&dit Another",IDC_EDIT2,120,190,45,15
+    LTEXT           "Edit a word not in the scanned list.",IDC_STATIC,170,
+                    190,90,15
+END
+
+IDD_SCANFILE DIALOG DISCARDABLE  0, 0, 202, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scan File"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Type the name of the text file you wish to scan for words:",
+                    IDC_STATIC,5,5,185,10
+    EDITTEXT        IDC_FILE,5,20,195,15,ES_AUTOHSCROLL
+    LTEXT           "Do you want to:",IDC_STATIC,5,50,185,10
+    CONTROL         "Keep &all words in the list",IDC_ALLWORDS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,15,60,150,10
+    CONTROL         "Keep &only words not in the lexicon",IDC_NEWWORDS,
+                    "Button",BS_AUTORADIOBUTTON,15,70,150,10
+    CONTROL         "Keep only &words already in the lexicon",IDC_OLDWORDS,
+                    "Button",BS_AUTORADIOBUTTON,15,80,150,10
+    LTEXT           "Only keep words appearing more than the following times:",
+                    IDC_STATIC,5,105,120,20
+    EDITTEXT        IDC_TIMES,140,105,45,15,ES_AUTOHSCROLL | WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,95,130,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,150,130,50,14
+    LTEXT           "",IDC_STATUS,5,130,85,10,SS_SUNKEN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ENGINE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 119
+    END
+
+    IDD_LEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 265
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_SCANFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 195
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

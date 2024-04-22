@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Accuracy Test Programs</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Accuracy Test Programs</font></h1>
+
+<p><font face="Arial">This document will instruct you how to perform an accuracy test on
+one or more command &amp; control (or dictation) speech recognition engines that
+you&#146;re evaluating to see if they are accurate enough for your uses.</font></p>
+
+<p><font face="Arial">You need this to run:</font> 
+
+<ul>
+  <li><font face="Arial">Command &amp; Control or Dictation Speech Recognition Engine</font></li>
+</ul>
+
+<h1><font face="Arial">Why do a Command &amp; Control accuracy test?</font></h1>
+
+<p><font face="Arial">If you have a choice between two or more command &amp; control
+speech recognition engines and are unsure which meets your needs, you might want to do an
+accuracy test to see which engine is best suited for your purposes.</font></p>
+
+<p><font face="Arial">Do not rely on numbers published by speech recognition engine
+vendors since the accuracy tests they quote are not done under the same circumstances your
+application requires, and are usually designed to produce the highest accuracy numbers.
+Accuracy tests published by magazines are generally less biased, but again, they may not
+be testing the engine for your needs.</font></p>
+
+<p><font face="Arial">The accuracy of command &amp; control speech engines will vary in
+the following ways:</font> 
+
+<ul>
+  <li><font face="Arial">Speaker independence -- Some engines will require less training to
+    get up and running. Some engines may work better after lots of training. Will your users
+    train?</font></li>
+  <li><font face="Arial">Acoustic Adaptation -- Engines will adapt to the speaker. Some adapt
+    quickly while others take their time. This affects the accuracy of a grammar&#146;s
+    recognition differently.</font></li>
+  <li><font face="Arial">Microphone -- Some engines will only work on specific microphones,
+    while others work well on a broad range of microphones.</font></li>
+  <li><font face="Arial">Noise conditions -- Engines are affected differently by noise
+    conditions.</font></li>
+  <li><font face="Arial">There are many other effects.</font></li>
+</ul>
+
+<h1><font face="Arial">Why do a dictation accuracy test?</font></h1>
+
+<p><font face="Arial">If you have a choice between two or more dictation (or
+limited-domain) engines and are unsure which meets your needs, you might want to do an
+accuracy test to see which engine best suits your purposes.</font></p>
+
+<p><font face="Arial">Do not rely on numbers published by speech recognition engine
+vendors since the accuracy tests they quote are not done under the same circumstances your
+application, and are usually designed to produce the highest accuracy numbers. Accuracy
+tests published by magazines are generally less biased, but again, they may not be
+duplicating your needs.</font></p>
+
+<p><font face="Arial">The accuracy of dictation engines will vary in the following ways:</font>
+
+<ul>
+  <li><font face="Arial">Speaker independence -- Some engines will require less training to
+    get up and running. Some engines may work better after lots of training. Will your users
+    train?</font></li>
+  <li><font face="Arial">Acoustic Adaptation -- Engines will adapt to the speaker. Some adapt
+    quickly while others take their time. This affects the accuracy of different dictation
+    tasks differently.</font></li>
+  <li><font face="Arial">Microphone -- Some engines will work only on specific microphones,
+    while others work well on a broad range of microphones.</font></li>
+  <li><font face="Arial">Noise conditions -- Engines are affected differently by noise
+    conditions.</font></li>
+  <li><font face="Arial">Pauses between words -- Some discrete engines require long pauses
+    between words, while others work with barely any pause.</font></li>
+  <li><font face="Arial">Vocabulary -- Engines have different vocabulary sizes and different
+    vocabulary contents that could affect accuracy for your task.</font></li>
+  <li><font face="Arial">Language model -- An engine uses a &#147;language model&#148; to
+    predict which words come next. Example, after I say &#147;New York&#148; there&#146;s a
+    pretty good chance I&#146;ll speak &#147;City&#148; or &#147;State&#148; but not
+    &#147;butter&#148;. Engines derive their language model from different places, and some do
+    well with formal speech styles while others excel at informal styles.</font></li>
+  <li><font face="Arial">Language Model Adaptation -- Dictation engines will adapt to the
+    vocabulary that speakers use in their documents.</font></li>
+  <li><font face="Arial">There are many other effects.</font></li>
+</ul>
+
+<h1><font face="Arial">Overview of the testing procedure</font></h1>
+
+<p><font face="Arial">Although there are many ways to perform an accuracy test, the test
+we ship with the speech SDK works in the following manner:</font> 
+
+<ol>
+  <li><font face="Arial">You produce a grammar to test with.</font></li>
+  <li><font face="Arial">Produce a list of phrases that users should speak.</font></li>
+  <li><font face="Arial">Acquire a set of recordings of users speaking those sentences.</font></li>
+  <li><font face="Arial">Produce a script file listing the file-names of the spoken sentences.</font></li>
+  <li><font face="Arial">Write a corollary file containing the phrases/words that should be
+    recognized by the engine.</font></li>
+  <li><font face="Arial">If necessary, record a few seconds of silence that will separate
+    recordings.</font></li>
+  <li><font face="Arial">Run the AccTest.exe application.</font></li>
+  <li><font face="Arial">(Optional) Send the output from AccTest.exe into DiffWord, or your
+    own output comparison program.</font></li>
+</ol>
+
+<h1><font face="Arial">Accuracy Test Applications shipped with the SDK</font></h1>
+
+<p><font face="Arial">We ship several applications in the speech SDK that will help you
+perform a command &amp; control and dictation accuracy test:</font> 
+
+<ul>
+  <li><font face="Arial"><a href="srg.htm">Grammar Compiler</a> -- Compiles a dictation or
+    context-free grammar.</font></li>
+  <li><font face="Arial"><a href="collect.htm">Collect.Exe</a> -- Collects recordings of
+    phrases from users.</font></li>
+  <li><font face="Arial">TextToWo.Exe -- (Dictation) Reads in a text file containing numbers
+    and symbols, and writes out one containing only words. Symbols and numbers are converted
+    to words. Example: &#147;52&#148; is converted to &#147;fifty two&#148;. <strong>You must
+    run this from a command line</strong>. The application is in c:\program files\Microsoft
+    speech sdk\sr\texttowo.exe, unless you've installed the Speech SDK elsewhere</font></li>
+  <li><font face="Arial"><a href="sr\acctest.exe">AccTest.Exe</a> -- Performs an accuracy test
+    on the recorded sentences and a command &amp; control engine. It also demonstrates how to
+    use the Audio Source from File object. (<a href="samples\acctest">View Source Code</a>)</font></li>
+  <li><font face="Arial">DiffWord.Exe -- (Optional) Compares the output of the accuracy test
+    with the correct responses, displaying which words were misrecognized. <strong>You must
+    run this from a command line</strong>. The application is in c:\program files\Microsoft
+    speech sdk\sr\diffword.exe, unless you've installed the Speech SDK elsewhere</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Selecting Speakers</font></h1>
+
+<p><font face="Arial">The first task in an accuracy test is to select speakers that will
+be doing reading. You should try to select speakers that correspond to your user
+population, choosing different genders, ages, and dialects. The more speakers you have,
+the better the numbers will be. Speech recognition will be very accurate for some
+speakers, and will not work well for others. Between five and ten speakers is a reasonable
+number.</font></p>
+
+<p><font face="Arial">Besides doing the recordings, you might want to have the speakers
+train the recognition system so that you can also test speaker-dependent accuracy. If the
+users don&#146;t train then you can only test speaker-independent accuracy. Training
+typically reduces the number of recognition errors by 30%-50%.</font></p>
+
+<p><font face="Arial">You should have speakers record with whatever microphone you expect
+your end users to have. If your end users will have a variety of microphones then have
+each speaker use a different microphone.</font></p>
+
+<h1><font face="Arial">Selecting the text (Dictation)</font></h1>
+
+<p><font face="Arial">You should select text that is representative of what your users
+will dictate. You should have at least 5,000 words for an accurate number. Remember that
+the accuracy of a dictation engine will be significantly affected by the text that it
+used.</font></p>
+
+<h1><font face="Arial">Converting the text to words (Dictation)</font></h1>
+
+<p><font face="Arial">The dictation test application must have a text file containing only
+words, without symbols or numbers. You can run TextToWo.Exe to convert the file. The
+command line argument is:</font></p>
+
+<blockquote>
+  <p><font face="Arial"><tt>TextToWo.Exe in.txt out.txt</tt></font></p>
+</blockquote>
+
+<p><font face="Arial">in.txt is an input file containing the source text. It might be
+something like this:</font></p>
+
+<blockquote>
+  <p><font face="Arial">At 10:23, Fred walked down the stairs.</font></p>
+</blockquote>
+
+<p><font face="Arial">Out.txt is the file transcribed without any symbols. The sample
+in.txt would be converted to:</font></p>
+
+<blockquote>
+  <p><font face="Arial">at ten twenty three comma Fred walked down the stairs period</font></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">You should check over the output file and make sure that the
+symbols, numbers, and abbreviations were correctly converted to words.</font></p>
+
+<h1><font face="Arial">Producing a Grammar</font></h1>
+
+<p><font face="Arial">You must determine a grammar to test with. The more complicated the
+grammar, the lower the speech recognition accuracy. The grammar should be similar to the
+grammars you expect your application to use, if not the same. Grammars can be created in
+two ways:</font></p>
+
+<p><font face="Arial">The most flexible and difficult way is to design a context free
+grammar (or dictation grammar) and use SRG.Exe (or a retail grammar compiler) to compile
+the grammar.</font></p>
+
+<p><font face="Arial">If you're doing a dictation accuracy test you should also use the
+grammar compiler. You can make the grammar a dictation grammar by including the following
+lines:</font></p>
+
+<blockquote>
+  <p><font face="Arial"><tt>[Grammar]</tt></font></p>
+  <p><font face="Arial"><tt>type=dictation</tt></font></p>
+</blockquote>
+
+<h1><font face="Arial">Recording speakers</font></h1>
+
+<p><font face="Arial">You need to have recordings of people speaking phrases like they
+would to your application. You can use the <a href="collect.htm">Audio Collection Tool</a>
+to record the voices.</font></p>
+
+<p><font face="Arial">Alternatively, you can record using the <a href="recplay.htm">Record/Play</a>
+tool.</font></p>
+
+<h2><font face="Arial">Re-install the speech recognition engines</font></h2>
+
+<p><font face="Arial">You should uninstall and then reinstall the command &amp; control
+engine every time you&#146;re going to run the accuracy test. Speech recognition engines
+learn from the previous test suites and if you don&#146;t reinstall then the command &amp;
+control engine&#146;s accuracy will continually improve as it learns how to recognize from
+the test suite.</font></p>
+
+<h1><font face="Arial">Running AccTest</font></h1>
+
+<p><font face="Arial">To do an accuracy test, run AccTest.EXE. Fill in the &#147;Accuracy
+test information&#148; dialog:</font> 
+
+<ul>
+  <li><font face="Arial">Queue/Wave File -- Type in the full path of the wave file containing
+    the digital audio, or the full path of a text file that contains a list of files. Each
+    file name in the text file should be on its own line. Make sure all of the wave files use
+    the same file format, and contain the proper sampling rate and samples-per-second for the
+    engine. This is usually 8 kHz, 11 kHz, or 16 kHz, 16-bit mono.</font></li>
+  <li><font face="Arial">Silence Wave -- You don&#146;t have to enter a value here. If you
+    type in a wave file-name, the wave will be played between wave files listed in the queue,
+    putting a short pause between recordings if you pass in a recording of silence. Make sure
+    it&#146;s the right wave file-format for the engine.</font></li>
+  <li><font face="Arial">Data rate - Use &quot;1x&quot; for real time, or higher numbers if
+    you want the accuracy test finished quicker.</font></li>
+  <li><font face="Arial">Grammar file -- The full path of a grammar (.grm) file (generated by
+    SRG.EXE). You can leave this blank for dictation accuracy tests.</font></li>
+  <li><font face="Arial">Speech recognition engine -- Select the speech recognition engine to
+    use</font></li>
+  <li><font face="Arial">Speaker&#146;s Name -- Name of speaker for whom training has been
+    done on the machine. You can leave it blank and a speaker independent model will be used.</font></li>
+  <li><font face="Arial">Support ISRGramNotifySink-&gt;ReEvaluate() -- If checked, this allows
+    the engine to re-evaluate its recognition results up to 5 phrases after they were
+    recognized. Some dictation engines gain higher accuracy by doing this.</font></li>
+  <li><font face="Arial">Matching Text -- This is the text that the accuracy test should match
+    the recognition results against to figure out what the system accuracy is.</font></li>
+  <li><font face="Arial">Show general dialog before testing -- If checked, this brings up the
+    engine&#146;s general dialog before testing begins and allows the tester to tweak some
+    parameters.</font></li>
+  <li><font face="Arial">Output text file -- File where the recognition results are written.
+    This is just the text of what was recognized, and makes no judgements on accuracy. </font></li>
+  <li><font face="Arial">Put new lines after each phrase -- If set, this separates recognized
+    phrases with new-lines. Otherwise it uses spaces. Dictation accuracy tests will probably
+    want this off.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">When all the information is done, press OK. The test application
+will stop after it hasn&#146;t gotten any results from the recognition engine for 4
+seconds.</font></p>
+
+<p><font face="Arial">The source code for the accuracy test is included in the SDK so you
+can modify/enhance it as needed.</font></p>
+
+<h1><font face="Arial">Comparing the results</font></h1>
+
+<p><font face="Arial">The AccTest.Exe will compare the recognized text with the matching
+text, and inform you of two accuracy numbers. The first is the Word Error Rate, which
+indicates the number of words that were misrecognized; use this number if you're testing a
+dictation system. The second is the Line Error Rate, which is the number of lines that
+don't compare; use this if you're doing a Command and Control accuracy test.</font></p>
+
+<p><font face="Arial">Optionally, the AccTest.Exe program outputs a simple text file
+containing the recognized results from the audio file. You can write your own application
+to compare the output with the proper results, or you can run DiffWord.Exe.</font></p>
+
+<p><font face="Arial">Run DiffWord.Exe with the following parameters:</font></p>
+
+<blockquote>
+  <p><font face="Arial"><tt>DiffWord.Exe &lt;recognition output&gt; &lt;correct response&gt;
+  &lt;-w or -l&gt;</tt></font></p>
+</blockquote>
+
+<p><font face="Arial">&lt;recognition output&gt; -- Output from AccTest.Exe.</font></p>
+
+<p><font face="Arial">&lt;correct response&gt; -- List of words or phrases that should
+have been recognized.</font></p>
+
+<p><font face="Arial">&lt;-w or -l&gt; -- If &#147;-w&#148; is selected then the
+comparison will be made word-by-word so you can get a word accuracy rate. If
+&#147;-l&#148; is selected then the comparison will be made line-by-line so you can get a
+phrase accuracy rate. If you use &#147;-l&#148; make sure you have &#147;Put new lines
+after each phrase&#148; checked in the AccTest.Exe program, and that you have new lines
+between phrases in the &lt;correct response&gt; file.</font></p>
+
+<p><font face="Arial">DiffWord.Exe will write the differences (and similarities) out to
+the screen, followed by an accuracy score.</font></p>
+
+<h1><font face="Arial">That&#146;s It</font></h1>
+
+<p><font face="Arial">You can repeat this process for as many speech recognition engines,
+users, and documents as you like.</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Sample Accuracy Test</font></h1>
+
+<p><font face="Arial">We've provided some sample files so you can see the accuracy test
+functioning. To use them:</font> 
+
+<ol>
+  <li><font face="Arial">Run the <a href="sr/acctest.exe">accuracy test</a> application.</font></li>
+  <li><font face="Arial">Type &quot;<em>c:\program files\Microsoft speech sdk\sr\test.wav</em>&quot;
+    into the &quot;Queue/wave file&quot; field. (If you installed the speech SDK into a
+    different directory you will need to type in a different path.)</font></li>
+  <li><font face="Arial">To hear the audio that will be passed into the recognizer, click <a
+    href="sr/test.wav">here</a>.</font></li>
+  <li><font face="Arial">Type &quot;<em>c:\program files\Microsoft speech sdk\sr\silence.wav</em>&quot;
+    into the &quot;Silence wave&quot; field.</font></li>
+  <li><font face="Arial">Keep the data rate set to 1x real-time.</font></li>
+  <li><font face="Arial">Type &quot;<em>c:\program files\Microsoft speech sdk\sr\tv.txt</em>&quot;
+    into the &quot;Grammar file&quot; field.</font></li>
+  <li><font face="Arial">Using the drop down, select a speech recognition engine. It should
+    support CFGs (most do) and English.</font></li>
+  <li><font face="Arial">Leave the &quot;Speaker's name&quot; field blank.</font></li>
+  <li><font face="Arial">Uncheck &quot;Support ISRGramNotifySink::ResEval()&quot;.</font></li>
+  <li><font face="Arial">Uncheck &quot;Show general dialog before testing&quot;.</font></li>
+  <li><font face="Arial">Type &quot;<em>c:\program files\Microsoft speech sdk\sr\correct.txt</em>&quot;
+    into the &quot;Text to match recognition against&quot; field.</font></li>
+  <li><font face="Arial">Type &quot;<em>c:\program files\Microsoft speech sdk\sr\out.txt</em>&quot;
+    into the &quot;Write recognition output to&quot; field.</font></li>
+  <li><font face="Arial">Make sure &quot;Put new lines after each phrase (for CnC accuracy
+    tests)&quot; is checked.</font></li>
+  <li><font face="Arial">Press OK.</font></li>
+  <li><font face="Arial">The test will run through the two sentences. When it is finished, it
+    will bring up a dialog with the accuracy numbers.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font> 
+
+<ul>
+  <li><font face="Arial">Speech Recognition Engine</font></li>
+  <li><font face="Arial">Recordings of people, and other data files</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font> 
+
+<ul>
+  <li><a href="sr/acctest.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial"><strong>See also:</strong></font> 
+
+<ul>
+  <li><font face="Arial"><a href="collect.htm">Audio Collection Tool</a> - Used to record the
+    audio for an accuracy test.</font><font face="Arial"></li>
+  <li><a href="recplay.htm">Record/Play</a> - Can be used to record audio for an accuracy
+    test.</li>
+  <li><a href="spchwrap.htm">Speech Wrapper Source Code</a> - You can use this to build a
+    debug version of the library.</li>
+</ul>
+</font>
+</body>
+</html>

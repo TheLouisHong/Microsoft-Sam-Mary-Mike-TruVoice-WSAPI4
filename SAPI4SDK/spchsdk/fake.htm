@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Fake Speech Recognition and Text-to-Speech Engines</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1>Fake Speech Recognition and Text-to-Speech Engines</h1>
+
+<p><font face="Arial">The fake Speech Recognition and Text-to-Speech engines are intended
+as templates for engine developers who wish to port their speech recognition or
+text-to-speech engine to SAPI. They do not do any recognition or text-to-speech
+themselves. They only provide a very crude framework so engine developers can see how SAPI
+communicates with an engine.</font></p>
+
+<p><font face="Arial">Furthermore, they are not a complete implementation of SAPI, and
+will not work with most of the sample applications. The best way to use them is to build
+the sample engines and, using the run-time debugger, step through the code to see how SAPI
+works.</font></p>
+
+<p><font face="Arial">To use either the fake speech recognition or text-to-speech engine:</font>
+
+<ol>
+  <li><font face="Arial">Open either the fake <a href="samples/srfake">speech recognition</a>
+    or <a href="samples/srfake">text-to-speech</a> engine using Visual C++ (or another
+    development environment).</font></li>
+  <li><font face="Arial">Make sure you're building the debug version, not the retail version.</font></li>
+  <li><font face="Arial">Build the samples.</font></li>
+  <li><font face="Arial">Modify the included .reg files (srfake.reg or ttsfake.reg) so that
+    they point to the debug dll, usually &quot;c:\\program files\\Microsoft speech
+    sdk\\samples\\srfake\\windebug\\srfake.dll&quot;. (For TTS change srfake to ttsfake.)</font></li>
+  <li><font face="Arial">Run the .reg files so the registry is changed. You can do this by
+    double clicking the .reg file from explorer.</font></li>
+  <li><font face="Arial">Since the engines are DLL's, they must be run by an executable. You
+    should set the executable to be <a href="srtest.htm">usrtest.exe</a> (for SR) or <a
+    href="ttstest.htm">uttstest.exe</a> (for TTS). <em>(The test application versions are
+    Unicode because the fake engines only contain Unicode interfaces, even though full SAPI
+    engines need to contain both ANSI and Unicode. Because the fake engines only contain
+    Unicode interfaces, you need to run the Unicode versions of the test applications, which
+    only work on Windows NT.)</em> In Visual C++, you can set the EXE name under the
+    &nbsp; &quot;Project&quot;, &quot;Settings&quot; menu. Click on the &quot;Debug&quot; tab,
+    and type &quot;c:\program files\Microsoft speech sdk\sr\usrtest.exe&quot;. If you're
+    testing the text-to-speech engine, type &quot;c:\program files\Microsoft speech
+    sdk\tts\uttstest.exe&quot;.</font></li>
+  <li><font face="Arial">Place breakpoints at key entry points in the code, so they're
+    guaranteed to get hit. The best places are:</font><p><font face="Arial">fakesrcf.cpp (or
+    fakettsc.cpp) - DllMain</font></p>
+    <p><font face="Arial">fakesrcf.cpp (or fakettsc.cpp) - DllGetClassObject</font></p>
+    <p><font face="Arial">fakesrcf.cpp (or fakettsc.cpp) - CEngineClassFactory::CreateInstance</font></p>
+  </li>
+  <li><font face="Arial">Start debugging.</font></li>
+  <li><font face="Arial">The breakpoint in DllMain should get hit right away. If it isn't,
+    then either the registry is pointing to the wrong file location, or the debug DLL wasn't
+    built.</font></li>
+  <li><font face="Arial">Likewise DllGetClassObject and CEngineClassFactory::CreateInstance
+    will be run.</font></li>
+  <li><font face="Arial">Once you have hit these breakpoints, you should start stepping
+    through the code and see how it works. By doing this, and reading the SAPI documentation,
+    you can figure out how to convert your engine so it's compliant with SAPI.</font></li>
+</ol>
+<font size="3">
+
+<p>&nbsp;</p>
+</font>
+
+<p><font face="Arial"><strong>See also:</strong></font>
+
+<ul>
+  <li><a href="srtest.htm"><font face="Arial">Speech Recognition Hand Tester</font></a></li>
+  <li><a href="ttstest.htm"><font face="Arial">Text-to-Speech Hand Tester</font></a></li>
+  <li><a href="wrapper.htm"><font face="Arial">IE Wrapper Object</font></a></li>
+  <li><a href="document/com.chm"><font face="Arial">COM SAPI Documentation</font></a></li>
+</ul>
+</body>
+</html>

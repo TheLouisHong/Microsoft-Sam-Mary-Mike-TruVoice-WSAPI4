@@ -1,0 +1,168 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_EDITOR MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New",                        IDM_FILE_NEW
+        MENUITEM "&Open...",                    IDM_FILE_OPEN
+        MENUITEM "&Save",                       IDM_FILE_SAVE
+        MENUITEM "S&ave as...",                 IDM_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_FILE_EXIT
+    END
+    POPUP "&Grammar"
+    BEGIN
+        MENUITEM "&Compile",                    IDM_GRAMMAR_COMPILE
+        MENUITEM "&Test...",                    IDM_GRAMMAR_TEST
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help",                       ID_HELP_HELP
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_GRAMMARFILE DIALOG DISCARDABLE  0, 0, 186, 106
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select the grammar file..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Select the speech recognizer to use:",IDC_STATIC,7,7,
+                    169,8
+    COMBOBOX        IDC_SRENGINE,5,15,175,45,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "User name: (Leave blank for untrained)",IDC_STATIC,7,36,
+                    169,8
+    EDITTEXT        IDC_USERNAME,5,45,175,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Next >>>",IDOK,75,85,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,85,50,14
+END
+
+IDD_RESULTSDIALOG DIALOGEX 0, 0, 297, 210
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Test Window"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Quit",IDOK,240,5,50,14
+    GROUPBOX        "Recognized phrase",IDC_STATIC,10,30,280,50
+    GROUPBOX        "Detail",IDC_STATICAlt,10,85,280,120
+    EDITTEXT        IDC_RECOGEDIT,70,40,215,15,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Speak into the microphone. The window will show you the recognized phrase, and a more detailed description of the results.",
+                    IDC_STATIC,10,5,230,20
+    EDITTEXT        IDC_RECOGNIZED,20,100,265,100,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    LTEXT           "Words:",IDC_STATIC,15,40,50,15
+    EDITTEXT        IDC_PARSE,70,60,215,15,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Parse:",IDC_STATIC,15,60,50,15
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_GRAMMARFILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_RESULTSDIALOG, DIALOG
+    BEGIN
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 203
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN                ICON    DISCARDABLE     "icon1.ico"
+IDI_MAIN2               ICON    DISCARDABLE     "ico00001.ico"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

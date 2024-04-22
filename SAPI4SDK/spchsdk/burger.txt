@@ -1,0 +1,24 @@
+[Grammar]
+langid=1033
+type=cfg
+
+[<start>] 
+<start>=cheeseburger "2.01 cheeseburger" 
+<start>=double cheeseburger "2.50 double cheeseburger"
+<start>=double hamburger "2.25 double hamburger"
+<start>=double burger "2.25 double hamburger"
+<start>=double bacon burger "2.75 double baconburger"
+<start>=hamburger "1.65 hamburger" 
+<start>=bacon burger "2.05 baconburger"
+<start>=no onions "no onions"
+<start>=no pickles "no pickles"
+<start>=no ketchup "no ketchup"
+<start>=large fries "1.05 large fries"
+<start>=small fries ".75 small fries"
+<start>=medium fries ".95 medium fries"
+<start>=large drink ".99 large drink"
+<start>=medium drink ".65 medium drink"
+<start>=small drink ".50 small drink"
+<start>=thank you "thank you"
+<start>=mistake "mistake"
+<start>=with cheese ".36 with cheese"

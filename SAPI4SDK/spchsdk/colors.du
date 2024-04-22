@@ -1,0 +1,8 @@
+colors.cab                      ; what to create
+.                               ; where to pickup class files
+/i.\default\*.class             ; what to pickup
+/i.\directsr\*.class            ; what else
+/D "Colors"                     ; description
+/N "Colors"                     ; namespace
+/v1,0,0,10                      ; version
+

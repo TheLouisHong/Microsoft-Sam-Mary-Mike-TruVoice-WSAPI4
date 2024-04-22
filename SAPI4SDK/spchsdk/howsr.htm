@@ -1,0 +1,532 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>How Speech Recognition Works</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">How Speech Recognition Works</font></h1>
+
+<h1><font face="Arial">Overview</font></h1>
+
+<p><font face="Arial">You might have already used speech recognition in products, and
+maybe even incorporated it into your own application, but you still don&#146;t know how it
+works. This document will give you a technical overview of speech recognition so you can
+understand how it works, and better understand some of the capabilities and limitations of
+the technology.</font></p>
+
+<p><font face="Arial">Speech recognition fundamentally functions as a pipeline that
+converts PCM (Pulse Code Modulation) digital audio from a sound card into recognized
+speech. The elements of the pipeline are:</font> 
+
+<ol>
+  <li><font face="Arial">Transform the PCM digital audio into a better acoustic representation</font></li>
+  <li><font face="Arial">Apply a &quot;grammar&quot; so the speech recognizer knows what
+    phonemes to expect. A grammar could be anything from a context-free grammar to full-blown
+    English.</font></li>
+  <li><font face="Arial">Figure out which phonemes are spoken.</font></li>
+  <li><font face="Arial">Convert the phonemes into words.</font></li>
+</ol>
+
+<p><font face="Arial">I&#146;ll cover each of these steps individually</font></p>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Transform the PCM digital audio</font></h1>
+
+<p><font face="Arial">The first element of the pipeline converts digital audio coming from
+the sound card into a format that&#146;s more representative of what a person hears. The
+digital audio is a stream of amplitudes, sampled at about 16,000 times per second. If you
+visualize the incoming data, it looks just like the output of an oscilloscope. It&#146;s a
+wavy line that periodically repeats while the user is speaking. While in this form, the
+data isn&#146;t useful to speech recognition because it&#146;s too difficult to identify
+any patterns that correlate to what was actually said.</font></p>
+
+<p><font face="Arial">To make pattern recognition easier, the PCM digital audio is
+transformed into the &quot;frequency domain.&quot; Transformations are done using a
+windowed fast-Fourier transform. The output is similar to what a spectrograph produces. In
+frequency domain, you can identify the frequency components of a sound. From the frequency
+components, it&#146;s possible to approximate how the human ear perceives the sound.</font></p>
+
+<p><font face="Arial">The fast Fourier transform analyzes every 1/100th of a second and
+converts the audio data into the frequency domain. Each 1/100th of a second results is a
+graph of the amplitudes of frequency components, describing the sound heard for that
+1/100th of a second. The speech recognizer has a database of several thousand such graphs
+(called a codebook) that identify different types of sounds the human voice can make. The
+sound is &quot;identified&quot; by matching it to its closest entry in the codebook,
+producing a number that describes the sound. This number is called the &quot;feature
+number.&quot; (Actually, there are several feature numbers generated for every 1/100 th of
+a second but the process is easier to explain assuming only one.)</font></p>
+
+<p><font face="Arial">The input to the speech recognizer began as a stream of 16,000 PCM
+values per second. By using fast Fourier transforms and the codebook, it is boiled down
+into essential information, producing 100 feature numbers per second.</font></p>
+
+<h1><font face="Arial">Figure Out Which Phonemes Are Spoken</font></h1>
+
+<p><font face="Arial">I&#146;m going to jump out of order here. To make the recognition
+process easier to understand, I&#146;ll first explain how the recognizer determines what
+phonemes were spoken and then explain the grammars. </font></p>
+
+<p><font face="Arial">In an ideal world, you could match each feature number to a phoneme.
+If a segment of audio resulted in feature #52, it could always mean that the user made an
+&quot;h&quot; sound. Feature #53 might be an &quot;f&quot; sound, etc. If this were true,
+it would be easy to figure out what phonemes the user spoke.</font></p>
+
+<p><font face="Arial">Unfortunately, this doesn&#146;t work because of a number of
+reasons:</font> 
+
+<ul>
+  <li><font face="Arial">Every time a user speaks a word it sounds different. Users do not
+    produce exactly the same sound for the same phoneme.</font></li>
+  <li><font face="Arial">The background noise from the microphone and user&#146;s office
+    sometimes causes the recognizer to hear a different vector than it would have if the user
+    was in a quiet room with a high quality microphone.</font></li>
+  <li><font face="Arial">The sound of a phoneme changes depending on what phonemes surround
+    it. The &quot;t&quot; in &quot;talk&quot; sounds different than the &quot;t&quot; in
+    &quot;attack&quot; and &quot;mist&quot;.</font></li>
+  <li><font face="Arial">The sound produced by a phoneme changes from the beginning to the end
+    of the phoneme, and is not constant. The beginning of a &quot;t&quot; will produce
+    different feature numbers than the end of a &quot;t&quot;.</font></li>
+</ul>
+
+<p><font face="Arial">The background noise and variability problems are solved by allowing
+a feature number to be used by more than just one phoneme, and using statistical models to
+figure out which phoneme is spoken. This can be done because a phoneme lasts for a
+relatively long time, 50 to 100 feature numbers, and it&#146;s likely that one or more
+sounds are predominant during that time. Hence, it&#146;s possible to predict what phoneme
+was spoken.</font></p>
+
+<p><font face="Arial">Actually, the approximation is a bit more complex than this.
+I&#146;ll explain by starting at the origin of the process. For the speech recognition to
+learn how a phoneme sounds, a training tool is passed hundreds of recordings of the
+phoneme. It analyzes each 1/100 th of a second of these hundreds of recordings and
+produces a feature number. From these it learns statistics about how likely it is for a
+particular feature number to appear in a specific phoneme. Hence, for the phoneme
+&quot;h&quot;, there might be a 55% chance of feature #52 appearing in any 1/100 th of a
+second, 30% chance of feature #189 showing up, and 15% chance of feature #53. Every 1/100
+th of a second of an &quot;f&quot; sound might have a 10% chance of feature #52, 10%
+chance of feature #189, and 80% chance of feature #53.</font></p>
+
+<p><font face="Arial">The probability analysis done during training is used during
+recognition. The 6 feature numbers that are heard during recognition might be:</font></p>
+
+<blockquote>
+  <p><font face="Arial">52, 52, 189, 53, 52, 52</font></p>
+</blockquote>
+
+<p><font face="Arial">The recognizer computes the probability of the sound being an
+&quot;h&quot; and the probability of it being any other phoneme, such as &quot;f&quot;.
+The probability of &quot;h&quot; is:</font></p>
+
+<blockquote>
+  <p><font face="Arial">80% * 80% * 30% * 15% * 80% * 80% = 1.84%</font></p>
+</blockquote>
+
+<p><font face="Arial">The probability of the sound being an &quot;f&quot; is:</font></p>
+
+<blockquote>
+  <p><font face="Arial">10% * 10% * 10% * 80% * 10% * 10 % = 0.0008%</font></p>
+</blockquote>
+
+<p><font face="Arial">You can see that given the current data, &quot;h&quot; is a more
+likely candidate. (For those of you that are mathematical sticklers, you&#146;ll notice
+that the &quot;probabilities&quot; are no longer probabilities because they don&#146;t sum
+to one. From now on I&#146;ll call them &quot;scores&quot; since they&#146;re
+un-normalized probabilities.)</font></p>
+
+<p><font face="Arial">The speech recognizer needs to know when one phoneme ends and the
+next begins. Speech recognition engines use a mathematical technique called &quot;Hidden
+Markov Models&quot; (HMMs) that figure this out. This article won&#146;t get into the
+mathematics of how HMM&#146;s work, but here's an intuitive feel. Lets assume that the
+recognizer heard a word with an &quot;h&quot; phoneme followed by an &quot;ee&quot;
+phoneme. The &quot;ee&quot; phoneme has a 75% chance of producing feature #82 every 1/100
+th of a second, 15% of chance feature #98, and a 10% chance of feature #52. Notice that
+feature #52 also appears in &quot;h&quot;. If you saw a lineup of the data, it might look
+like this:</font></p>
+
+<blockquote>
+  <p><font face="Arial">52, 52, 189, 53, 52, 52, 82, 52, 82, etc.</font></p>
+</blockquote>
+
+<p><font face="Arial">So where does the &quot;h&quot; end and the &quot;ee&quot; begin?
+From looking at the features you can see that the 52&#146;s are grouped at the beginning,
+and the 82&#146;s grouped at the end. The split occurs someplace in-between. Humans can
+eye-ball this. Computers use Hidden Markov Models.</font></p>
+
+<p><font face="Arial">By the way, the speech recognizer figures out when speech starts and
+stops because it has a &quot;silence&quot; phoneme, and each feature number has a
+probability of appearing in silence, just like any other phoneme.</font></p>
+
+<p><font face="Arial">Now our recognizer can recognize what phoneme was spoken if
+there&#146;s background noise or the user&#146;s voice had some variation. However,
+there&#146;s another problem. The sound of phonemes changes depending upon what phoneme
+came before and after. You can hear this with words such as &quot;he&quot; and
+&quot;how&quot;. You don&#146;t speak a &quot;h&quot; followed by an &quot;ee&quot; or
+&quot;ow&quot;, but the vowels intrude into the &quot;h&quot;, so the &quot;h&quot; in
+&quot;he&quot; has a bit of &quot;ee&quot; in it, and the &quot;h&quot; in &quot;how&quot;
+as a bit of &quot;ow&quot; in it.</font></p>
+
+<p><font face="Arial">Speech recognition engines solve the problem by creating
+&quot;tri-phones&quot;, which are phonemes in the context of surrounding phonemes. Thus,
+there&#146;s a tri-phone for &quot;silence-h-ee&quot; and one for
+&quot;silence-h-ow&quot;. Since there are roughly 50 phonemes in English, you can
+calculate that there are 50*50*50 = 125,000 tri-phones. That&#146;s just too many for
+current PCs to deal with so similar sounding tri-phones are grouped together.</font></p>
+
+<p><font face="Arial">And now for our last issue. The sound of a phoneme is not constant.
+A &quot;t&quot; sound is silent at first, then produces a sudden burst high frequency of
+noise, which then fades to silence. Speech recognizers solve this by splitting each
+phoneme into several segments and generating a different senone for each segment. The
+recognizer figures out where each segment begins and ends in the same way it figures out
+where a phoneme begins and ends.</font></p>
+
+<p><font face="Arial">After all this work, the speech recognizer has all the mechanics
+necessary to recognize if a particular phoneme was spoken. An important question still
+needs answering: How does it determine which phoneme to look for?</font></p>
+
+<p><font face="Arial">A speech recognizer works by hypothesizing a number of different
+&quot;states&quot; at once. Each state contains a phoneme with a history of previous
+phonemes. The hypothesized state with the highest score is used as the final recognition
+result.</font></p>
+
+<p><font face="Arial">When the speech recognizer starts listening it has one hypothesized
+state. It assumes the user isn&#146;t speaking and that the recognizer is hearing the
+&quot;silence&quot; phoneme. Every 1/100 th of a second it hypothesizes that the user has
+started speaking, and adds a new state per phoneme, creating 50 new states, each with a
+score associated with it. After the first 1/100 th of a second the recognizer has 51
+hypothesized states.</font></p>
+
+<p><font face="Arial">In 1/100 th of a second, another feature number comes in. The scores
+of the existing states are recalculated with the new feature. Then, each phoneme has a
+chance of transitioning to yet another phoneme, so 51 * 50 = 2550 new states are created.
+The score of each state is the score of the first 1/100 th of a second times the score if
+the 2 nd 1/100 th of a second. After 2/100 ths of a second the recognizer has 2601
+hypothesized states.</font></p>
+
+<p><font face="Arial">This same process is repeated every 1/100 th of a second. The score
+of each new hypothesis is the score of it&#146;s parent hypothesis times the score derived
+from the new 1/100 th of a second. In the end, the hypothesis with the best score is
+what&#146;s used as the recognition result.</font></p>
+
+<p><font face="Arial">Of course, a few optimizations are introduced.</font></p>
+
+<p><font face="Arial">If the score of a hypothesis is much lower than the highest score
+then the hypothesis is dropped. This is called pruning. The optimization is intuitively
+obvious. If the recognizer is millions of times more confident that it heard &quot;h eh l
+oe&quot; than &quot;z z z z,&quot; then there&#146;s not much point in continuing the
+hypothesis that the recognizer heard, &quot;z z z z&quot;. However, if too much is pruned
+then errors can be introduced since the recognizer might make a mistake about which
+phoneme was spoken.</font></p>
+
+<p><font face="Arial">Recognizers also optimize by not hypothesizing a transition to a new
+phoneme ever 1/100 th of a second. To do this though, the recognizer must limit what
+phonemes can follow other phonemes.</font></p>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Reducing Computation and Increasing Accuracy</font></h1>
+
+<p><font face="Arial">The speech recognizer can now identify what phonemes were spoken.
+Figuring out what words were spoken should be an easy task. If the user spoke the
+phonemes, &quot;h eh l oe&quot;, then you know they spoke &quot;hello&quot;. The
+recognizer should only have to do a comparison of all the phonemes against a lexicon of
+pronunciations.</font></p>
+
+<p><font face="Arial">It&#146;s not that simple.</font> 
+
+<ol>
+  <li><font face="Arial">The user might have pronounced &quot;hello&quot; as &quot;h uh l
+    oe&quot;, which might not be in the lexicon.</font></li>
+  <li><font face="Arial">The recognizer may have made a mistake and recognized
+    &quot;hello&quot; as &quot;h uh l oe&quot;.</font></li>
+  <li><font face="Arial">Where does one word end and another begin?</font></li>
+  <li><font face="Arial">Even with all these optimizations, the speech recognition still
+    requires too much CPU.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">To reduce computation and increase accuracy, the recognizer
+restricts acceptable inputs from the user. On the whole, this isn&#146;t a bad assumption
+because:</font> 
+
+<ul>
+  <li><font face="Arial">It&#146;s unlikely that the user will speak,
+    &quot;zwickangagang&quot; since it&#146;s not a valid word.</font></li>
+  <li><font face="Arial">The user may limit him/her-self to a relatively small grammar. There
+    are millions of words, but most people only use a few thousand of them a day, and they may
+    need even fewer words to communicate to a computer.</font></li>
+  <li><font face="Arial">When people speak they have a specific grammar that they use. After
+    all, users say, &quot;Open the window,&quot; not &quot;Window the open.&quot;</font></li>
+  <li><font face="Arial">Certain word sequences are more common than others. &quot;New York
+    City&quot; is more common than &quot;New York Aardvark.&quot;</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Context Free Grammar</font></h1>
+
+<p><font face="Arial">One of the techniques to reduce the computation and increase
+accuracy is called a &quot;Context Free Grammar&quot; (CFG). CFG&#146;s work by limiting
+the vocabulary and syntax structure of speech recognition to only those words and
+sentences that are applicable to the application&#146;s current state.</font></p>
+
+<p><font face="Arial">The application specifies the vocabulary and syntax structure in a
+text file. The text file might look like this:</font></p>
+
+<blockquote>
+  <p><font face="Arial">&lt;Start&gt; = ((send mail to) | call) (Fred | John | Bill) | (Exit
+  application)</font></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">This grammar translates into seven possible sentences:</font></p>
+
+<blockquote>
+  <p><font face="Arial">Send mail to Fred</font></p>
+  <p><font face="Arial">Send mail to John</font></p>
+  <p><font face="Arial">Send mail to Bill</font></p>
+  <p><font face="Arial">Call Fred</font></p>
+  <p><font face="Arial">Call John</font></p>
+  <p><font face="Arial">Call Bill</font></p>
+  <p><font face="Arial">Exit application</font></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">Of course, the grammars can be much more complex than this. The
+important feature about the CFG is that it limits what the recognizer expects to hear to a
+small vocabulary and tight syntax. After the user speaks &quot;Send&quot; the recognizer
+will only listen to &quot;mail&quot;. This significantly reduces the number of generated
+hypothesis.</font></p>
+
+<p><font face="Arial">The speech recognition gets the phonemes for each word by looking
+the word up in a lexicon. If the word isn&#146;t in the lexicon then it predicts the
+pronunciation; See the &quot;How Text-to-Speech Works&quot; document for an explanation of
+pronunciation prediction. Some words have more than one pronunciation, such as
+&quot;read&quot; which can be pronounced like &quot;reed&quot; or &quot;red&quot;. The
+recognizer basically treats one word with multiple pronunciations the same as two
+&quot;words&quot;.</font></p>
+
+<p><font face="Arial">CFG&#146;s slightly change the hypothesis portion of speech
+recognition. Rather than hypothesizing the transition to all phonemes, the recognizer
+merely hypothesizes the transition to the next acceptable phonemes. From the initial
+&quot;silence&quot; phoneme the recognizer hypothesizes the &quot;s&quot; in send,
+&quot;k&quot; in &quot;call&quot;, and &quot;eh&quot; in exit. If the recognizer
+hypothesizes phoneme transitions from the &quot;s&quot; phoneme, it will only hypothesis
+&quot;eh&quot;, followed by &quot;n&quot;, &quot;d&quot;, &quot;m&quot;, &quot;ae&quot;,
+&quot;l&quot;, etc.</font></p>
+
+<p><font face="Arial">You can see how this significantly reduces the computation. Instead
+of increasing the number of hypotheses by a factor of 50 each time, the number of
+hypotheses stay constant within a word, and only increase a little bit on word
+transitions. Given a normal amount of pruning, there are no more than about 10 hypotheses
+around at a time.</font></p>
+
+<p><font face="Arial">When the user has finished speaking, the recognizer returns the
+hypothesis with the highest score, and the words that the user spoke are returned to the
+application.</font></p>
+
+<p><font face="Arial">Speech recognition using a CFG requires a 486/33 to run real-time.</font></p>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Discrete Dictation</font></h1>
+
+<p><font face="Arial">Context Free Grammars don&#146;t allow users to speak arbitrary
+text. If a user wishes to dictate text into a document the speech recognizer must work
+differently and consume a bit more CPU. I&#146;ll explain how a &quot;discrete
+dictation&quot; speech recognition engine works internally.</font></p>
+
+<p><font face="Arial">With discrete dictation, a user can speak any word he/she wishes out
+of a vocabulary, usually 60,000 words. However, the user must leave quarter second pauses
+between words, making it easy for the recognizer to tell where words begin and end.
+Discrete dictation systems require a Pentium 60. If the user doesn&#146;t leave pauses
+it&#146;s called &quot;continuous dictation.&quot; I&#146;ll cover that next.</font></p>
+
+<p><font face="Arial">The simple approach to discrete dictation is to create a Context
+Free Grammar that&#146;s just a list of words. This will work, but it will have a few
+problems:</font> 
+
+<ul>
+  <li><font face="Arial">It will be slower than necessary.</font></li>
+  <li><font face="Arial">It will be inaccurate, especially for words that sound similar to
+    each other.</font></li>
+  <li><font face="Arial">It will usually get homographs, like &quot;to&quot;, &quot;too&quot;,
+    and &quot;two&quot;, wrong.</font></li>
+</ul>
+
+<p><font face="Arial">In the end, using just a CFG will produce less than 80% word
+accuracy.</font></p>
+
+<p><font face="Arial">The speed and accuracy can be improved by knowing the grammar of the
+language, and how likely word combinations are. There&#146;s little point in hypothesizing
+phrases such as &quot;New York Aardvark&quot;.</font></p>
+
+<p><font face="Arial">To learn how words adjoin one-another, the recognizer adds another
+step to producing the engine&#146;s recognition database. In addition to using recordings
+of the phonemes, the training tools analyze a huge amount of raw text data, ideally
+1,000,000,000 words or so, about 8 gigabytes of text. The text is segmented into words.
+For example, the sentence:</font></p>
+
+<blockquote>
+  <p><font face="Arial">&quot;At 8:00 he will walk down the street and then.&quot;</font></p>
+</blockquote>
+
+<p><font face="Arial">Is converted to:</font></p>
+
+<blockquote>
+  <p><font face="Arial">at eight o&#146;clock he will walk down the street period</font></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">Sequences of three words are then counted, producing a file that
+essentially indicates how common any sequence of three words is:</font></p>
+
+<blockquote>
+  <p><font face="Arial">&lt;beginSent&gt; at eight 1</font></p>
+  <p><font face="Arial">at eight o&#146;clock 1</font></p>
+  <p><font face="Arial">down the street 1</font></p>
+  <p><font face="Arial">he will walk 1</font></p>
+  <p><font face="Arial">eight o&#146;clock he 1</font></p>
+  <p><font face="Arial">o&#146;clock he will 1</font></p>
+  <p><font face="Arial">street period &lt;endSent&gt; 1</font></p>
+  <p><font face="Arial">the street period 1</font></p>
+  <p><font face="Arial">walk down the 1</font></p>
+  <p><font face="Arial">will walk down 1</font></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">The real database will be generated from over a billion words of
+text, so it will be much more complete than what you see above. A short segment of the
+real table might look like this:</font></p>
+
+<blockquote>
+  <p><font face="Arial">New York City 553</font></p>
+  <p><font face="Arial">New York Sid 1</font></p>
+  <p><font face="Arial">New York State 483</font></p>
+  <p><font face="Arial">&#133; other entries</font></p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">The term &quot;New York City&quot; appeared 553 times, while
+&quot;New York Sid&quot; only occurred once. From this the recognizer know that if the
+user has spoken &quot;New York&quot; that it&#146;s much more likely they&#146;re saying
+&quot;city&quot; than &quot;Sid&quot;.</font></p>
+
+<p><font face="Arial">Now, let&#146;s expand on the simple approach of the Context Free
+Grammar.</font></p>
+
+<p><font face="Arial">The statistics can be converted to probabilities, and these
+probabilities can be incorporated into each of the hypotheses generated during
+recognition. The score of a hypothesis is equal to the acoustic score of the hypothesis
+times the probability that the word will appear in the given context. This is called a
+language model.</font></p>
+
+<p><font face="Arial">Example: The score of the phrase &quot;New York City&quot; is the
+acoustic score of &quot;New York City&quot; times 483, while the score of the phrase
+&quot;New York Sid&quot; is the acoustic score of &quot;New York Sid&quot; times 1.
+Another way of putting this is that the recognizer will only claim to have heard
+&quot;Sid&quot; if it is much more confident that it&#146;s heard the word &quot;Sid&quot;
+(following &quot;New York&quot;) than &quot;City&quot;.</font></p>
+
+<p><font face="Arial">Sometimes a word combination was never seen in the original
+database. Perhaps none of the text ever mentions &quot;New York Aardvark,&quot; but the
+user might still speak it. The recognizer always leaves a small but finite chance that any
+word will follow any other word. It just has to be very sure that it heard the acoustics
+of the word correctly.</font></p>
+
+<p><font face="Arial">The language model will reduce the error rate by a factor of four,
+taking accuracy from 80% to 95%. Here&#146;s why:</font> 
+
+<ul>
+  <li><font face="Arial">If two or more words sound similar to the recognizer, it ends up
+    choosing the word that&#146;s most likely given the text training. This disambiguates
+    &quot;City&quot; and &quot;Sid&quot;. Usually this is the right thing to do, so it
+    increases the accuracy. Of course, it hurts on the rare occasions that the user speaks
+    &quot;New York Sid.&quot;</font></li>
+  <li><font face="Arial">It disambiguates homographs. Because the words &quot;to&quot;,
+    &quot;too&quot;, and &quot;two&quot; all have the same expected pronunciation, the
+    language model is the sole determiner of which one gets recognized. Most homographs can be
+    disambiguated by the previous two words.</font></li>
+</ul>
+
+<p><font face="Arial">Recognition is sped up because unlikely word combinations are
+quickly discarded.</font></p>
+
+<p><font face="Arial">Dictation applications frequently allow the user to correct mistakes
+by showing the top-10 alternatives to the user and allowing him/her to click on one. The
+list is constructed from the top-10 losing hypotheses for the word.</font></p>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Continuous Dictation</font></h1>
+
+<p><font face="Arial">Continuous dictation allows the user to speak anything he/she wants
+out of a large vocabulary. This is more difficult than discrete dictation because the
+speech recognition engine doesn&#146;t easily know where one word ends and the next
+begins. For example: Speak out loud &quot;recognize speech&quot; and &quot;wreck a nice
+beach&quot; quickly; They both sound similar.</font></p>
+
+<p><font face="Arial">Continuous dictation works similar to discrete dictation except the
+end of a word is not detected by silence. Rather, when a hypothesis reaches the end of a
+word in continuous dictation, it then produces thousands of new hypotheses and prunes
+those out. The language model probability helps to prune the hypothesis down a lot more in
+continuous dictation.</font></p>
+
+<p><font face="Arial">Recognizers use a lot more optimizations to optimize processing and
+memory in continuous dictation systems. The article won&#146;t cover those here because
+their description doesn&#146;t help explain the underlying technology.</font></p>
+
+<h1><font face="Arial">Adaptation</font></h1>
+
+<p><font face="Arial">Speech recognition system &quot;adapt&quot; to the user&#146;s
+voice, vocabulary, and speaking style to improve accuracy. A system that has had time
+enough to adapt to an individual can have one fourth the error rate of a speaker
+independent system. Adaptation works because the speech recognition is often informed
+(directly or indirectly) by the user if it&#146;s recognition was correct, and if not,
+what the correct recognition is.</font></p>
+
+<p><font face="Arial">The recognizer can adapt to the speaker&#146;s voice and variations
+of phoneme pronunciations in a number of ways. First, it can gradually adapt the codebook
+vectors used to calculate the acoustic feature number. Second, it can adapt the
+probability that a feature number will appear in a phoneme. Both of these are done by
+weighted averaging.</font></p>
+
+<p><font face="Arial">The language model can also be adapted in a number of ways. The
+recognizer can learn new words, and slowly increase probabilities of word sequences so
+that commonly used word sequences are expected. Both these techniques are useful for
+learning names.</font></p>
+
+<p><font face="Arial">Although not common, the speech recognizer can adapt word
+pronunciations in its lexicon. Each word in a lexicon typically has one pronunciation. The
+word &quot;orange&quot; might be pronounced like &quot;or-anj&quot;. However, users will
+sometimes speak &quot;ornj&quot; or &quot;or-enj&quot;. The recognizer can algorithmically
+generate hypothetical alternative pronunciations for a word. It then listens for all of
+these pronunciations during standard recognition, &quot;or-anj&quot;, &quot;or-enj&quot;,
+&quot;or-inj&quot;, and &quot;ornj&quot;. During the process of recognition one of these
+pronunciations will be heard, although there&#146;s a fair chance that the recognizer
+heard a different pronunciation than what the user spoke. However, after the user has
+spoken the word a number of times the recognizer will have enough examples that it can
+determine what pronunciation the user spoke.</font></p>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Conclusion</font></h1>
+
+<p><font face="Arial">This was a high level overview of how speech recognition works.
+It&#146;s not nearly enough detail to actually write a speech recognizer, but it exposes
+the basic concepts. Most speech recognition engines work in a similar manner, although not
+all of them work this way. If you want more detail you should purchase one of the numerous
+technical books on speech recognition.</font></p>
+</body>
+</html>

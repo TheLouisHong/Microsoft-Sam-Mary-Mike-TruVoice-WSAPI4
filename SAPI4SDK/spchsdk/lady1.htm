@@ -1,0 +1,63 @@
+<HTML>
+
+
+<BODY background=sqgirl12.jpg topmargin=0 leftmargin = 0>
+<TABLE CELLPADDING=0 CELLSPACING=0 BORDER=0>
+<TR>
+<TD WIDTH="298" HEIGHT="363">
+</TD>
+</TR>
+<TR>
+<TD WIDTH="280" HEIGHT="100">
+</TD>
+<TD>
+<object NAME="ActiveVoice" TYPE="application/x-oleobject"
+   classid="clsid:EEE78591-FE22-11D0-8BEF-0060081841DE"
+   HEIGHT=120
+   WIDTH=135
+>
+</object>
+</TD>
+</TR>
+</TABLE>
+<br>
+
+
+<TABLE>
+<INPUT type="button" value="Say it"onCLick="SayIt()">
+<INPUT type="text" name=TB size=30>
+</TABLE>
+
+</BODY>
+<SCRIPT>
+function SayIt()
+{
+	ActiveVoice.Speak(TB.value);
+}
+
+function Doit()
+{
+
+	
+	ActiveVoice.Select(2)
+	ActiveVoice.Speak(Fred.value)
+
+
+	
+}
+
+ActiveVoice.Initialized=1
+ActiveVoice.LipTension=0
+ActiveVoice.TonguePosn=0
+ActiveVoice.TeethLowerVisible=0
+ActiveVoice.TeethUpperVisible=0
+ActiveVoice.JawOpen=0
+ActiveVoice.MouthUpturn=220
+ActiveVoice.MouthWidth=240
+ActiveVoice.MouthHeight=0
+
+ActiveVoice.Speak("Good morning.  I am an example of how to use the active x controls on a web page.  You can type text in the box and I will speak it.")
+</SCRIPT>
+
+
+</HTML>

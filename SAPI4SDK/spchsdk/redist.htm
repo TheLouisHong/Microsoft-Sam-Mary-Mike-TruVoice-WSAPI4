@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Redistribution Information</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Redistribution Information</font></h1>
+
+<p><font face="Arial">This document identifies the files that you
+may redistribute with your application developed using the Speech
+SDK. The conditions under which you may or may not redistribute
+these files are described in the separate License Agreement
+included in the Speech SDK 4.0 product. Your application's setup
+only needs to install the files if your application's setup also
+installs a speech recognition or text-to-speech engine.</font></p>
+
+<p><font face="Arial">All of the Speech SDK redistributable files
+are located in the \REDIST directory of the Speech SDK 4.0
+installation. When you redistribute any of these files, you
+should copy them from the \REDIST directory of your Speech SDK
+installation to your own distribution disk image.</font></p>
+
+<h1><font face="Arial">Speech API Redistribution</font></h1>
+
+<p><font face="Arial">The Microsoft Speech API 4.0 is
+redistributable. To do so:</font></p>
+
+<ol>
+    <li><font face="Arial">Have your setup program install <strong>SpchAPI.exe</strong>
+        into a temporary directory.</font></li>
+    <li><font face="Arial">Run <strong>SpchAPI.exe</strong>. It
+        is a self-extracting executable that will install all the
+        necessary files and registry entries.</font></li>
+    <li><font face="Arial">Delete the temporary copy of <strong>SpchAPI.exe</strong>
+        after it has been installed.</font></li>
+    <li><font face="Arial">Your setup program does not need to
+        uninstall the Microsoft Speech API components since it is
+        a system component. Users wishing to uninstall the
+        Microsoft Speech API can do so through the Control Panel,
+        Add/Remove Programs.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">You can:</font></p>
+
+<ul>
+    <li><a href="license.txt"><font size="5" face="Arial"><strong>Read
+        the License Agreement</strong></font></a></li>
+    <li><a href="redist\api"><font size="5" face="Arial"><strong>Redistributable
+        SpchAPI.exe</strong></font></a></li>
+</ul>
+
+<h2><font face="Arial">SpchAPI.exe command-line arguements</font></h2>
+
+<p><font face="Arial">SpchAPI.exe allows for an administrator to
+bypass the package prompts. This will allow for distribution of
+packages to not require user input from the client. This does not
+just mean hiding the UI, but also allowing for some basic control
+of extract processes on a client by the admin.</font></p>
+
+<h3><font face="Arial">/Q Bypasses all prompts, error messages,
+and file extraction animation</font></h3>
+
+<p><font face="Arial">With this mode administrators would be able
+to automate basic process and avoid user choices for most cases.</font></p>
+
+<p><font face="Arial">/Q:A Assumes user is Admin. Bypasses all
+prompts, error messages, and file extraction animation.</font></p>
+
+<p><font face="Arial">With this mode administrators would be able
+to automate basic process and avoid user choices for most cases.
+Does no checking for admin rights, disk space, ect.</font></p>
+
+<p><font face="Arial">/Q:U (Default)Assumes user is an end user
+but bypasses extraction animations. Still checks for disk space
+and admin rights.</font></p>
+
+<p><font face="Arial">With this mode users would be able to run
+in a semi-Quiet mode. Used when the SpchAPI.exe package is
+shipped on CDs or installed through ActiveSetup.</font></p>
+
+<h3><font face="Arial">/R Control or force restart</font></h3>
+
+<p><font face="Arial">Administrators would like ability to
+actually force a restart also. This ensures the update takes
+effect right way.</font></p>
+
+<p><font face="Arial">Wextract uses: NEVER_REBOOT reboot mode
+when calling InstallHInfsection to ensure that setupx.dll will
+return to wextract and leave the reboot job to wextract.
+Wextract.exe will decide if reboot is needed in the rules below:</font></p>
+
+<p><font face="Arial">Check on reg key:</font></p>
+
+<p><font face="Arial">HKLM\...\Currentversion\setup</font></p>
+
+<p><font face="Arial">wextractreboot 128 or 132 .... (reboot mode
+defines)</font></p>
+
+<p><font face="Arial">If the above key value does not exists, or
+it is exists and is not one of the NEVER_xxx or ALWAYS_xxx mode,
+wextract.exe checks if:</font></p>
+
+<p><font face="Arial">Reboot =1 in the install INF file, or if
+\windows\wininit.ini is not empty</font></p>
+
+<p><font face="Arial">If reboot is needed, it provides prompt or
+silent reboot handling based on the result from above.</font></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">Administrators can control the restart
+logic with the following entries:</font></p>
+
+<p><font face="Arial">R = /R:A (Default)</font></p>
+
+<p><font face="Arial">/R:= /R:A (Default)</font></p>
+
+<p><font face="Arial">/R:N -- Never reboot, overrides INF
+settings in package</font></p>
+
+<p><font face="Arial">/R:A -- Always reboot, prompt user with
+reboot choice</font></p>
+
+<p><font face="Arial">/R:I -- Reboot if needed, prompt user with
+reboot choice</font></p>
+
+<p><font face="Arial">/R:AS -- Always reboot , silent and don't
+prompt user</font></p>
+
+<p><font face="Arial">/R:IS -- Silent reboot if needed, silent
+and don't prompt user</font></p>
+
+<h3><font face="Arial">/T:&quot;temp dir full path&quot; Provides
+a path to point decompressed files to other than TEMP</font></h3>
+
+<p><font face="Arial">With this switch administrators can work
+around any problems with TEMP dir issues. This mainly has been
+requested though so that CabPack could be used to expand files
+and just drop them in a directory. If author could leave the
+execution line blank this could be used to expand files in
+friendly manner to a specific folder. Not delete after Wextract
+is done. /T without colon is invalid and will return user to /?
+command help.</font></p>
+
+<p><font face="Arial">If the dir specified does not exist,
+wextract will create it and remove it after using the files, if
+user does not also specify to leave extracted files on the
+system( /C: ).</font></p>
+
+<p><font face="Arial">Example: </font></p>
+
+<p><font face="Arial">SPCHAPI.EXE /T:&quot;MSFILES&quot;, would
+expand files to MSFILES run command embedded in CabPack and clean
+up files in MSFILES folder.</font></p>
+
+<p><font face="Arial">SPCHAPI.EXE /T:&quot;MSFILES&quot; /C:,
+would exapnd files to MSFILES but run no command and not clean up
+files from MSFILES folder.</font></p>
+
+<p><font face="Arial">By default without the /T: switch, wextract
+will extract files to a unique (random created) subdir under the
+Temp dir or the current dir if temp dir does not has enough
+space.</font></p>
+
+<h1><font face="Arial">Microsoft Concatenated Text-to-Speech
+Engine</font></h1>
+
+<p><font face="Arial">The Microsoft Concatenated Text-to-Speech
+engine plays sequential recordings of words or phrases through
+the Microsoft Speech API. It is useful for applications that want
+to use text-to-speech where the vocabulary is small and known at
+design time. For more information see the </font><a
+href="mstts.htm"><font face="Arial">Microsoft Concatenated
+Text-to-speech Engine</font></a><font face="Arial">.</font></p>
+
+<p><font face="Arial">The Microsoft Concatenated Text-to-Speech
+engine files are:</font></p>
+
+<ul>
+    <li><font face="Arial">MSTTS.dll - Text-to-speech engine.</font></li>
+    <li><font face="Arial">*.vce - Text-to-speech voice files
+        that you create.</font></li>
+</ul>
+
+<p><font face="Arial">All of these files need to be installed to
+$(WINDOWS)\Speech.</font></p>
+
+<p><font face="Arial">You must also write out the following
+registry entries:</font></p>
+
+<ul>
+    <li><font face="Arial"><tt>HKEY_LOCAL_MACHINE\Software\Voice\TextToSpeech\Engine,
+        MSTTS={2a46E4C0-4EDA-101B-931A-00AA0047BA4F}</tt></font></li>
+    <li><font face="Arial"><tt>HKEY_CLASSES_ROOT\CLSID\{2a46E4C0-4EDA-101B-931A-00AA0047BA4F}=MSTTS</tt></font></li>
+    <li><font face="Arial"><tt>HKEY_CLASSES_ROOT\CLSID\{2a46E4C0-4EDA-101B-931A-00AA0047BA4F}\InprocServer32=$(WINDOWS)\Speech\MSTTS.DLL<br>
+        · HKEY_CLASSES_ROOT
+        \CLSID\{2a46E4C0-4EDA-101B-931A-00AA0047BA4F}\InprocServer32,
+        ThreadingModel=Apartment</tt></font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Version Checking of MSTTS.DLL</font></h2>
+
+<p><font face="Arial">Because other applications may redistribute
+earlier or later versions of the same files as redistributed with
+your application, it is important that you install newer versions
+of the files on top of older versions on your user's system, but
+not older versions on top of new versions. Typically, version
+checking is the responsibility of your setup program. If you do
+not have a setup program for your main application, then you must
+accomplish the version checking manually when installing the
+redistributable files on your user's system.</font></p>
+
+<p><font face="Arial">You can:</font></p>
+
+<ul>
+    <li><a href="license.txt"><font size="5" face="Arial"><strong>Read
+        the License Agreement</strong></font></a></li>
+    <li><a href="redist\mstts"><font size="5" face="Arial"><strong>Redistributable
+        Concatenated Wave TTS</strong></font></a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,399 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+// #include "commctrl.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "winver.h"
+
+#define VER_FILE_TYPE VFT_APP
+#define VER_FILE_DESC "Microsoft Dictation Pad\0" // don't forget the explicit null.
+#define VER_FILE_SUBTYPE 0  // All but driver should be 0
+#define VER_FILE_INTNAME "Microsoft Dictation\0" //don't forget the null.
+#define VER_ORIGINAL_FILENAME "MSDICT.EXE\0"
+#include <buildnum.rc>
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\r\n"
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "// #include ""commctrl.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""winver.h""\r\n"
+    "\r\n"
+    "#define VER_FILE_TYPE VFT_APP\r\n"
+    "#define VER_FILE_DESC ""Microsoft Dictation Pad\\0"" // don't forget the explicit null.\r\n"
+    "#define VER_FILE_SUBTYPE 0  // All but driver should be 0\r\n"
+    "#define VER_FILE_INTNAME ""Microsoft Dictation\\0"" //don't forget the null.\r\n"
+    "#define VER_ORIGINAL_FILENAME ""MSDICT.EXE\\0""\r\n"
+    "#include <buildnum.rc>\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS DISCARDABLE 
+BEGIN
+    "c",            IDC_CANCEL,             ASCII,  ALT, NOINVERT
+    "e",            IDC_SEND,               ASCII,  ALT, NOINVERT
+    "s",            IDC_BEGINSCAN,          ASCII,  ALT, NOINVERT
+    "v",            IDC_VIEW,               ASCII,  ALT, NOINVERT
+END
+
+IDR_DICT_ACCELTABLE ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "A",            IDM_INTERM_EDITSELECTALL, VIRTKEY, CONTROL, NOINVERT
+    "C",            IDM_INTERM_EDITCOPY,    VIRTKEY, CONTROL, NOINVERT
+    "N",            IDM_INTERM_FILENEW,     VIRTKEY, CONTROL, NOINVERT
+    "O",            IDM_INTERM_FILEOPEN,    VIRTKEY, CONTROL, NOINVERT
+    "S",            IDM_INTERM_FILESAVE,    VIRTKEY, CONTROL, NOINVERT
+    "V",            IDM_INTERM_EDITPASTE,   VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          IDM_HELPCONTENTS,       VIRTKEY, NOINVERT
+    "X",            IDM_INTERM_EDITCUT,     VIRTKEY, CONTROL, NOINVERT
+    "Z",            IDM_INTERM_EDITUNDO,    VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_INTERM_TOOLBAR      BITMAP  DISCARDABLE     "bmp00002.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP                 ICON    DISCARDABLE     "msdict.ico"
+IDI_DICTOFF             ICON    DISCARDABLE     "DictOff.ico"
+IDI_DICTON              ICON    DISCARDABLE     "DictOn.ico"
+IDI_DOCICON             ICON    DISCARDABLE     "docicon.ico"
+IDI_DICTCMDON           ICON    DISCARDABLE     "dicton1.ico"
+IDI_CMDON               ICON    DISCARDABLE     "ico00001.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_INTERM_LONGMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        POPUP "&Send Text To"
+        BEGIN
+            MENUITEM "The &Clipboard",              ID_FILE_SENDTEXTTO_THECLIPBOARD
+
+            MENUITEM SEPARATOR
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "New\tCtrl+N",                 IDM_INTERM_FILENEW
+        MENUITEM "&Open...\tCtrl+O",            IDM_INTERM_FILEOPEN
+        MENUITEM "&Save\tCtrl+S",               IDM_INTERM_FILESAVE
+        MENUITEM "Save &As...",                 IDM_INTERM_FILESAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_INTERM_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               65535
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                IDM_INTERM_EDITCUT
+        MENUITEM "&Copy\tCtrl+C",               IDM_INTERM_EDITCOPY
+        MENUITEM "&Paste\tCtrl+V",              IDM_INTERM_EDITPASTE
+        MENUITEM "D&elete\tDel",                IDM_INTERM_EDITDELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         IDM_INTERM_EDITSELECTALL
+        MENUITEM "Cut A&ll",                    IDM_INTERM_EDITCUTALL
+    END
+    POPUP "&Dictation"
+    BEGIN
+        MENUITEM "&Listening for dictation",    IDM_INTERM_DICTLISTEN
+        MENUITEM "&Not listening for dictation", IDM_INTERM_DICTNOTLISTEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Capitalize selected word",   IDM_INTERM_CAPITALIZE
+        MENUITEM "A&dd/remove word...",         IDM_ADDWORD
+    END
+    POPUP "&Text"
+    BEGIN
+        MENUITEM "Set &Font...",                IDM_INTERM_SHOWSETFONT
+        MENUITEM "&Always select entire word",  IDM_INTERN_SELECTENTIREWORD
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                IDM_INTERM_HELPTOPICS
+        MENUITEM "&What can I say?",            IDM_INTERM_WHATCANISAY
+        MENUITEM SEPARATOR
+        POPUP "&Microsoft on the Web"
+        BEGIN
+            MENUITEM "Microsoft Speech &Technologies", 
+                                                    IDM_INTERM_WEB_RESEARCH
+            MENUITEM "Microsoft &Home Page",        IDM_INTERM_WEB_HOME
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&About Microsoft Dictation...", IDM_INTERM_HELPABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 217, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Microsoft Dictation Pad"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,165,50,50,14
+    ICON            IDI_APP,IDC_STATIC,5,5,21,20
+    LTEXT           "Microsoft Dictation Pad",IDC_STATIC,45,10,85,10
+    LTEXT           "Version:",IDC_STATIC,45,20,30,10
+    LTEXT           "ProductVersion",IDC_PRODUCTVERSION,85,20,70,10
+    LTEXT           "Copyright © 1991-1998 Microsoft Corp.",IDC_STATIC,45,30,
+                    130,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXT
+//
+
+IDR_COMMANDS            TEXT    DISCARDABLE     "Command.txt"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDB_INTERM_TOOLBAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_BUTTON40006
+    BUTTON      ID_BUTTON40007
+    BUTTON      ID_BUTTON40008
+    BUTTON      ID_BUTTON40009
+    BUTTON      ID_BUTTON40010
+    BUTTON      ID_BUTTON40011
+    BUTTON      ID_BUTTON40012
+    BUTTON      ID_BUTTON40013
+    BUTTON      ID_BUTTON40014
+    BUTTON      ID_BUTTON40015
+    BUTTON      ID_BUTTON40016
+    BUTTON      ID_BUTTON40017
+    BUTTON      ID_BUTTON40018
+    BUTTON      ID_BUTTON40019
+    BUTTON      ID_BUTTON40020
+    BUTTON      ID_BUTTON40021
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_REGISTRY_SUBKEY     "Software\\Microsoft\\DctPad"
+    IDS_INTERM_TT_SAVEAS    "Save As..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_APPNAME             "Microsoft Dictation Pad"
+    IDS_TRANSFERTEXT        "Do you want to copy the text in Dictation Pad to the clipboard so you can paste it into another application? If you don't you will lose the text."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_FATALERROR          "Fatal Error!"
+    IDS_MUSTHAVEDICT        "You must be running Microsoft Dictation for Dictation Pad to work."
+    IDS_DICTATINGTO         "Microsoft Dictation Pad (Dictating to ""%s"")"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INTERM_TT_OPEN      "Open a dictation file..."
+    IDS_INTERM_TT_SAVE      "Save dictation file..."
+    IDS_INTERM_TT_CUT       "Cut"
+    IDS_INTERM_TT_COPY      "Copy"
+    IDS_INTERM_TT_PASTE     "Paste"
+    IDS_INTERM_TT_LISTEN    "Start/Stop Dictating"
+    IDS_INTERM_TT_SENDTEXTNOW "Send Text Now"
+    IDS_INTERM_TT_PLAYAUDIO "Play Audio"
+    IDS_INTERM_TT_SENDTEXTAUTO "Send text automatically"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INTERM_TT_CUTALL    "Cut all text"
+    IDS_DCTPADLISTENING     "Microsoft Dictation Pad (Listening)"
+    IDS_DCTPADNOTLISTENING  "Microsoft Dictation Pad (Not Listening)"
+    IDS_INTERM_TT_CORRECTION "Show/Hide the Correction Window"
+    IDS_INTERM_ASKSAVE      "Would you like to save the text in Dictation Pad to a file?"
+    IDS_EXCEPTION_FATAL     "Dictation Pad has encountered a fatal error. "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INTERM_TT_ADDWORD   "Add/remove word"
+    IDS_E_LOADSTRING        "A required resource could not be loaded. Please restart Dictation."
+    IDS_E_INITAPPLICATION   "Application initialization failed. Please restart Dictation."
+    IDS_E_REGCREATEKEY      "There was an error while accessing the registry. Please restart Dictation."
+    IDS_E_COINITIALIZE      "Ole initialization failed. Please restart Dictation."
+    IDS_E_LOADVCMD          "VCmd could not be loaded. Look in your task list and if you see VCmd, terminate it and restart Dictation. If you still get this error, the registry is possibly corrupted. Try reinstalling dictation."
+    IDS_E_OUTOFMEM          "The system has run out of memory. Please close down some applications and restart Dictation."
+    IDS_E_ALREADYRUNNING    "Microsoft Dictation is already running on your machine."
+    IDS_E_LOADRICHED32DLL   "A required dll, Riched32.dll could not be loaded. Please restart Dictation."
+    IDS_E_VCMDQUIT          "VCmd has exited unexpectedly. Please restart Dictation."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_E_VCMDCOCREATE      "VCmd could not load or failed to Initialize. CoCreateInstance on IVoiceDictation failed. Check the task manager to see if VCmd is already loaded. If so, kill it. Restart dictation. If that does not help reinstall dictation."
+    IDS_E_VCMDQUERY         "VCmd could not be initialized. IVoiceDictation::QueryInterface failed. Restart dictation. If that does not help reinstall dictation."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_E_VCMDREGISTER      "VCmd could not be initialized. IVoiceDictation::Register failed.  Restart dictation. If that does not help reinstall dictation."
+    IDS_E_VCMDACTIVATE      "Could not start/stop dictation. IVoiceDictation::Activate failed."
+    IDS_BADDIR              "Invalid directory. Directory not changed."
+    IDS_E_NOSOUNDCARD       "Dictation cannot start. Your machine does not have a sound card. Dictation  needs a 16 Khz 16 bit sound card in order to run."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_E_VCMDCOGETCLASS    "VCmd could not load or failed to Initialize. CoGetclassObject on IVoiceDictation failed. Check the task manager to see if VCmd is already loaded. If so, kill it. Restart dictation. If that does not help reinstall dictation."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_E_VCMDCREATEINSTANCE 
+                            "VCmd could not load or failed to Initialize. CreateInstance on IVoiceDictation failed. Check the task manager to see if VCmd is already loaded. If so, kill it. Restart dictation. If that does not help reinstall dictation."
+    IDS_DICTFILEEXT         "*.msd"
+    IDS_NOTDICTFILE         "%s is not a Dictation file. Continue to open?"
+    IDS_SAVECURFILE         "Save changes to %s?"
+    IDS_ERRORWRITINGFILE    "There was an error while saving the file %s."
+    IDS_ERRORREADINGFILE    "There was an error while reading the file %s."
+    IDS_UNSAVEDFILE         "Dictated file"
+    IDS_DICTFILES           "Dictation Files (*.msd)"
+    IDS_MSRESEARCH          "www.microsoft.com/iit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INTERM_TT_NEW       "Create new dictation file"
+    IDS_TEXTFILES           "Text Files [*.txt]"
+    IDS_TEXTFILEEXT         "*.txt"
+    IDS_PROMPTTEXT          "Try speaking now."
+    IDS_E_VCMDSITEINFOSET   "VCmd could not load or failed to Initialize. SiteInfoSet on IVoiceDictation failed."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_INTERM_TT_CAPITALIZE "Capitalize/Uncapitalize selected word"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SHUTDOWN            "Shutting down windows would discard any changes you have made in Dictation Pad. Press 'OK' to continue shut-down. Press 'Cancel' to cancel shut-down"
+    IDS_SAVENEWFILE         "Do you wish to save changes to the file?"
+    IDS_INVALIDFILETYPE     "%s is not a valid dictation file. Microsoft Dictation can open only files ending in '.msd' or '.txt'."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_MSHOME              "www.microsoft.com"
+    IDS_MSDICTINSTALL       "SOFTWARE\\Microsoft\\MSDict"
+    IDS_INSTALLDIR          "InstallDir"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

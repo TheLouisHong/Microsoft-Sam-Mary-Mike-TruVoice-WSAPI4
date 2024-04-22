@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>For OEMs</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">For OEMs (PC, sound card, and voice modem manufactuers)</font></h1>
+
+<p><font face="Arial">Many sound cards and sound devices shipped today do not work well
+with Speech Recognition and Text-to-Speech because of a few small flaws in their design.
+Luckily, the flaws are easy to fix and significantly improve the usability of speech for
+the user. This document describes the work that an OEM should do to insure the speech
+recognition and text-to-speech work well on their sound device.</font></p>
+
+<p><font face="Arial">Note: This document references the Telex desktop microphone and
+Telex Nomad microphone as a means of testing the sound device. The intent is NOT to
+promote any particular microphone. Telex microphones are mentioned because they are widely
+available.</font></p>
+
+<h2><font face="Arial">CPU Wave-in/out Functionality</font></h2>
+
+<p><font face="Arial">This section describes the functionality that a sound device and
+microphone should have to produce good speech recognition and text-to-speech from the
+PC&#146;s local microphone and speaker.</font></p>
+
+<h3><font face="Arial">Wave Out</font></h3>
+
+<p><font face="Arial">For text-to-speech to work well on a sound card, the sound
+card&#146;s DAC should support:</font>
+
+<ul>
+  <li><font face="Arial">16-bit, mono. 8 kHz, 11.25 kHz, 16.00 kHz, and 22.50 kHz sampling
+    rates need to be supported by the DAC.</font></li>
+  <li><font face="Arial">Volume control for the digital output also needs to be supported.
+    Volume should be on a linear scale from 0x0000 to 0xffff. Since most mixer chips support
+    decibels, the driver needs to convert between linear and logarithmic. 0xffff is -0.0 dB.
+    0x8000 is -6.0 dB. 0x4000 is -12.0 dB. Etc. Every halving of the volume is 6 dB less.</font></li>
+  <li><font face="Arial">waveOutGetPos() needs to be accurate to within 1/60th second so that
+    lip synchronization code works well.</font></li>
+  <li><font face="Arial">The DMA ping-pong buffers should be less than or equal to 1/16th of a
+    second apiece to insure fast response times for starting and stopping playback.</font></li>
+</ul>
+
+<h3><font face="Arial">Wave In</font></h3>
+
+<p><font face="Arial">For speech recognition to work well, the wave in driver should
+support:</font>
+
+<ul>
+  <li><font face="Arial">16-bit mono. 8 kHz, 11.25 kHz, 16.00 kHz, and 22.50 kHz.</font></li>
+  <li><font face="Arial">Volume control for the digital record also needs to be supported.
+    Volume should be on a linear scale from 0x0000 to 0xffff. Since most mixer chips support
+    decibels, the driver needs to convert between linear and logarithmic. 0xffff is -0.0 dB.
+    0x8000 is -6.0 dB. 0x4000 is -12.0 dB. Etc. Every halving of the volume is 6 dB less.</font></li>
+  <li><font face="Arial">The attenuation should range from at least 0.0 dB to -24 dB. A range
+    of 40 dB is desirable to accommodate more microphones.</font></li>
+  <li><font face="Arial">The DMA ping-pong buffers should be less than or equal to 1/16th of a
+    second apiece to insure fast response times for starting and stopping record. Smaller DMA
+    buffers also improve speech recognition response time.</font></li>
+  <li><font face="Arial">Enough gain so that when Telex Nomad is worn (or telex desktop is
+    spoken to from 6&quot; to 12&quot; distance) and attenuation is -12 dB from max,
+    user&#146;s normal speech will peek VU at about -6DB from max. See below for information
+    that we supply about the test application.</font></li>
+  <li><font face="Arial">The combination of the ambient noise from the microphone and sound
+    card should not be louder than -33 dB. It should be closer to -45 dB for dictation to work
+    well. See below for information about the test application.</font></li>
+  <li><font face="Arial">If the user speaks too loudly and clipping occurs, make sure that the
+    signal as distorted as little as possible.</font></li>
+  <li><font face="Arial">Watch out for 60 Hz hum.</font></li>
+  <li><font face="Arial">Hardware automatic gain decreases speech recognition accuracy.
+    It&#146;s best to let the speech recognizer control the volume.</font></li>
+  <li><font face="Arial">(Optional) The Microsoft Multimedia DDK describes a &quot;low
+    priority&quot; wave-in driver which allows speech recognition to listen all of the time.
+    If another application plays a sound or records, the speech recognition &quot;device&quot;
+    is preempted while the other sound is playing/recording. When the other sound finishes,
+    speech recognition regains control. If a sound device does not support low priority then
+    no sounds can be played while speech recognition is listening. If low priority is
+    supported, then modifications need to be made to the mixer. Make sure that low priority is
+    thoroughly tested; many implementations that we've seen have been buggy.</font></li>
+  <li><font face="Arial">(Optional) The wave-in and wave-out should be &quot;full duplex&quot;
+    so it&#146;s possible to record and play at the same time. However, most CODECs only
+    handle full duplex of the same sampling rates. An ideal solution would be to allow
+    recording at one sampling rate, and playback at another sampling rate.</font></li>
+  <li><font face="Arial">(Optional) If the system is full duplex, it would be beneficial for
+    echo-canceling chipsets to automatically eliminate the PC&#146;s output waveform from the
+    microphone. This ensures that the PC doesn&#146;t listen to itself. The echo canceling
+    should not only remove wave-out, but also MIDI and CD audio signals so that a user can
+    speak to his computer while MIDI or CD music is playing.</font></li>
+</ul>
+
+<h3><font face="Arial">Mixer</font></h3>
+
+<p><font face="Arial">The sound card/device driver needs to support the mixer
+architecture, described in the Windows DDK. The mixer should have:</font>
+
+<ul>
+  <li><font face="Arial">Volume should be on a linear scale from 0x0000 to 0xffff. Since most
+    mixer chips support decibels, the driver needs to convert between linear and logarithmic.
+    0xffff is -0.0 dB. 0x8000 is -6.0 dB. 0x4000 is -12.0 dB. Etc. Every halving of the volume
+    is 6 dB less.</font></li>
+  <li><font face="Arial">Playback Line</font><p><font face="Arial">Master volume control - Set
+    to a reasonable level by default. </font></p>
+    <p><font face="Arial">Wave-out volume - Set to a reasonable level by default. </font></p>
+    <p><font face="Arial">Mute ability </font></p>
+    <p><font face="Arial">(Optional) - Mixer control so the user can hear what the microphone
+    hears. This can only be turned on if the user has headphones, otherwise a feedback loop
+    will be produced. This should be off by default just in case the user plugs in speakers. </font></p>
+  </li>
+  <li><font face="Arial">Recording Line</font><p><font face="Arial">Microphone volume - Set to
+    0x4000 (-12 dB) by default. </font></p>
+    <p><font face="Arial">Line-in volume - Some users will plug an amplified microphone signal
+    into their line-in. Set to 0x4000 (-12 dB) by default. </font></p>
+    <p><font face="Arial">Mixer control or multiplexer control to select between microphone
+    and line-in. Set to the microphone by default. </font></p>
+    <p><font face="Arial">If the volume is 0 then mute the incoming audio. </font></p>
+  </li>
+  <li><font face="Arial">In general, when the user plugs in the microphone all defaults should
+    be set so &quot;it just works&quot;. See below for the test application.</font></li>
+  <li><font face="Arial">(Optional) If the wave-in device supports &quot;low priority&quot;
+    (see the Microsoft DDK) then it also needs to support a &quot;Voice Commands&quot; mixer
+    line with the same functionality as the &quot;Recording Line&quot;.</font></li>
+</ul>
+
+<h3><font face="Arial">Microphone</font></h3>
+
+<p><font face="Arial">The minimum microphone required is one that:</font>
+
+<ul>
+  <li><font face="Arial">One that rests on the desktop, sits on top of the monitor, is built
+    into the monitor, or clips on to the user&#146;s shirt. Microphones built into the
+    keyboard have problems because they pick up keyboard clicks. Microphones should be
+    designed so that users place them no more than 18&quot; from their mouth; The closer the
+    better. The best microphones are: close-talk, ear-piece, or handset.</font></li>
+  <li><font face="Arial">Basically the same frequency response as the Telex desktop or Nomad.
+    Having a significantly different frequency response will result in lower out-of-the-box
+    accuracy since most engine vendors have built their speaker-independent recognition models
+    based upon the Telex microphone.</font></li>
+  <li><font face="Arial">Directional (carteoid or hyper-carteoid). Omni-directional
+    microphones pick up too much fan noise from the air-conditioning and CPU fan.</font></li>
+  <li><font face="Arial">(Optional) Close-talk microphone. A close-talk microphone is worn on
+    the user&#146;s head and provides much better speech recognition accuracy than a desktop
+    because the microphone element is close to the user&#146;s mouth. When bundling a
+    close-talk microphone, look for:</font><p><font face="Arial">Near-field so it works better
+    in noisy environments. </font></p>
+    <p><font face="Arial">The microphone should be comfortable enough to wear for long periods
+    of time. </font></p>
+    <p><font face="Arial">It should be easy to put on and take off. </font></p>
+    <p><font face="Arial">Make sure it doesn&#146;t flop/move around when user moves his/her
+    head. </font></p>
+    <p><font face="Arial">The cord should be long enough so the user can lean back in his/her
+    chair. </font></p>
+  </li>
+</ul>
+
+<h3><font face="Arial">CPU Housing</font></h3>
+
+<p><font face="Arial">The design of the CPU housing should have:</font>
+
+<ul>
+  <li><font face="Arial">Users should be able to plug in Telex Nomad or Telex desktop
+    directly, without the need for adapters and amplifiers. Some sound cards require adapters
+    right now, causing the users unnecessary confusion.</font></li>
+  <li><font face="Arial">Clearly label holes that microphone and headphones are plugged into.
+    The jacks might even be in the front of the CPU so they&#146;re easily accessed.</font></li>
+  <li><font face="Arial">Use good connectors. Bad ones cause noise/static when move microphone
+    is tugged slightly.</font></li>
+  <li><font face="Arial">(Optional) Ultra-quiet fans reduce the ambient noise in the room and
+    improve accuracy.</font></li>
+  <li><font face="Arial">(Optional) The CPU or monitor should come with built-in sound so the
+    user doesn&#146;t have to do extra work to plug in speakers.</font></li>
+</ul>
+
+<h2><font face="Arial">VU Test Application</font></h2>
+
+<p><font face="Arial">The VU test application displays a VU meter and shows the latest
+peak signal level in dB. To run the test application click here.</font>
+
+<ul>
+  <li><a href="misc\vu.exe"><font size="5" face="Arial"><strong>Run it!</strong></font></a></li>
+</ul>
+
+<p><font face="Arial">If a wave-in device is working well, the test application will
+produce the following results on a clean (new install of the sound driver) machine. These
+tests assume that a Telex Nomad microphone is worn, or that a Telex desktop microphone is
+about 12&quot; away from the speaker&#146;s mouth. The speaker is talking at a comfortable
+volume:</font>
+
+<ul>
+  <li><font face="Arial">First of all, the VU meter applet must start up, and it&#146;s VU
+    must show that it hears the user.</font></li>
+  <li><font face="Arial">The volume control slider must appear. If not the speech recognition
+    cannot control the volume source. Move it up or down controls the volume of the
+    microphone.</font></li>
+  <li><font face="Arial">When the user is quiet, the peak level will be no more than -33 dB.
+    For dictation to work well it needs to be around -45 dB. (The volume is assumed to be set
+    to 0x4000).</font></li>
+  <li><font face="Arial">When the user speaks, the peak level is between -9 dB and -3 dB. It
+    should not clip. (The volume is assumed to be set to 0x4000.)</font></li>
+  <li><font face="Arial">(Optional) A tester can bring up Sound Recorder (or some other
+    application) and play a digital audio sound while the VU meter is running. In a
+    low-priority system the VU audio will temporarily pause while the sound is being played.
+    In a full-duplex system recording will continue uninterrupted while the sound is played.</font></li>
+</ul>
+
+<h2><font face="Arial">Voice-Modem Wave-in/out Functionality</font></h2>
+
+<p><font face="Arial">This section describes the functionality that a voice-modem sound
+device should have to produce good speech recognition and text-to-speech.</font></p>
+
+<h3><font face="Arial">TAPI</font></h3>
+
+<p><font face="Arial">The Voice Modem should support TAPI and allow the application to
+acquire the wave in/out device through TAPI.</font></p>
+
+<h3><font face="Arial">Wave Out</font></h3>
+
+<p><font face="Arial">For text-to-speech to work well on a voice model, the voice
+modem&#146;s DAC should support:</font>
+
+<ul>
+  <li><font face="Arial">16-bit, mono, 8 kHz (PCM) sampling rates need to be supported by the
+    DAC.</font></li>
+  <li><font face="Arial">Volume control for the digital output also needs to be supported.
+    Volume should be on a linear scale from 0x0000 to 0xffff. Since most mixer chips support
+    decibels, the driver needs to convert between linear and logarithmic. 0xffff is -0.0 dB.
+    0x8000 is -6.0 dB. 0x4000 is -12.0 dB. Etc. Every halving of the volume is 6 dB less.</font></li>
+  <li><font face="Arial">Response time for opening, pausing, resuming, and closing the
+    wave-out device should be very quick. Voice modems that use a serial connection do not
+    provide fast enough response time.</font></li>
+  <li><font face="Arial">Overhead for playing PCM data should be low. Voice modems that send
+    compressed digital audio over the serial connection are too slow.</font></li>
+  <li><font face="Arial">The DMA ping-pong buffers should be less than or equal to 1/16th of a
+    second apiece to insure fast response times for starting and stopping playback.</font></li>
+</ul>
+
+<h3><font face="Arial">Wave In</font></h3>
+
+<p><font face="Arial">For speech recognition to work well, the voice modem&#146;s wave in
+driver should support:</font>
+
+<ul>
+  <li><font face="Arial">16-bit, mono, 8 kHz (PCM) sampling rates need to be supported by the
+    ADC.</font></li>
+  <li><font face="Arial">Volume control for the digital record also needs to be supported.
+    Volume should be on a linear scale from 0x0000 to 0xffff. Since most mixer chips support
+    decibels, the driver needs to convert between linear and logarithmic. 0xffff is -0.0 dB.
+    0x8000 is -6.0 dB. 0x4000 is -12.0 dB. Etc. Every halving of the volume is 6 dB less.</font></li>
+  <li><font face="Arial">Response time for opening and closing the wave-in device should be
+    very quick. Voice modems that use a serial connection do not provide fast enough response
+    time.</font></li>
+  <li><font face="Arial">Overhead for recording PCM data should be low. Voice modems that send
+    compressed digital audio over the serial connection are too slow.</font></li>
+  <li><font face="Arial">The DMA ping-pong buffers should be less than or equal to 1/16th of a
+    second apiece to insure fast response times for starting and stopping record. Smaller DMA
+    buffers also improve speech recognition response time.</font></li>
+  <li><font face="Arial">If the user speaks too loudly and clipping occurs, make sure that the
+    signal as distorted as little as possible.</font></li>
+  <li><font face="Arial">Watch out for 60 Hz hum.</font></li>
+  <li><font face="Arial">(Optional) The wave-in and wave-out should be &quot;full duplex&quot;
+    so it&#146;s possible to record and play at the same time. If the system is full duplex,
+    it&#146;s necessary for echo-canceling chipsets to automatically eliminate the output
+    waveform from the input waveform. This ensures that the speech recognition doesn&#146;t
+    listen to audio being played out. The full duplex and echo-canceling feature allows the
+    user to interrupt the computer while the computer is speaking a prompt.</font></li>
+</ul>
+</body>
+</html>

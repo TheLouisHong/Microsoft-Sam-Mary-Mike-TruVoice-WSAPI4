@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 2.0">
+<title>Audio Source/Destination Sample DLL</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">Audio Source/Destination Sample DLL</font></h1>
+
+<p><font face="Arial">AUDIOSD.DLL contains sample code for an
+audio source and destination object that record/play from/to the
+multimedia devices installed on the Windows system. It is very
+similar to the code shipped by Microsoft for the
+CLSID_MMAudioSource and CLSID_MMAudioDest.</font></p>
+
+<p><font face="Arial">To install the object into OLE, edit
+AUDIOSD.REG so that the listed path-names are pointing to the
+location of AUDIOSD.DLL on your PC. Double-click the registry
+file in the explorer or file-manager to install the registry
+entries.</font></p>
+
+<p><font face="Arial">To use the object from your software,
+replace references to CLSID_MMAudioSource or CLSID_MMAudioDest
+with CLSID_MyAudioSource or CLSID_MyAudioDest.</font></p>
+
+<p><font face="Arial">That's it. The speech recognition or
+text-to-speech engines will then be using the custom audio
+object.</font></p>
+
+<p><font face="Arial">You can debug the code from Microsoft
+Visual C++ by opening MSVC with the AUDIOSD.MAK project. Put a
+breakpoint at DllGetClassObject(). Modify the EXE to run in
+Project/Settings/Debug to your application. Run Debug\Go. When
+your object is created, MSVC will stop at the breakpoint.</font></p>
+
+<p><font face="Arial"><strong>You need this to run:</strong></font></p>
+
+<ul>
+    <li><font face="Arial">Nothing</font></li>
+</ul>
+
+<p><font face="Arial"><strong>You can:</strong></font></p>
+
+<ul>
+    <li><a href="samples\audiosd"><font size="5"
+        face="Arial"><strong>View Sample Source Code</strong></font></a></li>
+</ul>
+
+<p><font face="Arial"><strong>See also:</strong></font></p>
+
+<ul>
+    <li><a href="acctest.htm"><font face="Arial">Accuracy test</font></a></li>
+</ul>
+</body>
+</html>

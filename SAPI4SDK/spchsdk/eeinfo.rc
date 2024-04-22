@@ -1,0 +1,257 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SELECTSR DIALOG DISCARDABLE  0, 0, 247, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Speech Recognition Engine"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Select the speech recognition engine to test:",
+                    IDC_STATIC,5,5,200,10
+    COMBOBOX        IDC_ENGINE,5,20,235,60,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Process data at:",IDC_STATIC,5,45,55,10
+    CONTROL         "1x real time",IDC_RATE1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,65,45,55,10
+    CONTROL         "2x real time",IDC_RATE2,"Button",BS_AUTORADIOBUTTON,130,
+                    45,55,10
+    CONTROL         "4x real time",IDC_RATE4,"Button",BS_AUTORADIOBUTTON,190,
+                    45,55,10
+    CONTROL         "1/2x real time",IDC_RATE12,"Button",BS_AUTORADIOBUTTON,
+                    130,60,55,10
+    CONTROL         "1/4x real time",IDC_RATE14,"Button",BS_AUTORADIOBUTTON,
+                    190,60,55,10
+    DEFPUSHBUTTON   "OK",IDOK,135,80,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,190,80,50,14
+END
+
+IDD_SELECTTTS DIALOG DISCARDABLE  0, 0, 247, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select a Text-to-Speech Engine"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_ENGINE,5,20,235,60,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Process data at:",-1,5,40,55,10
+    CONTROL         "1x real time",IDC_RATE1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,65,40,55,10
+    CONTROL         "2x real time",IDC_RATE2,"Button",BS_AUTORADIOBUTTON,130,
+                    40,55,10
+    CONTROL         "4x real time",IDC_RATE4,"Button",BS_AUTORADIOBUTTON,190,
+                    40,55,10
+    CONTROL         "1/2x real time",IDC_RATE12,"Button",BS_AUTORADIOBUTTON,
+                    130,55,55,10
+    CONTROL         "1/4x real time",IDC_RATE14,"Button",BS_AUTORADIOBUTTON,
+                    190,55,55,10
+    CONTROL         "&Play TTS output to PC speakers",IDC_PLAYTTS,"Button",
+                    BS_AUTOCHECKBOX | WS_GROUP | WS_TABSTOP,5,75,125,10
+    DEFPUSHBUTTON   "OK",IDOK,135,75,50,14,WS_GROUP
+    PUSHBUTTON      "Cancel",IDCANCEL,190,75,50,14
+    LTEXT           "Select a text-to-speech engine that will speak to the speech recognition.",
+                    -1,5,5,235,10
+END
+
+IDD_LOGGING DIALOG DISCARDABLE  0, 0, 186, 71
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Logging"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_LOG,15,20,165,15,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,75,55,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,55,50,14
+    LTEXT           "File to write log to:",IDC_STATIC,5,5,135,10
+END
+
+IDD_RANGE DIALOG DISCARDABLE  0, 0, 137, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Test a subset"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_START,55,5,75,15,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_STOP,55,25,75,15,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,25,45,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,81,45,50,14
+    LTEXT           "Start at test #:",IDC_STATIC,5,5,45,10
+    LTEXT           "Stop at test #:",IDC_STATIC,5,25,45,10
+END
+
+IDD_RANDSEED DIALOG DISCARDABLE  0, 0, 198, 71
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Seed random number"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SEED,14,26,74,14,ES_RIGHT | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,141,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,141,28,50,14
+    LTEXT           "0 for random seed",IDC_STATIC,17,7,63,8
+END
+
+IDD_SCRIPT DIALOG DISCARDABLE  0, 0, 247, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter a Script"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SCRIPT,7,7,170,52,ES_MULTILINE | ES_AUTOVSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,190,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,190,24,50,14
+    LTEXT           "Enter test #'s to run in order seperated by commas",
+                    IDC_STATIC,7,67,233,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&Test"
+    BEGIN
+        MENUITEM "&Stopped",                    ID_TEST_STOPPED
+        MENUITEM "&All Cases",                  ID_TEST_ALLCASES
+        MENUITEM "All Cases (&Backwards)",      ID_TEST_BACKWARDS
+        MENUITEM "&Minimum Compliance Cases",   ID_TEST_REQUIRED
+        MENUITEM "&Only Untested Cases",        ID_TEST_UNTESTED
+        MENUITEM "&Random (one pass)",          ID_TEST_RANDOMONE
+        MENUITEM "Ra&ndom (loop indefinately)", ID_TEST_RANDOMLOOP
+        MENUITEM "Ran&ge ...",                  ID_TEST_RANGE
+        MENUITEM "S&cript",                     ID_TEST_SCRIPT
+        MENUITEM SEPARATOR
+        MENUITEM "&List tests",                 ID_TEST_LIST
+        MENUITEM "&Exit",                       ID_TEST_EXIT
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "Select a &Speech Recognition Engine...", ID_OPTIONS_SR
+        MENUITEM "Select a &Text-to-Speech Engine...", ID_OPTIONS_TTS
+        MENUITEM "Seed &Random Number",         ID_OPTIONS_RANDSEED
+        MENUITEM "&Logging...",                 ID_OPTIONS_LOGGING
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SELECTSR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 94
+    END
+
+    IDD_SELECTTTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_LOGGING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_RANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 130
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+
+    IDD_RANDSEED, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 191
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_SCRIPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

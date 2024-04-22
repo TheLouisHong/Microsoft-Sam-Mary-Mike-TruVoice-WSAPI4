@@ -1,0 +1,175 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_EDITOR MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New",                        IDM_FILE_NEW
+        MENUITEM "&Open...",                    IDM_FILE_OPEN
+        MENUITEM "&Save",                       IDM_FILE_SAVE
+        MENUITEM "S&ave as...",                 IDM_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_FILE_EXIT
+    END
+    POPUP "&Control"
+    BEGIN
+        MENUITEM "&Compile",                    IDM_GRAMMAR_COMPILE
+        MENUITEM "&Test...",                    IDM_GRAMMAR_TEST
+        MENUITEM "Default Text...",             IDM_DEFAULT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help",                       ID_HELP_HELP
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_REGCONTROLS DIALOG DISCARDABLE  0, 0, 186, 77
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select the control..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Select the control to use:",IDC_STATIC,0,4,169,8
+    COMBOBOX        IDC_CONTROLLIST,5,15,175,80,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,128,55,52,14
+    PUSHBUTTON      "OK",IDOK,71,55,52,14
+END
+
+IDD_CONTROLDIALOG DIALOG DISCARDABLE  0, 0, 102, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Test Window"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "1",IDC_BUTTON1,8,6,26,13
+    PUSHBUTTON      "2",IDC_BUTTON2,38,6,26,13
+    PUSHBUTTON      "3",IDC_BUTTON3,68,6,26,13
+    PUSHBUTTON      "4",IDC_BUTTON4,8,22,26,13
+    PUSHBUTTON      "5",IDC_BUTTON5,38,22,26,13
+    PUSHBUTTON      "6",IDC_BUTTON6,68,22,26,13
+    PUSHBUTTON      "7",IDC_BUTTON7,8,38,26,13
+    PUSHBUTTON      "8",IDC_BUTTON8,38,38,26,13
+    PUSHBUTTON      "9",IDC_BUTTON9,68,38,26,13
+    PUSHBUTTON      "*",IDC_BUTTON10,8,54,26,13
+    PUSHBUTTON      "0",IDC_BUTTON11,38,54,26,13
+    PUSHBUTTON      "#",IDC_BUTTON12,68,54,26,13
+    PUSHBUTTON      "Hang Up",IDC_BUTTON13,8,71,86,15
+END
+
+IDD_DEFAULTTEXT DIALOGEX 0, 0, 333, 226
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Control - Default Text"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,7,205,50,14
+    EDITTEXT        IDC_DEFAULTTEXT,7,7,319,192,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_VSCROLL | WS_HSCROLL,WS_EX_STATICEDGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_REGCONTROLS, DIALOG
+    BEGIN
+        TOPMARGIN, 4
+    END
+
+    IDD_DEFAULTTEXT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 219
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_MAIN                ICON    DISCARDABLE     "icon1.ico"
+IDI_MAIN2               ICON    DISCARDABLE     "ico00001.ico"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

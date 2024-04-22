@@ -1,0 +1,135 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DEMO DIALOG DISCARDABLE  0, 0, 217, 121
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Full Duplex Demo"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "This sample demonstrates how to use full duplex sound card drivers to support both SR and TTS. To get the most benefit, you should step through the code and see how it works.",
+                    IDC_STATIC,5,5,205,25
+    LTEXT           "",IDC_RESULT,15,95,190,15,SS_SUNKEN
+    LTEXT           "Speak a number and text-to-speech will read it out. Because this is full duplex, you can speak while text-to-speech is speaking.",
+                    IDC_STATIC,5,70,205,20
+    LTEXT           "You should wear either a close-talk headset or headphones for this demo, so the speech recognition doesn't hear the text-to-speech.",
+                    IDC_STATIC,5,35,205,30
+END
+
+IDD_SELECT DIALOG DISCARDABLE  0, 0, 242, 141
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select engines"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,190,15,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,190,35,50,14
+    LTEXT           "Select a speech recognition engine to use:",IDC_STATIC,
+                    5,5,175,10
+    LTEXT           "Select a text-to-speech engine to use:",IDC_STATIC,5,85,
+                    175,10
+    COMBOBOX        IDC_SR,5,15,170,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_TTS,5,95,170,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Select a wave-in device for speech recognition:",
+                    IDC_STATIC,5,35,175,10
+    COMBOBOX        IDC_WAVEIN,5,45,170,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Select a wave-out device for text-to-speech:",
+                    IDC_STATIC,5,115,175,10
+    COMBOBOX        IDC_WAVEOUT,5,125,170,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DEMO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_SELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

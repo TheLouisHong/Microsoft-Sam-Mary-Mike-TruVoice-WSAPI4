@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>TAPI Test Application</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+<h1><font face="Arial">TAPI Test Application</font></h1>
+
+<p><font face="Arial">For the telephony sample applications to work over the phone, you <strong>must</strong>
+have a TAPI driver installed that supports voice. If a voice TAPI driver is not installed,
+the samples will fail, and you'll only be able to use the PC simulation. The TAPI test
+application tests to make sure that a TAPI driver is installed that supports voice. The
+test does not measure how well the telephony card/driver performs though, and some cards
+may provide sub-optimal performance. (See below.)</font> 
+
+<ul>
+  <li><a href="misc/tapiinfo.exe"><font size="5" face="Arial"><strong>Run it now!</strong></font></a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h1><font face="Arial">Troubleshooting TAPI</font></h1>
+
+<p><font face="Arial">If you run the TAPI Test Application, and are still having problems
+with the telephony sample apps, here are some troubleshooting tips:</font></p>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Is a voice TAPI driver installed?</font></h2>
+
+<p><font face="Arial">You should verify that a TAPI driver is installed by:</font> 
+
+<ol>
+  <li><font face="Arial">Run the Control Panel.</font></li>
+  <li><font face="Arial">Click on the &quot;Telephony&quot; control panel applet. In Windows
+    95/98 click on the &quot;Modem&quot; control panel applet</font></li>
+  <li><font face="Arial">Switch to the &quot;Telephony Drivers&quot; tab. You don't need to do
+    this for Windows 95/98. If, on Windows 95/98, the Modem Setup Wizard starts up instead of
+    a tabbed dialog box, you don't have a Voice Modem installed.</font></li>
+  <li><font face="Arial">Make sure that a driver appropriate to your telephony hardware is
+    listed. If you are using a voice modem (see below), then Unimodem is the appropriate
+    driver.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">You must also make sure your TAPI driver supports wave in/out. To do
+so run the <a href="misc/tapiinfo.exe">TAPI test application</a>, and/or:</font> 
+
+<ol>
+  <li><font face="Arial">Run the Control Panel.</font></li>
+  <li><font face="Arial">Click on the &quot;Multimedia&quot; control panel applet.</font></li>
+  <li><font face="Arial">Switch to the &quot;Devices&quot; tab.</font></li>
+  <li><font face="Arial">Click on &quot;Audio Devices&quot;.</font></li>
+  <li><font face="Arial">You should see one device for every sound card, plus at least one
+    device appropriate to your telephony driver.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">If you do not have a TAPI driver then you will need to install one.
+(See below.) If your TAPI driver does not support wave in/out then you should contact the
+hardware manufacturer. Some manufacturers will have updated drivers that support TAPI. (If
+you have a &quot;Voice Modem&quot; then try installing Unimodem/V, as described below.)
+Some hardware cannot support wave in/out, which precludes the Speech API from being used
+with it.</font></p>
+
+<p>&nbsp;</p>
+
+<h2><font face="Arial">Installing a voice TAPI driver</font></h2>
+
+<p><font face="Arial">If you don't have a TAPI driver installed, you will need to install
+it. Here are some helpful tips for getting your TAPI driver installed and working:</font></p>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Lucent (Rhetorex)</font></h3>
+
+<p><font face="Arial">The Microsoft Speech API works with Lucent/Rhetorex drivers.
+However, you may need to do some work to get TAPI installed:</font> 
+
+<ol>
+  <li><font face="Arial">You must have a fairly new version of the Lucent/Rhetorex TAPI
+    drivers for the Speech API to work. Look on the Lucent/Rhetorex drivers disks and make
+    sure the version number is 1.48 or better. If you've got an older version, then contact <a
+    href="http://www.rhetorex.com/">Lucent/Rhetorex</a> to get the latest drivers.</font></li>
+</ol>
+
+<p><font face="Arial">Once the TAPI and wave drivers are installed, you'll need to modify
+a parameter to reduce any choppiness in the text-to-speech playback:</font> 
+
+<ol>
+  <li><font face="Arial">Run the rhtcfg.exe (Lucent/Rhetorex Driver Configuration Utility).
+    You can find it in the Lucent/Rhetorex directory.</font></li>
+  <li><font face="Arial">Click on the &quot;Multimedia&quot; control panel applet.</font></li>
+  <li><font face="Arial">Click &quot;Next&quot; until you get to the &quot;Advanced
+    Options&quot; pane.</font></li>
+  <li><font face="Arial">Press the &quot;Advanced Options&quot; button.</font></li>
+  <li><font face="Arial">In the &quot;Advanced Options&quot; dialog, reduce the interrupt
+    interval to 16 milliseconds.</font></li>
+  <li><font face="Arial">Press &quot;OK&quot;</font></li>
+  <li><font face="Arial">Select &quot;Next&quot; to get to the final pane, which asks if you
+    wish to automatically start the drivers after updating the configuration.</font></li>
+  <li><font face="Arial">Select the &quot;Yes&quot; option.</font></li>
+  <li><font face="Arial">Press &quot;Finish&quot; and the Lucent/Rhetorex drivers will be
+    restarted with the new setting.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><em><font face="Arial">Note: If the text-to-speech playback is still choppy, and you're
+experienced with the registry, you can lower the time-out below 16 milliseconds by
+modifying HKLM\System\CurrentControlSet\Services\RhtVp: IntrIntv. Set IntrIntv to a value
+such as 8 or 12.</font></em></p>
+
+<p><font face="Arial">Not all Lucent/Rhetorex hardware supports &quot;full duplex&quot;
+and &quot;echo canceling,&quot; so when you run the samples, you won't be able to respond
+to the computer until after the entire prompt has been spoken, and the beep played. If the
+hardware and TAPI driver supports full duplex and echo canceling then you will be able to
+barge in and speak to the computer before the prompts are finished.</font></p>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Dialogic</font></h3>
+
+<p><font face="Arial">The Microsoft Speech API works with Dialogic drivers. However, you
+may need to do some work to get TAPI installed:</font> 
+
+<ol>
+  <li><font face="Arial">You must have a fairly new version of the Dialogic TAPI drivers for
+    the Speech API to work. Look on the Dialogic drivers CD-ROM and make sure the version
+    number is 97.05 or better. We recommend downloading the latest drivers from the Dialogic
+    web site. If you've got an older version, then contact <a
+    href="http://support.dialogic.com/releases/winnt/index.html">Dialogic Corporation</a> to
+    get the latest drivers.</font></li>
+  <li><font face="Arial">Dialogic's setup does not necessarily install the TAPI and Wave
+    drivers you'll need. If you don't see the Dialogic TAPI and wave drivers listed, as
+    explained in &quot;Is a Voice TAPI driver installed?&quot; then follow the on-line
+    instructions for installing the drivers.</font></li>
+</ol>
+
+<p><font face="Arial">Once the TAPI and wave drivers are installed, you'll need to modify
+a parameter to reduce any choppiness in the text-to-speech playback:</font> 
+
+<ol>
+  <li><font face="Arial">Run the Control Panel.</font></li>
+  <li><font face="Arial">Click on the &quot;Multimedia&quot; control panel applet.</font></li>
+  <li><font face="Arial">Switch to the &quot;Devices&quot; tab.</font></li>
+  <li><font face="Arial">Click on &quot;Audio Devices&quot;.</font></li>
+  <li><font face="Arial">Find the Dialogic driver and select that.</font></li>
+  <li><font face="Arial">Press &quot;Properties.&quot;</font></li>
+  <li><font face="Arial">In the &quot;Properties&quot; dialog, press the &quot;Settings&quot;
+    button.</font></li>
+  <li><font face="Arial">In the &quot;Settings&quot; dialog, find the &quot;Receive buffer
+    threshold&quot; setting and set the value to 4096. If the text-to-speech playback is still
+    choppy, you can change this later to 2048.</font></li>
+  <li><font face="Arial">On Windows NT, make sure the user-name that you log on with has
+    administrator privileges to the machine, or the Dialogic drivers may not function
+    properly.</font></li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">Not all Dialogic hardware supports &quot;full duplex&quot; and
+&quot;echo canceling,&quot; so when you run the samples, you won't be able to respond to
+the computer until after the entire prompt has been spoken, and the beep played. If the
+hardware and TAPI driver supports full duplex and echo canceling then you will be able to
+barge in and speak to the computer before the prompts are finished.</font></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">Voice Modems</font></h3>
+
+<p><font face="Arial">Most modems purchased today also come with voice capabilities. These
+are called &quot;Voice Modems&quot; or &quot;AT+V Modems.&quot; The Speech API will work
+with voice modems.</font></p>
+
+<p><font face="Arial"><strong>Note: As of 1998, most voice modems provide insufficient
+quality to produce a viable telephony server. </strong>They fail in the following aspects:</font>
+
+<ul>
+  <li><font face="Arial">They only have single line support.</font></li>
+  <li><font face="Arial">They only support half duplex, which means that a user cannot barge
+    in, and interrupt the machine while it's talking.</font></li>
+  <li><font face="Arial">They take a long time to start/stop playing/recording audio, which
+    causes unacceptable latencies.</font></li>
+  <li><font face="Arial">The audio quality is usually poor, making the recorded prompts
+    difficult to understand, and lowering speech recognition accuracy.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">For the Speech API to use the functionality of a Voice Modem, you
+need to have an appropriate driver installed. Some Voice Modems come with their own
+drivers, but most are supported by a Microsoft driver named &quot;Unimodem/V&quot;. (The
+&quot;V&quot; stands for &quot;Voice.&quot;) If no voice-capable TAPI drivers came with
+your voice modem, you should try installing Unimodem/V.</font> 
+
+<ul>
+  <li><font face="Arial">On Windows 95/98 - Depending upon the release update of Windows 95
+    that you're using, you may or may not already have the software installed. PCs purchased
+    after mid 1996 should have Windows 95 OSR2 installed, which has Unimodem/V built in. If
+    you're unsure if you have OSR2, just download the latest Unimodem/V driver and install it.
+    You can download <a
+    href="http://premium.Microsoft.com/support/kb/articles/Q139/3/83.asp?PR=CHS&amp;FR=0&amp;M=S&amp;">Unimodem/V</a>
+    here. Follow the instructions for installation. If you have problems, contact the Windows
+    95 technical support.</font></li>
+  <li><font face="Arial">On Windows NT 4.0 - There is no Unimodem/V support for Windows NT
+    4.0.</font></li>
+  <li><font face="Arial">On Windows 98 and Windows NT 5.0 - Unimodem/V is already installed.</font></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><font face="Arial">If you can't find a TAPI driver, or can't find the appropriate wave
+devices under the Multimedia control panel, the you should run the Modems control panel
+applet to see if Unimodem/V supports your Voice Modem. To do this:</font> 
+
+<ol>
+  <li><font face="Arial">Run the Control Panel.</font></li>
+  <li><font face="Arial">Run the &quot;Modems&quot; applet.</font></li>
+  <li><font face="Arial">Go through the Wizard. If you know your modem and manufacturer then
+    select the &quot;Don't detect my modem; I will select it from a list&quot; check-box.</font></li>
+</ol>
+
+<p><font face="Arial">Once the installation has completed,&nbsp; following the
+instructions under &quot;Is a Voice TAPI driver installed?&quot; and see if you can find
+the TAPI driver and wave devices. If you can't then contact your modem manufacturer. If
+everything necessary is installed, then the Speech API telephony additions should work.</font></p>
+
+<p><font face="Arial">Most Voice Modems do not support &quot;full duplex&quot; or
+&quot;echo cancellation&quot;, so when you run the samples, you won't be able to respond
+to the computer until after the entire prompt has been spoken, and the beep played.</font></p>
+
+<p>&nbsp;</p>
+
+<h3><font face="Arial">ISDN Boards</font></h3>
+
+<p><font face="Arial">The Speech SDK telephony samples, telephony ActiveX control, and
+code derived from SpchWrap's CTelMain, will not work with ISDN cards. The software that
+connects to TAPI assumes that there can only be one call per telephone line. This is not
+the case with ISDN, since ISDN can have two calls per line.</font></p>
+
+<p><font face="Arial">A developer that is sufficiently knowledgeable about TAPI and SAPI
+can modify CTelMain in SpchWrap so that the samples will work with ISDN cards.</font></p>
+
+<p><font face="Arial">&nbsp;</font></p>
+
+<h3><font face="Arial">Other Hardware</font></h3>
+
+<p><font face="Arial">If you have other hardware, follow the manufacturer's instructions
+for installing the TAPI driver. If the Speech SDK telephony samples don't work, you should
+contact the manufacturer for the latest TAPI drivers.</font></p>
+</body>
+</html>

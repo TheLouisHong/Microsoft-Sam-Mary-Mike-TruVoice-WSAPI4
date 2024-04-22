@@ -1,0 +1,12 @@
+LIBRARY	     SRFAKE
+
+DESCRIPTION  'Fake Speech Recognition Engine'
+
+
+;;;STUB	     'WINSTUB.EXE'
+
+HEAPSIZE     1024
+
+EXPORTS
+    DllCanUnloadNow    PRIVATE
+    DllGetClassObject  PRIVATE
